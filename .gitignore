@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/EnrollmentDB/bin/Debug
+/EnrollmentDB/obj/Debug
+/EventDriven.Project.BusinessLogic/obj
+/EventDriven.Project.Model/obj
+/Group1_Enrollment/obj
