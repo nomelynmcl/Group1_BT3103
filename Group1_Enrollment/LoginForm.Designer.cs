@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            btnLogin = new Button();
+            txtUsername = new TextBox();
+            txtPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
@@ -38,33 +38,34 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnLogin
             // 
-            button1.BackColor = Color.DodgerBlue;
-            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(171, 435);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 46);
-            button1.TabIndex = 0;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
+            btnLogin.BackColor = Color.DodgerBlue;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(171, 435);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(136, 46);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.Location = new Point(122, 191);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(243, 39);
-            textBox1.TabIndex = 1;
+            txtUsername.Location = new Point(122, 191);
+            txtUsername.Multiline = true;
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(243, 39);
+            txtUsername.TabIndex = 1;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(122, 301);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(243, 39);
-            textBox2.TabIndex = 2;
-            textBox2.TextChanged += textBox2_TextChanged;
+            txtPassword.Location = new Point(122, 301);
+            txtPassword.Multiline = true;
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(243, 39);
+            txtPassword.TabIndex = 2;
+            txtPassword.TextChanged += textBox2_TextChanged;
             // 
             // label1
             // 
@@ -117,9 +118,9 @@
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUsername);
+            Controls.Add(btnLogin);
             Name = "LoginForm";
             Text = "Form2";
             Load += LoginForm_Load;
@@ -130,9 +131,9 @@
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Button btnLogin;
+        private TextBox txtUsername;
+        private TextBox txtPassword;
         private Label label1;
         private Label label2;
         private PictureBox pictureBox1;

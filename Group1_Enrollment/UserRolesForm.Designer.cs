@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnAdmin = new Button();
+            btnCashier = new Button();
+            btnRegistrar = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -40,38 +40,41 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnAdmin
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(354, 268);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 43);
-            button1.TabIndex = 0;
-            button1.Text = "Admin";
-            button1.UseVisualStyleBackColor = false;
+            btnAdmin.BackColor = SystemColors.ActiveCaption;
+            btnAdmin.FlatStyle = FlatStyle.Flat;
+            btnAdmin.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdmin.Location = new Point(354, 268);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Size = new Size(136, 43);
+            btnAdmin.TabIndex = 0;
+            btnAdmin.Text = "Admin";
+            btnAdmin.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCashier
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(354, 336);
-            button2.Name = "button2";
-            button2.Size = new Size(136, 43);
-            button2.TabIndex = 1;
-            button2.Text = "Cashier";
-            button2.UseVisualStyleBackColor = false;
+            btnCashier.BackColor = SystemColors.ActiveCaption;
+            btnCashier.FlatStyle = FlatStyle.Flat;
+            btnCashier.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCashier.Location = new Point(354, 336);
+            btnCashier.Name = "btnCashier";
+            btnCashier.Size = new Size(136, 43);
+            btnCashier.TabIndex = 1;
+            btnCashier.Text = "Cashier";
+            btnCashier.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnRegistrar
             // 
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(354, 399);
-            button3.Name = "button3";
-            button3.Size = new Size(136, 43);
-            button3.TabIndex = 2;
-            button3.Text = "Registrar";
-            button3.UseVisualStyleBackColor = false;
+            btnRegistrar.BackColor = SystemColors.ActiveCaption;
+            btnRegistrar.FlatStyle = FlatStyle.Flat;
+            btnRegistrar.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegistrar.Location = new Point(354, 399);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(136, 43);
+            btnRegistrar.TabIndex = 2;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -123,9 +126,9 @@
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(855, 600);
             Controls.Add(label1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnRegistrar);
+            Controls.Add(btnCashier);
+            Controls.Add(btnAdmin);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox3);
@@ -141,9 +144,9 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnAdmin;
+        private Button btnCashier;
+        private Button btnRegistrar;
         private Label label1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
