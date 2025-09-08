@@ -122,6 +122,7 @@
             Controls.Add(button1);
             Name = "LoginForm";
             Text = "Form2";
+            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -15,9 +15,16 @@ namespace EventDriven.Project.UI
         public LoginForm()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
         {
 
         }
