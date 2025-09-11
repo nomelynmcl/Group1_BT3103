@@ -8,3 +8,8 @@
 /EventDriven.Project.BusinessLogic/obj
 /EventDriven.Project.Model/obj
 /Group1_Enrollment/obj
+/EnrollmentDB/EnrollmentDB.dbmdl
+/EnrollmentDB/EnrollmentDB.jfm
+/Group1_Enrollment/bin/Debug/net8.0-windows
+/Group1_Enrollment/Form1.Designer.cs
+/Group1_Enrollment/Form1.cs
