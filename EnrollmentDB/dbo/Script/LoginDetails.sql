@@ -11,7 +11,7 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 INSERT INTO UsersDB (Username, User_password)
-VALUES ('admin', 'admin123'),
-('cashier1', 'cashier123'),
-('cashier2', 'cashier456'),
-('registrar', 'registrar123');
+VALUES ('admin', 'admin123', 'Admin'),
+('cashier1', 'cashier123', 'Cashier'),
+('cashier2', 'cashier456', 'Cashier'),
+('registrar', 'registrar123', 'Registrar');
