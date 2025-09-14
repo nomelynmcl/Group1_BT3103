@@ -25,21 +25,21 @@ namespace Group1_Enrollment
         {
             SelectedRole = "Admin";
             LoginForm login = new LoginForm();
-            login.ShowDialog();
+            login.Show();
         }
 
         private void btnCashier_Click(object sender, EventArgs e)
         {
             SelectedRole = "Cashier";
             LoginForm login = new LoginForm();
-            login.ShowDialog();
+            login.Show();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             SelectedRole = "Registrar";
             LoginForm login = new LoginForm();
-            login.ShowDialog();
+            login.Show();
         }
     }
 }

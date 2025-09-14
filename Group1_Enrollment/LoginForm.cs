@@ -1,19 +1,15 @@
-﻿using EventDriven.Project.Businesslogic.Controller;
+﻿using System.Data.SqlClient;
+using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Group1_Enrollment;
 
 namespace EventDriven.Project.UI
 {
     public partial class LoginForm : Form
     {
+        private UserController userController;
+        private int loginAttempts = 3;
+        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=EnrollmentDB;Integrated Security=True";
         public LoginForm()
         {
             InitializeComponent();
@@ -31,26 +27,73 @@ namespace EventDriven.Project.UI
         {
 
         }
-        private UserController userController;
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string selectedRole = UserRolesForm.SelectedRole;
+
             try
             {
-                UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
+                // Validate user credentials using the controller
+                UserModel matchingUser = userController.ValidateUser(txtUsername.Text.Trim(), txtPassword.Text.Trim());
 
                 if (matchingUser != null)
                 {
-                 
-                }
-                else throw new Exception("Invalid Credentials");
-            }
+                    if (matchingUser.Roles == selectedRole)
+                    {
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
 
-            catch (Exception EX)
+                        // Open dashboard based on role
+                        if (selectedRole == "Admin")
+                        {
+                            AdminDashboard adminDashboard = new AdminDashboard();
+                            adminDashboard.Show();
+
+
+                        }
+                        else if (selectedRole == "Cashier")
+                        {
+                            CashierDashboard cashierDashboard = new CashierDashboard();
+                            cashierDashboard.Show();
+
+                        }
+                        else if (selectedRole == "Registrar")
+                        {
+                            RegistarDashboard registrarDashboard = new RegistarDashboard();
+                            registrarDashboard.Show();
+
+                        }
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Role mismatch! Please select the correct role.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    // Decrease attempts
+                    loginAttempts--;
+
+                    if (loginAttempts > 0)
+                    {
+                        MessageBox.Show($"Invalid credentials! Attempts remaining: {loginAttempts}",
+                                        "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Too many failed attempts. The application will now close.",
+                                        "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        this.Close(); // Close the login form completely
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(EX.Message + " error");
+                MessageBox.Show("Error: " + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
-    }
-
+}
