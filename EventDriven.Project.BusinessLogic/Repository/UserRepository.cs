@@ -6,13 +6,13 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class UserRepository
     {
-        private string CONNECTIONSTRING = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=EventDrivenProject;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=YOUR_DATABASE_NAME;Integrated Security=True";
 
         public UserModel ValidateUser(string Username, string Password)
         {
             try
             {
-                using (SqlConnection Enrollment = new SqlConnection(CONNECTIONSTRING))
+                using (SqlConnection Enrollment = new SqlConnection(connectionString))
                 {
                     Enrollment.Open();
                     string query = "SELECT * FROM dbo.[UsersDB] WHERE Username = @username AND User_password = @password";
@@ -49,7 +49,7 @@ namespace EventDriven.Project.Businesslogic.Repository
             try
             {
                 UserModel matchingUser = new UserModel();
-                using (SqlConnection myConnection = new SqlConnection(CONNECTIONSTRING))
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
                 {
                     string oString = "SELECT * FROM dbo.[UsersDB] WHERE Id = @userId";
                     using (SqlCommand oCmd = new SqlCommand(oString, myConnection))
