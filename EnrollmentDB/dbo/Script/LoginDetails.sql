@@ -10,7 +10,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-INSERT INTO UsersDB (Username, User_password)
+INSERT INTO UsersDB (Username, User_password, Roles)
 VALUES ('admin', 'admin123', 'Admin'),
 ('cashier1', 'cashier123', 'Cashier'),
 ('cashier2', 'cashier456', 'Cashier'),
