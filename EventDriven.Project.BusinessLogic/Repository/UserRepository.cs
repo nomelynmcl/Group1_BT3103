@@ -1,89 +1,45 @@
-﻿using EventDriven.Project.Model;
-using System.Data;
+﻿using System;
 using System.Data.SqlClient;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.Businesslogic.Repository
 {
-    internal class UserRepository
+    public class UserRepository
     {
-        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=YOUR_DATABASE_NAME;Integrated Security=True";
+        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=EnrollmentDB;Integrated Security=True";
 
-        public UserModel ValidateUser(string Username, string Password)
+        public UserModel ValidateUser(string username, string password)
         {
-            try
+            UserModel user = null;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection Enrollment = new SqlConnection(connectionString))
+                conn.Open();
+
+                string query = "SELECT TOP 1 [Username], [User_password], [Roles] " +
+                               "FROM [UsersDB] " +
+                               "WHERE [Username] = @username AND [User_password] = @password";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    Enrollment.Open();
-                    string query = "SELECT * FROM dbo.[UsersDB] WHERE Username = @username AND User_password = @password";
-                    SqlCommand command = new SqlCommand(query, Enrollment);
-                    command.Parameters.AddWithValue("@username", Username);
-                    command.Parameters.AddWithValue("@password", Password);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (table.Rows.Count >= 1)
+                    if (reader.Read())
                     {
-                        DataRow row = table.Rows[0];
-                        return new UserModel
+                        user = new UserModel
                         {
-                            Id = Convert.ToInt32(row["Id"]),
-                            Username = row["Username"].ToString(),
-                            Password = row["User_password"].ToString(),
-                            Roles = row["Roles"].ToString()
+                            Username = reader["Username"].ToString(),
+                            Password = reader["User_password"].ToString(),
+                            Roles = reader["Roles"].ToString()
                         };
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
 
-        public UserModel getUserByUserId(string UserIdParam)
-        {
-            try
-            {
-                UserModel matchingUser = new UserModel();
-                using (SqlConnection myConnection = new SqlConnection(connectionString))
-                {
-                    string oString = "SELECT * FROM dbo.[UsersDB] WHERE Id = @userId";
-                    using (SqlCommand oCmd = new SqlCommand(oString, myConnection))
-                    {
-                        oCmd.Parameters.AddWithValue("@UserId", UserIdParam);
-                        myConnection.Open();
-                        using (SqlDataReader oReader = oCmd.ExecuteReader())
-                        {
-                            if (oReader.Read())
-                            {
-                                matchingUser.Id = (int)oReader["Id"];
-                                matchingUser.Username = oReader["Username"].ToString();
-                                matchingUser.Password = oReader["User_password"].ToString();
-                                matchingUser.Roles = oReader["Roles"].ToString();
-                            }
-                        }
-                        myConnection.Close();
-                    }
-                }
-
-                if (matchingUser.Id == 0)
-                {
-                    throw new Exception("User does not exist");
-                }
-
-                return matchingUser;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred: " + ex.Message);
-            }
+            return user;
         }
     }
 }
-
-        
-    

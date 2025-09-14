@@ -22,24 +22,14 @@ namespace EventDriven.Project.Businesslogic.Controller
             return new List<UserModel> { new UserModel() };
         }
 
-        public UserModel ValidateUser( string Username, string Password)
+        public UserModel ValidateUser(string username, string password)
         {
-            try
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                if (string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(Username))
-                {
-                    throw new Exception("Password/Username cannot be empty.");
-                }
-                else
-                {
-                    Console.WriteLine("Login Succesfull");
-                }
+                throw new Exception("Username or Password cannot be empty.");
             }
-            catch (InvalidCastException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return userRepo.ValidateUser(Username,Password);
+
+            return userRepo.ValidateUser(username, password);
         }
     }
 }
