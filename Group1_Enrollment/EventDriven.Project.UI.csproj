@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EventDriven.Project.BusinessLogic\EventDriven.Project.BusinessLogic.csproj" />
+    <ProjectReference Include="..\EventDriven.Project.Model\EventDriven.Project.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
