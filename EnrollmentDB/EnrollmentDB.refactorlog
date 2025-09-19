@@ -7,4 +7,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="User_password" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="fa224bdf-d2d9-46c2-914b-317471a0fd8d" ChangeDateTime="09/18/2025 06:05:37">
+    <Property Name="ElementName" Value="[dbo].[StudentRecord].[GenderLevel]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StudentRecord]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GraderLevel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="99225b9c-e521-4c45-9214-117c9439dc6c" ChangeDateTime="09/18/2025 06:05:50">
+    <Property Name="ElementName" Value="[dbo].[StudentRecord].[GraderLevel]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StudentRecord]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GradeLevel" />
+  </Operation>
 </Operations>
