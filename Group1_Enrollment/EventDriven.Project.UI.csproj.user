@@ -13,6 +13,9 @@
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Student Information_EDIT_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserRolesForm.cs">
       <SubType>Form</SubType>
     </Compile>
