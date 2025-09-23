@@ -177,18 +177,16 @@
 
         #endregion
 
-        private Label lblPaymentHistory;
-        private Label lblPayment;
-        private TextBox txtAdminSearch;
-        private Button btnSearchStudentAdmn;
+
         private Button btnCashierOverview;
-        private Button btnLogoutAdmin;
+        private Button btnLogoutCashier;
         private PictureBox pictureBox2;
-        private Label lblReport;
-        private Label lblStudentRegistration;
-        private Label lblAssessment;
-        private Label lblStudentInformation;
+        private Label lblCashierReport;
         private Label lblCashier;
         private PictureBox pictureBox1;
+        private Label lblCashierPayHistory;
+        private Label lblCashierPayment;
+        private TextBox txtCashierSearch;
+        private Button btnCashierSearch;
     }
 }
