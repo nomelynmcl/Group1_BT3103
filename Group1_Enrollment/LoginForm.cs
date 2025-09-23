@@ -60,7 +60,7 @@ namespace EventDriven.Project.UI
                         }
                         else if (selectedRole == "Registrar")
                         {
-                            RegistarDashboard registrarDashboard = new RegistarDashboard();
+                            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
                             registrarDashboard.Show();
 
                         }

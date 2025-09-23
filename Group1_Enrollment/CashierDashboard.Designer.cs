@@ -29,125 +29,145 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierDashboard));
-            textBox1 = new TextBox();
-            button5 = new Button();
-            button1 = new Button();
+            this.lblCashierPayHistory = new Label();
+            this.lblCashierPayment = new Label();
+            this.txtCashierSearch = new TextBox();
+            this.btnCashierSearch = new Button();
+            btnCashierOverview = new Button();
+            this.btnLogoutCashier = new Button();
             pictureBox2 = new PictureBox();
-            label4 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            this.lblCashierReport = new Label();
+            lblCashier = new Label();
             pictureBox1 = new PictureBox();
-            lblAdmin = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // lblCashierPayHistory
             // 
-            textBox1.Location = new Point(340, 99);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(699, 27);
-            textBox1.TabIndex = 27;
+            this.lblCashierPayHistory.AutoSize = true;
+            this.lblCashierPayHistory.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            this.lblCashierPayHistory.Location = new Point(48, 244);
+            this.lblCashierPayHistory.Name = "lblCashierPayHistory";
+            this.lblCashierPayHistory.Size = new Size(156, 20);
+            this.lblCashierPayHistory.TabIndex = 28;
+            this.lblCashierPayHistory.Text = "PAYMENT HISTORY";
             // 
-            // button5
+            // lblCashierPayment
             // 
-            button5.BackColor = Color.LightGray;
-            button5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(1045, 93);
-            button5.Name = "button5";
-            button5.Size = new Size(144, 33);
-            button5.TabIndex = 26;
-            button5.Text = "Search Student";
-            button5.UseVisualStyleBackColor = false;
+            this.lblCashierPayment.AutoSize = true;
+            this.lblCashierPayment.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            this.lblCashierPayment.Location = new Point(48, 203);
+            this.lblCashierPayment.Name = "lblCashierPayment";
+            this.lblCashierPayment.Size = new Size(85, 20);
+            this.lblCashierPayment.TabIndex = 27;
+            this.lblCashierPayment.Text = "PAYMENT";
             // 
-            // button1
+            // txtCashierSearch
             // 
-            button1.BackColor = Color.LightGray;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1137, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(102, 43);
-            button1.TabIndex = 22;
-            button1.Text = "Logout";
-            button1.UseVisualStyleBackColor = false;
+            this.txtCashierSearch.Location = new Point(314, 79);
+            this.txtCashierSearch.Margin = new Padding(3, 2, 3, 2);
+            this.txtCashierSearch.Name = "txtCashierSearch";
+            this.txtCashierSearch.Size = new Size(572, 23);
+            this.txtCashierSearch.TabIndex = 26;
+            // 
+            // btnCashierSearch
+            // 
+            this.btnCashierSearch.BackColor = Color.LightGray;
+            this.btnCashierSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            this.btnCashierSearch.Location = new Point(891, 74);
+            this.btnCashierSearch.Margin = new Padding(3, 2, 3, 2);
+            this.btnCashierSearch.Name = "btnCashierSearch";
+            this.btnCashierSearch.Size = new Size(126, 28);
+            this.btnCashierSearch.TabIndex = 25;
+            this.btnCashierSearch.Text = "Search Student";
+            this.btnCashierSearch.UseVisualStyleBackColor = false;
+            // 
+            // btnCashierOverview
+            // 
+            btnCashierOverview.BackColor = Color.LightGray;
+            btnCashierOverview.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCashierOverview.ForeColor = Color.SteelBlue;
+            btnCashierOverview.Location = new Point(542, 431);
+            btnCashierOverview.Margin = new Padding(3, 2, 3, 2);
+            btnCashierOverview.Name = "btnCashierOverview";
+            btnCashierOverview.Size = new Size(253, 34);
+            btnCashierOverview.TabIndex = 24;
+            btnCashierOverview.Text = "CASHIER OVERVIEW";
+            btnCashierOverview.UseVisualStyleBackColor = false;
+            // 
+            // btnLogoutCashier
+            // 
+            this.btnLogoutCashier.BackColor = Color.LightGray;
+            this.btnLogoutCashier.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            this.btnLogoutCashier.Location = new Point(1011, 28);
+            this.btnLogoutCashier.Margin = new Padding(3, 2, 3, 2);
+            this.btnLogoutCashier.Name = "btnLogoutCashier";
+            this.btnLogoutCashier.Size = new Size(79, 28);
+            this.btnLogoutCashier.TabIndex = 23;
+            this.btnLogoutCashier.Text = "Logout";
+            this.btnLogoutCashier.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(340, 144);
+            pictureBox2.Location = new Point(317, 118);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(699, 396);
+            pictureBox2.Size = new Size(700, 282);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 21;
+            pictureBox2.TabIndex = 22;
             pictureBox2.TabStop = false;
             // 
-            // label4
+            // lblCashierReport
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(89, 342);
-            label4.Name = "label4";
-            label4.Size = new Size(90, 28);
-            label4.TabIndex = 19;
-            label4.Text = "Reports";
+            this.lblCashierReport.AutoSize = true;
+            this.lblCashierReport.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            this.lblCashierReport.Location = new Point(48, 283);
+            this.lblCashierReport.Name = "lblCashierReport";
+            this.lblCashierReport.Size = new Size(68, 20);
+            this.lblCashierReport.TabIndex = 21;
+            this.lblCashierReport.Text = "REPORT";
             // 
-            // label2
+            // lblCashier
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(89, 293);
-            label2.Name = "label2";
-            label2.Size = new Size(177, 28);
-            label2.TabIndex = 17;
-            label2.Text = "Payment History";
-            label2.Click += label2_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(89, 243);
-            label1.Name = "label1";
-            label1.Size = new Size(184, 28);
-            label1.TabIndex = 16;
-            label1.Text = "Cashier -Payment";
+            lblCashier.AutoSize = true;
+            lblCashier.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCashier.ForeColor = Color.SteelBlue;
+            lblCashier.Location = new Point(48, 132);
+            lblCashier.Name = "lblCashier";
+            lblCashier.Size = new Size(159, 45);
+            lblCashier.TabIndex = 16;
+            lblCashier.Text = "CASHIER";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.Screenshot_2025_09_08_204603;
-            pictureBox1.Location = new Point(104, 35);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(5, 13);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(134, 113);
+            pictureBox1.Size = new Size(224, 142);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 15;
+            pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
             // 
-            // lblAdmin
+            // CashierDashboard
             // 
-            lblAdmin.AutoSize = true;
-            lblAdmin.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAdmin.ForeColor = Color.DarkGreen;
-            lblAdmin.Location = new Point(83, 163);
-            lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(196, 54);
-            lblAdmin.TabIndex = 14;
-            lblAdmin.Text = "CASHIER";
-            // 
-            // Form3
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1251, 637);
-            Controls.Add(textBox1);
-            Controls.Add(button5);
-            Controls.Add(button1);
+            ClientSize = new Size(1129, 500);
+            Controls.Add(this.lblCashierPayHistory);
+            Controls.Add(this.lblCashierPayment);
+            Controls.Add(this.txtCashierSearch);
+            Controls.Add(this.btnCashierSearch);
+            Controls.Add(btnCashierOverview);
+            Controls.Add(this.btnLogoutCashier);
             Controls.Add(pictureBox2);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(this.lblCashierReport);
+            Controls.Add(lblCashier);
             Controls.Add(pictureBox1);
-            Controls.Add(lblAdmin);
-            Name = "Form3";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "CashierDashboard";
             Text = "CashierDashboard";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -157,14 +177,18 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Button button5;
-        private Button button1;
+        private Label lblPaymentHistory;
+        private Label lblPayment;
+        private TextBox txtAdminSearch;
+        private Button btnSearchStudentAdmn;
+        private Button btnCashierOverview;
+        private Button btnLogoutAdmin;
         private PictureBox pictureBox2;
-        private Label label4;
-        private Label label2;
-        private Label label1;
+        private Label lblReport;
+        private Label lblStudentRegistration;
+        private Label lblAssessment;
+        private Label lblStudentInformation;
+        private Label lblCashier;
         private PictureBox pictureBox1;
-        private Label lblAdmin;
     }
 }
