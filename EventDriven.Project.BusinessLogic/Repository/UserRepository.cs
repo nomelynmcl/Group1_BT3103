@@ -6,7 +6,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     public class UserRepository
     {
-        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=EnrollmentDB;Integrated Security=True";
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
 
         public UserModel ValidateUser(string username, string password)
         {

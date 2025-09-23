@@ -9,7 +9,7 @@ namespace EventDriven.Project.UI
     {
         private UserController userController;
         private int loginAttempts = 3;
-        private string connectionString = @"Data Source=DESKTOP-1B1BE1O\SQLEXPRESS;Initial Catalog=EnrollmentDB;Integrated Security=True";
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         public LoginForm()
         {
             InitializeComponent();
@@ -94,6 +94,13 @@ namespace EventDriven.Project.UI
             {
                 MessageBox.Show("Error: " + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            UserRolesForm userRoles = new UserRolesForm();
+            userRoles.Show();
+            this.Close();
         }
     }
 }
