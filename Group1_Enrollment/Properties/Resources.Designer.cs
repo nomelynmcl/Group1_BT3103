@@ -63,6 +63,76 @@ namespace EventDriven.Project.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _224192_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("224192-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8b0d32a8e49f37f63515c8903294b7c0_writing_pencil_icon_flat_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("8b0d32a8e49f37f63515c8903294b7c0-writing-pencil-icon-flat-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aa0e0025ed5cce5f529efa45f221f6d6_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("aa0e0025ed5cce5f529efa45f221f6d6-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_a_heading__7__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Add_a_heading__7_-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("download-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Orion_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Orion_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil {
+            get {
+                object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2025_09_08_204603 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2025-09-08 204603", resourceCulture);

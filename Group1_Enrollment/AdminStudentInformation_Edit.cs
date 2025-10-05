@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EventDriven.Project.UI
 {
-    public partial class MainForm : Form
+    public partial class AdminStudentInformation_Edit : Form
     {
-        public MainForm()
+        public AdminStudentInformation_Edit()
         {
             InitializeComponent();
         }
