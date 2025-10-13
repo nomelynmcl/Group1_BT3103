@@ -60,6 +60,7 @@
             btnAdminStudInfoAdd.TabIndex = 79;
             btnAdminStudInfoAdd.Text = "Add";
             btnAdminStudInfoAdd.UseVisualStyleBackColor = true;
+            btnAdminStudInfoAdd.Click += btnAdminStudInfoAdd_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -184,6 +185,7 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
+            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
             // btnAdminStudInfoSearch
             // 
@@ -195,6 +197,7 @@
             btnAdminStudInfoSearch.TabIndex = 47;
             btnAdminStudInfoSearch.Text = "Search Student";
             btnAdminStudInfoSearch.UseVisualStyleBackColor = true;
+            btnAdminStudInfoSearch.Click += btnAdminStudInfoSearch_Click;
             // 
             // dtgAdminStudentInfoList
             // 
@@ -203,6 +206,7 @@
             dtgAdminStudentInfoList.Name = "dtgAdminStudentInfoList";
             dtgAdminStudentInfoList.Size = new Size(742, 512);
             dtgAdminStudentInfoList.TabIndex = 80;
+            dtgAdminStudentInfoList.CellContentClick += dtgAdminStudentInfoList_CellContentClick;
             // 
             // txtAdminStudInfoSearch
             // 
@@ -221,6 +225,7 @@
             btnAdminStudInfoEdit.TabIndex = 82;
             btnAdminStudInfoEdit.Text = "Edit";
             btnAdminStudInfoEdit.UseVisualStyleBackColor = true;
+            btnAdminStudInfoEdit.Click += btnAdminStudInfoEdit_Click;
             // 
             // AdminStudentInformation
             // 

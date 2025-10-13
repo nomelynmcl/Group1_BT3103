@@ -22,7 +22,7 @@
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Student_Registration.cs">
+    <Compile Update="Student Registration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">

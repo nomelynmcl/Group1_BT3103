@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class Form1
+    partial class AdminStudentInformation_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentInformation_Add));
             btnAdminAddView = new Button();
             label8 = new Label();
             txtAdminAddLname = new TextBox();
@@ -87,6 +87,7 @@
             btnAdminAddView.TabIndex = 10;
             btnAdminAddView.Text = "View";
             btnAdminAddView.UseVisualStyleBackColor = true;
+            btnAdminAddView.Click += btnAdminAddView_Click;
             // 
             // label8
             // 
@@ -369,6 +370,7 @@
             btnAdminBack.TabIndex = 44;
             btnAdminBack.Text = "Back";
             btnAdminBack.UseVisualStyleBackColor = true;
+            btnAdminBack.Click += btnAdminBack_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -491,6 +493,7 @@
             btnAdminOut3.TabIndex = 9;
             btnAdminOut3.Text = "LOG OUT";
             btnAdminOut3.UseVisualStyleBackColor = true;
+            btnAdminOut3.Click += btnAdminOut3_Click;
             // 
             // label1
             // 
@@ -509,7 +512,7 @@
             dtAdminAddBirth.Size = new Size(200, 23);
             dtAdminAddBirth.TabIndex = 81;
             // 
-            // Form1
+            // AdminStudentInformation_Add
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -552,7 +555,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Form1";
+            Name = "AdminStudentInformation_Add";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add - Student Information";
             Load += Form1_Load_1;

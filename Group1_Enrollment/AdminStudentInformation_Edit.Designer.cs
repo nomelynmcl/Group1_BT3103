@@ -42,7 +42,7 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdminEditBack = new Button();
-            btnAdminStudInfoEdit2 = new Button();
+            btnAdminStudInfoSave = new Button();
             cbAdminEditType = new ComboBox();
             label22 = new Label();
             cbAdminEditLevel = new ComboBox();
@@ -151,6 +151,7 @@
             btnAdminOut4.TabIndex = 9;
             btnAdminOut4.Text = "LOG OUT";
             btnAdminOut4.UseVisualStyleBackColor = true;
+            btnAdminOut4.Click += btnAdminOut4_Click;
             // 
             // pcAdminLogo4
             // 
@@ -227,17 +228,19 @@
             btnAdminEditBack.TabIndex = 112;
             btnAdminEditBack.Text = "Back";
             btnAdminEditBack.UseVisualStyleBackColor = true;
+            btnAdminEditBack.Click += btnAdminEditBack_Click;
             // 
-            // btnAdminStudInfoEdit2
+            // btnAdminStudInfoSave
             // 
-            btnAdminStudInfoEdit2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoEdit2.Location = new Point(555, 470);
-            btnAdminStudInfoEdit2.Margin = new Padding(3, 2, 3, 2);
-            btnAdminStudInfoEdit2.Name = "btnAdminStudInfoEdit2";
-            btnAdminStudInfoEdit2.Size = new Size(104, 32);
-            btnAdminStudInfoEdit2.TabIndex = 111;
-            btnAdminStudInfoEdit2.Text = "Edit";
-            btnAdminStudInfoEdit2.UseVisualStyleBackColor = true;
+            btnAdminStudInfoSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnAdminStudInfoSave.Location = new Point(555, 470);
+            btnAdminStudInfoSave.Margin = new Padding(3, 2, 3, 2);
+            btnAdminStudInfoSave.Name = "btnAdminStudInfoSave";
+            btnAdminStudInfoSave.Size = new Size(104, 32);
+            btnAdminStudInfoSave.TabIndex = 111;
+            btnAdminStudInfoSave.Text = "Save";
+            btnAdminStudInfoSave.UseVisualStyleBackColor = true;
+            btnAdminStudInfoSave.Click += btnAdminStudInfoSave_Click;
             // 
             // cbAdminEditType
             // 
@@ -532,7 +535,7 @@
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(btnAdminEditBack);
-            Controls.Add(btnAdminStudInfoEdit2);
+            Controls.Add(btnAdminStudInfoSave);
             Controls.Add(cbAdminEditType);
             Controls.Add(label22);
             Controls.Add(cbAdminEditLevel);
@@ -589,7 +592,7 @@
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdminEditBack;
-        private Button btnAdminStudInfoEdit2;
+        private Button btnAdminStudInfoSave;
         private ComboBox cbAdminEditType;
         private Label label22;
         private ComboBox cbAdminEditLevel;

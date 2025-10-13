@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EventDriven.Project.UI
 {
-    public partial class Form1 : Form
+    public partial class AdminStudentInformation_Add : Form
     {
-        public Form1()
+        public AdminStudentInformation_Add()
         {
             InitializeComponent();
         }
@@ -35,6 +35,24 @@ namespace EventDriven.Project.UI
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdminBack_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation adminStudInfo = new AdminStudentInformation();
+            adminStudInfo.Show();
+        }
+
+        private void btnAdminAddView_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation_View adminStudInfo_View = new AdminStudentInformation_View();
+            adminStudInfo_View.Show();
+        }
+
+        private void btnAdminOut3_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(); 
+            loginForm.Show();
         }
     }
 }
