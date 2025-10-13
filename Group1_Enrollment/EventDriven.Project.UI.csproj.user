@@ -10,19 +10,16 @@
     <Compile Update="AdminStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_Edit.cs">
+    <Compile Update="AdminStudentInformation_View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_View.cs">
+    <Compile Update="Admin_Assessment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RegistrarDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CashierDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Student_Registration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">
