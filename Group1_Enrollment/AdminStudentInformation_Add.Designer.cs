@@ -322,7 +322,7 @@
             // cbAdminAddLevel
             // 
             cbAdminAddLevel.FormattingEnabled = true;
-            cbAdminAddLevel.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
+            cbAdminAddLevel.Items.AddRange(new object[] { "7", "8", "9", "10" });
             cbAdminAddLevel.Location = new Point(411, 421);
             cbAdminAddLevel.Margin = new Padding(3, 2, 3, 2);
             cbAdminAddLevel.Name = "cbAdminAddLevel";
@@ -359,6 +359,7 @@
             btnAdminStudInfoAdd2.TabIndex = 41;
             btnAdminStudInfoAdd2.Text = "Add";
             btnAdminStudInfoAdd2.UseVisualStyleBackColor = true;
+            btnAdminStudInfoAdd2.Click += btnAdminStudInfoAdd2_Click;
             // 
             // btnAdminBack
             // 
