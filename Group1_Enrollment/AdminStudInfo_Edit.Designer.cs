@@ -240,6 +240,7 @@
             btnAdminStudInfoSave_Edit.TabIndex = 111;
             btnAdminStudInfoSave_Edit.Text = "Save";
             btnAdminStudInfoSave_Edit.UseVisualStyleBackColor = true;
+            btnAdminStudInfoSave_Edit.Click += btnAdminStudInfoSave_Edit_Click;
             // 
             // cbAdminEditType
             // 

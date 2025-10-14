@@ -31,7 +31,9 @@ namespace EventDriven.Project.BusinessLogic.Repository
                         command.Parameters.AddWithValue("@Middlename", studentRecordModel.Middlename);
                         command.Parameters.AddWithValue("@ContactNumber", studentRecordModel.ContactNumber);
                         command.Parameters.AddWithValue("@Gender", studentRecordModel.Gender);
-                        command.Parameters.AddWithValue("@Address", studentRecordModel.Address);
+                        command.Parameters.AddWithValue("@Barangay", studentRecordModel.Barangay);
+                        command.Parameters.AddWithValue("@Municipality", studentRecordModel.Municipality);
+                        command.Parameters.AddWithValue("@Province", studentRecordModel.Province);
                         command.Parameters.AddWithValue("@Birthdate", studentRecordModel.Birthdate);
                         command.Parameters.AddWithValue("@GradeLevel", studentRecordModel.GradeLevel);
 
@@ -72,7 +74,9 @@ namespace EventDriven.Project.BusinessLogic.Repository
                                     Middlename = reader.GetString(2),
                                     ContactNumber = reader.GetString(3),
                                     Gender = reader.GetString(4),
-                                    Address = reader.GetString(5),
+                                    Barangay = reader.GetString(5),
+                                    Municipality = reader.GetString(5),
+                                    Province = reader.GetString(5),
                                     Birthdate = reader.GetDateTime(6),
                                     GradeLevel = Convert.ToInt32(reader.GetString(7))
                                     

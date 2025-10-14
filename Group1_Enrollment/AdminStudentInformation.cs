@@ -59,11 +59,11 @@ namespace EventDriven.Project.UI
             }
         }
 
-        private void LoadStudentRecords()
+        public void LoadStudentRecords()
         {
             try
             {
-                string query = "SELECT Id, Firstname, LastName, MiddleName, ContactNumber, Gender, Address, GradeLevel, Section FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, ContactNumber, Gender, Birthdate, Barangay, Municipality, Province, GradeLevel, Section FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -82,7 +82,10 @@ namespace EventDriven.Project.UI
                                 Middlename = reader["MiddleName"].ToString(),
                                 ContactNumber = reader["ContactNumber"].ToString(),
                                 Gender = reader["Gender"].ToString(),
-                                Address = reader["Address"].ToString(),
+                                Birthdate = Convert.ToDateTime(reader["Birthdate"].ToString()),
+                                Barangay = reader["Barangay"].ToString(),
+                                Municipality = reader["Municipality"].ToString(),
+                                Province = reader["Province"].ToString(),
                                 GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString())
                             });
                         }
@@ -115,9 +118,11 @@ namespace EventDriven.Project.UI
                 string middlename = dtgAdminStudentInfoList.CurrentRow.Cells["MiddleName"].Value.ToString();
                 string contactNumber = dtgAdminStudentInfoList.CurrentRow.Cells["ContactNumber"].Value.ToString();
                 string gender = dtgAdminStudentInfoList.CurrentRow.Cells["Gender"].Value.ToString();
-                string address = dtgAdminStudentInfoList.CurrentRow.Cells["Address"].Value.ToString();
+                string barangay = dtgAdminStudentInfoList.CurrentRow.Cells["Barangay"].Value.ToString();
+                string municipality = dtgAdminStudentInfoList.CurrentRow.Cells["Municipality"].Value.ToString();
+                string province = dtgAdminStudentInfoList.CurrentRow.Cells["Province"].Value.ToString();
                 int gradeLevel = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["GradeLevel"].Value);
-
+                DateTime birthdate = Convert.ToDateTime(dtgAdminStudentInfoList.CurrentRow.Cells["Birrthdate"].Value.ToString());
 
                 AdminStudInfo_Edit adStudInfo_edit = new AdminStudInfo_Edit(
                     firstname,
@@ -125,7 +130,10 @@ namespace EventDriven.Project.UI
                     middlename,
                     contactNumber,
                     gender,
-                    address,
+                    birthdate,
+                    barangay,
+                    municipality,
+                    province,
                     gradeLevel);
                 adStudInfo_edit.Show();
             }

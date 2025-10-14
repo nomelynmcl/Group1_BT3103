@@ -20,7 +20,10 @@ namespace EventDriven.Project.UI
             string middlename,
             string contactNumber,
             string gender,
-            string address,
+            DateTime birthdate,
+            string barangay,
+            string municipality,
+            string province,
             int gradeLevel
             )
         {
@@ -37,6 +40,11 @@ namespace EventDriven.Project.UI
         {
             AdminStudentInformation adminStudInfo = new AdminStudentInformation();
             adminStudInfo.Show();
+        }
+
+        private void btnAdminStudInfoSave_Edit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
