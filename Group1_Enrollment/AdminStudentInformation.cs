@@ -119,7 +119,7 @@ namespace EventDriven.Project.UI
                 int gradeLevel = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["GradeLevel"].Value);
 
 
-                AdminStudentInformation_Edit adStudInfo_edit = new AdminStudentInformation_Edit(
+                AdminStudInfo_Edit adStudInfo_edit = new AdminStudInfo_Edit(
                     firstname,
                     lastname,
                     middlename,
