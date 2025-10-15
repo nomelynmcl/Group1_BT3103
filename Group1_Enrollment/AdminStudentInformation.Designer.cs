@@ -44,6 +44,7 @@
             dtgAdminStudentInfoList = new DataGridView();
             txtAdminStudInfoSearch = new TextBox();
             btnAdminStudInfoEdit = new Button();
+            btnAdminStudInfoView = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
@@ -227,12 +228,24 @@
             btnAdminStudInfoEdit.UseVisualStyleBackColor = true;
             btnAdminStudInfoEdit.Click += btnAdminStudInfoEdit_Click;
             // 
+            // btnAdminStudInfoView
+            // 
+            btnAdminStudInfoView.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnAdminStudInfoView.Location = new Point(461, 17);
+            btnAdminStudInfoView.Margin = new Padding(3, 2, 3, 2);
+            btnAdminStudInfoView.Name = "btnAdminStudInfoView";
+            btnAdminStudInfoView.Size = new Size(83, 25);
+            btnAdminStudInfoView.TabIndex = 83;
+            btnAdminStudInfoView.Text = "View";
+            btnAdminStudInfoView.UseVisualStyleBackColor = true;
+            // 
             // AdminStudentInformation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
+            Controls.Add(btnAdminStudInfoView);
             Controls.Add(btnAdminStudInfoEdit);
             Controls.Add(dtgAdminStudentInfoList);
             Controls.Add(txtAdminStudInfoSearch);
@@ -270,5 +283,6 @@
         private Button btnAdminReport2;
         private Button btnAdminOut2;
         private Button btnAdminStudInfoEdit;
+        private Button btnAdminStudInfoView;
     }
 }

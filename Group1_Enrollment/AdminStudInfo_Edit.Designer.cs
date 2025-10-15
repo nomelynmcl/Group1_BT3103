@@ -523,6 +523,7 @@
             btnAdminStudInfoDelete_Edit.TabIndex = 116;
             btnAdminStudInfoDelete_Edit.Text = "Delete";
             btnAdminStudInfoDelete_Edit.UseVisualStyleBackColor = true;
+            btnAdminStudInfoDelete_Edit.Click += btnAdminStudInfoDelete_Edit_Click;
             // 
             // AdminStudInfo_Edit
             // 
@@ -565,7 +566,10 @@
             Controls.Add(txtAdminEditLname);
             Controls.Add(label8);
             Controls.Add(btnAdminEditView);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdminStudInfo_Edit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit - Student Information";
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
