@@ -16,13 +16,34 @@
     <Compile Update="AdminStudentInformation_View.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminStudentRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminStudentRegistration_Add-Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminStudentRegistration_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminStudentRegistration_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarStudentInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RegistrarDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Student_Registration.cs">
+    <Compile Update="RegistrarStudentRegistartion_Add-Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarStudentRegistration_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarStudentRegistration_View.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">

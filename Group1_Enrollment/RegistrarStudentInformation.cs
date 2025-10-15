@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace EventDriven.Project.UI
 {
-    public partial class Student_Registration : Form
+    public partial class Registrar___Student_Information : Form
     {
-        public Student_Registration()
+        public Registrar___Student_Information()
         {
             InitializeComponent();
         }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-
