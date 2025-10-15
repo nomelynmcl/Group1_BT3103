@@ -61,9 +61,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(86, 205);
+            label1.Location = new Point(75, 154);
             label1.Name = "label1";
-            label1.Size = new Size(84, 20);
+            label1.Size = new Size(65, 15);
             label1.TabIndex = 0;
             label1.Text = "Full Name:";
             // 
@@ -71,9 +71,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(86, 263);
+            label2.Location = new Point(75, 197);
             label2.Name = "label2";
-            label2.Size = new Size(41, 20);
+            label2.Size = new Size(32, 15);
             label2.TabIndex = 1;
             label2.Text = "Age:";
             // 
@@ -81,9 +81,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(86, 383);
+            label3.Location = new Point(75, 287);
             label3.Name = "label3";
-            label3.Size = new Size(65, 20);
+            label3.Size = new Size(52, 15);
             label3.TabIndex = 2;
             label3.Text = "Gender:";
             // 
@@ -91,9 +91,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label4.Location = new Point(86, 440);
+            label4.Location = new Point(75, 330);
             label4.Name = "label4";
-            label4.Size = new Size(70, 20);
+            label4.Size = new Size(54, 15);
             label4.TabIndex = 3;
             label4.Text = "Address:";
             // 
@@ -101,9 +101,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label5.Location = new Point(86, 735);
+            label5.Location = new Point(75, 551);
             label5.Name = "label5";
-            label5.Size = new Size(105, 20);
+            label5.Size = new Size(84, 15);
             label5.TabIndex = 4;
             label5.Text = "Student Type:";
             // 
@@ -111,9 +111,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label6.Location = new Point(86, 679);
+            label6.Location = new Point(75, 509);
             label6.Name = "label6";
-            label6.Size = new Size(83, 20);
+            label6.Size = new Size(67, 15);
             label6.TabIndex = 5;
             label6.Text = "Year Level:";
             // 
@@ -121,9 +121,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(86, 621);
+            label7.Location = new Point(75, 466);
             label7.Name = "label7";
-            label7.Size = new Size(130, 20);
+            label7.Size = new Size(102, 15);
             label7.TabIndex = 6;
             label7.Text = "Contact Number:";
             // 
@@ -131,9 +131,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(86, 561);
+            label8.Location = new Point(75, 421);
             label8.Name = "label8";
-            label8.Size = new Size(132, 20);
+            label8.Size = new Size(103, 15);
             label8.TabIndex = 7;
             label8.Text = "Guardian's Name:";
             // 
@@ -141,18 +141,18 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label9.Location = new Point(86, 501);
+            label9.Location = new Point(75, 376);
             label9.Name = "label9";
-            label9.Size = new Size(130, 20);
+            label9.Size = new Size(102, 15);
             label9.TabIndex = 8;
             label9.Text = "Contact Number:";
             // 
             // lbAdminViewFullname
             // 
             lbAdminViewFullname.AutoSize = true;
-            lbAdminViewFullname.Location = new Point(251, 205);
+            lbAdminViewFullname.Location = new Point(220, 154);
             lbAdminViewFullname.Name = "lbAdminViewFullname";
-            lbAdminViewFullname.Size = new Size(116, 20);
+            lbAdminViewFullname.Size = new Size(93, 15);
             lbAdminViewFullname.TabIndex = 9;
             lbAdminViewFullname.Text = "<<Full Name>>";
             lbAdminViewFullname.Click += lbAdminViewFullname_Click;
@@ -160,91 +160,91 @@
             // lbAdminViewAge
             // 
             lbAdminViewAge.AutoSize = true;
-            lbAdminViewAge.Location = new Point(251, 265);
+            lbAdminViewAge.Location = new Point(220, 199);
             lbAdminViewAge.Name = "lbAdminViewAge";
-            lbAdminViewAge.Size = new Size(76, 20);
+            lbAdminViewAge.Size = new Size(60, 15);
             lbAdminViewAge.TabIndex = 10;
             lbAdminViewAge.Text = "<<Age>>";
             // 
             // lbAdminViewGender
             // 
             lbAdminViewGender.AutoSize = true;
-            lbAdminViewGender.Location = new Point(251, 383);
+            lbAdminViewGender.Location = new Point(220, 287);
             lbAdminViewGender.Name = "lbAdminViewGender";
-            lbAdminViewGender.Size = new Size(97, 20);
+            lbAdminViewGender.Size = new Size(77, 15);
             lbAdminViewGender.TabIndex = 11;
             lbAdminViewGender.Text = "<<Gender>>";
             // 
             // lbAdminViewAddress
             // 
             lbAdminViewAddress.AutoSize = true;
-            lbAdminViewAddress.Location = new Point(251, 440);
+            lbAdminViewAddress.Location = new Point(220, 330);
             lbAdminViewAddress.Name = "lbAdminViewAddress";
-            lbAdminViewAddress.Size = new Size(102, 20);
+            lbAdminViewAddress.Size = new Size(81, 15);
             lbAdminViewAddress.TabIndex = 12;
             lbAdminViewAddress.Text = "<<Address>>";
+            lbAdminViewAddress.Click += lbAdminViewAddress_Click;
             // 
             // lbAdminViewContactNo
             // 
             lbAdminViewContactNo.AutoSize = true;
-            lbAdminViewContactNo.Location = new Point(251, 501);
+            lbAdminViewContactNo.Location = new Point(220, 376);
             lbAdminViewContactNo.Name = "lbAdminViewContactNo";
-            lbAdminViewContactNo.Size = new Size(162, 20);
+            lbAdminViewContactNo.Size = new Size(131, 15);
             lbAdminViewContactNo.TabIndex = 13;
             lbAdminViewContactNo.Text = "<<Contact  Number>>";
             // 
             // lbAdminViewGuardian
             // 
             lbAdminViewGuardian.AutoSize = true;
-            lbAdminViewGuardian.Location = new Point(249, 561);
+            lbAdminViewGuardian.Location = new Point(218, 421);
             lbAdminViewGuardian.Name = "lbAdminViewGuardian";
-            lbAdminViewGuardian.Size = new Size(162, 20);
+            lbAdminViewGuardian.Size = new Size(130, 15);
             lbAdminViewGuardian.TabIndex = 14;
             lbAdminViewGuardian.Text = "<<Guardian's Name>>";
             // 
             // lbAdminViewGuardianContact
             // 
             lbAdminViewGuardianContact.AutoSize = true;
-            lbAdminViewGuardianContact.Location = new Point(249, 621);
+            lbAdminViewGuardianContact.Location = new Point(218, 466);
             lbAdminViewGuardianContact.Name = "lbAdminViewGuardianContact";
-            lbAdminViewGuardianContact.Size = new Size(158, 20);
+            lbAdminViewGuardianContact.Size = new Size(128, 15);
             lbAdminViewGuardianContact.TabIndex = 15;
             lbAdminViewGuardianContact.Text = "<<Contact Number>>";
             // 
             // lbAdminViewLevel
             // 
             lbAdminViewLevel.AutoSize = true;
-            lbAdminViewLevel.Location = new Point(251, 679);
+            lbAdminViewLevel.Location = new Point(220, 509);
             lbAdminViewLevel.Name = "lbAdminViewLevel";
-            lbAdminViewLevel.Size = new Size(115, 20);
+            lbAdminViewLevel.Size = new Size(91, 15);
             lbAdminViewLevel.TabIndex = 16;
             lbAdminViewLevel.Text = "<<Year Level>>";
             // 
             // lbAdminViewType
             // 
             lbAdminViewType.AutoSize = true;
-            lbAdminViewType.Location = new Point(251, 735);
+            lbAdminViewType.Location = new Point(220, 551);
             lbAdminViewType.Name = "lbAdminViewType";
-            lbAdminViewType.Size = new Size(135, 20);
+            lbAdminViewType.Size = new Size(108, 15);
             lbAdminViewType.TabIndex = 17;
             lbAdminViewType.Text = "<<Student Type>>";
             // 
             // btnAdminViewCancel
             // 
-            btnAdminViewCancel.Location = new Point(299, 809);
-            btnAdminViewCancel.Margin = new Padding(3, 4, 3, 4);
+            btnAdminViewCancel.Location = new Point(262, 607);
             btnAdminViewCancel.Name = "btnAdminViewCancel";
-            btnAdminViewCancel.Size = new Size(86, 31);
+            btnAdminViewCancel.Size = new Size(75, 23);
             btnAdminViewCancel.TabIndex = 18;
             btnAdminViewCancel.Text = "Cancel";
             btnAdminViewCancel.UseVisualStyleBackColor = true;
+            btnAdminViewCancel.Click += btnAdminViewCancel_Click;
             // 
             // btnAdminViewPrint
             // 
-            btnAdminViewPrint.Location = new Point(179, 809);
-            btnAdminViewPrint.Margin = new Padding(3, 4, 3, 4);
+            btnAdminViewPrint.Location = new Point(157, 607);
             btnAdminViewPrint.Name = "btnAdminViewPrint";
-            btnAdminViewPrint.Size = new Size(86, 31);
+            btnAdminViewPrint.Size = new Size(75, 23);
             btnAdminViewPrint.TabIndex = 19;
             btnAdminViewPrint.Text = "Print";
             btnAdminViewPrint.UseVisualStyleBackColor = true;
@@ -254,28 +254,27 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label19.Location = new Point(86, 321);
+            label19.Location = new Point(75, 241);
             label19.Name = "label19";
-            label19.Size = new Size(79, 20);
+            label19.Size = new Size(63, 15);
             label19.TabIndex = 20;
             label19.Text = "Birthdate:";
             // 
             // lbAdminViewBirthdate
             // 
             lbAdminViewBirthdate.AutoSize = true;
-            lbAdminViewBirthdate.Location = new Point(251, 321);
+            lbAdminViewBirthdate.Location = new Point(220, 241);
             lbAdminViewBirthdate.Name = "lbAdminViewBirthdate";
-            lbAdminViewBirthdate.Size = new Size(110, 20);
+            lbAdminViewBirthdate.Size = new Size(87, 15);
             lbAdminViewBirthdate.TabIndex = 21;
             lbAdminViewBirthdate.Text = "<<Birthdate>>";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Add_a_heading__7__removebg_preview;
-            pictureBox1.Location = new Point(58, 33);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(51, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(144, 137);
+            pictureBox1.Size = new Size(126, 103);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
@@ -285,9 +284,9 @@
             label21.AutoSize = true;
             label21.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.DarkSlateGray;
-            label21.Location = new Point(192, 91);
+            label21.Location = new Point(168, 68);
             label21.Name = "label21";
-            label21.Size = new Size(295, 29);
+            label21.Size = new Size(238, 24);
             label21.TabIndex = 23;
             label21.Text = "Orion Tech-High School";
             // 
@@ -297,10 +296,10 @@
             // 
             // AdminStudentInformation_View
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(553, 908);
+            ClientSize = new Size(484, 662);
             Controls.Add(label21);
             Controls.Add(pictureBox1);
             Controls.Add(lbAdminViewBirthdate);
@@ -325,7 +324,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AdminStudentInformation_View";

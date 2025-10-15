@@ -13,7 +13,10 @@ namespace EventDriven.Project.UI
 {
     public partial class AdminStudentInformation_Add : Form
     {
+        
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
+        private int newlyAddedStudentId;
+
         public AdminStudentInformation_Add()
         {
             InitializeComponent();
@@ -47,9 +50,42 @@ namespace EventDriven.Project.UI
 
         private void btnAdminAddView_Click(object sender, EventArgs e)
         {
-            AdminStudentInformation_View adminStudInfo_View = new AdminStudentInformation_View();
-            adminStudInfo_View.Show();
+        //    string firstname = txtAdminAddFname.Text.Trim();
+        //    string middlename = txtAdminAddMname.Text.Trim();
+        //    string lastname = txtAdminAddLname.Text.Trim();
+        //    int age = Convert.ToInt32(txtAdminAddAge.Text);
+        //    DateTime birthdate = dtAdminAddBirth.Value;
+        //    string gender = cbAdminAddGender.SelectedItem.ToString();
+        //    string barangay = txtAdminAddBarangay.Text.Trim();
+        //    string municipality = txtAdminAddMunicipality.Text.Trim();
+        //    string province = txtAdminAddProvince.Text.Trim();
+        //    string contactNumber = txtAdminAddStudContact.Text.Trim();
+        //    string guardianName = txtAdminAddGuardian.Text.Trim();
+        //    string guardianContact = txtAdminAddGuardianContact.Text.Trim();
+        //    int gradeLevel = int.Parse(cbAdminAddLevel.SelectedItem.ToString());
+        //    string studentType = cbAdminAddType.SelectedItem.ToString();
+
+        //    AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+        //        firstname,
+        //        middlename,
+        //        lastname,
+        //        age,
+        //        birthdate,
+        //        gender,
+        //        barangay,
+        //        municipality,
+        //        province,
+        //        contactNumber,
+        //        guardianName,
+        //        guardianContact,
+        //        gradeLevel,
+        //        studentType
+        //    );
+
+        //    viewForm.Show();
         }
+    
+        
 
         private void btnAdminOut3_Click(object sender, EventArgs e)
         {

@@ -38,7 +38,7 @@ namespace EventDriven.Project.UI
             this.lbAdminViewAge.Text = age.ToString();
             this.lbAdminViewBirthdate.Text = birthdate.ToString();
             this.lbAdminViewGender.Text = gender;
-            this.lbAdminViewAddress.Text = address;
+            this.lbAdminViewAddress.Text = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim(); ;
             this.lbAdminViewContactNo.Text = contactNumber;
             this.lbAdminViewGuardian.Text = guardianName;
             this.lbAdminViewGuardianContact.Text = guardianContact;
@@ -50,7 +50,7 @@ namespace EventDriven.Project.UI
             lbAdminViewAge.Text = age.ToString();
             lbAdminViewBirthdate.Text = birthdate.ToString();
             lbAdminViewGender.Text = gender;
-            lbAdminViewAddress.Text = address;
+            lbAdminViewAddress.Text = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim(); ;
             lbAdminViewContactNo.Text = contactNumber;
             lbAdminViewGuardian.Text = guardianName;
             lbAdminViewGuardianContact.Text = guardianContact;
@@ -101,6 +101,17 @@ namespace EventDriven.Project.UI
             e.Graphics.DrawString("Guardian Contact: " + guardianContact, labelFont, Brushes.Black, leftMargin, y += 25);
             e.Graphics.DrawString("Year Level: " + gradeLevel, labelFont, Brushes.Black, leftMargin, y += 25);
             e.Graphics.DrawString("Student Type: " + studentType, labelFont, Brushes.Black, leftMargin, y += 25);
+        }
+
+        private void lbAdminViewAddress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdminViewCancel_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation adminStudentInformation = new AdminStudentInformation();
+            adminStudentInformation.Show(); 
         }
     }
 }
