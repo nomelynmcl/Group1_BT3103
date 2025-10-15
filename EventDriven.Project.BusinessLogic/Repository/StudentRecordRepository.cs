@@ -14,8 +14,8 @@ namespace EventDriven.Project.BusinessLogic.Repository
 
         public int Insert(StudentRecordModel studentRecordModel)
         {
-            var query = "INSERT INTO StudentRecord (LastName,FirstName, MiddleName, ContactNumber,Gender,Address,Birthdate, GradeLevel)" +
-                            "VALUES (@Lastname,@Firstname, @Middlename, @ContactNumber,@Gender,@Address,@Birthdate, @GradeLevel)";
+            var query = "INSERT INTO StudentRecord (LastName,FirstName, MiddleName, ContactNumber,Gender,Barangay, Municipality, Province, Age,Birthdate, GradeLevel, Guardian, GuardianContact,StudentType)" +
+                            "VALUES (@Lastname,@Firstname, @Middlename, @ContactNumber,@Gender,@Barangay, @Municipality, @Province, @Age,@Birthdate, @GradeLevel, @GuardianName, @GuardianContact, @StudentType)";
             var rowsAffected = -1;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -36,6 +36,10 @@ namespace EventDriven.Project.BusinessLogic.Repository
                         command.Parameters.AddWithValue("@Province", studentRecordModel.Province);
                         command.Parameters.AddWithValue("@Birthdate", studentRecordModel.Birthdate);
                         command.Parameters.AddWithValue("@GradeLevel", studentRecordModel.GradeLevel);
+                        command.Parameters.AddWithValue("@Age", studentRecordModel.Age);
+                        command.Parameters.AddWithValue("@GuardianName", studentRecordModel.GuardianName);
+                        command.Parameters.AddWithValue("@GuardianContact", studentRecordModel.GuardianContact);
+                        command.Parameters.AddWithValue("@StudentType", studentRecordModel.StudentType);
 
 
                         return command.ExecuteNonQuery();
@@ -77,8 +81,12 @@ namespace EventDriven.Project.BusinessLogic.Repository
                                     Barangay = reader.GetString(5),
                                     Municipality = reader.GetString(5),
                                     Province = reader.GetString(5),
-                                    Birthdate = reader.GetDateTime(6),
-                                    GradeLevel = Convert.ToInt32(reader.GetString(7))
+                                    Age = Convert.ToInt32(reader.GetString(6)),
+                                    Birthdate = reader.GetDateTime(7),
+                                    GradeLevel = Convert.ToInt32(reader.GetString(8)),
+                                    GuardianName = reader.GetString(9),
+                                    GuardianContact =  reader.GetString(10),
+                                    StudentType = reader.GetString(11),
                                     
                                 };
                             }
