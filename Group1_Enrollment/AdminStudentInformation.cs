@@ -179,5 +179,51 @@ namespace EventDriven.Project.UI
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void btnAdminStudInfoView_Click(object sender, EventArgs e)
+        {
+            if (dtgAdminStudentInfoList.CurrentRow != null)
+            {
+              
+                string firstName = dtgAdminStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
+                string middleName = dtgAdminStudentInfoList.CurrentRow.Cells["MiddleName"].Value.ToString();
+                string lastName = dtgAdminStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
+                int age = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["Age"].Value.ToString());
+                DateTime birthdate = Convert.ToDateTime(dtgAdminStudentInfoList.CurrentRow.Cells["Birthdate"].Value.ToString());
+                string gender = dtgAdminStudentInfoList.CurrentRow.Cells["Gender"].Value.ToString();
+                string barangay = dtgAdminStudentInfoList.CurrentRow.Cells["Barangay"].Value.ToString();
+                string municipality = dtgAdminStudentInfoList.CurrentRow.Cells["Municipality"].Value.ToString();
+                string province = dtgAdminStudentInfoList.CurrentRow.Cells["Province"].Value.ToString();
+                string contactNumber = dtgAdminStudentInfoList.CurrentRow.Cells["ContactNumber"].Value.ToString();
+                string guardianName = dtgAdminStudentInfoList.CurrentRow.Cells["GuardianName"].Value.ToString();
+                string guardianContact = dtgAdminStudentInfoList.CurrentRow.Cells["GuardianContact"].Value.ToString();
+                int gradeLevel = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["GradeLevel"].Value.ToString());
+                string studentType = dtgAdminStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
+
+            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+            firstName,
+            middleName,
+            lastName,
+            age,
+            birthdate,
+            gender,
+            barangay,
+            municipality,
+            province,
+            contactNumber,
+            guardianName,
+            guardianContact,
+            gradeLevel,
+            studentType
+        );
+
+                viewForm.ShowDialog(); // open the view form
+            }
+            else
+            {
+                MessageBox.Show("Please select a student to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        
     }
 }
