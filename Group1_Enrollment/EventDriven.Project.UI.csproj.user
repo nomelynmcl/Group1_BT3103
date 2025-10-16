@@ -41,6 +41,15 @@
     <Compile Update="RegistrarStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RegistrarStudentInfo_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarStudentInfo_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarStudentInfo_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RegistrarStudentRegistartion_Add-Register.cs">
       <SubType>Form</SubType>
     </Compile>
