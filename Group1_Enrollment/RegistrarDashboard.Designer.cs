@@ -39,9 +39,9 @@
             lblRegistrarAssessment = new Label();
             lblRegistrarStudentInfo = new Label();
             lblRegistrar = new Label();
-            pictureBox1 = new PictureBox();
+            pcRegistrarLogo = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo).BeginInit();
             SuspendLayout();
             // 
             // txtRegistrarSearch
@@ -151,18 +151,18 @@
             lblRegistrar.TabIndex = 16;
             lblRegistrar.Text = "REGISTRAR";
             // 
-            // pictureBox1
+            // pcRegistrarLogo
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(20, 12);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 142);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
+            pcRegistrarLogo.Image = (Image)resources.GetObject("pcRegistrarLogo.Image");
+            pcRegistrarLogo.Location = new Point(20, 12);
+            pcRegistrarLogo.Margin = new Padding(3, 2, 3, 2);
+            pcRegistrarLogo.Name = "pcRegistrarLogo";
+            pcRegistrarLogo.Size = new Size(224, 142);
+            pcRegistrarLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcRegistrarLogo.TabIndex = 17;
+            pcRegistrarLogo.TabStop = false;
             // 
-            // RegistarDashboard
+            // RegistrarDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -177,12 +177,12 @@
             Controls.Add(lblRegistrarAssessment);
             Controls.Add(lblRegistrarStudentInfo);
             Controls.Add(lblRegistrar);
-            Controls.Add(pictureBox1);
+            Controls.Add(pcRegistrarLogo);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "RegistarDashboard";
+            Name = "RegistrarDashboard";
             Text = "RegistarDashboard";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,6 +199,6 @@
         private Label lblRegistrarAssessment;
         private Label lblRegistrarStudentInfo;
         private Label lblRegistrar;
-        private PictureBox pictureBox1;
+        private PictureBox pcRegistrarLogo;
     }
 }

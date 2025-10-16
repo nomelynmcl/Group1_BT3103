@@ -16,5 +16,10 @@ namespace EventDriven.Project.UI
         {
             InitializeComponent();
         }
+
+        private void btnAdminAssessment2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
