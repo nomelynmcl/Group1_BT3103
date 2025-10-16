@@ -1,14 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
   <ItemGroup>
+    <Compile Update="AdminStudentInformation_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_Add.cs">
+    <Compile Update="AdminStudInfo_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminStudentInformation_View.cs">
@@ -26,31 +28,22 @@
     <Compile Update="AdminStudentRegistration_View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudInfo_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CashierDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="LoginForm.cs">
+    <Compile Update="RegistrarStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RegistrarDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegistrarStudentInformation.cs">
+    <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegistrarStudentRegistartion_Add-Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="RegistrarStudentRegistration_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="RegistrarStudentRegistration_View.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

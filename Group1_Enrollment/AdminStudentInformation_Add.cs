@@ -50,39 +50,50 @@ namespace EventDriven.Project.UI
 
         private void btnAdminAddView_Click(object sender, EventArgs e)
         {
-        //    string firstname = txtAdminAddFname.Text.Trim();
-        //    string middlename = txtAdminAddMname.Text.Trim();
-        //    string lastname = txtAdminAddLname.Text.Trim();
-        //    int age = Convert.ToInt32(txtAdminAddAge.Text);
-        //    DateTime birthdate = dtAdminAddBirth.Value;
-        //    string gender = cbAdminAddGender.SelectedItem.ToString();
-        //    string barangay = txtAdminAddBarangay.Text.Trim();
-        //    string municipality = txtAdminAddMunicipality.Text.Trim();
-        //    string province = txtAdminAddProvince.Text.Trim();
-        //    string contactNumber = txtAdminAddStudContact.Text.Trim();
-        //    string guardianName = txtAdminAddGuardian.Text.Trim();
-        //    string guardianContact = txtAdminAddGuardianContact.Text.Trim();
-        //    int gradeLevel = int.Parse(cbAdminAddLevel.SelectedItem.ToString());
-        //    string studentType = cbAdminAddType.SelectedItem.ToString();
+            if (string.IsNullOrWhiteSpace(txtAdminAddAge.Text) || !int.TryParse(txtAdminAddAge.Text, out int age))
+            {
+                MessageBox.Show("⚠ Please enter a valid age.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        //    AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
-        //        firstname,
-        //        middlename,
-        //        lastname,
-        //        age,
-        //        birthdate,
-        //        gender,
-        //        barangay,
-        //        municipality,
-        //        province,
-        //        contactNumber,
-        //        guardianName,
-        //        guardianContact,
-        //        gradeLevel,
-        //        studentType
-        //    );
+            // Validate grade level
+            if (cbAdminAddLevel.SelectedItem == null || !int.TryParse(cbAdminAddLevel.SelectedItem.ToString(), out int gradeLevel))
+            {
+                MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        //    viewForm.Show();
+            string firstname = txtAdminAddFname.Text.Trim();
+            string middlename = txtAdminAddMname.Text.Trim();
+            string lastname = txtAdminAddLname.Text.Trim();
+            DateTime birthdate = dtAdminAddBirth.Value;
+            string gender = cbAdminAddGender.SelectedItem.ToString();
+            string barangay = txtAdminAddBarangay.Text.Trim();
+            string municipality = txtAdminAddMunicipality.Text.Trim();
+            string province = txtAdminAddProvince.Text.Trim();
+            string contactNumber = txtAdminAddStudContact.Text.Trim();
+            string guardianName = txtAdminAddGuardian.Text.Trim();
+            string guardianContact = txtAdminAddGuardianContact.Text.Trim();
+            string studentType = cbAdminAddType.SelectedItem.ToString();
+
+            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+                firstname,
+                middlename,
+                lastname,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType
+            );
+
+            viewForm.Show();
         }
     
         
@@ -107,7 +118,7 @@ namespace EventDriven.Project.UI
             string contactNumber = txtAdminAddStudContact.Text.Trim();
             string guardianName = txtAdminAddGuardian.Text.Trim();
             string guardianContact = txtAdminAddGuardianContact.Text.Trim();
-            string gradeLevel = cbAdminAddLevel.SelectedItem.ToString();
+            int gradeLevel = Convert.ToInt32(cbAdminAddLevel.SelectedItem.ToString());
             string studentType = cbAdminAddType.SelectedItem.ToString();
 
             string section = "unassigned";
@@ -152,8 +163,7 @@ namespace EventDriven.Project.UI
                             var mainForm = (AdminStudentInformation)Application.OpenForms["AdminStudentInformation"];
                             mainForm.LoadStudentRecords(); // make LoadStudentRecords public
                         }
-
-                        this.Close(); // close the Add form
+ // close the Add form
                     }
                     catch (Exception ex)
                     {
