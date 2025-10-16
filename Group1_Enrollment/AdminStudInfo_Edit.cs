@@ -139,7 +139,7 @@ namespace EventDriven.Project.UI
                     if (rows > 0)
                     {
                         MessageBox.Show("✅ Record updated successfully!");
-                        this.Close();
+                        
                     }
                     else
                     {
@@ -205,6 +205,42 @@ namespace EventDriven.Project.UI
 
             }
         }
-    }
 
+        private void btnAdminEditView_Click(object sender, EventArgs e)
+        {
+            string firstname = txtAdminEditFname.Text.Trim();
+            string middlename = txtAdminEditMname.Text.Trim();
+            string lastname = txtAdminEditLname.Text.Trim();
+            int age = int.Parse(txtAdminEditAge.Text.Trim());
+            DateTime birthdate = dtAdminEditBirth.Value;
+            string gender = cbAdminEditGender.Text.Trim();
+            string barangay = txtAdminEditBarangay.Text.Trim();
+            string municipality = txtAdminEditMunicipality.Text.Trim();
+            string province = txtAdminEditProvince.Text.Trim();
+            string contactNumber = txtAdminEditStudContact.Text.Trim();
+            string guardianName = txtAdminEditGuardian.Text.Trim();
+            string guardianContact = txtAdminEditGuardianContact.Text.Trim();
+            int gradeLevel = Convert.ToInt32(cbAdminEditLevel.Text.Trim());
+            string studentType = cbAdminEditType.Text.Trim();
+
+            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+                firstname,
+                middlename,
+                lastname,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType
+            );
+
+            viewForm.Show();
+        }
+    }
 }
