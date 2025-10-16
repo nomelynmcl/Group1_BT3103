@@ -61,6 +61,7 @@
             btnRegistrarStudInfo_Edit.TabIndex = 88;
             btnRegistrarStudInfo_Edit.Text = "Edit";
             btnRegistrarStudInfo_Edit.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfo_Edit.Click += btnRegistrarStudInfo_Edit_Click;
             // 
             // dtgRegistrarStudentInfoList
             // 
@@ -88,6 +89,7 @@
             btnRegistrarStudInfo_Add.TabIndex = 85;
             btnRegistrarStudInfo_Add.Text = "Add";
             btnRegistrarStudInfo_Add.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfo_Add.Click += btnRegistrarStudInfo_Add_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -211,6 +213,7 @@
             btnRegistrarOut.TabIndex = 9;
             btnRegistrarOut.Text = "LOG OUT";
             btnRegistrarOut.UseVisualStyleBackColor = true;
+            btnRegistrarOut.Click += btnRegistrarOut_Click;
             // 
             // btnRegistrarStudInfo_Search
             // 
@@ -222,6 +225,7 @@
             btnRegistrarStudInfo_Search.TabIndex = 83;
             btnRegistrarStudInfo_Search.Text = "Search Student";
             btnRegistrarStudInfo_Search.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfo_Search.Click += btnRegistrarStudInfo_Search_Click;
             // 
             // btnRegistrarStudInfo_View
             // 
@@ -233,6 +237,7 @@
             btnRegistrarStudInfo_View.TabIndex = 89;
             btnRegistrarStudInfo_View.Text = "View";
             btnRegistrarStudInfo_View.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfo_View.Click += btnRegistrarStudInfo_View_Click;
             // 
             // Registrar___Student_Information
             // 
@@ -253,6 +258,7 @@
             Name = "Registrar___Student_Information";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar - Student Information";
+            Load += Registrar___Student_Information_Load_1;
             ((System.ComponentModel.ISupportInitialize)dtgRegistrarStudentInfoList).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

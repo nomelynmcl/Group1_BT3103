@@ -16,5 +16,23 @@ namespace EventDriven.Project.UI
         {
             InitializeComponent();
         }
+
+        private void lblRegistrarStudentRegistration_Click(object sender, EventArgs e)
+        {
+            Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
+            regStudInfo.Show();
+        }
+
+        private void btnLogoutRegistrar_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void lblRegistrarStudentInfo_Click(object sender, EventArgs e)
+        {
+            Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
+            regStudInfo.Show();
+        }
     }
 }
