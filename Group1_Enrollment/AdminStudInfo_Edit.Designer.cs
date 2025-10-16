@@ -512,6 +512,7 @@
             btnAdminEditView.TabIndex = 82;
             btnAdminEditView.Text = "View";
             btnAdminEditView.UseVisualStyleBackColor = true;
+            btnAdminEditView.Click += btnAdminEditView_Click;
             // 
             // btnAdminStudInfoDelete_Edit
             // 

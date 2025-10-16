@@ -180,11 +180,12 @@ namespace EventDriven.Project.UI
             loginForm.Show();
         }
 
-        private void btnAdminStudInfoView_Click(object sender, EventArgs e)
+       
+        private void btnAdminStudInfoView_Click_1(object sender, EventArgs e)
         {
             if (dtgAdminStudentInfoList.CurrentRow != null)
             {
-              
+
                 string firstName = dtgAdminStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string middleName = dtgAdminStudentInfoList.CurrentRow.Cells["MiddleName"].Value.ToString();
                 string lastName = dtgAdminStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
@@ -200,22 +201,22 @@ namespace EventDriven.Project.UI
                 int gradeLevel = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string studentType = dtgAdminStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
 
-            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
-            firstName,
-            middleName,
-            lastName,
-            age,
-            birthdate,
-            gender,
-            barangay,
-            municipality,
-            province,
-            contactNumber,
-            guardianName,
-            guardianContact,
-            gradeLevel,
-            studentType
-        );
+                AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+                firstName,
+                middleName,
+                lastName,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType
+            );
 
                 viewForm.ShowDialog(); // open the view form
             }
@@ -224,6 +225,7 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("Please select a student to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        
+
     }
 }
+
