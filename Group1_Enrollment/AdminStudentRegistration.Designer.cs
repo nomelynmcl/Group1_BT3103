@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class AdminStudentInformation
+    partial class AdminStudentRegistration
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentInformation));
-            btnAdminStudInfoAdd = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentRegistration));
+            btnEdit_AdminStudentRegis = new Button();
+            dtgAdminStudentInfoList = new DataGridView();
+            txtSearch_AdminStudentRegis = new TextBox();
+            btnAdd_AdminStudentRegis = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             pcAdminLogo2 = new PictureBox();
@@ -40,27 +43,50 @@
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
-            btnAdminStudInfoSearch = new Button();
-            dtgAdminStudentInfoList = new DataGridView();
-            txtAdminStudInfoSearch = new TextBox();
-            btnAdminStudInfoEdit = new Button();
-            btnAdminStudInfoView = new Button();
+            btnSearchStudent_AdminStudentRegis = new Button();
+            ((System.ComponentModel.ISupportInitialize)dtgAdminStudentInfoList).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtgAdminStudentInfoList).BeginInit();
             SuspendLayout();
             // 
-            // btnAdminStudInfoAdd
+            // btnEdit_AdminStudentRegis
             // 
-            btnAdminStudInfoAdd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoAdd.Location = new Point(323, 23);
-            btnAdminStudInfoAdd.Name = "btnAdminStudInfoAdd";
-            btnAdminStudInfoAdd.Size = new Size(95, 33);
-            btnAdminStudInfoAdd.TabIndex = 79;
-            btnAdminStudInfoAdd.Text = "Add";
-            btnAdminStudInfoAdd.UseVisualStyleBackColor = true;
-            btnAdminStudInfoAdd.Click += btnAdminStudInfoAdd_Click;
+            btnEdit_AdminStudentRegis.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnEdit_AdminStudentRegis.Location = new Point(423, 23);
+            btnEdit_AdminStudentRegis.Name = "btnEdit_AdminStudentRegis";
+            btnEdit_AdminStudentRegis.Size = new Size(95, 33);
+            btnEdit_AdminStudentRegis.TabIndex = 94;
+            btnEdit_AdminStudentRegis.Text = "Edit";
+            btnEdit_AdminStudentRegis.UseVisualStyleBackColor = true;
+            // 
+            // dtgAdminStudentInfoList
+            // 
+            dtgAdminStudentInfoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgAdminStudentInfoList.Location = new Point(321, 77);
+            dtgAdminStudentInfoList.Margin = new Padding(3, 4, 3, 4);
+            dtgAdminStudentInfoList.Name = "dtgAdminStudentInfoList";
+            dtgAdminStudentInfoList.RowHeadersWidth = 51;
+            dtgAdminStudentInfoList.Size = new Size(848, 683);
+            dtgAdminStudentInfoList.TabIndex = 92;
+            // 
+            // txtSearch_AdminStudentRegis
+            // 
+            txtSearch_AdminStudentRegis.Location = new Point(708, 22);
+            txtSearch_AdminStudentRegis.Margin = new Padding(3, 4, 3, 4);
+            txtSearch_AdminStudentRegis.Name = "txtSearch_AdminStudentRegis";
+            txtSearch_AdminStudentRegis.Size = new Size(315, 27);
+            txtSearch_AdminStudentRegis.TabIndex = 93;
+            // 
+            // btnAdd_AdminStudentRegis
+            // 
+            btnAdd_AdminStudentRegis.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnAdd_AdminStudentRegis.Location = new Point(321, 22);
+            btnAdd_AdminStudentRegis.Name = "btnAdd_AdminStudentRegis";
+            btnAdd_AdminStudentRegis.Size = new Size(95, 33);
+            btnAdd_AdminStudentRegis.TabIndex = 91;
+            btnAdd_AdminStudentRegis.Text = "Add";
+            btnAdd_AdminStudentRegis.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -78,8 +104,7 @@
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(287, 696);
-            flowLayoutPanel1.TabIndex = 78;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            flowLayoutPanel1.TabIndex = 90;
             // 
             // panel1
             // 
@@ -104,10 +129,10 @@
             // 
             // btnAdminStudentInformation2
             // 
-            btnAdminStudentInformation2.BackColor = Color.DarkSlateGray;
+            btnAdminStudentInformation2.BackColor = Color.CadetBlue;
             btnAdminStudentInformation2.FlatStyle = FlatStyle.Flat;
             btnAdminStudentInformation2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudentInformation2.ForeColor = SystemColors.ControlLight;
+            btnAdminStudentInformation2.ForeColor = SystemColors.ControlText;
             btnAdminStudentInformation2.Location = new Point(23, 208);
             btnAdminStudentInformation2.Margin = new Padding(23, 13, 3, 4);
             btnAdminStudentInformation2.Name = "btnAdminStudentInformation2";
@@ -115,7 +140,6 @@
             btnAdminStudentInformation2.TabIndex = 3;
             btnAdminStudentInformation2.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation2.UseVisualStyleBackColor = false;
-            btnAdminStudentInformation2.Click += button4_Click;
             // 
             // btnAdminAssessment2
             // 
@@ -131,15 +155,17 @@
             // 
             // btnAdminStudreg2
             // 
+            btnAdminStudreg2.BackColor = Color.DarkSlateGray;
             btnAdminStudreg2.FlatStyle = FlatStyle.Flat;
             btnAdminStudreg2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminStudreg2.ForeColor = SystemColors.ControlLight;
             btnAdminStudreg2.Location = new Point(23, 336);
             btnAdminStudreg2.Margin = new Padding(23, 4, 3, 4);
             btnAdminStudreg2.Name = "btnAdminStudreg2";
             btnAdminStudreg2.Size = new Size(241, 56);
             btnAdminStudreg2.TabIndex = 5;
             btnAdminStudreg2.Text = " STUDENT REGISTRATION";
-            btnAdminStudreg2.UseVisualStyleBackColor = true;
+            btnAdminStudreg2.UseVisualStyleBackColor = false;
             // 
             // btnAdminPay2
             // 
@@ -188,97 +214,50 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
-            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
-            // btnAdminStudInfoSearch
+            // btnSearchStudent_AdminStudentRegis
             // 
-            btnAdminStudInfoSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoSearch.Location = new Point(1032, 23);
-            btnAdminStudInfoSearch.Name = "btnAdminStudInfoSearch";
-            btnAdminStudInfoSearch.Size = new Size(139, 33);
-            btnAdminStudInfoSearch.TabIndex = 47;
-            btnAdminStudInfoSearch.Text = "Search Student";
-            btnAdminStudInfoSearch.UseVisualStyleBackColor = true;
-            btnAdminStudInfoSearch.Click += btnAdminStudInfoSearch_Click;
+            btnSearchStudent_AdminStudentRegis.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnSearchStudent_AdminStudentRegis.Location = new Point(1030, 20);
+            btnSearchStudent_AdminStudentRegis.Name = "btnSearchStudent_AdminStudentRegis";
+            btnSearchStudent_AdminStudentRegis.Size = new Size(139, 33);
+            btnSearchStudent_AdminStudentRegis.TabIndex = 89;
+            btnSearchStudent_AdminStudentRegis.Text = "Search Student";
+            btnSearchStudent_AdminStudentRegis.UseVisualStyleBackColor = true;
             // 
-            // dtgAdminStudentInfoList
-            // 
-            dtgAdminStudentInfoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgAdminStudentInfoList.Location = new Point(323, 75);
-            dtgAdminStudentInfoList.Margin = new Padding(3, 4, 3, 4);
-            dtgAdminStudentInfoList.Name = "dtgAdminStudentInfoList";
-            dtgAdminStudentInfoList.RowHeadersWidth = 51;
-            dtgAdminStudentInfoList.Size = new Size(848, 683);
-            dtgAdminStudentInfoList.TabIndex = 80;
-            dtgAdminStudentInfoList.CellContentClick += dtgAdminStudentInfoList_CellContentClick;
-            // 
-            // txtAdminStudInfoSearch
-            // 
-            txtAdminStudInfoSearch.Location = new Point(710, 25);
-            txtAdminStudInfoSearch.Margin = new Padding(3, 4, 3, 4);
-            txtAdminStudInfoSearch.Name = "txtAdminStudInfoSearch";
-            txtAdminStudInfoSearch.Size = new Size(315, 27);
-            txtAdminStudInfoSearch.TabIndex = 81;
-            // 
-            // btnAdminStudInfoEdit
-            // 
-            btnAdminStudInfoEdit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoEdit.Location = new Point(425, 23);
-            btnAdminStudInfoEdit.Name = "btnAdminStudInfoEdit";
-            btnAdminStudInfoEdit.Size = new Size(95, 33);
-            btnAdminStudInfoEdit.TabIndex = 82;
-            btnAdminStudInfoEdit.Text = "Edit";
-            btnAdminStudInfoEdit.UseVisualStyleBackColor = true;
-            btnAdminStudInfoEdit.Click += btnAdminStudInfoEdit_Click;
-            // 
-            // btnAdminStudInfoView
-            // 
-            btnAdminStudInfoView.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoView.Location = new Point(527, 23);
-            btnAdminStudInfoView.Name = "btnAdminStudInfoView";
-            btnAdminStudInfoView.Size = new Size(95, 33);
-            btnAdminStudInfoView.TabIndex = 83;
-            btnAdminStudInfoView.Text = "View";
-            btnAdminStudInfoView.UseVisualStyleBackColor = true;
-            btnAdminStudInfoView.Click += btnAdminStudInfoView_Click;
-            // 
-            // AdminStudentInformation
+            // AdminStudentRegistration
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.AliceBlue;
             ClientSize = new Size(1209, 696);
-
-            Controls.Add(btnAdminStudInfoEdit);
+            Controls.Add(btnEdit_AdminStudentRegis);
             Controls.Add(dtgAdminStudentInfoList);
-            Controls.Add(txtAdminStudInfoSearch);
-            Controls.Add(btnAdminStudInfoAdd);
+            Controls.Add(txtSearch_AdminStudentRegis);
+            Controls.Add(btnAdd_AdminStudentRegis);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(btnAdminStudInfoSearch);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(btnSearchStudent_AdminStudentRegis);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "AdminStudentInformation";
+            Name = "AdminStudentRegistration";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Admin - Student Information";
-            Load += AdminStudentInformation_Load;
+            Text = "AdminStudentRegistration";
+            ((System.ComponentModel.ISupportInitialize)dtgAdminStudentInfoList).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtgAdminStudentInfoList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnAdminStudInfoAdd;
+        private Button btnEdit_AdminStudentRegis;
+        private DataGridView dtgAdminStudentInfoList;
+        private TextBox txtSearch_AdminStudentRegis;
+        private Button btnAdd_AdminStudentRegis;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private PictureBox pcAdminLogo2;
-        private Button btnAdminStudInfoSearch;
-        private DataGridView dtgAdminStudentInfoList;
-        private TextBox txtAdminStudInfoSearch;
         private Button btnAdminStudentInformation2;
         private Button btnAdminAssessment2;
         private Button btnAdminStudreg2;
@@ -286,7 +265,6 @@
         private Button btnAdminHistory2;
         private Button btnAdminReport2;
         private Button btnAdminOut2;
-        private Button btnAdminStudInfoEdit;
-        private Button btnAdminStudInfoView;
+        private Button btnSearchStudent_AdminStudentRegis;
     }
 }
