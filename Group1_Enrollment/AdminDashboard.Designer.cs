@@ -78,6 +78,7 @@
             lblStudentInformation.Size = new Size(194, 20);
             lblStudentInformation.TabIndex = 2;
             lblStudentInformation.Text = "STUDENT INFORMATION";
+            lblStudentInformation.Click += lblStudentInformation_Click;
             // 
             // lblAssessment
             // 
@@ -131,6 +132,7 @@
             btnLogoutAdmin.TabIndex = 8;
             btnLogoutAdmin.Text = "Logout";
             btnLogoutAdmin.UseVisualStyleBackColor = false;
+            btnLogoutAdmin.Click += btnLogoutAdmin_Click;
             // 
             // btnAdminOverview
             // 
