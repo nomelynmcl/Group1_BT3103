@@ -52,6 +52,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            printDialog1 = new PrintDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo5).BeginInit();
             SuspendLayout();
             // 
@@ -103,6 +105,7 @@
             btnRegistrarViewPrint.TabIndex = 43;
             btnRegistrarViewPrint.Text = "Print";
             btnRegistrarViewPrint.UseVisualStyleBackColor = true;
+            btnRegistrarViewPrint.Click += btnRegistrarViewPrint_Click;
             // 
             // btnRegistrarViewCancel
             // 
@@ -284,6 +287,10 @@
             label1.TabIndex = 24;
             label1.Text = "Full Name:";
             // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
             // RegistrarStudentInfo_View
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -349,5 +356,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

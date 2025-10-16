@@ -113,6 +113,7 @@
             pcRegistrarLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
             pcRegistrarLogo4.TabIndex = 0;
             pcRegistrarLogo4.TabStop = false;
+            pcRegistrarLogo4.Click += pcRegistrarLogo4_Click;
             // 
             // btnRegistrarStudentInformation3
             // 
@@ -199,6 +200,7 @@
             btnRegistrarOut3.TabIndex = 9;
             btnRegistrarOut3.Text = "LOG OUT";
             btnRegistrarOut3.UseVisualStyleBackColor = true;
+            btnRegistrarOut3.Click += btnRegistrarOut3_Click;
             // 
             // btnRegistrarStudInfoDelete_Edit
             // 
@@ -210,6 +212,7 @@
             btnRegistrarStudInfoDelete_Edit.TabIndex = 150;
             btnRegistrarStudInfoDelete_Edit.Text = "Delete";
             btnRegistrarStudInfoDelete_Edit.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfoDelete_Edit.Click += btnRegistrarStudInfoDelete_Edit_Click;
             // 
             // dtRegistrarEditBirth
             // 
@@ -238,6 +241,7 @@
             btnRegistrarBack_Edit.TabIndex = 147;
             btnRegistrarBack_Edit.Text = "Back";
             btnRegistrarBack_Edit.UseVisualStyleBackColor = true;
+            btnRegistrarBack_Edit.Click += btnRegistrarBack_Edit_Click;
             // 
             // btnRegistrarStudInfoSave_Edit
             // 
@@ -249,6 +253,7 @@
             btnRegistrarStudInfoSave_Edit.TabIndex = 146;
             btnRegistrarStudInfoSave_Edit.Text = "Save";
             btnRegistrarStudInfoSave_Edit.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfoSave_Edit.Click += btnRegistrarStudInfoSave_Edit_Click;
             // 
             // cbRegistrarEditType
             // 
@@ -520,6 +525,7 @@
             btnRegistrarEditView.TabIndex = 117;
             btnRegistrarEditView.Text = "View";
             btnRegistrarEditView.UseVisualStyleBackColor = true;
+            btnRegistrarEditView.Click += btnRegistrarEditView_Click;
             // 
             // RegistrarStudentInfo_Edit
             // 

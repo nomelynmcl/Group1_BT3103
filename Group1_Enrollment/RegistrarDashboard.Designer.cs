@@ -88,6 +88,7 @@
             btnLogoutRegistrar.TabIndex = 23;
             btnLogoutRegistrar.Text = "Logout";
             btnLogoutRegistrar.UseVisualStyleBackColor = false;
+            btnLogoutRegistrar.Click += btnLogoutRegistrar_Click;
             // 
             // pictureBox2
             // 
@@ -119,6 +120,7 @@
             lblRegistrarStudentRegistration.Size = new Size(196, 60);
             lblRegistrarStudentRegistration.TabIndex = 20;
             lblRegistrarStudentRegistration.Text = "STUDENT REGISTRATION\r\n\r\n\r\n";
+            lblRegistrarStudentRegistration.Click += lblRegistrarStudentRegistration_Click;
             // 
             // lblRegistrarAssessment
             // 
@@ -139,6 +141,7 @@
             lblRegistrarStudentInfo.Size = new Size(194, 20);
             lblRegistrarStudentInfo.TabIndex = 18;
             lblRegistrarStudentInfo.Text = "STUDENT INFORMATION";
+            lblRegistrarStudentInfo.Click += lblRegistrarStudentInfo_Click;
             // 
             // lblRegistrar
             // 

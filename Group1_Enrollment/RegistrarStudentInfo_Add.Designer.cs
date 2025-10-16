@@ -112,6 +112,7 @@
             pcRegistrarLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
             pcRegistrarLogo3.TabIndex = 0;
             pcRegistrarLogo3.TabStop = false;
+            pcRegistrarLogo3.Click += pcRegistrarLogo3_Click;
             // 
             // btnRegistrarStudentInformation2
             // 
@@ -198,6 +199,7 @@
             btnRegistrarOut2.TabIndex = 9;
             btnRegistrarOut2.Text = "LOG OUT";
             btnRegistrarOut2.UseVisualStyleBackColor = true;
+            btnRegistrarOut2.Click += btnRegistrarOut2_Click;
             // 
             // cbRegistrarAddLevel
             // 
@@ -236,6 +238,7 @@
             btnRegistrarBack.TabIndex = 115;
             btnRegistrarBack.Text = "Back";
             btnRegistrarBack.UseVisualStyleBackColor = true;
+            btnRegistrarBack.Click += btnRegistrarBack_Click;
             // 
             // btnRegistrarStudInfoAdd2
             // 
@@ -247,6 +250,7 @@
             btnRegistrarStudInfoAdd2.TabIndex = 114;
             btnRegistrarStudInfoAdd2.Text = "Add";
             btnRegistrarStudInfoAdd2.UseVisualStyleBackColor = true;
+            btnRegistrarStudInfoAdd2.Click += btnRegistrarStudInfoAdd2_Click;
             // 
             // cbRegistrarAddType
             // 
@@ -508,6 +512,7 @@
             btnRegistrarAddView.TabIndex = 86;
             btnRegistrarAddView.Text = "View";
             btnRegistrarAddView.UseVisualStyleBackColor = true;
+            btnRegistrarAddView.Click += btnRegistrarAddView_Click;
             // 
             // RegistrarStudentInfo_Add
             // 
