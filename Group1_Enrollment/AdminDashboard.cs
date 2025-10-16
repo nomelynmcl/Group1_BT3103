@@ -26,5 +26,17 @@ namespace EventDriven.Project.UI
         {
 
         }
+
+        private void lblStudentInformation_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation adminStudInfo = new AdminStudentInformation();
+            adminStudInfo.Show();
+        }
+
+        private void btnLogoutAdmin_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

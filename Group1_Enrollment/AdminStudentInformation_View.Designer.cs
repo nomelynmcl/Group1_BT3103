@@ -52,6 +52,8 @@
             lbAdminViewBirthdate = new Label();
             pictureBox1 = new PictureBox();
             label21 = new Label();
+            printDialog1 = new PrintDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -153,6 +155,7 @@
             lbAdminViewFullname.Size = new Size(93, 15);
             lbAdminViewFullname.TabIndex = 9;
             lbAdminViewFullname.Text = "<<Full Name>>";
+            lbAdminViewFullname.Click += lbAdminViewFullname_Click;
             // 
             // lbAdminViewAge
             // 
@@ -180,6 +183,7 @@
             lbAdminViewAddress.Size = new Size(81, 15);
             lbAdminViewAddress.TabIndex = 12;
             lbAdminViewAddress.Text = "<<Address>>";
+            lbAdminViewAddress.Click += lbAdminViewAddress_Click;
             // 
             // lbAdminViewContactNo
             // 
@@ -234,6 +238,7 @@
             btnAdminViewCancel.TabIndex = 18;
             btnAdminViewCancel.Text = "Cancel";
             btnAdminViewCancel.UseVisualStyleBackColor = true;
+            btnAdminViewCancel.Click += btnAdminViewCancel_Click;
             // 
             // btnAdminViewPrint
             // 
@@ -243,6 +248,7 @@
             btnAdminViewPrint.TabIndex = 19;
             btnAdminViewPrint.Text = "Print";
             btnAdminViewPrint.UseVisualStyleBackColor = true;
+            btnAdminViewPrint.Click += btnAdminViewPrint_Click;
             // 
             // label19
             // 
@@ -284,12 +290,16 @@
             label21.TabIndex = 23;
             label21.Text = "Orion Tech-High School";
             // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
             // AdminStudentInformation_View
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(484, 681);
+            ClientSize = new Size(484, 662);
             Controls.Add(label21);
             Controls.Add(pictureBox1);
             Controls.Add(lbAdminViewBirthdate);
@@ -319,6 +329,7 @@
             Name = "AdminStudentInformation_View";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View - Student Information";
+            Load += AdminStudentInformation_View_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -350,5 +361,7 @@
         private Label lbAdminViewBirthdate;
         private PictureBox pictureBox1;
         private Label label21;
+        private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

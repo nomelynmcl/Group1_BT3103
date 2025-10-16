@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class Form1
+    partial class AdminStudentInformation_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentInformation_Add));
             btnAdminAddView = new Button();
             label8 = new Label();
             txtAdminAddLname = new TextBox();
@@ -86,6 +86,7 @@
             btnAdminAddView.TabIndex = 10;
             btnAdminAddView.Text = "View";
             btnAdminAddView.UseVisualStyleBackColor = true;
+            btnAdminAddView.Click += btnAdminAddView_Click;
             // 
             // label8
             // 
@@ -309,8 +310,7 @@
             // cbAdminAddLevel
             // 
             cbAdminAddLevel.FormattingEnabled = true;
-            cbAdminAddLevel.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
-            cbAdminAddLevel.Location = new Point(470, 561);
+
             cbAdminAddLevel.Name = "cbAdminAddLevel";
             cbAdminAddLevel.Size = new Size(191, 28);
             cbAdminAddLevel.TabIndex = 38;
@@ -343,6 +343,7 @@
             btnAdminStudInfoAdd2.TabIndex = 41;
             btnAdminStudInfoAdd2.Text = "Add";
             btnAdminStudInfoAdd2.UseVisualStyleBackColor = true;
+            btnAdminStudInfoAdd2.Click += btnAdminStudInfoAdd2_Click;
             // 
             // btnAdminBack
             // 
@@ -353,6 +354,7 @@
             btnAdminBack.TabIndex = 44;
             btnAdminBack.Text = "Back";
             btnAdminBack.UseVisualStyleBackColor = true;
+            btnAdminBack.Click += btnAdminBack_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -478,6 +480,7 @@
             btnAdminOut3.TabIndex = 9;
             btnAdminOut3.Text = "LOG OUT";
             btnAdminOut3.UseVisualStyleBackColor = true;
+            btnAdminOut3.Click += btnAdminOut3_Click;
             // 
             // label1
             // 
@@ -497,7 +500,7 @@
             dtAdminAddBirth.Size = new Size(228, 27);
             dtAdminAddBirth.TabIndex = 81;
             // 
-            // Form1
+            // AdminStudentInformation_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -539,7 +542,7 @@
             Controls.Add(btnAdminAddView);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Form1";
+            Name = "AdminStudentInformation_Add";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add - Student Information";
             Load += Form1_Load_1;

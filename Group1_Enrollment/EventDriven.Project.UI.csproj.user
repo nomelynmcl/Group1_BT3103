@@ -10,7 +10,7 @@
     <Compile Update="AdminStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_Edit.cs">
+    <Compile Update="AdminStudInfo_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminStudentInformation_View.cs">
@@ -37,13 +37,7 @@
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegistrarStudentRegistartion_Add-Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="RegistrarStudentRegistration_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="RegistrarStudentRegistration_View.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">
