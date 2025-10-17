@@ -8,10 +8,10 @@
     <Compile Update="AdminStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_Add.cs">
+
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminStudentInformation_View.cs">
+    <Compile Update="Admin_Assessment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminStudentRegistration.cs">
@@ -29,9 +29,6 @@
     <Compile Update="AdminStudInfo_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Admin_Assessment.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,16 +41,10 @@
     <Compile Update="RegistrarStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegistrarStudentRegistartion_Add-Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="RegistrarStudentRegistration_Edit.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RegistrarStudentRegistration_View.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Registrar_Assessment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">
