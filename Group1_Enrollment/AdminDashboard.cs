@@ -31,12 +31,19 @@ namespace EventDriven.Project.UI
         {
             AdminStudentInformation adminStudInfo = new AdminStudentInformation();
             adminStudInfo.Show();
+            this.Hide();
         }
 
         private void btnLogoutAdmin_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
+        }
+
+        private void lblStudentRegistration_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

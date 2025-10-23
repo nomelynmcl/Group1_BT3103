@@ -70,37 +70,65 @@ namespace EventDriven.Project.UI
 
         private void btnAdminViewPrint_Click(object sender, EventArgs e)
         {
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            printDocument1.PrintPage -= printDocument1_PrintPage;
+            printDocument1.PrintPage += printDocument1_PrintPage;
 
-            // Show print dialog
-            printDialog1.Document = printDocument1;
-
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+            // Show the Print Preview Dialog instead of the Print Dialog
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+            previewDialog.Document = printDocument1;
+            previewDialog.WindowState = FormWindowState.Maximized;
+            previewDialog.ShowDialog();
         }
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            // Set font styles
-            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
-            Font labelFont = new Font("Arial", 12, FontStyle.Regular);
+            Font titleFont = new Font("Arial", 22, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 14, FontStyle.Underline);
+            Font labelBoldFont = new Font("Arial", 12, FontStyle.Bold);
+            Font valueFont = new Font("Arial", 12, FontStyle.Regular);
 
-            float y = 100; // starting Y position
+            float y = 100;
             float leftMargin = 80;
 
-            e.Graphics.DrawString("Orion Tech-High School", titleFont, Brushes.Black, leftMargin, y - 50);
+            // 🏫 Optional: Draw your logo at the top-left
+            try
+            {
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); // <- change path
+                e.Graphics.DrawImage(logo, leftMargin, y - 100, 150, 150);
+            }
+            catch
+            {
+                // Ignore if logo not found
+            }
 
-            e.Graphics.DrawString("Full Name: " + fullName, labelFont, Brushes.Black, leftMargin, y += 40);
-            e.Graphics.DrawString("Age: " + age, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Birthdate: " + birthdate, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Gender: " + gender, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Address: " + address, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Contact Number: " + contactNumber, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Guardian's Name: " + guardianName, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Guardian Contact: " + guardianContact, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Year Level: " + gradeLevel, labelFont, Brushes.Black, leftMargin, y += 25);
-            e.Graphics.DrawString("Student Type: " + studentType, labelFont, Brushes.Black, leftMargin, y += 25);
+            // Title and header
+            e.Graphics.DrawString("Orion Tech-High School", titleFont, Brushes.Black, leftMargin + 150, y - 40);
+            e.Graphics.DrawString("Student Information", headerFont, Brushes.Black, leftMargin, y += 40);
+            y += 30;
+
+
+            // Function to draw label + value
+            void DrawLine(string label, string value)
+            {
+                e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);
+                e.Graphics.DrawString(value, valueFont, Brushes.Black, leftMargin + 150, y);
+                y += 25;
+            }
+
+            // 🧾 Student Information
+            
+            DrawLine("Full Name:", lbAdminViewFullname.Text);
+            DrawLine("Age:", lbAdminViewAge.Text);
+            DrawLine("Birthdate:", lbAdminViewBirthdate.Text);
+            DrawLine("Gender:", lbAdminViewGender.Text);
+            DrawLine("Address:", lbAdminViewAddress.Text);
+            DrawLine("Contact No.:", lbAdminViewContactNo.Text);
+            DrawLine("Guardian:", lbAdminViewGuardian.Text);
+            DrawLine("Contact No.:", lbAdminViewGuardianContact.Text);
+            DrawLine("Year Level:", lbAdminViewLevel.Text);
+            DrawLine("Student Type:", lbAdminViewType.Text);
+
+            y += 40;
+            e.Graphics.DrawString($"Printed on: {DateTime.Now}", valueFont, Brushes.Gray, leftMargin, y);
         }
 
         private void lbAdminViewAddress_Click(object sender, EventArgs e)
@@ -111,7 +139,8 @@ namespace EventDriven.Project.UI
         private void btnAdminViewCancel_Click(object sender, EventArgs e)
         {
             AdminStudentInformation adminStudentInformation = new AdminStudentInformation();
-            adminStudentInformation.Show(); 
+            adminStudentInformation.Show();
+            this.Close();
         }
     }
 }

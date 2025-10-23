@@ -56,6 +56,7 @@ namespace EventDriven.Project.UI
         {
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
             regStudInfo.Show();
+            this.Hide();
         }
 
         private void btnRegistrarStudInfoSave_Edit_Click(object sender, EventArgs e)
@@ -171,8 +172,8 @@ namespace EventDriven.Project.UI
                             this.Close();
 
                             // Optional: Refresh main form's DataGridView
-                            AdminStudentInformation mainForm = Application.OpenForms
-                                .OfType<AdminStudentInformation>()
+                            Registrar___Student_Information mainForm = Application.OpenForms
+                                .OfType<Registrar___Student_Information>()
                                 .FirstOrDefault();
 
                             if (mainForm != null)
@@ -211,7 +212,7 @@ namespace EventDriven.Project.UI
             int gradeLevel = Convert.ToInt32(cbRegistrarEditLevel.Text.Trim());
             string studentType = cbRegistrarEditType.Text.Trim();
 
-            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+            RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstname,
                 middlename,
                 lastname,
@@ -229,18 +230,21 @@ namespace EventDriven.Project.UI
             );
 
             viewForm.Show();
+            this.Hide();
         }
 
         private void btnRegistrarOut3_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
         private void pcRegistrarLogo4_Click(object sender, EventArgs e)
         {
             RegistrarDashboard regDashboard = new RegistrarDashboard();
             regDashboard.Show();
+            this.Close();
         }
     }
 }

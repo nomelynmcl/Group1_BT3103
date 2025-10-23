@@ -183,6 +183,7 @@
             Controls.Add(pcRegistrarLogo);
             Margin = new Padding(3, 2, 3, 2);
             Name = "RegistrarDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistarDashboard";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo).EndInit();

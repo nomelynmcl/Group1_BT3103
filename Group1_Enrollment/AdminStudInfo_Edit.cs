@@ -62,12 +62,14 @@ namespace EventDriven.Project.UI
         {
             AdminDashboard adDashboard = new AdminDashboard();
             adDashboard.Show();
+            this.Close();
         }
 
         private void btnAdminBack_Edit_Click(object sender, EventArgs e)
         {
             AdminStudentInformation adminStudInfo = new AdminStudentInformation();
             adminStudInfo.Show();
+            this.Close();
         }
 
         private void btnAdminStudInfoSave_Edit_Click(object sender, EventArgs e)
@@ -241,6 +243,7 @@ namespace EventDriven.Project.UI
             );
 
             viewForm.Show();
+            this.Hide();
         }
     }
 }

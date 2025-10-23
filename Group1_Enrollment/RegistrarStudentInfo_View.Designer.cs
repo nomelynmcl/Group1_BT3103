@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarStudentInfo_View));
             lbTechSchool = new Label();
             pcRegistrarLogo5 = new PictureBox();
             lbRegistrarViewBirthdate = new Label();
@@ -54,6 +55,7 @@
             label1 = new Label();
             printDialog1 = new PrintDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo5).BeginInit();
             SuspendLayout();
             // 
@@ -115,6 +117,7 @@
             btnRegistrarViewCancel.TabIndex = 42;
             btnRegistrarViewCancel.Text = "Cancel";
             btnRegistrarViewCancel.UseVisualStyleBackColor = true;
+            btnRegistrarViewCancel.Click += btnRegistrarViewCancel_Click;
             // 
             // lbRegistrarViewType
             // 
@@ -291,10 +294,21 @@
             // 
             printDialog1.UseEXDialog = true;
             // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
             // RegistrarStudentInfo_View
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(484, 662);
             Controls.Add(lbTechSchool);
             Controls.Add(pcRegistrarLogo5);
@@ -358,5 +372,6 @@
         private Label label1;
         private PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }

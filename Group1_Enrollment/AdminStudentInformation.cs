@@ -97,6 +97,7 @@ namespace EventDriven.Project.UI
         {
             AdminStudentInformation_Add adStudInfo_add = new AdminStudentInformation_Add();
             adStudInfo_add.Show();
+            this.Hide();
         }
 
         private void btnAdminStudInfoEdit_Click(object sender, EventArgs e)
@@ -137,6 +138,7 @@ namespace EventDriven.Project.UI
                     guardianContact,
                     studentType);
                 adStudInfo_edit.Show();
+                this.Hide();
             }
             else
             {
@@ -178,6 +180,7 @@ namespace EventDriven.Project.UI
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
        
@@ -218,7 +221,8 @@ namespace EventDriven.Project.UI
                 studentType
             );
 
-                viewForm.ShowDialog(); // open the view form
+                viewForm.Show();
+                this.Hide();
             }
             else
             {

@@ -25,6 +25,7 @@ namespace EventDriven.Project.UI
         {
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
             regStudInfo.Show();
+            this.Close();
         }
 
         private void btnRegistrarStudInfoAdd2_Click(object sender, EventArgs e)
@@ -81,9 +82,9 @@ namespace EventDriven.Project.UI
                         MessageBox.Show("✅ Student added successfully!");
 
                         // Optional: Refresh the main DataGridView if it's open
-                        if (Application.OpenForms["AdminStudentInformation"] != null)
+                        if (Application.OpenForms["Registrar___Student_Information"] != null)
                         {
-                            var mainForm = (AdminStudentInformation)Application.OpenForms["AdminStudentInformation"];
+                            var mainForm = (Registrar___Student_Information)Application.OpenForms["Registrar___Student_Information"];
                             mainForm.LoadStudentRecords(); // make LoadStudentRecords public
                         }
                         // close the Add form
@@ -124,7 +125,7 @@ namespace EventDriven.Project.UI
             string guardianContact = txtRegistrarAddGuardianContact.Text.Trim();
             string studentType = cbRegistrarAddType.SelectedItem.ToString();
 
-            AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+            RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstname,
                 middlename,
                 lastname,
@@ -142,18 +143,21 @@ namespace EventDriven.Project.UI
             );
 
             viewForm.Show();
+            this.Hide();
         }
 
         private void btnRegistrarOut2_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
         private void pcRegistrarLogo3_Click(object sender, EventArgs e)
         {
             RegistrarDashboard regDashboard = new RegistrarDashboard();
             regDashboard.Show();
+            this.Close();
         }
     }
 }

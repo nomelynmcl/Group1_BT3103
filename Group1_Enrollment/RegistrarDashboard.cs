@@ -21,18 +21,21 @@ namespace EventDriven.Project.UI
         {
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
             regStudInfo.Show();
+            this.Hide();
         }
 
         private void btnLogoutRegistrar_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
         private void lblRegistrarStudentInfo_Click(object sender, EventArgs e)
         {
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
             regStudInfo.Show();
+            this.Hide();
         }
     }
 }
