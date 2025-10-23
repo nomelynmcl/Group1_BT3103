@@ -12,15 +12,14 @@ using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
 {
-    public partial class AdminStudentRegistration : Form
+    public partial class RegistrarStudentRegistration : Form
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private StudentRecordModel_Registration studentRecordModel;
         private List<StudentRecordModel_Registration> studentRecords;
         private List<StudentRecordModel_Registration> studentSearch;
 
-
-        public AdminStudentRegistration()
+        public RegistrarStudentRegistration()
         {
             InitializeComponent();
             studentRecordModel = new StudentRecordModel_Registration();
@@ -70,7 +69,7 @@ namespace EventDriven.Project.UI
                         }
 
                         studentSearch = records;
-                        dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgRegistrar_StudRegList.DataSource = new BindingSource { DataSource = studentSearch };
                     }
                 }
             }
@@ -80,32 +79,58 @@ namespace EventDriven.Project.UI
             }
         }
 
-        private void btnAdd_AdminStudentRegis_Click(object sender, EventArgs e)
+        private void btnRegistrarStudentInformation_Click(object sender, EventArgs e)
         {
-            if (dtgAdminStudentRegList.CurrentRow != null)
+            Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
+            regStudInfo.Show();
+            this.Hide();
+        }
+
+        private void btnRegistrarOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void pcRegistrarLogo2_Click(object sender, EventArgs e)
+        {
+            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
+            registrarDashboard.Show();
+            this.Hide();
+        }
+
+        private void RegistrarStudentRegistration_Load(object sender, EventArgs e)
+        {
+            LoadStudentRecords();
+        }
+
+        private void btnRegistrarStudReg_Add_Click(object sender, EventArgs e)
+        {
+            if (dtgRegistrar_StudRegList.CurrentRow != null)
             {
                 // Get data from the selected row
-                int studentId = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Id"].Value.ToString());
-                string lastname = dtgAdminStudentRegList.CurrentRow.Cells["LastName"].Value.ToString();
-                string firstname = dtgAdminStudentRegList.CurrentRow.Cells["FirstName"].Value.ToString();
-                string middlename = dtgAdminStudentRegList.CurrentRow.Cells["MiddleName"].Value.ToString();
-                int age = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Age"].Value.ToString());
-                string contactNumber = dtgAdminStudentRegList.CurrentRow.Cells["ContactNumber"].Value.ToString();
-                string gender = dtgAdminStudentRegList.CurrentRow.Cells["Gender"].Value.ToString();
-                DateTime birthdate = Convert.ToDateTime(dtgAdminStudentRegList.CurrentRow.Cells["Birthdate"].Value.ToString());
-                string barangay = dtgAdminStudentRegList.CurrentRow.Cells["Barangay"].Value.ToString();
-                string municipality = dtgAdminStudentRegList.CurrentRow.Cells["Municipality"].Value.ToString();
-                string province = dtgAdminStudentRegList.CurrentRow.Cells["Province"].Value.ToString();
-                int gradeLevel = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["GradeLevel"].Value);
-                string guardianName = dtgAdminStudentRegList.CurrentRow.Cells["GuardianName"].Value.ToString();
-                string guardianContact = dtgAdminStudentRegList.CurrentRow.Cells["GuardianContact"].Value.ToString();
-                string section = dtgAdminStudentRegList.CurrentRow.Cells["Section"].Value.ToString();
-                string studentType = dtgAdminStudentRegList.CurrentRow.Cells["StudentType"].Value.ToString();
-                string requirements = dtgAdminStudentRegList.CurrentRow.Cells["Requirements"].Value.ToString();
-                string modeOfPayment = dtgAdminStudentRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
+                int studentId = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Id"].Value.ToString());
+                string lastname = dtgRegistrar_StudRegList.CurrentRow.Cells["LastName"].Value.ToString();
+                string firstname = dtgRegistrar_StudRegList.CurrentRow.Cells["FirstName"].Value.ToString();
+                string middlename = dtgRegistrar_StudRegList.CurrentRow.Cells["MiddleName"].Value.ToString();
+                int age = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Age"].Value.ToString());
+                string contactNumber = dtgRegistrar_StudRegList.CurrentRow.Cells["ContactNumber"].Value.ToString();
+                string gender = dtgRegistrar_StudRegList.CurrentRow.Cells["Gender"].Value.ToString();
+                DateTime birthdate = Convert.ToDateTime(dtgRegistrar_StudRegList.CurrentRow.Cells["Birthdate"].Value.ToString());
+                string barangay = dtgRegistrar_StudRegList.CurrentRow.Cells["Barangay"].Value.ToString();
+                string municipality = dtgRegistrar_StudRegList.CurrentRow.Cells["Municipality"].Value.ToString();
+                string province = dtgRegistrar_StudRegList.CurrentRow.Cells["Province"].Value.ToString();
+                int gradeLevel = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["GradeLevel"].Value);
+                string guardianName = dtgRegistrar_StudRegList.CurrentRow.Cells["GuardianName"].Value.ToString();
+                string guardianContact = dtgRegistrar_StudRegList.CurrentRow.Cells["GuardianContact"].Value.ToString();
+                string section = dtgRegistrar_StudRegList.CurrentRow.Cells["Section"].Value.ToString();
+                string studentType = dtgRegistrar_StudRegList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string requirements = dtgRegistrar_StudRegList.CurrentRow.Cells["Requirements"].Value.ToString();
+                string modeOfPayment = dtgRegistrar_StudRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
 
                 // Open registration form with prefilled data
-                AdminStudentRegistration_Add addForm = new AdminStudentRegistration_Add(
+                RegistrarStudentRegistration_Add addForm = new RegistrarStudentRegistration_Add(
                     studentId,
                     lastname,
                     firstname,
@@ -135,27 +160,27 @@ namespace EventDriven.Project.UI
             }
         }
 
-        private void btnEdit_AdminStudentRegis_Click(object sender, EventArgs e)
+        private void btnRegistrarStudReg_Edit_Click(object sender, EventArgs e)
         {
-            AdminStudentRegistration_Edit adminStudReg_edit = new AdminStudentRegistration_Edit();
-            adminStudReg_edit.Show();
+            RegistrarStudentRegistration_Edit regStudReg_edit = new RegistrarStudentRegistration_Edit();
+            regStudReg_edit.Show();
             this.Hide();
         }
 
-        private void btnView_AdminStudReg_Click(object sender, EventArgs e)
+        private void btnRegistrarStudReg_View_Click(object sender, EventArgs e)
         {
-            AdminStudentRegistration_View adminStudReg_view = new AdminStudentRegistration_View();
-            adminStudReg_view.Show();
+            RegistrarStudentRegistration_View regStudReg_view = new RegistrarStudentRegistration_View();
+            regStudReg_view.Show();
             this.Hide();
         }
 
-        private void btnSearchStudent_AdminStudentRegis_Click(object sender, EventArgs e)
+        private void btnRegistrarStudReg_Search_Click(object sender, EventArgs e)
         {
-            string searchValue = txtSearch_AdminStudentRegis.Text.Trim().ToLower();
+            string searchValue = txtRegistrarStudReg_Search.Text.Trim().ToLower();
 
             if (string.IsNullOrEmpty(searchValue))
             {
-                dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = studentSearch };
+                dtgRegistrar_StudRegList.DataSource = new BindingSource { DataSource = studentSearch };
                 return;
             }
 
@@ -171,33 +196,7 @@ namespace EventDriven.Project.UI
             }
 
             // Rebind the filtered results to the grid
-            dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = filtered };
-        }
-
-        private void AdminStudentRegistration_Load(object sender, EventArgs e)
-        {
-            LoadStudentRecords();
-        }
-
-        private void pcAdminLogo2_Click(object sender, EventArgs e)
-        {
-            AdminDashboard adminDashboard = new AdminDashboard();
-            adminDashboard.Show();
-            this.Close();
-        }
-
-        private void btnAdminStudentInformation2_Click(object sender, EventArgs e)
-        {
-            AdminStudentInformation adminStudInfo = new AdminStudentInformation();
-            adminStudInfo.Show();
-            this.Hide();
-        }
-
-        private void btnAdminOut2_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            this.Close();
+            dtgRegistrar_StudRegList.DataSource = new BindingSource { DataSource = filtered };
         }
     }
 }

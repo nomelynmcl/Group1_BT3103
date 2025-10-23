@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentRegistration_Add));
             btnView_AdminStudentRegisAdd = new Button();
             label8 = new Label();
-            txtFullname_AdminStudentRegistrationAdd = new TextBox();
+            txtLastname_AdminStudentRegistrationAdd = new TextBox();
             txtFirstName_AdminStudentRegistrationAdd = new TextBox();
             txtMiddleName_AdminStudentRegistrationAdd = new TextBox();
             label9 = new Label();
@@ -71,7 +71,7 @@
             pcAdminLogo4 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
-            dtAdminEditBirthdate = new DateTimePicker();
+            dtAdminAddBirthdate = new DateTimePicker();
             clbModeOfPayment_AdminStudentRegistrationAdd = new CheckedListBox();
             lblStudentID_AdminStudentRegisAdd = new Label();
             label2 = new Label();
@@ -95,6 +95,7 @@
             btnView_AdminStudentRegisAdd.TabIndex = 203;
             btnView_AdminStudentRegisAdd.Text = "View";
             btnView_AdminStudentRegisAdd.UseVisualStyleBackColor = true;
+            btnView_AdminStudentRegisAdd.Click += btnView_AdminStudentRegisAdd_Click;
             // 
             // label8
             // 
@@ -106,13 +107,13 @@
             label8.TabIndex = 204;
             label8.Text = "Full Name:";
             // 
-            // txtFullname_AdminStudentRegistrationAdd
+            // txtLastname_AdminStudentRegistrationAdd
             // 
-            txtFullname_AdminStudentRegistrationAdd.Location = new Point(461, 103);
-            txtFullname_AdminStudentRegistrationAdd.Margin = new Padding(3, 2, 3, 2);
-            txtFullname_AdminStudentRegistrationAdd.Name = "txtFullname_AdminStudentRegistrationAdd";
-            txtFullname_AdminStudentRegistrationAdd.Size = new Size(168, 23);
-            txtFullname_AdminStudentRegistrationAdd.TabIndex = 205;
+            txtLastname_AdminStudentRegistrationAdd.Location = new Point(461, 103);
+            txtLastname_AdminStudentRegistrationAdd.Margin = new Padding(3, 2, 3, 2);
+            txtLastname_AdminStudentRegistrationAdd.Name = "txtLastname_AdminStudentRegistrationAdd";
+            txtLastname_AdminStudentRegistrationAdd.Size = new Size(168, 23);
+            txtLastname_AdminStudentRegistrationAdd.TabIndex = 205;
             // 
             // txtFirstName_AdminStudentRegistrationAdd
             // 
@@ -364,7 +365,7 @@
             btnAdd_AdminStudentRegistrationAdd.Name = "btnAdd_AdminStudentRegistrationAdd";
             btnAdd_AdminStudentRegistrationAdd.Size = new Size(104, 32);
             btnAdd_AdminStudentRegistrationAdd.TabIndex = 232;
-            btnAdd_AdminStudentRegistrationAdd.Text = "Registrar";
+            btnAdd_AdminStudentRegistrationAdd.Text = "Register";
             btnAdd_AdminStudentRegistrationAdd.UseVisualStyleBackColor = true;
             btnAdd_AdminStudentRegistrationAdd.Click += btnAdd_AdminStudentRegistrationAdd_Click;
             // 
@@ -378,6 +379,7 @@
             btnBack_AdminStudentRegisAdd.TabIndex = 233;
             btnBack_AdminStudentRegisAdd.Text = "Back";
             btnBack_AdminStudentRegisAdd.UseVisualStyleBackColor = true;
+            btnBack_AdminStudentRegisAdd.Click += btnBack_AdminStudentRegisAdd_Click;
             // 
             // btnAdminOut4
             // 
@@ -513,12 +515,12 @@
             label1.TabIndex = 235;
             label1.Text = "Birthdate: ";
             // 
-            // dtAdminEditBirthdate
+            // dtAdminAddBirthdate
             // 
-            dtAdminEditBirthdate.Location = new Point(777, 163);
-            dtAdminEditBirthdate.Name = "dtAdminEditBirthdate";
-            dtAdminEditBirthdate.Size = new Size(200, 23);
-            dtAdminEditBirthdate.TabIndex = 236;
+            dtAdminAddBirthdate.Location = new Point(777, 163);
+            dtAdminAddBirthdate.Name = "dtAdminAddBirthdate";
+            dtAdminAddBirthdate.Size = new Size(200, 23);
+            dtAdminAddBirthdate.TabIndex = 236;
             // 
             // clbModeOfPayment_AdminStudentRegistrationAdd
             // 
@@ -563,7 +565,7 @@
             // clbRequirements_AdminStudentRegistrationAdd
             // 
             clbRequirements_AdminStudentRegistrationAdd.FormattingEnabled = true;
-            clbRequirements_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "Good Moral", "Report Card", "Birth Certificate" });
+            clbRequirements_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "Good Moral", "Form 137", "Birth Certificate" });
             clbRequirements_AdminStudentRegistrationAdd.Location = new Point(461, 396);
             clbRequirements_AdminStudentRegistrationAdd.Margin = new Padding(3, 2, 3, 2);
             clbRequirements_AdminStudentRegistrationAdd.Name = "clbRequirements_AdminStudentRegistrationAdd";
@@ -612,7 +614,7 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(lblStudentID_AdminStudentRegisAdd);
-            Controls.Add(dtAdminEditBirthdate);
+            Controls.Add(dtAdminAddBirthdate);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(btnBack_AdminStudentRegisAdd);
@@ -643,7 +645,7 @@
             Controls.Add(label9);
             Controls.Add(txtMiddleName_AdminStudentRegistrationAdd);
             Controls.Add(txtFirstName_AdminStudentRegistrationAdd);
-            Controls.Add(txtFullname_AdminStudentRegistrationAdd);
+            Controls.Add(txtLastname_AdminStudentRegistrationAdd);
             Controls.Add(label8);
             Controls.Add(btnView_AdminStudentRegisAdd);
             Margin = new Padding(3, 2, 3, 2);
@@ -663,7 +665,7 @@
 
         private Button btnView_AdminStudentRegisAdd;
         private Label label8;
-        private TextBox txtFullname_AdminStudentRegistrationAdd;
+        private TextBox txtLastname_AdminStudentRegistrationAdd;
         private TextBox txtFirstName_AdminStudentRegistrationAdd;
         private TextBox txtMiddleName_AdminStudentRegistrationAdd;
         private Label label9;
@@ -703,7 +705,7 @@
         private PictureBox pcAdminLogo4;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
-        private DateTimePicker dtAdminEditBirthdate;
+        private DateTimePicker dtAdminAddBirthdate;
         private CheckedListBox clbModeOfPayment_AdminStudentRegistrationAdd;
         private Label lblStudentID_AdminStudentRegisAdd;
         private Label label2;

@@ -19,8 +19,8 @@ namespace EventDriven.Project.UI
 
         private void lblRegistrarStudentRegistration_Click(object sender, EventArgs e)
         {
-            Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
-            regStudInfo.Show();
+            RegistrarStudentRegistration regStudReg = new RegistrarStudentRegistration();
+            regStudReg.Show();
             this.Hide();
         }
 

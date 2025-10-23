@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class Student_Registration
+    partial class RegistrarStudentRegistration_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student_Registration));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarStudentRegistration_Add));
             dtAdminEditBirthdate = new DateTimePicker();
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -69,7 +69,7 @@
             label9 = new Label();
             txtMiddleName_RegistrarStudentInformationEdit = new TextBox();
             txtFirstName_RegistrarStudentInformationEdit = new TextBox();
-            txtFullName_RegistrarStudentInformationEdit = new TextBox();
+            txtLname_RegistrarStudentInformationEdit = new TextBox();
             label8 = new Label();
             btnView_RegistrarStudentInformationEdit = new Button();
             lblStudentID_RegistrarStudentRegistrationEdit = new Label();
@@ -225,6 +225,7 @@
             btnAdminOut4.TabIndex = 9;
             btnAdminOut4.Text = "LOG OUT";
             btnAdminOut4.UseVisualStyleBackColor = true;
+            btnAdminOut4.Click += btnAdminOut4_Click;
             // 
             // btnBack_RegistrarStudentInformationEdit
             // 
@@ -236,6 +237,7 @@
             btnBack_RegistrarStudentInformationEdit.TabIndex = 147;
             btnBack_RegistrarStudentInformationEdit.Text = "Back";
             btnBack_RegistrarStudentInformationEdit.UseVisualStyleBackColor = true;
+            btnBack_RegistrarStudentInformationEdit.Click += btnBack_RegistrarStudentInformationEdit_Click;
             // 
             // btnRegister_RegistrarStudentInformationEdit
             // 
@@ -247,6 +249,7 @@
             btnRegister_RegistrarStudentInformationEdit.TabIndex = 146;
             btnRegister_RegistrarStudentInformationEdit.Text = "Register";
             btnRegister_RegistrarStudentInformationEdit.UseVisualStyleBackColor = true;
+            btnRegister_RegistrarStudentInformationEdit.Click += btnRegister_RegistrarStudentInformationEdit_Click;
             // 
             // cbStudentType_RegistrarStudentInformationEdit
             // 
@@ -491,13 +494,13 @@
             txtFirstName_RegistrarStudentInformationEdit.Size = new Size(168, 23);
             txtFirstName_RegistrarStudentInformationEdit.TabIndex = 120;
             // 
-            // txtFullName_RegistrarStudentInformationEdit
+            // txtLname_RegistrarStudentInformationEdit
             // 
-            txtFullName_RegistrarStudentInformationEdit.Location = new Point(456, 103);
-            txtFullName_RegistrarStudentInformationEdit.Margin = new Padding(3, 2, 3, 2);
-            txtFullName_RegistrarStudentInformationEdit.Name = "txtFullName_RegistrarStudentInformationEdit";
-            txtFullName_RegistrarStudentInformationEdit.Size = new Size(168, 23);
-            txtFullName_RegistrarStudentInformationEdit.TabIndex = 119;
+            txtLname_RegistrarStudentInformationEdit.Location = new Point(456, 103);
+            txtLname_RegistrarStudentInformationEdit.Margin = new Padding(3, 2, 3, 2);
+            txtLname_RegistrarStudentInformationEdit.Name = "txtLname_RegistrarStudentInformationEdit";
+            txtLname_RegistrarStudentInformationEdit.Size = new Size(168, 23);
+            txtLname_RegistrarStudentInformationEdit.TabIndex = 119;
             // 
             // label8
             // 
@@ -600,7 +603,7 @@
             txtSection_RegistrarStudRegAdd.Size = new Size(231, 23);
             txtSection_RegistrarStudRegAdd.TabIndex = 163;
             // 
-            // Student_Registration
+            // RegistrarStudentRegistration_Add
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -645,12 +648,12 @@
             Controls.Add(label9);
             Controls.Add(txtMiddleName_RegistrarStudentInformationEdit);
             Controls.Add(txtFirstName_RegistrarStudentInformationEdit);
-            Controls.Add(txtFullName_RegistrarStudentInformationEdit);
+            Controls.Add(txtLname_RegistrarStudentInformationEdit);
             Controls.Add(label8);
             Controls.Add(btnView_RegistrarStudentInformationEdit);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Student_Registration";
+            Name = "RegistrarStudentRegistration_Add";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar_StudentRegistration-Edit";
             flowLayoutPanel1.ResumeLayout(false);
@@ -701,7 +704,7 @@
         private Label label9;
         private TextBox txtMiddleName_RegistrarStudentInformationEdit;
         private TextBox txtFirstName_RegistrarStudentInformationEdit;
-        private TextBox txtFullName_RegistrarStudentInformationEdit;
+        private TextBox txtLname_RegistrarStudentInformationEdit;
         private Label label8;
         private Button btnView_RegistrarStudentInformationEdit;
         private Label lblStudentID_RegistrarStudentRegistrationEdit;
