@@ -171,7 +171,7 @@ namespace EventDriven.Project.UI
 
                 this.Hide();
                 viewForm.Show();
-                
+
             }
             else
             {
@@ -214,6 +214,13 @@ namespace EventDriven.Project.UI
 
             // Rebind the filtered results to the grid
             dtgRegistrarStudentInfoList.DataSource = new BindingSource { DataSource = filtered };
+        }
+
+        private void btnRegistrarStudRegis_Click(object sender, EventArgs e)
+        {
+            RegistrarStudentRegistration regStudReg = new RegistrarStudentRegistration();
+            regStudReg.Show();
+            this.Hide();
         }
     }
 }

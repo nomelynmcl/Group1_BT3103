@@ -152,7 +152,6 @@
             btnRegistrarAssessment.TabIndex = 4;
             btnRegistrarAssessment.Text = "ASSESSMENT";
             btnRegistrarAssessment.UseVisualStyleBackColor = true;
-
             // 
             // btnRegistrarStudRegis
             // 
@@ -165,6 +164,7 @@
             btnRegistrarStudRegis.TabIndex = 5;
             btnRegistrarStudRegis.Text = " STUDENT REGISTRATION";
             btnRegistrarStudRegis.UseVisualStyleBackColor = true;
+            btnRegistrarStudRegis.Click += btnRegistrarStudRegis_Click;
             // 
             // btnRegistrarPay
             // 
