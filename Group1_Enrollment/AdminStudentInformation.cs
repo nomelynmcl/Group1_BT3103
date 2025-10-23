@@ -183,7 +183,7 @@ namespace EventDriven.Project.UI
             this.Close();
         }
 
-       
+
         private void btnAdminStudInfoView_Click_1(object sender, EventArgs e)
         {
             if (dtgAdminStudentInfoList.CurrentRow != null)
@@ -230,6 +230,12 @@ namespace EventDriven.Project.UI
             }
         }
 
+        private void btnAdminStudreg2_Click(object sender, EventArgs e)
+        {
+            AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
+            adminStudReg.Show();
+            this.Hide();
+        }
     }
 }
 
