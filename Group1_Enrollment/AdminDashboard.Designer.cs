@@ -99,6 +99,7 @@
             lblStudentRegistration.Size = new Size(196, 60);
             lblStudentRegistration.TabIndex = 4;
             lblStudentRegistration.Text = "STUDENT REGISTRATION\r\n\r\n\r\n";
+            lblStudentRegistration.Click += lblStudentRegistration_Click;
             // 
             // lblReport
             // 

@@ -27,15 +27,11 @@ namespace EventDriven.Project.UI
             studentSearch = new List<StudentRecordModel>();
         }
 
-        private void btnAdminAssessment2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegistrarStudInfo_Add_Click(object sender, EventArgs e)
         {
             RegistrarStudentInfo_Add regStudInfo_Add = new RegistrarStudentInfo_Add();
             regStudInfo_Add.Show();
+            this.Hide();
         }
 
         private void btnRegistrarStudInfo_Edit_Click(object sender, EventArgs e)
@@ -76,6 +72,7 @@ namespace EventDriven.Project.UI
                     guardianContact,
                     studentType);
                 adStudInfo_edit.Show();
+                this.Hide();
             }
             else
             {
@@ -172,7 +169,9 @@ namespace EventDriven.Project.UI
                 studentType
             );
 
-                viewForm.ShowDialog(); // open the view form
+                this.Hide();
+                viewForm.Show();
+                
             }
             else
             {
@@ -184,6 +183,7 @@ namespace EventDriven.Project.UI
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
         private void Registrar___Student_Information_Load_1(object sender, EventArgs e)

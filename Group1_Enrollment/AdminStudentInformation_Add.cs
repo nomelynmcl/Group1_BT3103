@@ -46,6 +46,7 @@ namespace EventDriven.Project.UI
         {
             AdminStudentInformation adminStudInfo = new AdminStudentInformation();
             adminStudInfo.Show();
+            this.Close();
         }
 
         private void btnAdminAddView_Click(object sender, EventArgs e)
@@ -94,6 +95,7 @@ namespace EventDriven.Project.UI
             );
 
             viewForm.Show();
+            this.Hide();
         }
     
         
@@ -102,6 +104,7 @@ namespace EventDriven.Project.UI
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
         }
 
         private void btnAdminStudInfoAdd2_Click(object sender, EventArgs e)

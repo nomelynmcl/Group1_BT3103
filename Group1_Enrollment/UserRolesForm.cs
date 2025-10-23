@@ -26,6 +26,7 @@ namespace Group1_Enrollment
             SelectedRole = "Admin";
             LoginForm login = new LoginForm();
             login.Show();
+            this.Hide();
         }
 
         private void btnCashier_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace Group1_Enrollment
             SelectedRole = "Cashier";
             LoginForm login = new LoginForm();
             login.Show();
+            this.Hide();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace Group1_Enrollment
             SelectedRole = "Registrar";
             LoginForm login = new LoginForm();
             login.Show();
+            this.Hide();
         }
     }
 }

@@ -152,7 +152,7 @@
             btnRegistrarAssessment.TabIndex = 4;
             btnRegistrarAssessment.Text = "ASSESSMENT";
             btnRegistrarAssessment.UseVisualStyleBackColor = true;
-            btnRegistrarAssessment.Click += btnAdminAssessment2_Click;
+
             // 
             // btnRegistrarStudRegis
             // 
