@@ -138,6 +138,7 @@
             btnAdminStudreg2.TabIndex = 5;
             btnAdminStudreg2.Text = " STUDENT REGISTRATION";
             btnAdminStudreg2.UseVisualStyleBackColor = true;
+            btnAdminStudreg2.Click += btnAdminStudreg2_Click;
             // 
             // btnAdminPay2
             // 

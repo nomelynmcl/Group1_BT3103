@@ -152,7 +152,7 @@ namespace EventDriven.Project.UI
                 int gradeLevel = Convert.ToInt32(dtgRegistrarStudentInfoList.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string studentType = dtgRegistrarStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
 
-                AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
+                RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstName,
                 middleName,
                 lastName,

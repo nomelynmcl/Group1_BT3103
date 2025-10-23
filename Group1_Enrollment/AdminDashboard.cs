@@ -43,7 +43,9 @@ namespace EventDriven.Project.UI
 
         private void lblStudentRegistration_Click(object sender, EventArgs e)
         {
-
+            AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
+            adminStudReg.Show();
+            this.Hide();
         }
     }
 }

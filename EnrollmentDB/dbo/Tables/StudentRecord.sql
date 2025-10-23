@@ -16,7 +16,9 @@
     [Age] INT NOT NULL, 
     [GuardianName] NVARCHAR(50) NOT NULL, 
     [GuardianContact] NVARCHAR(50) NOT NULL, 
-    [StudentType] NVARCHAR(50) NOT NULL
+    [StudentType] NVARCHAR(50) NOT NULL, 
+    [Requirements] NVARCHAR(50) NULL, 
+    [ModeOfPayment] NVARCHAR(50) NULL
     
     
 )

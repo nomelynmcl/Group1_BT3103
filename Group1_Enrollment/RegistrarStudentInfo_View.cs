@@ -124,7 +124,7 @@ namespace EventDriven.Project.UI
         private void btnRegistrarViewCancel_Click(object sender, EventArgs e)
         {
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
-            regStudInfo.ShowDialog();
+            regStudInfo.Show();
             this.Close();
             
         }
