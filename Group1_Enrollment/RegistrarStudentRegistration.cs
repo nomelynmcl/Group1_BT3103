@@ -162,9 +162,55 @@ namespace EventDriven.Project.UI
 
         private void btnRegistrarStudReg_Edit_Click(object sender, EventArgs e)
         {
-            RegistrarStudentRegistration_Edit regStudReg_edit = new RegistrarStudentRegistration_Edit();
-            regStudReg_edit.Show();
-            this.Hide();
+            if (dtgRegistrar_StudRegList.CurrentRow != null)
+            {
+                // Get data from the c
+                int id = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Id"].Value.ToString());
+                string firstname = dtgRegistrar_StudRegList.CurrentRow.Cells["FirstName"].Value.ToString();
+                string lastname = dtgRegistrar_StudRegList.CurrentRow.Cells["LastName"].Value.ToString();
+                string middlename = dtgRegistrar_StudRegList.CurrentRow.Cells["MiddleName"].Value.ToString();
+                string contactNumber = dtgRegistrar_StudRegList.CurrentRow.Cells["ContactNumber"].Value.ToString();
+                string gender = dtgRegistrar_StudRegList.CurrentRow.Cells["Gender"].Value.ToString();
+                string barangay = dtgRegistrar_StudRegList.CurrentRow.Cells["Barangay"].Value.ToString();
+                string municipality = dtgRegistrar_StudRegList.CurrentRow.Cells["Municipality"].Value.ToString();
+                string province = dtgRegistrar_StudRegList.CurrentRow.Cells["Province"].Value.ToString();
+                int gradeLevel = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["GradeLevel"].Value);
+                DateTime birthdate = Convert.ToDateTime(dtgRegistrar_StudRegList.CurrentRow.Cells["Birthdate"].Value.ToString());
+                int age = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Age"].Value.ToString());
+                string guardian = dtgRegistrar_StudRegList.CurrentRow.Cells["GuardianName"].Value.ToString();
+                string guardianContact = dtgRegistrar_StudRegList.CurrentRow.Cells["GuardianContact"].Value.ToString();
+                string studentType = dtgRegistrar_StudRegList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string section = dtgRegistrar_StudRegList.CurrentRow.Cells["Section"].Value.ToString();
+                string requirements = dtgRegistrar_StudRegList.CurrentRow.Cells["Requirements"].Value.ToString();
+                string modeOfPayment = dtgRegistrar_StudRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
+
+                RegistrarStudentRegistration_Edit adStudReg_edit = new RegistrarStudentRegistration_Edit(
+                    id,
+                    firstname,
+                    lastname,
+                    middlename,
+                    contactNumber,
+                    gender,
+                    age,
+                    birthdate,
+                    barangay,
+                    municipality,
+                    province,
+                    gradeLevel,
+                    guardian,
+                    guardianContact,
+                    studentType,
+                    section,
+                    requirements,
+                    modeOfPayment);
+                adStudReg_edit.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Select a student record first.");
+            }
+            ;
         }
 
         private void btnRegistrarStudReg_View_Click(object sender, EventArgs e)

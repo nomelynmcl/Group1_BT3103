@@ -79,7 +79,7 @@
             label6 = new Label();
             clbModeOfPayment_RegistrarStudentInformationEdit = new CheckedListBox();
             label3 = new Label();
-            txtSection_RegistrarStudRegAdd = new TextBox();
+            lbRegistrarStudReg_Add = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -595,13 +595,15 @@
             label3.TabIndex = 162;
             label3.Text = "Section:";
             // 
-            // txtSection_RegistrarStudRegAdd
+            // lbRegistrarStudReg_Add
             // 
-            txtSection_RegistrarStudRegAdd.Location = new Point(741, 354);
-            txtSection_RegistrarStudRegAdd.Margin = new Padding(3, 2, 3, 2);
-            txtSection_RegistrarStudRegAdd.Name = "txtSection_RegistrarStudRegAdd";
-            txtSection_RegistrarStudRegAdd.Size = new Size(231, 23);
-            txtSection_RegistrarStudRegAdd.TabIndex = 163;
+            lbRegistrarStudReg_Add.AutoSize = true;
+            lbRegistrarStudReg_Add.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRegistrarStudReg_Add.Location = new Point(763, 355);
+            lbRegistrarStudReg_Add.Name = "lbRegistrarStudReg_Add";
+            lbRegistrarStudReg_Add.Size = new Size(88, 17);
+            lbRegistrarStudReg_Add.TabIndex = 245;
+            lbRegistrarStudReg_Add.Text = "<<Section>>";
             // 
             // RegistrarStudentRegistration_Add
             // 
@@ -609,7 +611,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
-            Controls.Add(txtSection_RegistrarStudRegAdd);
+            Controls.Add(lbRegistrarStudReg_Add);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_RegistrarStudentInformationEdit);
             Controls.Add(label6);
@@ -655,7 +657,7 @@
             MinimizeBox = false;
             Name = "RegistrarStudentRegistration_Add";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar_StudentRegistration-Edit";
+            Text = "Add - Student Registrar";
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).EndInit();
@@ -714,6 +716,6 @@
         private Label label6;
         private CheckedListBox clbModeOfPayment_RegistrarStudentInformationEdit;
         private Label label3;
-        private TextBox txtSection_RegistrarStudRegAdd;
+        private Label lbRegistrarStudReg_Add;
     }
 }
