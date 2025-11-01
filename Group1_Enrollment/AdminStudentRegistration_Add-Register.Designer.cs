@@ -79,7 +79,7 @@
             clbRequirements_AdminStudentRegistrationAdd = new CheckedListBox();
             label6 = new Label();
             label3 = new Label();
-            txtSectionAdmin_StudReg = new TextBox();
+            lbAdminStudReg_SectionAdd = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -592,13 +592,15 @@
             label3.TabIndex = 244;
             label3.Text = "Section:";
             // 
-            // txtSectionAdmin_StudReg
+            // lbAdminStudReg_SectionAdd
             // 
-            txtSectionAdmin_StudReg.Location = new Point(742, 354);
-            txtSectionAdmin_StudReg.Margin = new Padding(3, 2, 3, 2);
-            txtSectionAdmin_StudReg.Name = "txtSectionAdmin_StudReg";
-            txtSectionAdmin_StudReg.Size = new Size(235, 23);
-            txtSectionAdmin_StudReg.TabIndex = 245;
+            lbAdminStudReg_SectionAdd.AutoSize = true;
+            lbAdminStudReg_SectionAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAdminStudReg_SectionAdd.Location = new Point(762, 358);
+            lbAdminStudReg_SectionAdd.Name = "lbAdminStudReg_SectionAdd";
+            lbAdminStudReg_SectionAdd.Size = new Size(88, 17);
+            lbAdminStudReg_SectionAdd.TabIndex = 245;
+            lbAdminStudReg_SectionAdd.Text = "<<Section>>";
             // 
             // AdminStudentRegistration_Add
             // 
@@ -606,7 +608,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
-            Controls.Add(txtSectionAdmin_StudReg);
+            Controls.Add(lbAdminStudReg_SectionAdd);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_AdminStudentRegistrationAdd);
             Controls.Add(label6);
@@ -653,7 +655,7 @@
             MinimizeBox = false;
             Name = "AdminStudentRegistration_Add";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AdminStudentRegistration_Add";
+            Text = "Add - Student Registration";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
@@ -713,6 +715,6 @@
         private CheckedListBox clbRequirements_AdminStudentRegistrationAdd;
         private Label label6;
         private Label label3;
-        private TextBox txtSectionAdmin_StudReg;
+        private Label lbAdminStudReg_SectionAdd;
     }
 }

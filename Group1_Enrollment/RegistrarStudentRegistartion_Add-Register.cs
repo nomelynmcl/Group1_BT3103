@@ -15,6 +15,7 @@ namespace EventDriven.Project.UI
     public partial class RegistrarStudentRegistration_Add : Form
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
+        private bool isEdited = false;
 
         public RegistrarStudentRegistration_Add(
             int studentId,
@@ -54,7 +55,7 @@ namespace EventDriven.Project.UI
             txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text = guardianContact;
             cbStudentType_RegistrarStudentInformationEdit.Text = studentType;
 
-            txtSection_RegistrarStudRegAdd.Text = GetSectionByGradeLevel(gradeLevel);
+            lbRegistrarStudReg_Add.Text = GetSectionByGradeLevel(gradeLevel);
 
             if (!string.IsNullOrEmpty(requirements))
             {
@@ -76,6 +77,29 @@ namespace EventDriven.Project.UI
                         clbModeOfPayment_RegistrarStudentInformationEdit.SetItemChecked(i, true);
                 }
             }
+
+            //Detect when any field is edited
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                    (ctrl as TextBox).TextChanged += (s, e) => isEdited = true;
+                else if (ctrl is ComboBox)
+                    (ctrl as ComboBox).SelectedIndexChanged += (s, e) => isEdited = true;
+                else if (ctrl is CheckedListBox)
+                    (ctrl as CheckedListBox).ItemCheck += (s, e) => isEdited = true;
+                else if (ctrl is DateTimePicker)
+                    (ctrl as DateTimePicker).ValueChanged += (s, e) => isEdited = true;
+            }
+
+            // Auto-change section when grade level changes
+            cbYearLevel_RegistrarStudentInformationEdit.SelectedIndexChanged += (s, e) =>
+            {
+                if (int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.Text, out int selectedGrade))
+                {
+                    cbYearLevel_RegistrarStudentInformationEdit.Text = GetSectionByGradeLevel(selectedGrade);
+                    isEdited = true; // Mark as edited
+                }
+            };
         }
 
         public string GetSectionByGradeLevel(int gradeLevel)
@@ -117,9 +141,35 @@ namespace EventDriven.Project.UI
 
         private void btnBack_RegistrarStudentInformationEdit_Click(object sender, EventArgs e)
         {
-            RegistrarStudentRegistration regStudReg = new RegistrarStudentRegistration();
-            regStudReg.Show();
-            this.Close();
+            if (isEdited)
+            {
+                DialogResult result = MessageBox.Show(
+                    "You have unsaved changes. Do you want to save before going back?",
+                    "Unsaved Changes",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    btnRegister_RegistrarStudentInformationEdit.PerformClick(); // Save first
+                    RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
+                    registrarStudentRegistration.Show();
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
+                    registrarStudentRegistration.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
+                registrarStudentRegistration.Show();
+                this.Close();
+            }
         }
 
         private void btnAdminOut4_Click(object sender, EventArgs e)
