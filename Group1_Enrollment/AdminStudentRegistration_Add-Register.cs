@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EventDriven.Project.UI
 {
@@ -17,7 +9,7 @@ namespace EventDriven.Project.UI
         private bool isEdited = false;
 
         public AdminStudentRegistration_Add(
-            int studentId,
+            int id,
             string lastname,
             string firstname,
             string middlename,
@@ -38,7 +30,7 @@ namespace EventDriven.Project.UI
         {
             InitializeComponent();
 
-            lblStudentID_AdminStudentRegisAdd.Text = studentId.ToString();
+            lblStudentID_AdminStudentRegisAdd.Text = id.ToString();
             txtLastname_AdminStudentRegistrationAdd.Text = lastname;
             txtFirstName_AdminStudentRegistrationAdd.Text = firstname;
             txtMiddleName_AdminStudentRegistrationAdd.Text = middlename;
@@ -77,13 +69,26 @@ namespace EventDriven.Project.UI
                 }
             }
 
+            // Allow only one selection for Mode of Payment
+            clbModeOfPayment_AdminStudentRegistrationAdd.ItemCheck += (s, e) =>
+            {
+                if (e.NewValue == CheckState.Checked)
+                {
+                    for (int i = 0; i < clbModeOfPayment_AdminStudentRegistrationAdd.Items.Count; i++)
+                    {
+                        if (i != e.Index)
+                            clbModeOfPayment_AdminStudentRegistrationAdd.SetItemChecked(i, false);
+                    }
+                }
+            };
+
             //Detect when any field is edited
             foreach (Control ctrl in this.Controls)
             {
-                if (ctrl is TextBox)
-                    (ctrl as TextBox).TextChanged += (s, e) => isEdited = true;
-                else if (ctrl is ComboBox)
-                    (ctrl as ComboBox).SelectedIndexChanged += (s, e) => isEdited = true;
+                if (ctrl is System.Windows.Forms.TextBox)
+                    (ctrl as System.Windows.Forms.TextBox).TextChanged += (s, e) => isEdited = true;
+                else if (ctrl is System.Windows.Forms.ComboBox)
+                    (ctrl as System.Windows.Forms.ComboBox).SelectedIndexChanged += (s, e) => isEdited = true;
                 else if (ctrl is CheckedListBox)
                     (ctrl as CheckedListBox).ItemCheck += (s, e) => isEdited = true;
                 else if (ctrl is DateTimePicker)
@@ -129,7 +134,7 @@ namespace EventDriven.Project.UI
             string newStudentType = cbStudentType_AdminStudentRegistrationAdd.Text.Trim();
             string newAge = txtAge_AdminStudentRegistrationAdd.Text.Trim();
             DateTime newBirthdate = dtAdminAddBirthdate.Value;
-            string studentId = lblStudentID_AdminStudentRegisAdd.Text.Trim();
+            int id = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text.Trim());
 
             string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
 
@@ -173,7 +178,6 @@ namespace EventDriven.Project.UI
                 {
                     cmd.Parameters.AddWithValue("@Requirements", requirements);
                     cmd.Parameters.AddWithValue("@ModeOfPayment", modeOfPayment);
-                    cmd.Parameters.AddWithValue("@StudentID", studentId);
                     cmd.Parameters.AddWithValue("@LastName", newLastName);
                     cmd.Parameters.AddWithValue("@FirstName", newFirstName);
                     cmd.Parameters.AddWithValue("@MiddleName", newMiddleName);
@@ -186,7 +190,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@GuardianContact", newGuardianContact);
                     cmd.Parameters.AddWithValue("@GradeLevel", newYearLevel);
                     cmd.Parameters.AddWithValue("@StudentType", newStudentType);
-                    cmd.Parameters.AddWithValue("@Id", studentId);
+                    cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@Age", newAge);
                     cmd.Parameters.AddWithValue("@Birthdate", newBirthdate);
                     cmd.Parameters.AddWithValue("@Section", section);
@@ -251,7 +255,62 @@ namespace EventDriven.Project.UI
 
         private void btnView_AdminStudentRegisAdd_Click(object sender, EventArgs e)
         {
-            AdminStudentRegistration_View adminStudReg_view = new AdminStudentRegistration_View();
+            if (string.IsNullOrWhiteSpace(txtAge_AdminStudentRegistrationAdd.Text) || !int.TryParse(txtAge_AdminStudentRegistrationAdd.Text, out int age))
+            {
+                MessageBox.Show("⚠ Please enter a valid age.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate grade level
+            if (cbYearLevel_AdminStudentRegistrationAdd.SelectedItem == null || !int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.SelectedItem.ToString(), out int gradeLevel))
+            {
+                MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int id = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text.Trim());
+            string firstName = txtFirstName_AdminStudentRegistrationAdd.Text.Trim();
+            string middleName = txtMiddleName_AdminStudentRegistrationAdd.Text.Trim();
+            string lastName = txtLastname_AdminStudentRegistrationAdd.Text.Trim();
+            DateTime birthdate = dtAdminAddBirthdate.Value;
+            string gender = cbGender_AdminStudentRegistrationAdd.SelectedItem.ToString();
+            string barangay = txtBarangay_AdminStudentRegistrationAdd.Text.Trim();
+            string municipality = txtMunicipality_AdminStudentRegistrationAdd.Text.Trim();
+            string province = txtProvince_AdminStudentRegistrationAdd.Text.Trim();
+            string contactNumber = txtContactNumber_AdminStudentRegistrationAdd.Text.Trim();
+            string guardianName = txtGuardianName_AdminStudentRegistrationAdd.Text.Trim();
+            string guardianContact = txtGuardianContactNumber_AdminStudentRegistrationAdd.Text.Trim();
+            string studentType = cbStudentType_AdminStudentRegistrationAdd.SelectedItem.ToString();
+            string section = lbAdminStudReg_SectionAdd.Text.Trim();
+
+            // Collect all checked items for Requirements
+            string requirements = string.Join(", ",
+                clbRequirements_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
+
+            // Collect all checked items for Mode of Payment
+            string modeOfPayment = string.Join(", ",
+                clbModeOfPayment_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
+
+
+            AdminStudentRegistration_View adminStudReg_view = new AdminStudentRegistration_View(
+                id,
+                firstName,
+                middleName,
+                lastName,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType,
+                section,
+                requirements,
+                modeOfPayment);
             adminStudReg_view.Show();
             this.Hide();
         }

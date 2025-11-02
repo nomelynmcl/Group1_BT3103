@@ -174,10 +174,56 @@ namespace EventDriven.Project.UI
 
         private void btnView_StudentRegistration_Admin_Click(object sender, EventArgs e)
         {
-            AdminStudentRegistration_View adminStudReg_edit = new AdminStudentRegistration_View();
-            adminStudReg_edit.Show();
+            int id = Convert.ToInt32(lblStudentID_AdminStudentRegis.Text.Trim());
+            string firstname = txtFirstName_AdminStudentRegistration.Text.Trim();
+            string middlename = txtMiddleName_AdminStudentRegistration.Text.Trim();
+            string lastname = txtLname_AdminStudentRegistration.Text.Trim();
+            int age = int.Parse(txtAge_AdminStudentRegistration.Text.Trim());
+            DateTime birthdate = dtAdminEditBirthdate.Value;
+            string gender = cbGender_AdminStudentRegistration.Text.Trim();
+            string barangay = txtBarangay_AdminStudentRegistration.Text.Trim();
+            string municipality = txtMunicipality_AdminStudentRegistration.Text.Trim();
+            string province = txtProvince_AdminStudentRegistration.Text.Trim();
+            string contactNumber = txtContactNumber_AdminStudentRegistration.Text.Trim();
+            string guardianName = txtGuardianName_AdminStudentRegistration.Text.Trim();
+            string guardianContact = txtGuardianContactNumber_AdminStudentRegistrationEdit.Text.Trim();
+            int gradeLevel = Convert.ToInt32(cbYearLevel_AdminStudentRegistration.Text.Trim());
+            string studentType = cbStudentType_AdminStudentRegistration.Text.Trim();
+            string section = lbAdminStudReg_SectionEdit.Text.Trim();
+
+            // Collect all checked items for Requirements
+            string requirements = string.Join(", ",
+                clbRequirements_AdminStudentRegistration.CheckedItems.Cast<string>());
+
+            // Collect all checked items for Mode of Payment
+            string modeOfPayment = string.Join(", ",
+                clbModeOfPayment_AdminStudentRegistration.CheckedItems.Cast<string>());
+
+            AdminStudentRegistration_View viewForm = new AdminStudentRegistration_View(
+                id,
+                firstname,
+                middlename,
+                lastname,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType,
+                section,
+                requirements,
+                modeOfPayment
+            );
+
+            viewForm.Show();
             this.Hide();
         }
+        
 
         private void btnAdminStudentInformation4_Click(object sender, EventArgs e)
         {

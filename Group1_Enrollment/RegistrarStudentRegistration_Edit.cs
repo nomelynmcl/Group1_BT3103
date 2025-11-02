@@ -322,8 +322,53 @@ namespace EventDriven.Project.UI
 
         private void btnView_RegistrarRegistration_Admin_Click(object sender, EventArgs e)
         {
-            RegistrarStudentRegistration_View regStudReg_view = new RegistrarStudentRegistration_View();
-            regStudReg_view.Show();
+            int id = Convert.ToInt32(lblStudentID_RegistrarStudentRegis.Text.Trim());
+            string firstname = txtFirstName_RegistrarStudentRegistration.Text.Trim();
+            string middlename = txtMiddleName_RegistrarStudentRegistration.Text.Trim();
+            string lastname = txtLastname_RegistrarStudentRegistration.Text.Trim();
+            int age = int.Parse(txtAge_RegistrarStudentRegistration.Text.Trim());
+            DateTime birthdate = dtEdit_RegistrarBirthdate.Value;
+            string gender = cbGender_RegistrarStudentRegistration.Text.Trim();
+            string barangay = txtBarangay_RegistrarStudentRegistration.Text.Trim();
+            string municipality = txtMunicipality_RegistrarStudentRegistration.Text.Trim();
+            string province = txtProvince_RegistrarStudentRegistration.Text.Trim();
+            string contactNumber = txtContactNumber_RegistrarStudentRegistration.Text.Trim();
+            string guardianName = txtGuardianName_RegistrarStudentRegistration.Text.Trim();
+            string guardianContact = txtGuardianContact_StudRegEditRegistrar.Text.Trim();
+            int gradeLevel = Convert.ToInt32(cbYearLevel_RegistrarStudentRegistration.Text.Trim());
+            string studentType = cbStudentType_RegistrarStudentRegistration.Text.Trim();
+            string section = lbSection_StudRegEditRegistrar.Text.Trim();
+
+            // Collect all checked items for Requirements
+            string requirements = string.Join(", ",
+                clbRequirements_RegistrarStudentRegistration.CheckedItems.Cast<string>());
+
+            // Collect all checked items for Mode of Payment
+            string modeOfPayment = string.Join(", ",
+                clbModeOfPayment_RegistrarStudentRegistration .CheckedItems.Cast<string>());
+
+            RegistrarStudentRegistration_View viewForm = new RegistrarStudentRegistration_View(
+                id,
+                firstname,
+                middlename,
+                lastname,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType,
+                section,
+                requirements,
+                modeOfPayment
+            );
+
+            viewForm.Show();
             this.Hide();
         }
     }

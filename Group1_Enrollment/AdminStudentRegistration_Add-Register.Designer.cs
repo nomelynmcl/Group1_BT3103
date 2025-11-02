@@ -330,7 +330,7 @@
             // cbYearLevel_AdminStudentRegistrationAdd
             // 
             cbYearLevel_AdminStudentRegistrationAdd.FormattingEnabled = true;
-            cbYearLevel_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
+            cbYearLevel_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "7", "8", "9", "10" });
             cbYearLevel_AdminStudentRegistrationAdd.Location = new Point(461, 354);
             cbYearLevel_AdminStudentRegistrationAdd.Margin = new Padding(3, 2, 3, 2);
             cbYearLevel_AdminStudentRegistrationAdd.Name = "cbYearLevel_AdminStudentRegistrationAdd";
