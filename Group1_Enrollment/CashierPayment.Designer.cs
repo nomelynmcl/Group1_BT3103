@@ -39,7 +39,6 @@
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -52,25 +51,22 @@
             CashierDate_LBL = new Label();
             label7 = new Label();
             label8 = new Label();
-            CashierOB_LBL = new Label();
-            CashierPB_LBL = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            CashierMisc_LBL = new Label();
-            CashierTF_LBL = new Label();
-            CashierTotalAD_LBL = new Label();
-            CashierOT_LBL = new Label();
             CashierChange_LBL = new Label();
             label19 = new Label();
             CashierConfirmPayment = new Button();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            label5 = new Label();
+            CashierPayment_LBL = new Label();
+            label9 = new Label();
+            CashierCompute_BTN = new Button();
+            CashierCancel_BTN = new Button();
+            CashierView_BTN = new Button();
+            label6 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -92,6 +88,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(pcAdminLogo2);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
@@ -198,46 +195,40 @@
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 87;
-            label1.Text = "label1";
-            // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(277, 25);
             label2.Name = "label2";
-            label2.Size = new Size(65, 15);
+            label2.Size = new Size(71, 15);
             label2.TabIndex = 88;
             label2.Text = "Student ID:";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(277, 55);
             label3.Name = "label3";
-            label3.Size = new Size(86, 15);
+            label3.Size = new Size(91, 15);
             label3.TabIndex = 89;
             label3.Text = "Student Name:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(277, 124);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(572, 128);
             label4.Name = "label4";
-            label4.Size = new Size(102, 15);
+            label4.Size = new Size(103, 15);
             label4.TabIndex = 90;
-            label4.Text = "Payment Method:";
+            label4.Text = "Payment Method";
             // 
             // Cashier_CashCheckBox
             // 
             Cashier_CashCheckBox.AutoSize = true;
-            Cashier_CashCheckBox.Location = new Point(385, 124);
+            Cashier_CashCheckBox.Location = new Point(572, 153);
             Cashier_CashCheckBox.Name = "Cashier_CashCheckBox";
             Cashier_CashCheckBox.Size = new Size(52, 19);
             Cashier_CashCheckBox.TabIndex = 91;
@@ -247,7 +238,7 @@
             // Cashier_LowDPCheckBox
             // 
             Cashier_LowDPCheckBox.AutoSize = true;
-            Cashier_LowDPCheckBox.Location = new Point(453, 124);
+            Cashier_LowDPCheckBox.Location = new Point(572, 179);
             Cashier_LowDPCheckBox.Name = "Cashier_LowDPCheckBox";
             Cashier_LowDPCheckBox.Size = new Size(132, 19);
             Cashier_LowDPCheckBox.TabIndex = 92;
@@ -257,7 +248,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(591, 124);
+            checkBox1.Location = new Point(572, 206);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(146, 19);
             checkBox1.TabIndex = 93;
@@ -294,7 +285,7 @@
             // CashierDate_LBL
             // 
             CashierDate_LBL.AutoSize = true;
-            CashierDate_LBL.Location = new Point(639, 25);
+            CashierDate_LBL.Location = new Point(612, 25);
             CashierDate_LBL.Name = "CashierDate_LBL";
             CashierDate_LBL.Size = new Size(82, 15);
             CashierDate_LBL.TabIndex = 98;
@@ -303,142 +294,27 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(277, 83);
             label7.Name = "label7";
-            label7.Size = new Size(106, 15);
+            label7.Size = new Size(114, 15);
             label7.TabIndex = 97;
             label7.Text = "Year Level/Section:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(599, 25);
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(572, 25);
             label8.Name = "label8";
-            label8.Size = new Size(34, 15);
+            label8.Size = new Size(37, 15);
             label8.TabIndex = 96;
             label8.Text = "Date:";
-            // 
-            // CashierOB_LBL
-            // 
-            CashierOB_LBL.AutoSize = true;
-            CashierOB_LBL.Location = new Point(409, 171);
-            CashierOB_LBL.Name = "CashierOB_LBL";
-            CashierOB_LBL.Size = new Size(28, 15);
-            CashierOB_LBL.TabIndex = 100;
-            CashierOB_LBL.Text = "0.00";
-            // 
-            // CashierPB_LBL
-            // 
-            CashierPB_LBL.AutoSize = true;
-            CashierPB_LBL.Location = new Point(411, 204);
-            CashierPB_LBL.Name = "CashierPB_LBL";
-            CashierPB_LBL.Size = new Size(28, 15);
-            CashierPB_LBL.TabIndex = 101;
-            CashierPB_LBL.Text = "0.00";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(281, 204);
-            label9.Name = "label9";
-            label9.Size = new Size(99, 15);
-            label9.TabIndex = 103;
-            label9.Text = "Previous Balance:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(277, 171);
-            label10.Name = "label10";
-            label10.Size = new Size(120, 15);
-            label10.TabIndex = 102;
-            label10.Text = "Outstanding Balance:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(280, 231);
-            label5.Name = "label5";
-            label5.Size = new Size(90, 15);
-            label5.TabIndex = 104;
-            label5.Text = "Fee Breakdown:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(305, 288);
-            label6.Name = "label6";
-            label6.Size = new Size(85, 15);
-            label6.TabIndex = 106;
-            label6.Text = "Miscellaneous:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(298, 258);
-            label11.Name = "label11";
-            label11.Size = new Size(68, 15);
-            label11.TabIndex = 105;
-            label11.Text = "Tuition Fee:";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(315, 317);
-            label12.Name = "label12";
-            label12.Size = new Size(66, 15);
-            label12.TabIndex = 107;
-            label12.Text = "Other Fees:";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(280, 363);
-            label13.Name = "label13";
-            label13.Size = new Size(106, 15);
-            label13.TabIndex = 108;
-            label13.Text = "Total Amount Due:";
-            // 
-            // CashierMisc_LBL
-            // 
-            CashierMisc_LBL.AutoSize = true;
-            CashierMisc_LBL.Location = new Point(409, 288);
-            CashierMisc_LBL.Name = "CashierMisc_LBL";
-            CashierMisc_LBL.Size = new Size(28, 15);
-            CashierMisc_LBL.TabIndex = 110;
-            CashierMisc_LBL.Text = "0.00";
-            // 
-            // CashierTF_LBL
-            // 
-            CashierTF_LBL.AutoSize = true;
-            CashierTF_LBL.Location = new Point(409, 258);
-            CashierTF_LBL.Name = "CashierTF_LBL";
-            CashierTF_LBL.Size = new Size(28, 15);
-            CashierTF_LBL.TabIndex = 109;
-            CashierTF_LBL.Text = "0.00";
-            // 
-            // CashierTotalAD_LBL
-            // 
-            CashierTotalAD_LBL.AutoSize = true;
-            CashierTotalAD_LBL.Location = new Point(409, 363);
-            CashierTotalAD_LBL.Name = "CashierTotalAD_LBL";
-            CashierTotalAD_LBL.Size = new Size(28, 15);
-            CashierTotalAD_LBL.TabIndex = 112;
-            CashierTotalAD_LBL.Text = "0.00";
-            // 
-            // CashierOT_LBL
-            // 
-            CashierOT_LBL.AutoSize = true;
-            CashierOT_LBL.Location = new Point(409, 315);
-            CashierOT_LBL.Name = "CashierOT_LBL";
-            CashierOT_LBL.Size = new Size(28, 15);
-            CashierOT_LBL.TabIndex = 111;
-            CashierOT_LBL.Text = "0.00";
             // 
             // CashierChange_LBL
             // 
             CashierChange_LBL.AutoSize = true;
-            CashierChange_LBL.Location = new Point(409, 396);
+            CashierChange_LBL.Location = new Point(653, 396);
             CashierChange_LBL.Name = "CashierChange_LBL";
             CashierChange_LBL.Size = new Size(28, 15);
             CashierChange_LBL.TabIndex = 114;
@@ -447,42 +323,123 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(281, 396);
+            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(525, 396);
             label19.Name = "label19";
-            label19.Size = new Size(51, 15);
+            label19.Size = new Size(99, 15);
             label19.TabIndex = 113;
-            label19.Text = "Change:";
+            label19.Text = "Amount Change:";
             // 
             // CashierConfirmPayment
             // 
-            CashierConfirmPayment.Location = new Point(441, 461);
+            CashierConfirmPayment.Location = new Point(380, 461);
             CashierConfirmPayment.Name = "CashierConfirmPayment";
             CashierConfirmPayment.Size = new Size(110, 37);
             CashierConfirmPayment.TabIndex = 115;
             CashierConfirmPayment.Text = "Confirm Payment";
             CashierConfirmPayment.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(277, 128);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 15);
+            label1.TabIndex = 116;
+            label1.Text = "Payment Details";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(277, 144);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(289, 178);
+            dataGridView1.TabIndex = 117;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(277, 348);
+            label5.Name = "label5";
+            label5.Size = new Size(56, 15);
+            label5.TabIndex = 118;
+            label5.Text = "Payment";
+            // 
+            // CashierPayment_LBL
+            // 
+            CashierPayment_LBL.AutoSize = true;
+            CashierPayment_LBL.Location = new Point(420, 396);
+            CashierPayment_LBL.Name = "CashierPayment_LBL";
+            CashierPayment_LBL.Size = new Size(28, 15);
+            CashierPayment_LBL.TabIndex = 120;
+            CashierPayment_LBL.Text = "0.00";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(292, 396);
+            label9.Name = "label9";
+            label9.Size = new Size(59, 15);
+            label9.TabIndex = 119;
+            label9.Text = "Payment:";
+            // 
+            // CashierCompute_BTN
+            // 
+            CashierCompute_BTN.Location = new Point(264, 461);
+            CashierCompute_BTN.Name = "CashierCompute_BTN";
+            CashierCompute_BTN.Size = new Size(110, 37);
+            CashierCompute_BTN.TabIndex = 121;
+            CashierCompute_BTN.Text = "Compute";
+            CashierCompute_BTN.UseVisualStyleBackColor = true;
+            // 
+            // CashierCancel_BTN
+            // 
+            CashierCancel_BTN.Location = new Point(505, 461);
+            CashierCancel_BTN.Name = "CashierCancel_BTN";
+            CashierCancel_BTN.Size = new Size(110, 37);
+            CashierCancel_BTN.TabIndex = 122;
+            CashierCancel_BTN.Text = "Cancel";
+            CashierCancel_BTN.UseVisualStyleBackColor = true;
+            // 
+            // CashierView_BTN
+            // 
+            CashierView_BTN.Location = new Point(622, 461);
+            CashierView_BTN.Name = "CashierView_BTN";
+            CashierView_BTN.Size = new Size(110, 37);
+            CashierView_BTN.TabIndex = 123;
+            CashierView_BTN.Text = "View Reciept";
+            CashierView_BTN.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(84, 115);
+            label6.Name = "label6";
+            label6.Size = new Size(73, 20);
+            label6.TabIndex = 124;
+            label6.Text = "CASHIER";
+            // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(744, 522);
+            Controls.Add(CashierView_BTN);
+            Controls.Add(CashierCancel_BTN);
+            Controls.Add(CashierCompute_BTN);
+            Controls.Add(CashierPayment_LBL);
+            Controls.Add(label9);
+            Controls.Add(label5);
+            Controls.Add(dataGridView1);
+            Controls.Add(label1);
             Controls.Add(CashierConfirmPayment);
             Controls.Add(CashierChange_LBL);
             Controls.Add(label19);
-            Controls.Add(CashierTotalAD_LBL);
-            Controls.Add(CashierOT_LBL);
-            Controls.Add(CashierMisc_LBL);
-            Controls.Add(CashierTF_LBL);
-            Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label6);
-            Controls.Add(label11);
-            Controls.Add(label5);
-            Controls.Add(label9);
-            Controls.Add(label10);
-            Controls.Add(CashierPB_LBL);
-            Controls.Add(CashierOB_LBL);
             Controls.Add(CashierYLSection_LBL);
             Controls.Add(CashierDate_LBL);
             Controls.Add(label7);
@@ -495,7 +452,6 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -505,7 +461,9 @@
             Load += CashierPayment_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -522,7 +480,6 @@
         private Button btnAdminHistory2;
         private Button btnAdminReport2;
         private Button btnAdminOut2;
-        private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -535,21 +492,17 @@
         private Label CashierDate_LBL;
         private Label label7;
         private Label label8;
-        private Label CashierOB_LBL;
-        private Label CashierPB_LBL;
-        private Label label9;
-        private Label label10;
-        private Label label5;
-        private Label label6;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private Label CashierMisc_LBL;
-        private Label CashierTF_LBL;
-        private Label CashierTotalAD_LBL;
-        private Label CashierOT_LBL;
         private Label CashierChange_LBL;
         private Label label19;
         private Button CashierConfirmPayment;
+        private Label label1;
+        private DataGridView dataGridView1;
+        private Label label5;
+        private Label CashierPayment_LBL;
+        private Label label9;
+        private Button CashierCompute_BTN;
+        private Button CashierCancel_BTN;
+        private Button CashierView_BTN;
+        private Label label6;
     }
 }
