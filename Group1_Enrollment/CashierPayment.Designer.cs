@@ -44,7 +44,7 @@
             label4 = new Label();
             Cashier_CashCheckBox = new CheckBox();
             Cashier_LowDPCheckBox = new CheckBox();
-            checkBox1 = new CheckBox();
+            Cashier_LowMCheckBox = new CheckBox();
             CashierStuName_LBL = new Label();
             CashierStuID_LBL = new Label();
             CashierYLSection_LBL = new Label();
@@ -55,7 +55,7 @@
             label19 = new Label();
             CashierConfirmPayment = new Button();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            CashierPayment_GridView = new DataGridView();
             label5 = new Label();
             CashierPayment_LBL = new Label();
             label9 = new Label();
@@ -66,7 +66,7 @@
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CashierPayment_GridView).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -245,15 +245,15 @@
             Cashier_LowDPCheckBox.Text = "Low Down Payment";
             Cashier_LowDPCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // Cashier_LowMCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(572, 206);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(146, 19);
-            checkBox1.TabIndex = 93;
-            checkBox1.Text = "Low Monthly Payment";
-            checkBox1.UseVisualStyleBackColor = true;
+            Cashier_LowMCheckBox.AutoSize = true;
+            Cashier_LowMCheckBox.Location = new Point(572, 206);
+            Cashier_LowMCheckBox.Name = "Cashier_LowMCheckBox";
+            Cashier_LowMCheckBox.Size = new Size(146, 19);
+            Cashier_LowMCheckBox.TabIndex = 93;
+            Cashier_LowMCheckBox.Text = "Low Monthly Payment";
+            Cashier_LowMCheckBox.UseVisualStyleBackColor = true;
             // 
             // CashierStuName_LBL
             // 
@@ -349,13 +349,13 @@
             label1.TabIndex = 116;
             label1.Text = "Payment Details";
             // 
-            // dataGridView1
+            // CashierPayment_GridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(277, 144);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(289, 178);
-            dataGridView1.TabIndex = 117;
+            CashierPayment_GridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CashierPayment_GridView.Location = new Point(277, 144);
+            CashierPayment_GridView.Name = "CashierPayment_GridView";
+            CashierPayment_GridView.Size = new Size(289, 178);
+            CashierPayment_GridView.TabIndex = 117;
             // 
             // label5
             // 
@@ -435,7 +435,7 @@
             Controls.Add(CashierPayment_LBL);
             Controls.Add(label9);
             Controls.Add(label5);
-            Controls.Add(dataGridView1);
+            Controls.Add(CashierPayment_GridView);
             Controls.Add(label1);
             Controls.Add(CashierConfirmPayment);
             Controls.Add(CashierChange_LBL);
@@ -446,7 +446,7 @@
             Controls.Add(label8);
             Controls.Add(CashierStuName_LBL);
             Controls.Add(CashierStuID_LBL);
-            Controls.Add(checkBox1);
+            Controls.Add(Cashier_LowMCheckBox);
             Controls.Add(Cashier_LowDPCheckBox);
             Controls.Add(Cashier_CashCheckBox);
             Controls.Add(label4);
@@ -463,7 +463,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CashierPayment_GridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -485,7 +485,7 @@
         private Label label4;
         private CheckBox Cashier_CashCheckBox;
         private CheckBox Cashier_LowDPCheckBox;
-        private CheckBox checkBox1;
+        private CheckBox Cashier_LowMCheckBox;
         private Label CashierStuName_LBL;
         private Label CashierStuID_LBL;
         private Label CashierYLSection_LBL;
@@ -496,7 +496,7 @@
         private Label label19;
         private Button CashierConfirmPayment;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView CashierPayment_GridView;
         private Label label5;
         private Label CashierPayment_LBL;
         private Label label9;
