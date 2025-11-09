@@ -31,10 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierPayment));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
+            label6 = new Label();
             pcAdminLogo2 = new PictureBox();
-            btnAdminStudentInformation2 = new Button();
-            btnAdminAssessment2 = new Button();
-            btnAdminStudreg2 = new Button();
             btnAdminPay2 = new Button();
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
@@ -62,7 +60,6 @@
             CashierCompute_BTN = new Button();
             CashierCancel_BTN = new Button();
             CashierView_BTN = new Button();
-            label6 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
@@ -73,12 +70,9 @@
             // 
             flowLayoutPanel1.BackColor = Color.CadetBlue;
             flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(btnAdminStudentInformation2);
-            flowLayoutPanel1.Controls.Add(btnAdminAssessment2);
-            flowLayoutPanel1.Controls.Add(btnAdminStudreg2);
+            flowLayoutPanel1.Controls.Add(btnAdminReport2);
             flowLayoutPanel1.Controls.Add(btnAdminPay2);
             flowLayoutPanel1.Controls.Add(btnAdminHistory2);
-            flowLayoutPanel1.Controls.Add(btnAdminReport2);
             flowLayoutPanel1.Controls.Add(btnAdminOut2);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -95,6 +89,16 @@
             panel1.Size = new Size(248, 140);
             panel1.TabIndex = 0;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(84, 115);
+            label6.Name = "label6";
+            label6.Size = new Size(73, 20);
+            label6.TabIndex = 124;
+            label6.Text = "CASHIER";
+            // 
             // pcAdminLogo2
             // 
             pcAdminLogo2.BackColor = Color.CadetBlue;
@@ -106,52 +110,12 @@
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
             // 
-            // btnAdminStudentInformation2
-            // 
-            btnAdminStudentInformation2.BackColor = Color.CadetBlue;
-            btnAdminStudentInformation2.FlatStyle = FlatStyle.Flat;
-            btnAdminStudentInformation2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudentInformation2.ForeColor = SystemColors.ActiveCaptionText;
-            btnAdminStudentInformation2.Location = new Point(20, 156);
-            btnAdminStudentInformation2.Margin = new Padding(20, 10, 3, 3);
-            btnAdminStudentInformation2.Name = "btnAdminStudentInformation2";
-            btnAdminStudentInformation2.Size = new Size(211, 42);
-            btnAdminStudentInformation2.TabIndex = 3;
-            btnAdminStudentInformation2.Text = " STUDENT INFORMATION";
-            btnAdminStudentInformation2.UseVisualStyleBackColor = false;
-            // 
-            // btnAdminAssessment2
-            // 
-            btnAdminAssessment2.BackColor = Color.CadetBlue;
-            btnAdminAssessment2.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminAssessment2.ForeColor = SystemColors.ActiveCaptionText;
-            btnAdminAssessment2.Location = new Point(20, 204);
-            btnAdminAssessment2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminAssessment2.Name = "btnAdminAssessment2";
-            btnAdminAssessment2.Size = new Size(211, 42);
-            btnAdminAssessment2.TabIndex = 4;
-            btnAdminAssessment2.Text = "ASSESSMENT";
-            btnAdminAssessment2.UseVisualStyleBackColor = false;
-            // 
-            // btnAdminStudreg2
-            // 
-            btnAdminStudreg2.FlatStyle = FlatStyle.Flat;
-            btnAdminStudreg2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudreg2.Location = new Point(20, 252);
-            btnAdminStudreg2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminStudreg2.Name = "btnAdminStudreg2";
-            btnAdminStudreg2.Size = new Size(211, 42);
-            btnAdminStudreg2.TabIndex = 5;
-            btnAdminStudreg2.Text = " STUDENT REGISTRATION";
-            btnAdminStudreg2.UseVisualStyleBackColor = true;
-            // 
             // btnAdminPay2
             // 
             btnAdminPay2.BackColor = Color.DarkSlateGray;
             btnAdminPay2.FlatStyle = FlatStyle.Flat;
             btnAdminPay2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay2.Location = new Point(20, 300);
+            btnAdminPay2.Location = new Point(20, 197);
             btnAdminPay2.Margin = new Padding(20, 3, 3, 3);
             btnAdminPay2.Name = "btnAdminPay2";
             btnAdminPay2.Size = new Size(211, 42);
@@ -163,7 +127,7 @@
             // 
             btnAdminHistory2.FlatStyle = FlatStyle.Flat;
             btnAdminHistory2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory2.Location = new Point(20, 348);
+            btnAdminHistory2.Location = new Point(20, 245);
             btnAdminHistory2.Margin = new Padding(20, 3, 3, 3);
             btnAdminHistory2.Name = "btnAdminHistory2";
             btnAdminHistory2.Size = new Size(211, 42);
@@ -175,7 +139,7 @@
             // 
             btnAdminReport2.FlatStyle = FlatStyle.Flat;
             btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport2.Location = new Point(20, 396);
+            btnAdminReport2.Location = new Point(20, 149);
             btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
             btnAdminReport2.Name = "btnAdminReport2";
             btnAdminReport2.Size = new Size(211, 42);
@@ -187,7 +151,7 @@
             // 
             btnAdminOut2.FlatStyle = FlatStyle.Flat;
             btnAdminOut2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOut2.Location = new Point(20, 444);
+            btnAdminOut2.Location = new Point(20, 293);
             btnAdminOut2.Margin = new Padding(20, 3, 3, 3);
             btnAdminOut2.Name = "btnAdminOut2";
             btnAdminOut2.Size = new Size(211, 42);
@@ -413,16 +377,6 @@
             CashierView_BTN.Text = "View Reciept";
             CashierView_BTN.UseVisualStyleBackColor = true;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(84, 115);
-            label6.Name = "label6";
-            label6.Size = new Size(73, 20);
-            label6.TabIndex = 124;
-            label6.Text = "CASHIER";
-            // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -473,9 +427,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private PictureBox pcAdminLogo2;
-        private Button btnAdminStudentInformation2;
-        private Button btnAdminAssessment2;
-        private Button btnAdminStudreg2;
         private Button btnAdminPay2;
         private Button btnAdminHistory2;
         private Button btnAdminReport2;
