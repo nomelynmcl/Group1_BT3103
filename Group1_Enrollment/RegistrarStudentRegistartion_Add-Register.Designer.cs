@@ -79,7 +79,7 @@
             label6 = new Label();
             clbModeOfPayment_RegistrarStudentInformationEdit = new CheckedListBox();
             label3 = new Label();
-            lbRegistrarStudReg_Add = new Label();
+            lbRegistrarStudReg_Section = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -274,7 +274,7 @@
             // cbYearLevel_RegistrarStudentInformationEdit
             // 
             cbYearLevel_RegistrarStudentInformationEdit.FormattingEnabled = true;
-            cbYearLevel_RegistrarStudentInformationEdit.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
+            cbYearLevel_RegistrarStudentInformationEdit.Items.AddRange(new object[] { "7", "8", "9", "10" });
             cbYearLevel_RegistrarStudentInformationEdit.Location = new Point(456, 354);
             cbYearLevel_RegistrarStudentInformationEdit.Margin = new Padding(3, 2, 3, 2);
             cbYearLevel_RegistrarStudentInformationEdit.Name = "cbYearLevel_RegistrarStudentInformationEdit";
@@ -522,6 +522,7 @@
             btnView_RegistrarStudentInformationEdit.TabIndex = 117;
             btnView_RegistrarStudentInformationEdit.Text = "View";
             btnView_RegistrarStudentInformationEdit.UseVisualStyleBackColor = true;
+            btnView_RegistrarStudentInformationEdit.Click += btnView_RegistrarStudentInformationEdit_Click;
             // 
             // lblStudentID_RegistrarStudentRegistrationEdit
             // 
@@ -595,15 +596,15 @@
             label3.TabIndex = 162;
             label3.Text = "Section:";
             // 
-            // lbRegistrarStudReg_Add
+            // lbRegistrarStudReg_Section
             // 
-            lbRegistrarStudReg_Add.AutoSize = true;
-            lbRegistrarStudReg_Add.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbRegistrarStudReg_Add.Location = new Point(763, 355);
-            lbRegistrarStudReg_Add.Name = "lbRegistrarStudReg_Add";
-            lbRegistrarStudReg_Add.Size = new Size(88, 17);
-            lbRegistrarStudReg_Add.TabIndex = 245;
-            lbRegistrarStudReg_Add.Text = "<<Section>>";
+            lbRegistrarStudReg_Section.AutoSize = true;
+            lbRegistrarStudReg_Section.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRegistrarStudReg_Section.Location = new Point(763, 355);
+            lbRegistrarStudReg_Section.Name = "lbRegistrarStudReg_Section";
+            lbRegistrarStudReg_Section.Size = new Size(88, 17);
+            lbRegistrarStudReg_Section.TabIndex = 245;
+            lbRegistrarStudReg_Section.Text = "<<Section>>";
             // 
             // RegistrarStudentRegistration_Add
             // 
@@ -611,7 +612,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
-            Controls.Add(lbRegistrarStudReg_Add);
+            Controls.Add(lbRegistrarStudReg_Section);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_RegistrarStudentInformationEdit);
             Controls.Add(label6);
@@ -716,6 +717,6 @@
         private Label label6;
         private CheckedListBox clbModeOfPayment_RegistrarStudentInformationEdit;
         private Label label3;
-        private Label lbRegistrarStudReg_Add;
+        private Label lbRegistrarStudReg_Section;
     }
 }

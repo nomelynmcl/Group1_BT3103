@@ -109,7 +109,7 @@
             // clbRequirements_RegistrarStudentRegistration
             // 
             clbRequirements_RegistrarStudentRegistration.FormattingEnabled = true;
-            clbRequirements_RegistrarStudentRegistration.Items.AddRange(new object[] { "Good Moral", "Report Card", "Birth Certificate" });
+            clbRequirements_RegistrarStudentRegistration.Items.AddRange(new object[] { "Good Moral", "Form 137", "Birth Certificate" });
             clbRequirements_RegistrarStudentRegistration.Location = new Point(459, 396);
             clbRequirements_RegistrarStudentRegistration.Margin = new Padding(3, 2, 3, 2);
             clbRequirements_RegistrarStudentRegistration.Name = "clbRequirements_RegistrarStudentRegistration";

@@ -55,7 +55,7 @@ namespace EventDriven.Project.UI
             txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text = guardianContact;
             cbStudentType_RegistrarStudentInformationEdit.Text = studentType;
 
-            lbRegistrarStudReg_Add.Text = GetSectionByGradeLevel(gradeLevel);
+            lbRegistrarStudReg_Section.Text = GetSectionByGradeLevel(gradeLevel);
 
             if (!string.IsNullOrEmpty(requirements))
             {
@@ -77,6 +77,19 @@ namespace EventDriven.Project.UI
                         clbModeOfPayment_RegistrarStudentInformationEdit.SetItemChecked(i, true);
                 }
             }
+
+            // ✅ Allow only one selection for Mode of Payment
+            clbModeOfPayment_RegistrarStudentInformationEdit.ItemCheck += (s, e) =>
+            {
+                if (e.NewValue == CheckState.Checked)
+                {
+                    for (int i = 0; i < clbModeOfPayment_RegistrarStudentInformationEdit.Items.Count; i++)
+                    {
+                        if (i != e.Index)
+                            clbModeOfPayment_RegistrarStudentInformationEdit.SetItemChecked(i, false);
+                    }
+                }
+            };
 
             //Detect when any field is edited
             foreach (Control ctrl in this.Controls)
@@ -275,6 +288,68 @@ namespace EventDriven.Project.UI
 
                 }
             }
+        }
+
+        private void btnView_RegistrarStudentInformationEdit_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAge_RegistrarStudentInformationEdit.Text) || !int.TryParse(txtAge_RegistrarStudentInformationEdit.Text, out int age))
+            {
+                MessageBox.Show("⚠ Please enter a valid age.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate grade level
+            if (cbYearLevel_RegistrarStudentInformationEdit.SelectedItem == null || !int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.SelectedItem.ToString(), out int gradeLevel))
+            {
+                MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int id = Convert.ToInt32(lblStudentID_RegistrarStudentRegistrationEdit.Text.Trim());
+            string firstName = txtFirstName_RegistrarStudentInformationEdit.Text.Trim();
+            string middleName = txtMiddleName_RegistrarStudentInformationEdit.Text.Trim();
+            string lastName = txtLname_RegistrarStudentInformationEdit.Text.Trim();
+            DateTime birthdate = dtAdminEditBirthdate.Value;
+            string gender = cbGender_RegistrarStudentInformationEdit.SelectedItem.ToString();
+            string barangay = txtBarangay_RegistrarStudentInformationEdit.Text.Trim();
+            string municipality = txtMunicipality_RegistrarStudentInformationEdit.Text.Trim();
+            string province = txtProvince_RegistrarStudentInformationEdit.Text.Trim();
+            string contactNumber = txtContactNumber_RegistrarStudentInformationEdit.Text.Trim();
+            string guardianName = txtGuardiansName_RegistrarStudentInformationEdit.Text.Trim();
+            string guardianContact = txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text.Trim();
+            string section = lbRegistrarStudReg_Section.Text.Trim();
+            string studentType = cbStudentType_RegistrarStudentInformationEdit.SelectedItem.ToString();
+
+            // Collect all checked items for Requirements
+            string requirements = string.Join(", ",
+                clbRequirements_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
+
+            // Collect all checked items for Mode of Payment
+            string modeOfPayment = string.Join(", ",
+                clbModeOfPayment_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
+
+
+            RegistrarStudentRegistration_View registrarStudReg_view = new RegistrarStudentRegistration_View(
+                id,
+                firstName,
+                middleName,
+                lastName,
+                age,
+                birthdate,
+                gender,
+                barangay,
+                municipality,
+                province,
+                contactNumber,
+                guardianName,
+                guardianContact,
+                gradeLevel,
+                studentType,
+                section,
+                requirements,
+                modeOfPayment);
+            registrarStudReg_view.Show();
+            this.Hide();
         }
     }
 }
