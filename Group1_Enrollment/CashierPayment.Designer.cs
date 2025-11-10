@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierPayment));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
-            label6 = new Label();
+            CashLabel = new Label();
             pcAdminLogo2 = new PictureBox();
+            btnAdminReport2 = new Button();
             btnAdminPay2 = new Button();
             btnAdminHistory2 = new Button();
-            btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
             label2 = new Label();
             label3 = new Label();
@@ -82,22 +82,22 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label6);
+            panel1.Controls.Add(CashLabel);
             panel1.Controls.Add(pcAdminLogo2);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(248, 140);
             panel1.TabIndex = 0;
             // 
-            // label6
+            // CashLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(84, 115);
-            label6.Name = "label6";
-            label6.Size = new Size(73, 20);
-            label6.TabIndex = 124;
-            label6.Text = "CASHIER";
+            CashLabel.AutoSize = true;
+            CashLabel.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CashLabel.Location = new Point(84, 115);
+            CashLabel.Name = "CashLabel";
+            CashLabel.Size = new Size(73, 20);
+            CashLabel.TabIndex = 124;
+            CashLabel.Text = "CASHIER";
             // 
             // pcAdminLogo2
             // 
@@ -109,6 +109,18 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            // 
+            // btnAdminReport2
+            // 
+            btnAdminReport2.FlatStyle = FlatStyle.Flat;
+            btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminReport2.Location = new Point(20, 149);
+            btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
+            btnAdminReport2.Name = "btnAdminReport2";
+            btnAdminReport2.Size = new Size(211, 42);
+            btnAdminReport2.TabIndex = 8;
+            btnAdminReport2.Text = "REPORT";
+            btnAdminReport2.UseVisualStyleBackColor = true;
             // 
             // btnAdminPay2
             // 
@@ -134,18 +146,6 @@
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
-            // 
-            // btnAdminReport2
-            // 
-            btnAdminReport2.FlatStyle = FlatStyle.Flat;
-            btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport2.Location = new Point(20, 149);
-            btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminReport2.Name = "btnAdminReport2";
-            btnAdminReport2.Size = new Size(211, 42);
-            btnAdminReport2.TabIndex = 8;
-            btnAdminReport2.Text = "REPORT";
-            btnAdminReport2.UseVisualStyleBackColor = true;
             // 
             // btnAdminOut2
             // 
@@ -454,6 +454,6 @@
         private Button CashierCompute_BTN;
         private Button CashierCancel_BTN;
         private Button CashierView_BTN;
-        private Label label6;
+        private Label CashLabel;
     }
 }
