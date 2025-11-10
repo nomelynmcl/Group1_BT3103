@@ -8,6 +8,7 @@
     <Compile Update="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminPaymentHistory.cs">
     <Compile Update="AdminPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -33,6 +34,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminStudInfo_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminViewPaymentHistory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Admin_Assessment.cs">
