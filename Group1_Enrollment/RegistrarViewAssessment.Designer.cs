@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class Registrar_Assessment
+    partial class RegistrarViewAssessment
     {
         /// <summary>
         /// Required designer variable.

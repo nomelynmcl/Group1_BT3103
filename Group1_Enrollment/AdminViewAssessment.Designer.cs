@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class Admin_Assessment
+    partial class AdminViewAssessment
     {
         /// <summary>
         /// Required designer variable.
@@ -80,6 +80,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(462, 201);
             dataGridView1.TabIndex = 26;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label5
             // 
@@ -131,7 +132,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(23, 461);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 32;
             label2.Text = "Total:";
             // 
@@ -158,7 +159,7 @@
             STU_ID_LBL.AutoSize = true;
             STU_ID_LBL.Location = new Point(94, 173);
             STU_ID_LBL.Name = "STU_ID_LBL";
-            STU_ID_LBL.Size = new Size(99, 15);
+            STU_ID_LBL.Size = new Size(101, 15);
             STU_ID_LBL.TabIndex = 35;
             STU_ID_LBL.Text = "<<STUDENTID>>";
             // 
@@ -167,7 +168,7 @@
             STATUS_UP_LBL.AutoSize = true;
             STATUS_UP_LBL.Location = new Point(71, 228);
             STATUS_UP_LBL.Name = "STATUS_UP_LBL";
-            STATUS_UP_LBL.Size = new Size(77, 15);
+            STATUS_UP_LBL.Size = new Size(79, 15);
             STATUS_UP_LBL.TabIndex = 36;
             STATUS_UP_LBL.Text = "<<STATUS>>";
             // 
@@ -185,7 +186,7 @@
             STATUS_BOTTOM_LBL.AutoSize = true;
             STATUS_BOTTOM_LBL.Location = new Point(338, 504);
             STATUS_BOTTOM_LBL.Name = "STATUS_BOTTOM_LBL";
-            STATUS_BOTTOM_LBL.Size = new Size(77, 15);
+            STATUS_BOTTOM_LBL.Size = new Size(79, 15);
             STATUS_BOTTOM_LBL.TabIndex = 38;
             STATUS_BOTTOM_LBL.Text = "<<STATUS>>";
             // 
@@ -203,7 +204,7 @@
             STU_NAME_LBL.AutoSize = true;
             STU_NAME_LBL.Location = new Point(382, 173);
             STU_NAME_LBL.Name = "STU_NAME_LBL";
-            STU_NAME_LBL.Size = new Size(122, 15);
+            STU_NAME_LBL.Size = new Size(124, 15);
             STU_NAME_LBL.TabIndex = 40;
             STU_NAME_LBL.Text = "<<STUDENTNAME>>";
             // 
@@ -212,7 +213,7 @@
             SECT_TION_LBL.AutoSize = true;
             SECT_TION_LBL.Location = new Point(348, 198);
             SECT_TION_LBL.Name = "SECT_TION_LBL";
-            SECT_TION_LBL.Size = new Size(86, 15);
+            SECT_TION_LBL.Size = new Size(87, 15);
             SECT_TION_LBL.TabIndex = 41;
             SECT_TION_LBL.Text = "<<SECTION>>";
             // 
@@ -221,7 +222,7 @@
             TOT_TAL_LBL.AutoSize = true;
             TOT_TAL_LBL.Location = new Point(64, 461);
             TOT_TAL_LBL.Name = "TOT_TAL_LBL";
-            TOT_TAL_LBL.Size = new Size(71, 15);
+            TOT_TAL_LBL.Size = new Size(73, 15);
             TOT_TAL_LBL.TabIndex = 42;
             TOT_TAL_LBL.Text = "<<TOTAL>>";
             // 
@@ -234,7 +235,7 @@
             PRIN_BUTTON.Text = "Print";
             PRIN_BUTTON.UseVisualStyleBackColor = true;
             // 
-            // Admin_Assessment
+            // AdminViewAssessment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -262,7 +263,7 @@
             Controls.Add(pictureBox1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Admin_Assessment";
+            Name = "AdminViewAssessment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin_Assessment";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

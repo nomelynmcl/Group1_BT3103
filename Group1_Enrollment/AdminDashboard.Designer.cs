@@ -89,6 +89,7 @@
             lblAssessment.Size = new Size(109, 20);
             lblAssessment.TabIndex = 3;
             lblAssessment.Text = "ASSESSMENT";
+            lblAssessment.Click += lblAssessment_Click;
             // 
             // lblStudentRegistration
             // 

@@ -36,6 +36,7 @@
     <Compile Update="AdminStudInfo_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminViewAssessment.cs">
     <Compile Update="AdminViewPaymentHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +88,7 @@
     <Compile Update="RegistrarStudentRegistration_View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Registrar_Assessment.cs">
+    <Compile Update="RegistrarViewAssessment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserRolesForm.cs">
