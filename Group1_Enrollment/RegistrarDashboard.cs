@@ -37,5 +37,12 @@ namespace EventDriven.Project.UI
             regStudInfo.Show();
             this.Hide();
         }
+
+        private void lblRegistrarAssessment_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment assesment = new RegistrarAssesment();
+            assesment.Show();
+            this.Hide();
+        }
     }
 }
