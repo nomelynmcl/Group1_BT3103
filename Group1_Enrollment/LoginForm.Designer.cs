@@ -37,6 +37,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             btnCancel = new Button();
+            cbShowPassword_Login = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,10 +46,9 @@
             btnLogin.BackColor = Color.SteelBlue;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(84, 311);
-            btnLogin.Margin = new Padding(3, 2, 3, 2);
+            btnLogin.Location = new Point(92, 457);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(101, 34);
+            btnLogin.Size = new Size(115, 45);
             btnLogin.TabIndex = 0;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -56,20 +56,18 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(105, 152);
-            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Location = new Point(120, 203);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(213, 30);
+            txtUsername.Size = new Size(243, 39);
             txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(105, 236);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Location = new Point(120, 315);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(213, 30);
+            txtPassword.Size = new Size(243, 39);
             txtPassword.TabIndex = 2;
             txtPassword.TextChanged += textBox2_TextChanged;
             // 
@@ -77,9 +75,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(105, 130);
+            label1.Location = new Point(120, 173);
             label1.Name = "label1";
-            label1.Size = new Size(75, 20);
+            label1.Size = new Size(91, 25);
             label1.TabIndex = 3;
             label1.Text = "Username";
             // 
@@ -87,19 +85,18 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(105, 206);
+            label2.Location = new Point(120, 275);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 4;
             label2.Text = "Password";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(130, -2);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(149, -3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(174, 103);
+            pictureBox1.Size = new Size(199, 137);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -109,9 +106,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkSlateGray;
-            label3.Location = new Point(123, 92);
+            label3.Location = new Point(141, 123);
             label3.Name = "label3";
-            label3.Size = new Size(182, 17);
+            label3.Size = new Size(211, 20);
             label3.TabIndex = 6;
             label3.Text = "Orion Tech-High School";
             // 
@@ -120,21 +117,32 @@
             btnCancel.BackColor = Color.SteelBlue;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancel.Location = new Point(240, 311);
-            btnCancel.Margin = new Padding(3, 2, 3, 2);
+            btnCancel.Location = new Point(274, 457);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(102, 34);
+            btnCancel.Size = new Size(117, 45);
             btnCancel.TabIndex = 7;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // cbShowPassword_Login
+            // 
+            cbShowPassword_Login.AutoSize = true;
+            cbShowPassword_Login.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbShowPassword_Login.Location = new Point(124, 365);
+            cbShowPassword_Login.Name = "cbShowPassword_Login";
+            cbShowPassword_Login.Size = new Size(134, 24);
+            cbShowPassword_Login.TabIndex = 8;
+            cbShowPassword_Login.Text = "Show password";
+            cbShowPassword_Login.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(434, 396);
+            ClientSize = new Size(496, 582);
+            Controls.Add(cbShowPassword_Login);
             Controls.Add(btnCancel);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
@@ -143,7 +151,6 @@
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(btnLogin);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
@@ -163,5 +170,6 @@
         private PictureBox pictureBox1;
         private Label label3;
         private Button btnCancel;
+        private CheckBox cbShowPassword_Login;
     }
 }
