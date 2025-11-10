@@ -37,6 +37,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             btnCancel = new Button();
+            cbShowPassword_Login = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             btnLogin.BackColor = Color.SteelBlue;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(84, 311);
+            btnLogin.Location = new Point(80, 343);
             btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(101, 34);
@@ -69,6 +70,7 @@
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(213, 30);
             txtPassword.TabIndex = 2;
             txtPassword.TextChanged += textBox2_TextChanged;
@@ -120,7 +122,7 @@
             btnCancel.BackColor = Color.SteelBlue;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancel.Location = new Point(240, 311);
+            btnCancel.Location = new Point(240, 343);
             btnCancel.Margin = new Padding(3, 2, 3, 2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(102, 34);
@@ -129,12 +131,26 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // cbShowPassword_Login
+            // 
+            cbShowPassword_Login.AutoSize = true;
+            cbShowPassword_Login.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbShowPassword_Login.Location = new Point(108, 274);
+            cbShowPassword_Login.Margin = new Padding(3, 2, 3, 2);
+            cbShowPassword_Login.Name = "cbShowPassword_Login";
+            cbShowPassword_Login.Size = new Size(108, 19);
+            cbShowPassword_Login.TabIndex = 8;
+            cbShowPassword_Login.Text = "Show password";
+            cbShowPassword_Login.UseVisualStyleBackColor = true;
+            cbShowPassword_Login.CheckedChanged += cbShowPassword_Login_CheckedChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(434, 396);
+            ClientSize = new Size(434, 436);
+            Controls.Add(cbShowPassword_Login);
             Controls.Add(btnCancel);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
@@ -163,5 +179,6 @@
         private PictureBox pictureBox1;
         private Label label3;
         private Button btnCancel;
+        private CheckBox cbShowPassword_Login;
     }
 }

@@ -115,7 +115,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackColor = SystemColors.ControlLight;
+            pictureBox3.BackColor = Color.AliceBlue;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(57, 44);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
@@ -129,7 +129,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(748, 450);
             Controls.Add(label1);
             Controls.Add(btnRegistrar);
@@ -141,7 +141,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "UserRolesForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "User Roles";
             Load += UserRolesForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -16,6 +16,7 @@ namespace EventDriven.Project.UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             userController = new UserController();
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace EventDriven.Project.UI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            txtPassword.UseSystemPasswordChar = false; // Hide by defaul
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -101,6 +102,11 @@ namespace EventDriven.Project.UI
             UserRolesForm userRoles = new UserRolesForm();
             userRoles.Show();
             this.Close();
+        }
+
+        private void cbShowPassword_Login_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = cbShowPassword_Login.Checked;
         }
     }
 }
