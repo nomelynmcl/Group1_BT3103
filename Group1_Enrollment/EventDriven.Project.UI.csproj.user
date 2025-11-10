@@ -41,6 +41,9 @@
     <Compile Update="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CashierPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Cashier_PaymentHistory.cs">
       <SubType>Form</SubType>
     </Compile>

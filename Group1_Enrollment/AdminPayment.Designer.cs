@@ -62,6 +62,8 @@
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
+            AdminPayment_SearchBTN = new Button();
+            AdminPayment_TXTBOX = new TextBox();
             ((System.ComponentModel.ISupportInitialize)AdminPayment_GridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -98,7 +100,7 @@
             // AdminPayment_LBL
             // 
             AdminPayment_LBL.AutoSize = true;
-            AdminPayment_LBL.Location = new Point(422, 396);
+            AdminPayment_LBL.Location = new Point(422, 422);
             AdminPayment_LBL.Name = "AdminPayment_LBL";
             AdminPayment_LBL.Size = new Size(28, 15);
             AdminPayment_LBL.TabIndex = 144;
@@ -108,7 +110,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(294, 396);
+            label9.Location = new Point(294, 422);
             label9.Name = "label9";
             label9.Size = new Size(59, 15);
             label9.TabIndex = 143;
@@ -118,7 +120,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(279, 348);
+            label5.Location = new Point(279, 374);
             label5.Name = "label5";
             label5.Size = new Size(56, 15);
             label5.TabIndex = 142;
@@ -127,7 +129,7 @@
             // AdminPayment_GridView
             // 
             AdminPayment_GridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AdminPayment_GridView.Location = new Point(279, 144);
+            AdminPayment_GridView.Location = new Point(279, 170);
             AdminPayment_GridView.Name = "AdminPayment_GridView";
             AdminPayment_GridView.Size = new Size(289, 178);
             AdminPayment_GridView.TabIndex = 141;
@@ -136,7 +138,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(279, 128);
+            label1.Location = new Point(279, 154);
             label1.Name = "label1";
             label1.Size = new Size(97, 15);
             label1.TabIndex = 140;
@@ -154,7 +156,7 @@
             // AdminChange_LBL
             // 
             AdminChange_LBL.AutoSize = true;
-            AdminChange_LBL.Location = new Point(655, 396);
+            AdminChange_LBL.Location = new Point(655, 422);
             AdminChange_LBL.Name = "AdminChange_LBL";
             AdminChange_LBL.Size = new Size(28, 15);
             AdminChange_LBL.TabIndex = 138;
@@ -164,7 +166,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(527, 396);
+            label19.Location = new Point(527, 422);
             label19.Name = "label19";
             label19.Size = new Size(99, 15);
             label19.TabIndex = 137;
@@ -173,7 +175,7 @@
             // AdminYLSection_LBL
             // 
             AdminYLSection_LBL.AutoSize = true;
-            AdminYLSection_LBL.Location = new Point(391, 83);
+            AdminYLSection_LBL.Location = new Point(391, 109);
             AdminYLSection_LBL.Name = "AdminYLSection_LBL";
             AdminYLSection_LBL.Size = new Size(133, 15);
             AdminYLSection_LBL.TabIndex = 136;
@@ -182,7 +184,7 @@
             // AdminDate_LBL
             // 
             AdminDate_LBL.AutoSize = true;
-            AdminDate_LBL.Location = new Point(614, 25);
+            AdminDate_LBL.Location = new Point(614, 51);
             AdminDate_LBL.Name = "AdminDate_LBL";
             AdminDate_LBL.Size = new Size(82, 15);
             AdminDate_LBL.TabIndex = 135;
@@ -192,7 +194,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(279, 83);
+            label7.Location = new Point(279, 109);
             label7.Name = "label7";
             label7.Size = new Size(114, 15);
             label7.TabIndex = 134;
@@ -202,7 +204,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(574, 25);
+            label8.Location = new Point(574, 51);
             label8.Name = "label8";
             label8.Size = new Size(37, 15);
             label8.TabIndex = 133;
@@ -211,7 +213,7 @@
             // AdminStuName_LBL
             // 
             AdminStuName_LBL.AutoSize = true;
-            AdminStuName_LBL.Location = new Point(374, 55);
+            AdminStuName_LBL.Location = new Point(374, 81);
             AdminStuName_LBL.Name = "AdminStuName_LBL";
             AdminStuName_LBL.Size = new Size(115, 15);
             AdminStuName_LBL.TabIndex = 132;
@@ -220,7 +222,7 @@
             // AdminStuID_LBL
             // 
             AdminStuID_LBL.AutoSize = true;
-            AdminStuID_LBL.Location = new Point(345, 25);
+            AdminStuID_LBL.Location = new Point(345, 51);
             AdminStuID_LBL.Name = "AdminStuID_LBL";
             AdminStuID_LBL.Size = new Size(94, 15);
             AdminStuID_LBL.TabIndex = 131;
@@ -229,7 +231,7 @@
             // Admin_LowMCheckBox
             // 
             Admin_LowMCheckBox.AutoSize = true;
-            Admin_LowMCheckBox.Location = new Point(574, 206);
+            Admin_LowMCheckBox.Location = new Point(574, 232);
             Admin_LowMCheckBox.Name = "Admin_LowMCheckBox";
             Admin_LowMCheckBox.Size = new Size(146, 19);
             Admin_LowMCheckBox.TabIndex = 130;
@@ -239,7 +241,7 @@
             // Admin_LowDPCheckBox
             // 
             Admin_LowDPCheckBox.AutoSize = true;
-            Admin_LowDPCheckBox.Location = new Point(574, 179);
+            Admin_LowDPCheckBox.Location = new Point(574, 205);
             Admin_LowDPCheckBox.Name = "Admin_LowDPCheckBox";
             Admin_LowDPCheckBox.Size = new Size(132, 19);
             Admin_LowDPCheckBox.TabIndex = 129;
@@ -249,7 +251,7 @@
             // Admin_CashCheckBox
             // 
             Admin_CashCheckBox.AutoSize = true;
-            Admin_CashCheckBox.Location = new Point(574, 153);
+            Admin_CashCheckBox.Location = new Point(574, 179);
             Admin_CashCheckBox.Name = "Admin_CashCheckBox";
             Admin_CashCheckBox.Size = new Size(52, 19);
             Admin_CashCheckBox.TabIndex = 128;
@@ -260,7 +262,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(574, 128);
+            label4.Location = new Point(574, 154);
             label4.Name = "label4";
             label4.Size = new Size(103, 15);
             label4.TabIndex = 127;
@@ -270,7 +272,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(279, 55);
+            label3.Location = new Point(279, 81);
             label3.Name = "label3";
             label3.Size = new Size(91, 15);
             label3.TabIndex = 126;
@@ -280,7 +282,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(279, 25);
+            label2.Location = new Point(279, 51);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 125;
@@ -411,12 +413,30 @@
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
             // 
+            // AdminPayment_SearchBTN
+            // 
+            AdminPayment_SearchBTN.Location = new Point(279, 12);
+            AdminPayment_SearchBTN.Name = "AdminPayment_SearchBTN";
+            AdminPayment_SearchBTN.Size = new Size(118, 23);
+            AdminPayment_SearchBTN.TabIndex = 148;
+            AdminPayment_SearchBTN.Text = "Search Student";
+            AdminPayment_SearchBTN.UseVisualStyleBackColor = true;
+            // 
+            // AdminPayment_TXTBOX
+            // 
+            AdminPayment_TXTBOX.Location = new Point(403, 12);
+            AdminPayment_TXTBOX.Name = "AdminPayment_TXTBOX";
+            AdminPayment_TXTBOX.Size = new Size(208, 23);
+            AdminPayment_TXTBOX.TabIndex = 149;
+            // 
             // AdminPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(744, 522);
+            Controls.Add(AdminPayment_TXTBOX);
+            Controls.Add(AdminPayment_SearchBTN);
             Controls.Add(AdminView_BTN);
             Controls.Add(AdminCancel_BTN);
             Controls.Add(AdminCompute_BTN);
@@ -489,5 +509,7 @@
         private Button btnAdminHistory2;
         private Button btnAdminReport2;
         private Button btnAdminOut2;
+        private Button AdminPayment_SearchBTN;
+        private TextBox AdminPayment_TXTBOX;
     }
 }
