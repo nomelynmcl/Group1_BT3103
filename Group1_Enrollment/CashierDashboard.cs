@@ -21,5 +21,31 @@ namespace EventDriven.Project.UI
         {
 
         }
+
+        private void lblCashierPayment_Click(object sender, EventArgs e)
+        {
+            CashierPayment payment = new CashierPayment();
+            payment.Show();
+            this.Close();
+        }
+
+        private void lblCashierPayHistory_Click(object sender, EventArgs e)
+        {
+            Cashier_PaymentHistory history = new Cashier_PaymentHistory();
+            history.Show();
+            this.Close();
+        }
+
+        private void btnCashierSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogoutCashier_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
     }
 }

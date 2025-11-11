@@ -33,20 +33,16 @@
             panel1 = new Panel();
             CashLabel = new Label();
             pcAdminLogo2 = new PictureBox();
-            btnAdminReport2 = new Button();
             btnAdminPay2 = new Button();
             btnAdminHistory2 = new Button();
+            btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            Cashier_CashCheckBox = new CheckBox();
-            Cashier_LowDPCheckBox = new CheckBox();
-            Cashier_LowMCheckBox = new CheckBox();
             CashierStuName_LBL = new Label();
             CashierStuID_LBL = new Label();
             CashierYLSection_LBL = new Label();
-            CashierDate_LBL = new Label();
             label7 = new Label();
             label8 = new Label();
             CashierChange_LBL = new Label();
@@ -62,6 +58,8 @@
             CashierView_BTN = new Button();
             CashierPayment_TXTBOX = new TextBox();
             CashierPayment_SearchBTN = new Button();
+            dtRegDate = new DateTimePicker();
+            clbModeOfPayment_CashierPay = new CheckedListBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
@@ -72,9 +70,9 @@
             // 
             flowLayoutPanel1.BackColor = Color.CadetBlue;
             flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(btnAdminReport2);
             flowLayoutPanel1.Controls.Add(btnAdminPay2);
             flowLayoutPanel1.Controls.Add(btnAdminHistory2);
+            flowLayoutPanel1.Controls.Add(btnAdminReport2);
             flowLayoutPanel1.Controls.Add(btnAdminOut2);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -112,24 +110,13 @@
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
             // 
-            // btnAdminReport2
-            // 
-            btnAdminReport2.FlatStyle = FlatStyle.Flat;
-            btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport2.Location = new Point(20, 149);
-            btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminReport2.Name = "btnAdminReport2";
-            btnAdminReport2.Size = new Size(211, 42);
-            btnAdminReport2.TabIndex = 8;
-            btnAdminReport2.Text = "REPORT";
-            btnAdminReport2.UseVisualStyleBackColor = true;
-            // 
             // btnAdminPay2
             // 
             btnAdminPay2.BackColor = Color.DarkSlateGray;
             btnAdminPay2.FlatStyle = FlatStyle.Flat;
             btnAdminPay2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay2.Location = new Point(20, 197);
+            btnAdminPay2.ForeColor = SystemColors.Control;
+            btnAdminPay2.Location = new Point(20, 149);
             btnAdminPay2.Margin = new Padding(20, 3, 3, 3);
             btnAdminPay2.Name = "btnAdminPay2";
             btnAdminPay2.Size = new Size(211, 42);
@@ -141,13 +128,25 @@
             // 
             btnAdminHistory2.FlatStyle = FlatStyle.Flat;
             btnAdminHistory2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory2.Location = new Point(20, 245);
+            btnAdminHistory2.Location = new Point(20, 197);
             btnAdminHistory2.Margin = new Padding(20, 3, 3, 3);
             btnAdminHistory2.Name = "btnAdminHistory2";
             btnAdminHistory2.Size = new Size(211, 42);
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
+            // 
+            // btnAdminReport2
+            // 
+            btnAdminReport2.FlatStyle = FlatStyle.Flat;
+            btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminReport2.Location = new Point(20, 245);
+            btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
+            btnAdminReport2.Name = "btnAdminReport2";
+            btnAdminReport2.Size = new Size(211, 42);
+            btnAdminReport2.TabIndex = 8;
+            btnAdminReport2.Text = "REPORT";
+            btnAdminReport2.UseVisualStyleBackColor = true;
             // 
             // btnAdminOut2
             // 
@@ -185,41 +184,11 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(572, 151);
+            label4.Location = new Point(605, 151);
             label4.Name = "label4";
             label4.Size = new Size(103, 15);
             label4.TabIndex = 90;
             label4.Text = "Payment Method";
-            // 
-            // Cashier_CashCheckBox
-            // 
-            Cashier_CashCheckBox.AutoSize = true;
-            Cashier_CashCheckBox.Location = new Point(572, 176);
-            Cashier_CashCheckBox.Name = "Cashier_CashCheckBox";
-            Cashier_CashCheckBox.Size = new Size(52, 19);
-            Cashier_CashCheckBox.TabIndex = 91;
-            Cashier_CashCheckBox.Text = "Cash";
-            Cashier_CashCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // Cashier_LowDPCheckBox
-            // 
-            Cashier_LowDPCheckBox.AutoSize = true;
-            Cashier_LowDPCheckBox.Location = new Point(572, 202);
-            Cashier_LowDPCheckBox.Name = "Cashier_LowDPCheckBox";
-            Cashier_LowDPCheckBox.Size = new Size(132, 19);
-            Cashier_LowDPCheckBox.TabIndex = 92;
-            Cashier_LowDPCheckBox.Text = "Low Down Payment";
-            Cashier_LowDPCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // Cashier_LowMCheckBox
-            // 
-            Cashier_LowMCheckBox.AutoSize = true;
-            Cashier_LowMCheckBox.Location = new Point(572, 229);
-            Cashier_LowMCheckBox.Name = "Cashier_LowMCheckBox";
-            Cashier_LowMCheckBox.Size = new Size(146, 19);
-            Cashier_LowMCheckBox.TabIndex = 93;
-            Cashier_LowMCheckBox.Text = "Low Monthly Payment";
-            Cashier_LowMCheckBox.UseVisualStyleBackColor = true;
             // 
             // CashierStuName_LBL
             // 
@@ -247,15 +216,6 @@
             CashierYLSection_LBL.Size = new Size(133, 15);
             CashierYLSection_LBL.TabIndex = 99;
             CashierYLSection_LBL.Text = "<<Year Level Section>>";
-            // 
-            // CashierDate_LBL
-            // 
-            CashierDate_LBL.AutoSize = true;
-            CashierDate_LBL.Location = new Point(612, 48);
-            CashierDate_LBL.Name = "CashierDate_LBL";
-            CashierDate_LBL.Size = new Size(82, 15);
-            CashierDate_LBL.TabIndex = 98;
-            CashierDate_LBL.Text = "<<<DATE>>>";
             // 
             // label7
             // 
@@ -298,7 +258,7 @@
             // 
             // CashierConfirmPayment
             // 
-            CashierConfirmPayment.Location = new Point(380, 461);
+            CashierConfirmPayment.Location = new Point(398, 461);
             CashierConfirmPayment.Name = "CashierConfirmPayment";
             CashierConfirmPayment.Size = new Size(110, 37);
             CashierConfirmPayment.TabIndex = 115;
@@ -354,7 +314,7 @@
             // 
             // CashierCompute_BTN
             // 
-            CashierCompute_BTN.Location = new Point(264, 461);
+            CashierCompute_BTN.Location = new Point(273, 461);
             CashierCompute_BTN.Name = "CashierCompute_BTN";
             CashierCompute_BTN.Size = new Size(110, 37);
             CashierCompute_BTN.TabIndex = 121;
@@ -363,7 +323,7 @@
             // 
             // CashierCancel_BTN
             // 
-            CashierCancel_BTN.Location = new Point(505, 461);
+            CashierCancel_BTN.Location = new Point(525, 461);
             CashierCancel_BTN.Name = "CashierCancel_BTN";
             CashierCancel_BTN.Size = new Size(110, 37);
             CashierCancel_BTN.TabIndex = 122;
@@ -372,7 +332,7 @@
             // 
             // CashierView_BTN
             // 
-            CashierView_BTN.Location = new Point(622, 461);
+            CashierView_BTN.Location = new Point(653, 461);
             CashierView_BTN.Name = "CashierView_BTN";
             CashierView_BTN.Size = new Size(110, 37);
             CashierView_BTN.TabIndex = 123;
@@ -388,19 +348,41 @@
             // 
             // CashierPayment_SearchBTN
             // 
+            CashierPayment_SearchBTN.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CashierPayment_SearchBTN.Location = new Point(277, 12);
             CashierPayment_SearchBTN.Name = "CashierPayment_SearchBTN";
             CashierPayment_SearchBTN.Size = new Size(118, 23);
             CashierPayment_SearchBTN.TabIndex = 150;
             CashierPayment_SearchBTN.Text = "Search Student";
             CashierPayment_SearchBTN.UseVisualStyleBackColor = true;
+            CashierPayment_SearchBTN.Click += CashierPayment_SearchBTN_Click;
+            // 
+            // dtRegDate
+            // 
+            dtRegDate.Location = new Point(615, 40);
+            dtRegDate.Name = "dtRegDate";
+            dtRegDate.Size = new Size(153, 23);
+            dtRegDate.TabIndex = 152;
+            // 
+            // clbModeOfPayment_CashierPay
+            // 
+            clbModeOfPayment_CashierPay.FormattingEnabled = true;
+            clbModeOfPayment_CashierPay.Items.AddRange(new object[] { "Low Down Payment", "Low Quarterly Payment", "Cash" });
+            clbModeOfPayment_CashierPay.Location = new Point(595, 181);
+            clbModeOfPayment_CashierPay.Margin = new Padding(3, 2, 3, 2);
+            clbModeOfPayment_CashierPay.Name = "clbModeOfPayment_CashierPay";
+            clbModeOfPayment_CashierPay.Size = new Size(157, 58);
+            clbModeOfPayment_CashierPay.TabIndex = 203;
+            clbModeOfPayment_CashierPay.SelectedIndexChanged += clbModeOfPayment_CashierPay_SelectedIndexChanged;
             // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(744, 522);
+            ClientSize = new Size(780, 522);
+            Controls.Add(clbModeOfPayment_CashierPay);
+            Controls.Add(dtRegDate);
             Controls.Add(CashierPayment_TXTBOX);
             Controls.Add(CashierPayment_SearchBTN);
             Controls.Add(CashierView_BTN);
@@ -415,14 +397,10 @@
             Controls.Add(CashierChange_LBL);
             Controls.Add(label19);
             Controls.Add(CashierYLSection_LBL);
-            Controls.Add(CashierDate_LBL);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(CashierStuName_LBL);
             Controls.Add(CashierStuID_LBL);
-            Controls.Add(Cashier_LowMCheckBox);
-            Controls.Add(Cashier_LowDPCheckBox);
-            Controls.Add(Cashier_CashCheckBox);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -454,13 +432,9 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private CheckBox Cashier_CashCheckBox;
-        private CheckBox Cashier_LowDPCheckBox;
-        private CheckBox Cashier_LowMCheckBox;
         private Label CashierStuName_LBL;
         private Label CashierStuID_LBL;
         private Label CashierYLSection_LBL;
-        private Label CashierDate_LBL;
         private Label label7;
         private Label label8;
         private Label CashierChange_LBL;
@@ -477,5 +451,7 @@
         private Label CashLabel;
         private TextBox CashierPayment_TXTBOX;
         private Button CashierPayment_SearchBTN;
+        private DateTimePicker dtRegDate;
+        private CheckedListBox clbModeOfPayment_CashierPay;
     }
 }

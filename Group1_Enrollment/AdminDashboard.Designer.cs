@@ -178,6 +178,7 @@
             lblPayment.Size = new Size(85, 20);
             lblPayment.TabIndex = 14;
             lblPayment.Text = "PAYMENT";
+            lblPayment.Click += lblPayment_Click;
             // 
             // lblPaymentHistory
             // 

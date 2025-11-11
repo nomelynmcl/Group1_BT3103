@@ -48,11 +48,11 @@ namespace EventDriven.Project.UI
             this.Hide();
         }
 
-        private void lblAssessment_Click(object sender, EventArgs e)
+        private void lblPayment_Click(object sender, EventArgs e)
         {
-            AdminAssesment assesment = new AdminAssesment();
-            assesment.Show();
-            this.Hide();
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
         }
     }
 }
