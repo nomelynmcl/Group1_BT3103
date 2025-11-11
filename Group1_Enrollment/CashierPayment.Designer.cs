@@ -266,6 +266,7 @@
             CashierConfirmPayment.TabIndex = 115;
             CashierConfirmPayment.Text = "Confirm Payment";
             CashierConfirmPayment.UseVisualStyleBackColor = true;
+            CashierConfirmPayment.Click += CashierConfirmPayment_Click;
             // 
             // label1
             // 

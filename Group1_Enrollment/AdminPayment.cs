@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -137,17 +138,47 @@ namespace EventDriven.Project.UI
 
         private void LoadStudentPaymentInfo(string id)
         {
+            int studentId = int.Parse(id);
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 string query = "SELECT ModeOfPayment FROM StudentRecord WHERE Id=@id";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@id", studentId);
                     object result = cmd.ExecuteScalar();
+
                     if (result != null)
-                        SetPaymentMode(result.ToString());
+                    {
+                        string mode = result.ToString().Trim();
+                        SetPaymentMode(mode); // this will auto-check and autofill
+                    }
                 }
+                LoadPaymentTransactions(studentId);
+
+
+                // Then check if fully paid
+                decimal remaining = GetCurrentBalance(studentId);
+                CheckIfFullyPaid(remaining);
+            }
+        }
+
+
+
+        private void CheckIfFullyPaid(decimal balance)
+        {
+            if (balance <= 0)
+            {
+                // Disable payment input and button
+                txtAdminPayment.Enabled = false;
+                AdminConfirmPayment.Enabled = false;
+            }
+            else
+            {
+                // Enable again for future transactions
+                txtAdminPayment.Enabled = true;
+                AdminConfirmPayment.Enabled = true;
             }
         }
 
@@ -199,6 +230,7 @@ namespace EventDriven.Project.UI
 
         private void FillPaymentBreakdown(string method)
         {
+            AdminPayment_GridView.DataSource = null;
             AdminPayment_GridView.Rows.Clear();
 
             if (method == "Cash")
@@ -271,6 +303,7 @@ namespace EventDriven.Project.UI
                 return;
             }
 
+            int studentId = int.Parse(AdminStuID_LBL.Text);
             // Get total fee from DataGridView (assuming "Total" row or last row has the adjusted total)
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
@@ -295,9 +328,10 @@ namespace EventDriven.Project.UI
                     return;
                 }
 
-                decimal change = payment - totalAmount;
-                AdminChange_LBL.Text = $"Change: ₱{change:N2}";
-                lbAdminPay_Remaining.Text = "Remaining Balance: ₱0.00";
+
+                decimal change = totalAmount - payment;
+                AdminChange_LBL.Text = $"₱{change:N2}";
+                lbAdminPay_Remaining.Text = "₱0.00";
             }
 
             // ---- INSTALLMENT (LDP / LMP) ----
@@ -309,7 +343,8 @@ namespace EventDriven.Project.UI
                     return;
                 }
 
-                decimal remainingBalance = totalAmount - payment;
+                decimal currentBalance = GetCurrentBalance(studentId);
+                decimal remainingBalance = currentBalance - payment;
 
                 if (remainingBalance > 0)
                 {
@@ -324,5 +359,169 @@ namespace EventDriven.Project.UI
                 }
             }
         }
+
+        private void AdminConfirmPayment_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AdminStuID_LBL.Text))
+            {
+                MessageBox.Show("Please select a student first.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId = int.Parse(AdminStuID_LBL.Text);
+
+            if (!decimal.TryParse(txtAdminPayment.Text, out decimal amountPaid) || amountPaid <= 0)
+            {
+                MessageBox.Show("Please enter a valid payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (clbModeOfPayment_AdminPay.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a mode of payment.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string modeOfPayment = clbModeOfPayment_AdminPay.CheckedItems[0].ToString();
+            decimal currentBalance = GetCurrentBalance(studentId);
+            decimal remainingBalance = currentBalance - amountPaid;
+            decimal change = 0;
+
+            if (remainingBalance < 0)
+            {
+                change = Math.Abs(remainingBalance);
+                remainingBalance = 0;
+            }
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = @"INSERT INTO PaymentRecord 
+                 (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
+                 VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance)";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@StudentId", studentId);
+                    cmd.Parameters.AddWithValue("@PaymentDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@ModeOfPayment", modeOfPayment);
+                    cmd.Parameters.AddWithValue("@AmountPaid", amountPaid);
+                    cmd.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            LoadPaymentTransactions(studentId);
+
+            AdminChange_LBL.Text = $"₱{change:N2}";
+            lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
+
+            if (remainingBalance <= 0)
+            {
+                // Fully paid -> disable all payment inputs
+                txtAdminPayment.Enabled = false;
+                clbModeOfPayment_AdminPay.Enabled = false;
+                AdminConfirmPayment.Enabled = false;
+                MessageBox.Show("Payment completed. Student has fully settled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Reset form for next transaction
+                ResetTransactionForm();
+                MessageBox.Show("Payment recorded. You can proceed with next transaction.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private decimal GetCurrentBalance(int studentId)
+{
+    decimal remainingBalance = 0;
+    using (SqlConnection con = new SqlConnection(connectionString))
+    {
+        con.Open();
+        string query = @"SELECT TOP 1 RemainingBalance 
+                         FROM PaymentRecord 
+                         WHERE Id=@Id 
+                         ORDER BY TransactionId DESC";
+        using (SqlCommand cmd = new SqlCommand(query, con))
+        {
+            cmd.Parameters.AddWithValue("@Id", studentId);
+            object result = cmd.ExecuteScalar();
+            if (result != null)
+                remainingBalance = Convert.ToDecimal(result);
+        }
+    }
+    return remainingBalance;
+}
+
+
+        private void LoadPaymentTransactions(int studentId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = "SELECT TransactionId, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance " +
+                                   "FROM PaymentRecord WHERE Id=@StudentId ORDER BY TransactionId ASC";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // ✅ We don’t clear the grid so that the breakdown stays
+                            bool hasTransaction = false;
+                            decimal latestRemaining = 0;
+
+                            if (reader.HasRows)
+                            {
+                                // Add separation for clarity
+                                AdminPayment_GridView.Rows.Add("", "", "");
+                                AdminPayment_GridView.Rows.Add("— Past Transactions —", "", "");
+                                AdminPayment_GridView.Rows.Add("", "", "");
+
+                                while (reader.Read())
+                                {
+                                    hasTransaction = true;
+
+                                    string date = Convert.ToDateTime(reader["PaymentDate"]).ToString("MM/dd/yyyy");
+                                    string mode = reader["ModeOfPayment"].ToString();
+                                    decimal amountPaid = Convert.ToDecimal(reader["AmountPaid"]);
+                                    decimal remaining = Convert.ToDecimal(reader["RemainingBalance"]);
+                                    latestRemaining = remaining;
+
+                                    AdminPayment_GridView.Rows.Add($"{date} ({mode})",
+                                        $"₱{amountPaid:N2}", $"₱{remaining:N2}");
+                                }
+
+                                if (hasTransaction)
+                                {
+                                    // Add final summary row
+                                    AdminPayment_GridView.Rows.Add("", "", "");
+                                    AdminPayment_GridView.Rows.Add("Current Remaining Balance", "", $"₱{latestRemaining:N2}");
+
+                                    // Update label too
+                                    lbAdminPay_Remaining.Text = $"₱{latestRemaining:N2}";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading payment transactions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+        }
+
+
+        private void ResetTransactionForm()
+        {
+            txtAdminPayment.Text = "";
+            AdminChange_LBL.Text = "₱0.00";
+            // Keep payment mode selection for installments if needed
+            lbAdminPay_Remaining.Text = "";
+        }
+
     }
 }
