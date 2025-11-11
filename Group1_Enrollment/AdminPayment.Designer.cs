@@ -41,14 +41,10 @@
             AdminChange_LBL = new Label();
             label19 = new Label();
             AdminYLSection_LBL = new Label();
-            AdminDate_LBL = new Label();
             label7 = new Label();
             label8 = new Label();
             AdminStuName_LBL = new Label();
             AdminStuID_LBL = new Label();
-            Admin_LowMCheckBox = new CheckBox();
-            Admin_LowDPCheckBox = new CheckBox();
-            Admin_CashCheckBox = new CheckBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -64,6 +60,8 @@
             btnAdminOut2 = new Button();
             AdminPayment_SearchBTN = new Button();
             AdminPayment_TXTBOX = new TextBox();
+            dtCurrDate = new DateTimePicker();
+            clbModeOfPayment_AdminPay = new CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)AdminPayment_GridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -72,7 +70,7 @@
             // 
             // AdminView_BTN
             // 
-            AdminView_BTN.Location = new Point(628, 461);
+            AdminView_BTN.Location = new Point(655, 461);
             AdminView_BTN.Name = "AdminView_BTN";
             AdminView_BTN.Size = new Size(110, 37);
             AdminView_BTN.TabIndex = 147;
@@ -81,7 +79,7 @@
             // 
             // AdminCancel_BTN
             // 
-            AdminCancel_BTN.Location = new Point(511, 461);
+            AdminCancel_BTN.Location = new Point(527, 461);
             AdminCancel_BTN.Name = "AdminCancel_BTN";
             AdminCancel_BTN.Size = new Size(110, 37);
             AdminCancel_BTN.TabIndex = 146;
@@ -146,7 +144,7 @@
             // 
             // AdminConfirmPayment
             // 
-            AdminConfirmPayment.Location = new Point(386, 461);
+            AdminConfirmPayment.Location = new Point(399, 461);
             AdminConfirmPayment.Name = "AdminConfirmPayment";
             AdminConfirmPayment.Size = new Size(110, 37);
             AdminConfirmPayment.TabIndex = 139;
@@ -180,15 +178,6 @@
             AdminYLSection_LBL.Size = new Size(133, 15);
             AdminYLSection_LBL.TabIndex = 136;
             AdminYLSection_LBL.Text = "<<Year Level Section>>";
-            // 
-            // AdminDate_LBL
-            // 
-            AdminDate_LBL.AutoSize = true;
-            AdminDate_LBL.Location = new Point(614, 51);
-            AdminDate_LBL.Name = "AdminDate_LBL";
-            AdminDate_LBL.Size = new Size(82, 15);
-            AdminDate_LBL.TabIndex = 135;
-            AdminDate_LBL.Text = "<<<DATE>>>";
             // 
             // label7
             // 
@@ -228,41 +217,11 @@
             AdminStuID_LBL.TabIndex = 131;
             AdminStuID_LBL.Text = "<<Student ID>>";
             // 
-            // Admin_LowMCheckBox
-            // 
-            Admin_LowMCheckBox.AutoSize = true;
-            Admin_LowMCheckBox.Location = new Point(574, 232);
-            Admin_LowMCheckBox.Name = "Admin_LowMCheckBox";
-            Admin_LowMCheckBox.Size = new Size(146, 19);
-            Admin_LowMCheckBox.TabIndex = 130;
-            Admin_LowMCheckBox.Text = "Low Monthly Payment";
-            Admin_LowMCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // Admin_LowDPCheckBox
-            // 
-            Admin_LowDPCheckBox.AutoSize = true;
-            Admin_LowDPCheckBox.Location = new Point(574, 205);
-            Admin_LowDPCheckBox.Name = "Admin_LowDPCheckBox";
-            Admin_LowDPCheckBox.Size = new Size(132, 19);
-            Admin_LowDPCheckBox.TabIndex = 129;
-            Admin_LowDPCheckBox.Text = "Low Down Payment";
-            Admin_LowDPCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // Admin_CashCheckBox
-            // 
-            Admin_CashCheckBox.AutoSize = true;
-            Admin_CashCheckBox.Location = new Point(574, 179);
-            Admin_CashCheckBox.Name = "Admin_CashCheckBox";
-            Admin_CashCheckBox.Size = new Size(52, 19);
-            Admin_CashCheckBox.TabIndex = 128;
-            Admin_CashCheckBox.Text = "Cash";
-            Admin_CashCheckBox.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(574, 154);
+            label4.Location = new Point(599, 154);
             label4.Name = "label4";
             label4.Size = new Size(103, 15);
             label4.TabIndex = 127;
@@ -369,6 +328,7 @@
             btnAdminPay2.BackColor = Color.DarkSlateGray;
             btnAdminPay2.FlatStyle = FlatStyle.Flat;
             btnAdminPay2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminPay2.ForeColor = SystemColors.Control;
             btnAdminPay2.Location = new Point(20, 300);
             btnAdminPay2.Margin = new Padding(20, 3, 3, 3);
             btnAdminPay2.Name = "btnAdminPay2";
@@ -415,12 +375,14 @@
             // 
             // AdminPayment_SearchBTN
             // 
+            AdminPayment_SearchBTN.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AdminPayment_SearchBTN.Location = new Point(279, 12);
             AdminPayment_SearchBTN.Name = "AdminPayment_SearchBTN";
             AdminPayment_SearchBTN.Size = new Size(118, 23);
             AdminPayment_SearchBTN.TabIndex = 148;
             AdminPayment_SearchBTN.Text = "Search Student";
             AdminPayment_SearchBTN.UseVisualStyleBackColor = true;
+            AdminPayment_SearchBTN.Click += AdminPayment_SearchBTN_Click;
             // 
             // AdminPayment_TXTBOX
             // 
@@ -429,12 +391,32 @@
             AdminPayment_TXTBOX.Size = new Size(208, 23);
             AdminPayment_TXTBOX.TabIndex = 149;
             // 
+            // dtCurrDate
+            // 
+            dtCurrDate.Location = new Point(617, 45);
+            dtCurrDate.Name = "dtCurrDate";
+            dtCurrDate.Size = new Size(151, 23);
+            dtCurrDate.TabIndex = 150;
+            // 
+            // clbModeOfPayment_AdminPay
+            // 
+            clbModeOfPayment_AdminPay.FormattingEnabled = true;
+            clbModeOfPayment_AdminPay.Items.AddRange(new object[] { "Low Down Payment", "Low Quarterly Payment", "Cash" });
+            clbModeOfPayment_AdminPay.Location = new Point(599, 171);
+            clbModeOfPayment_AdminPay.Margin = new Padding(3, 2, 3, 2);
+            clbModeOfPayment_AdminPay.Name = "clbModeOfPayment_AdminPay";
+            clbModeOfPayment_AdminPay.Size = new Size(157, 58);
+            clbModeOfPayment_AdminPay.TabIndex = 204;
+            clbModeOfPayment_AdminPay.SelectedIndexChanged += clbModeOfPayment_AdminPay_SelectedIndexChanged;
+            // 
             // AdminPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(744, 522);
+            ClientSize = new Size(780, 522);
+            Controls.Add(clbModeOfPayment_AdminPay);
+            Controls.Add(dtCurrDate);
             Controls.Add(AdminPayment_TXTBOX);
             Controls.Add(AdminPayment_SearchBTN);
             Controls.Add(AdminView_BTN);
@@ -449,14 +431,10 @@
             Controls.Add(AdminChange_LBL);
             Controls.Add(label19);
             Controls.Add(AdminYLSection_LBL);
-            Controls.Add(AdminDate_LBL);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(AdminStuName_LBL);
             Controls.Add(AdminStuID_LBL);
-            Controls.Add(Admin_LowMCheckBox);
-            Controls.Add(Admin_LowDPCheckBox);
-            Controls.Add(Admin_CashCheckBox);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -466,6 +444,7 @@
             Name = "AdminPayment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminPayment";
+            Load += AdminPayment_Load;
             ((System.ComponentModel.ISupportInitialize)AdminPayment_GridView).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -488,14 +467,10 @@
         private Label AdminChange_LBL;
         private Label label19;
         private Label AdminYLSection_LBL;
-        private Label AdminDate_LBL;
         private Label label7;
         private Label label8;
         private Label AdminStuName_LBL;
         private Label AdminStuID_LBL;
-        private CheckBox Admin_LowMCheckBox;
-        private CheckBox Admin_LowDPCheckBox;
-        private CheckBox Admin_CashCheckBox;
         private Label label4;
         private Label label3;
         private Label label2;
@@ -511,5 +486,7 @@
         private Button btnAdminOut2;
         private Button AdminPayment_SearchBTN;
         private TextBox AdminPayment_TXTBOX;
+        private DateTimePicker dtCurrDate;
+        private CheckedListBox clbModeOfPayment_AdminPay;
     }
 }

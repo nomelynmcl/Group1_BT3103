@@ -47,5 +47,12 @@ namespace EventDriven.Project.UI
             adminStudReg.Show();
             this.Hide();
         }
+
+        private void lblPayment_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
     }
 }
