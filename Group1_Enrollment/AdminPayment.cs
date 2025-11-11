@@ -244,5 +244,85 @@ namespace EventDriven.Project.UI
             string selected = clbModeOfPayment_AdminPay.SelectedItem.ToString();
             FillPaymentBreakdown(selected);
         }
+
+        private void AdminCompute_BTN_Click(object sender, EventArgs e)
+        {
+            // Validate input
+            if (string.IsNullOrWhiteSpace(txtAdminPayment.Text))
+            {
+                MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (!decimal.TryParse(txtAdminPayment.Text, out decimal payment))
+            {
+                MessageBox.Show("Invalid amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get selected mode
+            string selectedMode = clbModeOfPayment_AdminPay.CheckedItems.Count > 0
+                ? clbModeOfPayment_AdminPay.CheckedItems[0].ToString()
+                : "";
+
+            if (string.IsNullOrEmpty(selectedMode))
+            {
+                MessageBox.Show("Please select a mode of payment first.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Get total fee from DataGridView (assuming "Total" row or last row has the adjusted total)
+            decimal totalAmount = 0;
+            foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
+                {
+                    decimal.TryParse(row.Cells[2].Value.ToString(), out totalAmount);
+                    break;
+                }
+            }
+
+            // Reset labels
+            AdminChange_LBL.Text = "";
+            lbAdminPay_Remaining.Text = "";
+
+            // ---- CASH MODE ----
+            if (selectedMode == "Cash")
+            {
+                if (payment < totalAmount)
+                {
+                    MessageBox.Show("Insufficient payment. Must be equal or greater than total.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal change = payment - totalAmount;
+                AdminChange_LBL.Text = $"Change: ₱{change:N2}";
+                lbAdminPay_Remaining.Text = "Remaining Balance: ₱0.00";
+            }
+
+            // ---- INSTALLMENT (LDP / LMP) ----
+            else
+            {
+                if (payment < 500)
+                {
+                    MessageBox.Show("Minimum down payment is ₱500.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal remainingBalance = totalAmount - payment;
+
+                if (remainingBalance > 0)
+                {
+                    lbAdminPay_Remaining.Text = $"₱{remainingBalance.ToString()}";
+                    AdminChange_LBL.Text = "₱0.00";
+                }
+                else
+                {
+                    decimal change = Math.Abs(remainingBalance); // payment > total
+                    lbAdminPay_Remaining.Text = "₱0.00";
+                    AdminChange_LBL.Text = $"₱{change.ToString()}";
+                }
+            }
+        }
     }
 }

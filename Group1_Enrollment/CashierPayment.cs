@@ -255,5 +255,85 @@ namespace EventDriven.Project.UI
             string selected = clbModeOfPayment_CashierPay.SelectedItem.ToString();
             FillPaymentBreakdown(selected);
         }
+
+        private void CashierCompute_BTN_Click(object sender, EventArgs e)
+        {
+            // Validate input
+            if (string.IsNullOrWhiteSpace(CashierPayment_TXTBOX.Text))
+            {
+                MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (!decimal.TryParse(CashierPayment_TXTBOX.Text, out decimal payment))
+            {
+                MessageBox.Show("Invalid amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get selected mode
+            string selectedMode = clbModeOfPayment_CashierPay.CheckedItems.Count > 0
+                ? clbModeOfPayment_CashierPay.CheckedItems[0].ToString()
+                : "";
+
+            if (string.IsNullOrEmpty(selectedMode))
+            {
+                MessageBox.Show("Please select a mode of payment first.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Get total fee from DataGridView (assuming "Total" row or last row has the adjusted total)
+            decimal totalAmount = 0;
+            foreach (DataGridViewRow row in CashierPayment_GridView.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
+                {
+                    decimal.TryParse(row.Cells[2].Value.ToString(), out totalAmount);
+                    break;
+                }
+            }
+
+            // Reset labels
+            CashierChange_LBL.Text = "";
+            CashierRemaining_LBL.Text = "";
+
+            // ---- CASH MODE ----
+            if (selectedMode == "Cash")
+            {
+                if (payment < totalAmount)
+                {
+                    MessageBox.Show("Insufficient payment. Must be equal or greater than total.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal change = payment - totalAmount;
+                CashierChange_LBL.Text = $"Change: ₱{change:N2}";
+                CashierRemaining_LBL.Text = "Remaining Balance: ₱0.00";
+            }
+
+            // ---- INSTALLMENT (LDP / LMP) ----
+            else
+            {
+                if (payment < 500)
+                {
+                    MessageBox.Show("Minimum down payment is ₱500.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal remainingBalance = totalAmount - payment;
+
+                if (remainingBalance > 0)
+                {
+                    CashierRemaining_LBL.Text = $"₱{remainingBalance.ToString()}";
+                    CashierChange_LBL.Text = "₱0.00";
+                }
+                else
+                {
+                    decimal change = Math.Abs(remainingBalance); // payment > total
+                    CashierRemaining_LBL.Text = "₱0.00";
+                    CashierChange_LBL.Text = $"₱{change.ToString()}";
+                }
+            }
+        }
     }
 }
