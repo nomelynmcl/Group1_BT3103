@@ -34,6 +34,7 @@
             btnAdminStudInfoSearch = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
+            pcRegistrarLogo3 = new PictureBox();
             pcAdminLogo2 = new PictureBox();
             btnAdminStudentInformation2 = new Button();
             btnAdminAssessment2 = new Button();
@@ -42,16 +43,15 @@
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
-            pcRegistrarLogo3 = new PictureBox();
-            btnRegistrarStudInfoView = new Button();
-            dtgRegistrarStudentInfoList = new DataGridView();
-            txtboxRegistrarStudInfo = new TextBox();
-            btnRegistrarStudInfoSearch = new Button();
+            btnRegistrarViewAssessment = new Button();
+            dtgRegistrarAssessment = new DataGridView();
+            txtboxRegistrarAssess = new TextBox();
+            btnRegistrarAssessSearch = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtgRegistrarStudentInfoList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgRegistrarAssessment).BeginInit();
             SuspendLayout();
             // 
             // btnAdminStudInfoView
@@ -109,6 +109,17 @@
             panel1.Size = new Size(248, 140);
             panel1.TabIndex = 0;
             // 
+            // pcRegistrarLogo3
+            // 
+            pcRegistrarLogo3.BackColor = Color.CadetBlue;
+            pcRegistrarLogo3.Image = (Image)resources.GetObject("pcRegistrarLogo3.Image");
+            pcRegistrarLogo3.Location = new Point(44, 14);
+            pcRegistrarLogo3.Name = "pcRegistrarLogo3";
+            pcRegistrarLogo3.Size = new Size(154, 126);
+            pcRegistrarLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcRegistrarLogo3.TabIndex = 1;
+            pcRegistrarLogo3.TabStop = false;
+            // 
             // pcAdminLogo2
             // 
             pcAdminLogo2.BackColor = Color.CadetBlue;
@@ -133,6 +144,7 @@
             btnAdminStudentInformation2.TabIndex = 3;
             btnAdminStudentInformation2.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation2.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation2.Click += btnAdminStudentInformation2_Click;
             // 
             // btnAdminAssessment2
             // 
@@ -159,6 +171,7 @@
             btnAdminStudreg2.TabIndex = 5;
             btnAdminStudreg2.Text = " STUDENT REGISTRATION";
             btnAdminStudreg2.UseVisualStyleBackColor = true;
+            btnAdminStudreg2.Click += btnAdminStudreg2_Click;
             // 
             // btnAdminPay2
             // 
@@ -195,6 +208,7 @@
             btnAdminReport2.TabIndex = 8;
             btnAdminReport2.Text = "REPORT";
             btnAdminReport2.UseVisualStyleBackColor = true;
+            btnAdminReport2.Click += btnAdminReport2_Click;
             // 
             // btnAdminOut2
             // 
@@ -207,65 +221,58 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
+            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
-            // pcRegistrarLogo3
+            // btnRegistrarViewAssessment
             // 
-            pcRegistrarLogo3.BackColor = Color.CadetBlue;
-            pcRegistrarLogo3.Image = (Image)resources.GetObject("pcRegistrarLogo3.Image");
-            pcRegistrarLogo3.Location = new Point(44, 14);
-            pcRegistrarLogo3.Name = "pcRegistrarLogo3";
-            pcRegistrarLogo3.Size = new Size(154, 126);
-            pcRegistrarLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcRegistrarLogo3.TabIndex = 1;
-            pcRegistrarLogo3.TabStop = false;
+            btnRegistrarViewAssessment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnRegistrarViewAssessment.Location = new Point(283, 18);
+            btnRegistrarViewAssessment.Margin = new Padding(3, 2, 3, 2);
+            btnRegistrarViewAssessment.Name = "btnRegistrarViewAssessment";
+            btnRegistrarViewAssessment.Size = new Size(119, 22);
+            btnRegistrarViewAssessment.TabIndex = 101;
+            btnRegistrarViewAssessment.Text = "View  Assessment";
+            btnRegistrarViewAssessment.UseVisualStyleBackColor = true;
+            btnRegistrarViewAssessment.Click += btnRegistrarViewAssessment_Click;
             // 
-            // btnRegistrarStudInfoView
+            // dtgRegistrarAssessment
             // 
-            btnRegistrarStudInfoView.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnRegistrarStudInfoView.Location = new Point(283, 18);
-            btnRegistrarStudInfoView.Margin = new Padding(3, 2, 3, 2);
-            btnRegistrarStudInfoView.Name = "btnRegistrarStudInfoView";
-            btnRegistrarStudInfoView.Size = new Size(106, 22);
-            btnRegistrarStudInfoView.TabIndex = 101;
-            btnRegistrarStudInfoView.Text = "View";
-            btnRegistrarStudInfoView.UseVisualStyleBackColor = true;
+            dtgRegistrarAssessment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgRegistrarAssessment.Location = new Point(283, 50);
+            dtgRegistrarAssessment.Name = "dtgRegistrarAssessment";
+            dtgRegistrarAssessment.RowHeadersWidth = 51;
+            dtgRegistrarAssessment.Size = new Size(742, 512);
+            dtgRegistrarAssessment.TabIndex = 99;
             // 
-            // dtgRegistrarStudentInfoList
+            // txtboxRegistrarAssess
             // 
-            dtgRegistrarStudentInfoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgRegistrarStudentInfoList.Location = new Point(283, 50);
-            dtgRegistrarStudentInfoList.Name = "dtgRegistrarStudentInfoList";
-            dtgRegistrarStudentInfoList.RowHeadersWidth = 51;
-            dtgRegistrarStudentInfoList.Size = new Size(760, 510);
-            dtgRegistrarStudentInfoList.TabIndex = 99;
+            txtboxRegistrarAssess.Location = new Point(670, 19);
+            txtboxRegistrarAssess.Name = "txtboxRegistrarAssess";
+            txtboxRegistrarAssess.Size = new Size(252, 23);
+            txtboxRegistrarAssess.TabIndex = 100;
             // 
-            // txtboxRegistrarStudInfo
+            // btnRegistrarAssessSearch
             // 
-            txtboxRegistrarStudInfo.Location = new Point(688, 17);
-            txtboxRegistrarStudInfo.Name = "txtboxRegistrarStudInfo";
-            txtboxRegistrarStudInfo.Size = new Size(252, 23);
-            txtboxRegistrarStudInfo.TabIndex = 100;
-            // 
-            // btnRegistrarStudInfoSearch
-            // 
-            btnRegistrarStudInfoSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnRegistrarStudInfoSearch.Location = new Point(946, 18);
-            btnRegistrarStudInfoSearch.Margin = new Padding(3, 2, 3, 2);
-            btnRegistrarStudInfoSearch.Name = "btnRegistrarStudInfoSearch";
-            btnRegistrarStudInfoSearch.Size = new Size(97, 22);
-            btnRegistrarStudInfoSearch.TabIndex = 98;
-            btnRegistrarStudInfoSearch.Text = "Search Student";
-            btnRegistrarStudInfoSearch.UseVisualStyleBackColor = true;
+            btnRegistrarAssessSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnRegistrarAssessSearch.Location = new Point(928, 20);
+            btnRegistrarAssessSearch.Margin = new Padding(3, 2, 3, 2);
+            btnRegistrarAssessSearch.Name = "btnRegistrarAssessSearch";
+            btnRegistrarAssessSearch.Size = new Size(97, 22);
+            btnRegistrarAssessSearch.TabIndex = 98;
+            btnRegistrarAssessSearch.Text = "Search Student";
+            btnRegistrarAssessSearch.UseVisualStyleBackColor = true;
+            btnRegistrarAssessSearch.Click += btnRegistrarAssessSearch_Click;
             // 
             // RegistrarAssesment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
-            Controls.Add(btnRegistrarStudInfoView);
-            Controls.Add(dtgRegistrarStudentInfoList);
-            Controls.Add(txtboxRegistrarStudInfo);
-            Controls.Add(btnRegistrarStudInfoSearch);
+            Controls.Add(btnRegistrarViewAssessment);
+            Controls.Add(dtgRegistrarAssessment);
+            Controls.Add(txtboxRegistrarAssess);
+            Controls.Add(btnRegistrarAssessSearch);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(btnAdminStudInfoView);
             Controls.Add(txtAdminStudInfoSearch);
@@ -275,11 +282,12 @@
             Name = "RegistrarAssesment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistrarAssesment";
+            Load += RegistrarAssesment_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtgRegistrarStudentInfoList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgRegistrarAssessment).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -300,9 +308,9 @@
         private Button btnAdminReport2;
         private Button btnAdminOut2;
         private PictureBox pcRegistrarLogo3;
-        private Button btnRegistrarStudInfoView;
-        private DataGridView dtgRegistrarStudentInfoList;
-        private TextBox txtboxRegistrarStudInfo;
-        private Button btnRegistrarStudInfoSearch;
+        private Button btnRegistrarViewAssessment;
+        private DataGridView dtgRegistrarAssessment;
+        private TextBox txtboxRegistrarAssess;
+        private Button btnRegistrarAssessSearch;
     }
 }
