@@ -32,7 +32,6 @@
             AdminView_BTN = new Button();
             AdminCancel_BTN = new Button();
             AdminCompute_BTN = new Button();
-            AdminPayment_LBL = new Label();
             label9 = new Label();
             label5 = new Label();
             AdminPayment_GridView = new DataGridView();
@@ -62,6 +61,9 @@
             AdminPayment_TXTBOX = new TextBox();
             dtCurrDate = new DateTimePicker();
             clbModeOfPayment_AdminPay = new CheckedListBox();
+            txtAdminPayment = new TextBox();
+            label6 = new Label();
+            lbAdminPay_Remaining = new Label();
             ((System.ComponentModel.ISupportInitialize)AdminPayment_GridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -94,21 +96,13 @@
             AdminCompute_BTN.TabIndex = 145;
             AdminCompute_BTN.Text = "Compute";
             AdminCompute_BTN.UseVisualStyleBackColor = true;
-            // 
-            // AdminPayment_LBL
-            // 
-            AdminPayment_LBL.AutoSize = true;
-            AdminPayment_LBL.Location = new Point(422, 422);
-            AdminPayment_LBL.Name = "AdminPayment_LBL";
-            AdminPayment_LBL.Size = new Size(28, 15);
-            AdminPayment_LBL.TabIndex = 144;
-            AdminPayment_LBL.Text = "0.00";
+            AdminCompute_BTN.Click += AdminCompute_BTN_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(294, 422);
+            label9.Location = new Point(270, 423);
             label9.Name = "label9";
             label9.Size = new Size(59, 15);
             label9.TabIndex = 143;
@@ -118,11 +112,11 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(279, 374);
+            label5.Location = new Point(270, 385);
             label5.Name = "label5";
-            label5.Size = new Size(56, 15);
+            label5.Size = new Size(122, 15);
             label5.TabIndex = 142;
-            label5.Text = "Payment";
+            label5.Text = "Payment Transaction";
             // 
             // AdminPayment_GridView
             // 
@@ -154,7 +148,7 @@
             // AdminChange_LBL
             // 
             AdminChange_LBL.AutoSize = true;
-            AdminChange_LBL.Location = new Point(655, 422);
+            AdminChange_LBL.Location = new Point(558, 422);
             AdminChange_LBL.Name = "AdminChange_LBL";
             AdminChange_LBL.Size = new Size(28, 15);
             AdminChange_LBL.TabIndex = 138;
@@ -164,11 +158,11 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(527, 422);
+            label19.Location = new Point(489, 422);
             label19.Name = "label19";
-            label19.Size = new Size(99, 15);
+            label19.Size = new Size(51, 15);
             label19.TabIndex = 137;
-            label19.Text = "Amount Change:";
+            label19.Text = "Change:";
             // 
             // AdminYLSection_LBL
             // 
@@ -409,12 +403,41 @@
             clbModeOfPayment_AdminPay.TabIndex = 204;
             clbModeOfPayment_AdminPay.SelectedIndexChanged += clbModeOfPayment_AdminPay_SelectedIndexChanged;
             // 
+            // txtAdminPayment
+            // 
+            txtAdminPayment.Location = new Point(335, 419);
+            txtAdminPayment.Name = "txtAdminPayment";
+            txtAdminPayment.Size = new Size(130, 23);
+            txtAdminPayment.TabIndex = 205;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(617, 422);
+            label6.Name = "label6";
+            label6.Size = new Size(69, 15);
+            label6.TabIndex = 206;
+            label6.Text = "Remaining:";
+            // 
+            // lbAdminPay_Remaining
+            // 
+            lbAdminPay_Remaining.AutoSize = true;
+            lbAdminPay_Remaining.Location = new Point(704, 422);
+            lbAdminPay_Remaining.Name = "lbAdminPay_Remaining";
+            lbAdminPay_Remaining.Size = new Size(28, 15);
+            lbAdminPay_Remaining.TabIndex = 207;
+            lbAdminPay_Remaining.Text = "0.00";
+            // 
             // AdminPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(780, 522);
+            Controls.Add(lbAdminPay_Remaining);
+            Controls.Add(label6);
+            Controls.Add(txtAdminPayment);
             Controls.Add(clbModeOfPayment_AdminPay);
             Controls.Add(dtCurrDate);
             Controls.Add(AdminPayment_TXTBOX);
@@ -422,7 +445,6 @@
             Controls.Add(AdminView_BTN);
             Controls.Add(AdminCancel_BTN);
             Controls.Add(AdminCompute_BTN);
-            Controls.Add(AdminPayment_LBL);
             Controls.Add(label9);
             Controls.Add(label5);
             Controls.Add(AdminPayment_GridView);
@@ -458,7 +480,6 @@
         private Button AdminView_BTN;
         private Button AdminCancel_BTN;
         private Button AdminCompute_BTN;
-        private Label AdminPayment_LBL;
         private Label label9;
         private Label label5;
         private DataGridView AdminPayment_GridView;
@@ -488,5 +509,8 @@
         private TextBox AdminPayment_TXTBOX;
         private DateTimePicker dtCurrDate;
         private CheckedListBox clbModeOfPayment_AdminPay;
+        private TextBox txtAdminPayment;
+        private Label label6;
+        private Label lbAdminPay_Remaining;
     }
 }

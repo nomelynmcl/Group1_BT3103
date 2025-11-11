@@ -51,7 +51,7 @@
             label1 = new Label();
             CashierPayment_GridView = new DataGridView();
             label5 = new Label();
-            CashierPayment_LBL = new Label();
+            CashierRemaining_LBL = new Label();
             label9 = new Label();
             CashierCompute_BTN = new Button();
             CashierCancel_BTN = new Button();
@@ -60,6 +60,8 @@
             CashierPayment_SearchBTN = new Button();
             dtRegDate = new DateTimePicker();
             clbModeOfPayment_CashierPay = new CheckedListBox();
+            txtCashierPay = new TextBox();
+            label6 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
@@ -240,7 +242,7 @@
             // CashierChange_LBL
             // 
             CashierChange_LBL.AutoSize = true;
-            CashierChange_LBL.Location = new Point(653, 419);
+            CashierChange_LBL.Location = new Point(553, 419);
             CashierChange_LBL.Name = "CashierChange_LBL";
             CashierChange_LBL.Size = new Size(28, 15);
             CashierChange_LBL.TabIndex = 114;
@@ -250,11 +252,11 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(525, 419);
+            label19.Location = new Point(471, 419);
             label19.Name = "label19";
-            label19.Size = new Size(99, 15);
+            label19.Size = new Size(51, 15);
             label19.TabIndex = 113;
-            label19.Text = "Amount Change:";
+            label19.Text = "Change:";
             // 
             // CashierConfirmPayment
             // 
@@ -287,26 +289,26 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(277, 371);
+            label5.Location = new Point(277, 380);
             label5.Name = "label5";
-            label5.Size = new Size(56, 15);
+            label5.Size = new Size(122, 15);
             label5.TabIndex = 118;
-            label5.Text = "Payment";
+            label5.Text = "Payment Transaction";
             // 
-            // CashierPayment_LBL
+            // CashierRemaining_LBL
             // 
-            CashierPayment_LBL.AutoSize = true;
-            CashierPayment_LBL.Location = new Point(420, 419);
-            CashierPayment_LBL.Name = "CashierPayment_LBL";
-            CashierPayment_LBL.Size = new Size(28, 15);
-            CashierPayment_LBL.TabIndex = 120;
-            CashierPayment_LBL.Text = "0.00";
+            CashierRemaining_LBL.AutoSize = true;
+            CashierRemaining_LBL.Location = new Point(710, 419);
+            CashierRemaining_LBL.Name = "CashierRemaining_LBL";
+            CashierRemaining_LBL.Size = new Size(28, 15);
+            CashierRemaining_LBL.TabIndex = 120;
+            CashierRemaining_LBL.Text = "0.00";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(292, 419);
+            label9.Location = new Point(277, 419);
             label9.Name = "label9";
             label9.Size = new Size(59, 15);
             label9.TabIndex = 119;
@@ -320,6 +322,7 @@
             CashierCompute_BTN.TabIndex = 121;
             CashierCompute_BTN.Text = "Compute";
             CashierCompute_BTN.UseVisualStyleBackColor = true;
+            CashierCompute_BTN.Click += CashierCompute_BTN_Click;
             // 
             // CashierCancel_BTN
             // 
@@ -375,12 +378,31 @@
             clbModeOfPayment_CashierPay.TabIndex = 203;
             clbModeOfPayment_CashierPay.SelectedIndexChanged += clbModeOfPayment_CashierPay_SelectedIndexChanged;
             // 
+            // txtCashierPay
+            // 
+            txtCashierPay.Location = new Point(343, 416);
+            txtCashierPay.Name = "txtCashierPay";
+            txtCashierPay.Size = new Size(108, 23);
+            txtCashierPay.TabIndex = 204;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(612, 419);
+            label6.Name = "label6";
+            label6.Size = new Size(69, 15);
+            label6.TabIndex = 205;
+            label6.Text = "Remaining:";
+            // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(780, 522);
+            Controls.Add(label6);
+            Controls.Add(txtCashierPay);
             Controls.Add(clbModeOfPayment_CashierPay);
             Controls.Add(dtRegDate);
             Controls.Add(CashierPayment_TXTBOX);
@@ -388,7 +410,7 @@
             Controls.Add(CashierView_BTN);
             Controls.Add(CashierCancel_BTN);
             Controls.Add(CashierCompute_BTN);
-            Controls.Add(CashierPayment_LBL);
+            Controls.Add(CashierRemaining_LBL);
             Controls.Add(label9);
             Controls.Add(label5);
             Controls.Add(CashierPayment_GridView);
@@ -443,7 +465,7 @@
         private Label label1;
         private DataGridView CashierPayment_GridView;
         private Label label5;
-        private Label CashierPayment_LBL;
+        private Label CashierRemaining_LBL;
         private Label label9;
         private Button CashierCompute_BTN;
         private Button CashierCancel_BTN;
@@ -453,5 +475,7 @@
         private Button CashierPayment_SearchBTN;
         private DateTimePicker dtRegDate;
         private CheckedListBox clbModeOfPayment_CashierPay;
+        private TextBox txtCashierPay;
+        private Label label6;
     }
 }
