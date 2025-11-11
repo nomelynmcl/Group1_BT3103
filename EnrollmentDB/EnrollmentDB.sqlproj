@@ -63,6 +63,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\UsersDB.sql" />
     <Build Include="dbo\Tables\StudentRecord.sql" />
+    <Build Include="dbo\Tables\PaymentRecord.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Script\EnrollmentScript.sql" />

@@ -144,6 +144,7 @@
             AdminConfirmPayment.TabIndex = 139;
             AdminConfirmPayment.Text = "Confirm Payment";
             AdminConfirmPayment.UseVisualStyleBackColor = true;
+            AdminConfirmPayment.Click += AdminConfirmPayment_Click;
             // 
             // AdminChange_LBL
             // 
