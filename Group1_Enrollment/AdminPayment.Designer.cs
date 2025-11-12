@@ -78,6 +78,7 @@
             AdminView_BTN.TabIndex = 147;
             AdminView_BTN.Text = "View Reciept";
             AdminView_BTN.UseVisualStyleBackColor = true;
+            AdminView_BTN.Click += AdminView_BTN_Click;
             // 
             // AdminCancel_BTN
             // 
@@ -87,6 +88,7 @@
             AdminCancel_BTN.TabIndex = 146;
             AdminCancel_BTN.Text = "Cancel";
             AdminCancel_BTN.UseVisualStyleBackColor = true;
+            AdminCancel_BTN.Click += AdminCancel_BTN_Click;
             // 
             // AdminCompute_BTN
             // 

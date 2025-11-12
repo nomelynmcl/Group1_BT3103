@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 
 namespace EventDriven.Project.UI
 {
@@ -7,6 +8,17 @@ namespace EventDriven.Project.UI
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private ListBox lstSuggestions;
+
+        // Variables to hold latest transaction for printing
+        private string lastModeOfPayment;
+        private decimal lastAmountPaid;
+        private decimal lastRemainingBalance;
+        private decimal lastChange;
+        private int lastTransactionId;
+
+        private PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+
 
         public AdminPayment()
         {
@@ -393,12 +405,15 @@ namespace EventDriven.Project.UI
                 remainingBalance = 0;
             }
 
+            // --- Insert the transaction and capture the TransactionId ---
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 string query = @"INSERT INTO PaymentRecord 
-                 (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
-                 VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance)";
+             (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
+             VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance);
+             SELECT SCOPE_IDENTITY();";
+
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@StudentId", studentId);
@@ -406,18 +421,35 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@ModeOfPayment", modeOfPayment);
                     cmd.Parameters.AddWithValue("@AmountPaid", amountPaid);
                     cmd.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
-                    cmd.ExecuteNonQuery();
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        lastTransactionId = Convert.ToInt32(result);
+                    }
                 }
             }
 
+            // --- Save details for printing ---
+            lastModeOfPayment = modeOfPayment;
+            lastAmountPaid = amountPaid;
+            lastRemainingBalance = remainingBalance;
+            lastChange = change;
+
+            // --- Reload payment history ---
             LoadPaymentTransactions(studentId);
 
             AdminChange_LBL.Text = $"₱{change:N2}";
             lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
 
+            // --- Show confirmation with transaction ID ---
+            MessageBox.Show($"Payment recorded successfully!\nTransaction ID: {lastTransactionId}",
+                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            // --- Disable controls if fully paid ---
             if (remainingBalance <= 0)
             {
-                // Fully paid -> disable all payment inputs
                 txtAdminPayment.Enabled = false;
                 clbModeOfPayment_AdminPay.Enabled = false;
                 AdminConfirmPayment.Enabled = false;
@@ -425,32 +457,30 @@ namespace EventDriven.Project.UI
             }
             else
             {
-                // Reset form for next transaction
                 ResetTransactionForm();
-                MessageBox.Show("Payment recorded. You can proceed with next transaction.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private decimal GetCurrentBalance(int studentId)
-{
-    decimal remainingBalance = 0;
-    using (SqlConnection con = new SqlConnection(connectionString))
-    {
-        con.Open();
-        string query = @"SELECT TOP 1 RemainingBalance 
+        {
+            decimal remainingBalance = 0;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = @"SELECT TOP 1 RemainingBalance 
                          FROM PaymentRecord 
                          WHERE Id=@Id 
                          ORDER BY TransactionId DESC";
-        using (SqlCommand cmd = new SqlCommand(query, con))
-        {
-            cmd.Parameters.AddWithValue("@Id", studentId);
-            object result = cmd.ExecuteScalar();
-            if (result != null)
-                remainingBalance = Convert.ToDecimal(result);
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", studentId);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                        remainingBalance = Convert.ToDecimal(result);
+                }
+            }
+            return remainingBalance;
         }
-    }
-    return remainingBalance;
-}
 
 
         private void LoadPaymentTransactions(int studentId)
@@ -511,7 +541,7 @@ namespace EventDriven.Project.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading payment transactions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+            }
         }
 
 
@@ -523,5 +553,137 @@ namespace EventDriven.Project.UI
             lbAdminPay_Remaining.Text = "";
         }
 
+        private void AdminCancel_BTN_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+
+        private void AdminView_BTN_Click(object sender, EventArgs e)
+        {
+            PrintReceipt();
+        }
+
+        private void PrintReceipt()
+        {
+            try
+            {
+                PrintDocument printDocument1 = new PrintDocument();
+                printDocument1.PrintPage += PrintDocument1_PrintPage;
+
+                // Set receipt-style paper size: 80mm x arbitrary height
+                int width = 370;  // 80mm ≈ 3.15 inch → 315
+                int height = 1000; // enough height for receipt content
+                PaperSize receiptSize = new PaperSize("Receipt", width, height);
+
+                printDocument1.DefaultPageSettings.PaperSize = receiptSize;
+                printDocument1.DefaultPageSettings.Margins = new Margins(10, 10, 10, 10);
+                printDocument1.DefaultPageSettings.Landscape = false;
+
+                PrintPreviewDialog preview = new PrintPreviewDialog();
+                preview.Document = printDocument1;
+                preview.Width = 400;
+                preview.Height = 600;
+                preview.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error printing receipt: " + ex.Message);
+            }
+        }
+
+
+        private void PrintDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font headerFont = new Font("Courier New", 12, FontStyle.Bold);
+            Font regularFont = new Font("Courier New", 9);
+            int y = 20;
+            int leftMargin = 10;
+
+
+            // Get the printable width of the page
+            int pageWidth = e.PageBounds.Width;
+            int rightMargin = e.MarginBounds.Right;
+
+            // Helper function to center text
+            void DrawCenteredString(string text, Font font, int yPos)
+            {
+                float textWidth = e.Graphics.MeasureString(text, font).Width;
+                float x = (pageWidth - textWidth) / 2;  // compute center position
+                e.Graphics.DrawString(text, font, Brushes.Black, x, yPos);
+            }
+
+            // Example usage:
+            DrawCenteredString("ORION TECH-HIGH SCHOOL", headerFont, y);
+            y += 25;
+            DrawCenteredString("PAYMENT RECEIPT", headerFont, y);
+            y += 25;
+
+            g.DrawString($"Transaction ID: {lastTransactionId}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString($"Date: {DateTime.Now}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+
+            g.DrawString($"Student ID: {AdminStuID_LBL.Text}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString($"Name: {AdminStuName_LBL.Text}", regularFont, Brushes.Black, leftMargin, y); y += 20;
+
+
+            // ✅ Get mode of payment safely
+            string modeOfPayment = string.Empty;
+
+            // Try from CheckedListBox first
+            if (clbModeOfPayment_AdminPay.CheckedItems.Count > 0)
+                modeOfPayment = clbModeOfPayment_AdminPay.CheckedItems[0].ToString();
+            else if (clbModeOfPayment_AdminPay.SelectedItem != null)
+                modeOfPayment = clbModeOfPayment_AdminPay.SelectedItem.ToString();
+            // Fallback to stored value if available
+            else if (!string.IsNullOrEmpty(lastModeOfPayment))
+                modeOfPayment = lastModeOfPayment;
+            else
+                modeOfPayment = "N/A";
+            // Optional: include Grade/Section if you store it
+            g.DrawString($"Mode of Payment: {modeOfPayment}", regularFont, Brushes.Black, leftMargin, y); y += 20;
+
+            // --- PAYMENT DETAILS ---
+            g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString("DESCRIPTION                           AMOUNT", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
+
+            // ✅ Safe conversions for numeric values
+            decimal amountPaid = 0;
+            decimal change = 0;
+            decimal remaining = 0;
+
+            decimal.TryParse(txtAdminPayment.Text.Replace("₱", "").Trim(), out amountPaid);
+            decimal.TryParse(AdminChange_LBL.Text.Replace("₱", "").Trim(), out change);
+            decimal.TryParse(lbAdminPay_Remaining.Text.Replace("₱", "").Trim(), out remaining);
+            g.DrawString($"Amount Paid: ₱{lastAmountPaid}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString($"Change: ₱{lastChange}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+            g.DrawString($"Remaining Balance: ₱{lastRemainingBalance}", regularFont, Brushes.Black, leftMargin, y); y += 15;
+
+            g.DrawString("---------------------------------------------", regularFont, Brushes.Black, 10, y);
+            y += 20;
+            g.DrawString("Items Breakdown:", regularFont, Brushes.Black, 10, y);
+            y += 20;
+
+            // Add breakdown from DataGridView (optional)
+            foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null && row.Cells[2].Value != null)
+                {
+                    string item = row.Cells[0].Value.ToString();
+                    string baseAmt = row.Cells[1].Value.ToString();
+                    string adjustedAmt = row.Cells[2].Value.ToString();
+
+                    g.DrawString($"{item}: {adjustedAmt}", regularFont, Brushes.Black, 10, y);
+                    y += 20;
+                }
+            }
+
+            y += 10;
+            g.DrawString("---------------------------------------------", regularFont, Brushes.Black, 10, y);
+            y += 20;
+            DrawCenteredString("Keep this receipt as proof of payment", regularFont, y);
+        }
     }
 }
