@@ -333,6 +333,7 @@
             CashierCancel_BTN.TabIndex = 122;
             CashierCancel_BTN.Text = "Cancel";
             CashierCancel_BTN.UseVisualStyleBackColor = true;
+            CashierCancel_BTN.Click += CashierCancel_BTN_Click;
             // 
             // CashierView_BTN
             // 
@@ -340,8 +341,9 @@
             CashierView_BTN.Name = "CashierView_BTN";
             CashierView_BTN.Size = new Size(110, 37);
             CashierView_BTN.TabIndex = 123;
-            CashierView_BTN.Text = "View Reciept";
+            CashierView_BTN.Text = "Print Reciept";
             CashierView_BTN.UseVisualStyleBackColor = true;
+            CashierView_BTN.Click += CashierView_BTN_Click;
             // 
             // CashierPayment_TXTBOX
             // 
