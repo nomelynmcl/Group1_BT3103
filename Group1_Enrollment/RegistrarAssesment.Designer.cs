@@ -39,8 +39,6 @@
             btnAdminStudentInformation2 = new Button();
             btnAdminAssessment2 = new Button();
             btnAdminStudreg2 = new Button();
-            btnAdminPay2 = new Button();
-            btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
             btnRegistrarViewAssessment = new Button();
@@ -90,8 +88,6 @@
             flowLayoutPanel1.Controls.Add(btnAdminStudentInformation2);
             flowLayoutPanel1.Controls.Add(btnAdminAssessment2);
             flowLayoutPanel1.Controls.Add(btnAdminStudreg2);
-            flowLayoutPanel1.Controls.Add(btnAdminPay2);
-            flowLayoutPanel1.Controls.Add(btnAdminHistory2);
             flowLayoutPanel1.Controls.Add(btnAdminReport2);
             flowLayoutPanel1.Controls.Add(btnAdminOut2);
             flowLayoutPanel1.Dock = DockStyle.Left;
@@ -173,35 +169,11 @@
             btnAdminStudreg2.UseVisualStyleBackColor = true;
             btnAdminStudreg2.Click += btnAdminStudreg2_Click;
             // 
-            // btnAdminPay2
-            // 
-            btnAdminPay2.FlatStyle = FlatStyle.Flat;
-            btnAdminPay2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay2.Location = new Point(20, 300);
-            btnAdminPay2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminPay2.Name = "btnAdminPay2";
-            btnAdminPay2.Size = new Size(211, 42);
-            btnAdminPay2.TabIndex = 6;
-            btnAdminPay2.Text = "PAYMENT";
-            btnAdminPay2.UseVisualStyleBackColor = true;
-            // 
-            // btnAdminHistory2
-            // 
-            btnAdminHistory2.FlatStyle = FlatStyle.Flat;
-            btnAdminHistory2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory2.Location = new Point(20, 348);
-            btnAdminHistory2.Margin = new Padding(20, 3, 3, 3);
-            btnAdminHistory2.Name = "btnAdminHistory2";
-            btnAdminHistory2.Size = new Size(211, 42);
-            btnAdminHistory2.TabIndex = 7;
-            btnAdminHistory2.Text = "PAYMENT HISTORY";
-            btnAdminHistory2.UseVisualStyleBackColor = true;
-            // 
             // btnAdminReport2
             // 
             btnAdminReport2.FlatStyle = FlatStyle.Flat;
             btnAdminReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport2.Location = new Point(20, 396);
+            btnAdminReport2.Location = new Point(20, 300);
             btnAdminReport2.Margin = new Padding(20, 3, 3, 3);
             btnAdminReport2.Name = "btnAdminReport2";
             btnAdminReport2.Size = new Size(211, 42);
@@ -214,7 +186,7 @@
             // 
             btnAdminOut2.FlatStyle = FlatStyle.Flat;
             btnAdminOut2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOut2.Location = new Point(20, 444);
+            btnAdminOut2.Location = new Point(20, 348);
             btnAdminOut2.Margin = new Padding(20, 3, 3, 3);
             btnAdminOut2.Name = "btnAdminOut2";
             btnAdminOut2.Size = new Size(211, 42);
@@ -303,8 +275,6 @@
         private Button btnAdminStudentInformation2;
         private Button btnAdminAssessment2;
         private Button btnAdminStudreg2;
-        private Button btnAdminPay2;
-        private Button btnAdminHistory2;
         private Button btnAdminReport2;
         private Button btnAdminOut2;
         private PictureBox pcRegistrarLogo3;
