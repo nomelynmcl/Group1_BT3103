@@ -14,6 +14,9 @@
     <Compile Update="AdminPaymentHistory.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AdminStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -50,6 +53,9 @@
     <Compile Update="CashierPayment.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CashierReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Cashier_PaymentHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistarReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RegistrarAssesment.cs">
