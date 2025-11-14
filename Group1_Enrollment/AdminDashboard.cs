@@ -61,5 +61,12 @@ namespace EventDriven.Project.UI
             assessment.Show();
             this.Hide();
         }
+
+        private void lblPaymentHistory_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
     }
 }

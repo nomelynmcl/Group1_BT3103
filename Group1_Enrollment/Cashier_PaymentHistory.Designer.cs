@@ -49,29 +49,29 @@
             // btnViewHistory_PaymentHistory_Cashier
             // 
             btnViewHistory_PaymentHistory_Cashier.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnViewHistory_PaymentHistory_Cashier.Location = new Point(330, 23);
+            btnViewHistory_PaymentHistory_Cashier.Location = new Point(289, 17);
+            btnViewHistory_PaymentHistory_Cashier.Margin = new Padding(3, 2, 3, 2);
             btnViewHistory_PaymentHistory_Cashier.Name = "btnViewHistory_PaymentHistory_Cashier";
-            btnViewHistory_PaymentHistory_Cashier.Size = new Size(143, 33);
+            btnViewHistory_PaymentHistory_Cashier.Size = new Size(125, 25);
             btnViewHistory_PaymentHistory_Cashier.TabIndex = 102;
             btnViewHistory_PaymentHistory_Cashier.Text = "View History";
             btnViewHistory_PaymentHistory_Cashier.UseVisualStyleBackColor = true;
+            btnViewHistory_PaymentHistory_Cashier.Click += btnViewHistory_PaymentHistory_Cashier_Click;
             // 
             // dtgPaymentHistory_Cashier
             // 
             dtgPaymentHistory_Cashier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgPaymentHistory_Cashier.Location = new Point(330, 72);
-            dtgPaymentHistory_Cashier.Margin = new Padding(3, 4, 3, 4);
+            dtgPaymentHistory_Cashier.Location = new Point(289, 54);
             dtgPaymentHistory_Cashier.Name = "dtgPaymentHistory_Cashier";
             dtgPaymentHistory_Cashier.RowHeadersWidth = 51;
-            dtgPaymentHistory_Cashier.Size = new Size(848, 683);
+            dtgPaymentHistory_Cashier.Size = new Size(742, 512);
             dtgPaymentHistory_Cashier.TabIndex = 99;
             // 
             // txtSearch_PaymentHistory_Cashier
             // 
-            txtSearch_PaymentHistory_Cashier.Location = new Point(708, 22);
-            txtSearch_PaymentHistory_Cashier.Margin = new Padding(3, 4, 3, 4);
+            txtSearch_PaymentHistory_Cashier.Location = new Point(620, 16);
             txtSearch_PaymentHistory_Cashier.Name = "txtSearch_PaymentHistory_Cashier";
-            txtSearch_PaymentHistory_Cashier.Size = new Size(315, 27);
+            txtSearch_PaymentHistory_Cashier.Size = new Size(276, 23);
             txtSearch_PaymentHistory_Cashier.TabIndex = 100;
             // 
             // flowLayoutPanel1
@@ -84,31 +84,29 @@
             flowLayoutPanel1.Controls.Add(btnLogout_PaymentHistory_Cashier);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(287, 696);
+            flowLayoutPanel1.Size = new Size(251, 522);
             flowLayoutPanel1.TabIndex = 97;
             // 
             // panel1
             // 
             panel1.Controls.Add(pcCashier_PaymentHistory_);
-            panel1.Location = new Point(3, 4);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(283, 187);
+            panel1.Size = new Size(248, 140);
             panel1.TabIndex = 0;
             // 
             // pcCashier_PaymentHistory_
             // 
             pcCashier_PaymentHistory_.BackColor = Color.CadetBlue;
             pcCashier_PaymentHistory_.Image = (Image)resources.GetObject("pcCashier_PaymentHistory_.Image");
-            pcCashier_PaymentHistory_.Location = new Point(50, 19);
-            pcCashier_PaymentHistory_.Margin = new Padding(3, 4, 3, 4);
+            pcCashier_PaymentHistory_.Location = new Point(44, 14);
             pcCashier_PaymentHistory_.Name = "pcCashier_PaymentHistory_";
-            pcCashier_PaymentHistory_.Size = new Size(176, 168);
+            pcCashier_PaymentHistory_.Size = new Size(154, 126);
             pcCashier_PaymentHistory_.SizeMode = PictureBoxSizeMode.StretchImage;
             pcCashier_PaymentHistory_.TabIndex = 0;
             pcCashier_PaymentHistory_.TabStop = false;
+            pcCashier_PaymentHistory_.Click += pcCashier_PaymentHistory__Click;
             // 
             // btnPayment_PaymentHistory_Cashier
             // 
@@ -116,13 +114,14 @@
             btnPayment_PaymentHistory_Cashier.FlatStyle = FlatStyle.Flat;
             btnPayment_PaymentHistory_Cashier.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPayment_PaymentHistory_Cashier.ForeColor = SystemColors.ControlText;
-            btnPayment_PaymentHistory_Cashier.Location = new Point(23, 208);
-            btnPayment_PaymentHistory_Cashier.Margin = new Padding(23, 13, 3, 4);
+            btnPayment_PaymentHistory_Cashier.Location = new Point(20, 156);
+            btnPayment_PaymentHistory_Cashier.Margin = new Padding(20, 10, 3, 3);
             btnPayment_PaymentHistory_Cashier.Name = "btnPayment_PaymentHistory_Cashier";
-            btnPayment_PaymentHistory_Cashier.Size = new Size(241, 56);
+            btnPayment_PaymentHistory_Cashier.Size = new Size(211, 42);
             btnPayment_PaymentHistory_Cashier.TabIndex = 3;
             btnPayment_PaymentHistory_Cashier.Text = "PAYMENT ";
             btnPayment_PaymentHistory_Cashier.UseVisualStyleBackColor = false;
+            btnPayment_PaymentHistory_Cashier.Click += btnPayment_PaymentHistory_Cashier_Click;
             // 
             // btnPaymentHistory_Cashier
             // 
@@ -130,10 +129,10 @@
             btnPaymentHistory_Cashier.FlatStyle = FlatStyle.Flat;
             btnPaymentHistory_Cashier.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPaymentHistory_Cashier.ForeColor = SystemColors.ControlLight;
-            btnPaymentHistory_Cashier.Location = new Point(23, 272);
-            btnPaymentHistory_Cashier.Margin = new Padding(23, 4, 3, 4);
+            btnPaymentHistory_Cashier.Location = new Point(20, 204);
+            btnPaymentHistory_Cashier.Margin = new Padding(20, 3, 3, 3);
             btnPaymentHistory_Cashier.Name = "btnPaymentHistory_Cashier";
-            btnPaymentHistory_Cashier.Size = new Size(241, 56);
+            btnPaymentHistory_Cashier.Size = new Size(211, 42);
             btnPaymentHistory_Cashier.TabIndex = 4;
             btnPaymentHistory_Cashier.Text = "PAYMENT HISTORY";
             btnPaymentHistory_Cashier.UseVisualStyleBackColor = false;
@@ -144,10 +143,10 @@
             btnReport_PaymentHistory_Cashier.FlatStyle = FlatStyle.Flat;
             btnReport_PaymentHistory_Cashier.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReport_PaymentHistory_Cashier.ForeColor = SystemColors.ControlText;
-            btnReport_PaymentHistory_Cashier.Location = new Point(23, 336);
-            btnReport_PaymentHistory_Cashier.Margin = new Padding(23, 4, 3, 4);
+            btnReport_PaymentHistory_Cashier.Location = new Point(20, 252);
+            btnReport_PaymentHistory_Cashier.Margin = new Padding(20, 3, 3, 3);
             btnReport_PaymentHistory_Cashier.Name = "btnReport_PaymentHistory_Cashier";
-            btnReport_PaymentHistory_Cashier.Size = new Size(241, 56);
+            btnReport_PaymentHistory_Cashier.Size = new Size(211, 42);
             btnReport_PaymentHistory_Cashier.TabIndex = 5;
             btnReport_PaymentHistory_Cashier.Text = "REPORT";
             btnReport_PaymentHistory_Cashier.UseVisualStyleBackColor = false;
@@ -156,39 +155,45 @@
             // 
             btnLogout_PaymentHistory_Cashier.FlatStyle = FlatStyle.Flat;
             btnLogout_PaymentHistory_Cashier.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout_PaymentHistory_Cashier.Location = new Point(23, 400);
-            btnLogout_PaymentHistory_Cashier.Margin = new Padding(23, 4, 3, 4);
+            btnLogout_PaymentHistory_Cashier.Location = new Point(20, 300);
+            btnLogout_PaymentHistory_Cashier.Margin = new Padding(20, 3, 3, 3);
             btnLogout_PaymentHistory_Cashier.Name = "btnLogout_PaymentHistory_Cashier";
-            btnLogout_PaymentHistory_Cashier.Size = new Size(241, 56);
+            btnLogout_PaymentHistory_Cashier.Size = new Size(211, 42);
             btnLogout_PaymentHistory_Cashier.TabIndex = 9;
             btnLogout_PaymentHistory_Cashier.Text = "LOG OUT";
             btnLogout_PaymentHistory_Cashier.UseVisualStyleBackColor = true;
+            btnLogout_PaymentHistory_Cashier.Click += btnLogout_PaymentHistory_Cashier_Click;
             // 
             // btnSearchStudent_PaymentHistory_Cashier
             // 
             btnSearchStudent_PaymentHistory_Cashier.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnSearchStudent_PaymentHistory_Cashier.Location = new Point(1039, 19);
+            btnSearchStudent_PaymentHistory_Cashier.Location = new Point(909, 14);
+            btnSearchStudent_PaymentHistory_Cashier.Margin = new Padding(3, 2, 3, 2);
             btnSearchStudent_PaymentHistory_Cashier.Name = "btnSearchStudent_PaymentHistory_Cashier";
-            btnSearchStudent_PaymentHistory_Cashier.Size = new Size(139, 33);
+            btnSearchStudent_PaymentHistory_Cashier.Size = new Size(122, 25);
             btnSearchStudent_PaymentHistory_Cashier.TabIndex = 96;
             btnSearchStudent_PaymentHistory_Cashier.Text = "Search Student";
             btnSearchStudent_PaymentHistory_Cashier.UseVisualStyleBackColor = true;
+            btnSearchStudent_PaymentHistory_Cashier.Click += btnSearchStudent_PaymentHistory_Cashier_Click;
             // 
             // Cashier_PaymentHistory
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 696);
+            BackColor = Color.AliceBlue;
+            ClientSize = new Size(1058, 522);
             Controls.Add(btnViewHistory_PaymentHistory_Cashier);
             Controls.Add(dtgPaymentHistory_Cashier);
             Controls.Add(txtSearch_PaymentHistory_Cashier);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(btnSearchStudent_PaymentHistory_Cashier);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Cashier_PaymentHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cashier_PaymentHistory";
+            Load += Cashier_PaymentHistory_Load;
             ((System.ComponentModel.ISupportInitialize)dtgPaymentHistory_Cashier).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
