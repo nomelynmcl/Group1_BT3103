@@ -54,5 +54,12 @@ namespace EventDriven.Project.UI
             adminPayment.Show();
             this.Close();
         }
+
+        private void lblAssessment_Click(object sender, EventArgs e)
+        {
+            AdminAssesment assessment = new AdminAssesment();
+            assessment.Show();
+            this.Hide();
+        }
     }
 }

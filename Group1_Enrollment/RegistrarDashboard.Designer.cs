@@ -29,40 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarDashboard));
-            txtRegistrarSearch = new TextBox();
-            btnSearchRegistrar = new Button();
             btnRegistrarOverview = new Button();
             btnLogoutRegistrar = new Button();
-            pictureBox2 = new PictureBox();
             lblRegistrarReport = new Label();
             lblRegistrarStudentRegistration = new Label();
             lblRegistrarAssessment = new Label();
             lblRegistrarStudentInfo = new Label();
             lblRegistrar = new Label();
             pcRegistrarLogo = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // txtRegistrarSearch
-            // 
-            txtRegistrarSearch.Location = new Point(329, 78);
-            txtRegistrarSearch.Margin = new Padding(3, 2, 3, 2);
-            txtRegistrarSearch.Name = "txtRegistrarSearch";
-            txtRegistrarSearch.Size = new Size(572, 23);
-            txtRegistrarSearch.TabIndex = 26;
-            // 
-            // btnSearchRegistrar
-            // 
-            btnSearchRegistrar.BackColor = Color.LightGray;
-            btnSearchRegistrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearchRegistrar.Location = new Point(906, 73);
-            btnSearchRegistrar.Margin = new Padding(3, 2, 3, 2);
-            btnSearchRegistrar.Name = "btnSearchRegistrar";
-            btnSearchRegistrar.Size = new Size(126, 28);
-            btnSearchRegistrar.TabIndex = 25;
-            btnSearchRegistrar.Text = "Search Student";
-            btnSearchRegistrar.UseVisualStyleBackColor = false;
             // 
             // btnRegistrarOverview
             // 
@@ -89,17 +67,6 @@
             btnLogoutRegistrar.Text = "Logout";
             btnLogoutRegistrar.UseVisualStyleBackColor = false;
             btnLogoutRegistrar.Click += btnLogoutRegistrar_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(332, 117);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(700, 282);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 22;
-            pictureBox2.TabStop = false;
             // 
             // lblRegistrarReport
             // 
@@ -166,16 +133,25 @@
             pcRegistrarLogo.TabIndex = 17;
             pcRegistrarLogo.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(329, 72);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(700, 324);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
             // RegistrarDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1124, 487);
-            Controls.Add(txtRegistrarSearch);
-            Controls.Add(btnSearchRegistrar);
+            Controls.Add(pictureBox1);
             Controls.Add(btnRegistrarOverview);
             Controls.Add(btnLogoutRegistrar);
-            Controls.Add(pictureBox2);
             Controls.Add(lblRegistrarReport);
             Controls.Add(lblRegistrarStudentRegistration);
             Controls.Add(lblRegistrarAssessment);
@@ -186,24 +162,21 @@
             Name = "RegistrarDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistarDashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox txtRegistrarSearch;
-        private Button btnSearchRegistrar;
         private Button btnRegistrarOverview;
         private Button btnLogoutRegistrar;
-        private PictureBox pictureBox2;
         private Label lblRegistrarReport;
         private Label lblRegistrarStudentRegistration;
         private Label lblRegistrarAssessment;
         private Label lblRegistrarStudentInfo;
         private Label lblRegistrar;
         private PictureBox pcRegistrarLogo;
+        private PictureBox pictureBox1;
     }
 }

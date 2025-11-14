@@ -50,7 +50,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("No matching student found.");
             }
 
-            // Rebind the filtered results to the grid
             dtgRegistrarAssessment.DataSource = new BindingSource { DataSource = filtered };
         }
 
@@ -63,7 +62,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -86,7 +85,9 @@ namespace EventDriven.Project.UI
                                 Gender = reader["Gender"].ToString(),
                                 GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString()),
                                 Section = reader["Section"].ToString(),
-                                StudentType = reader["StudentType"].ToString()
+                                StudentType = reader["StudentType"].ToString(),
+                                ModeOfPayment = reader["ModeOfPayment"].ToString(),
+                                EnrollmentStatus = reader["EnrollmentStatus"].ToString()
                             });
                         }
 
@@ -117,6 +118,8 @@ namespace EventDriven.Project.UI
                 int gradeLevel = Convert.ToInt32(dtgRegistrarAssessment.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string section = dtgRegistrarAssessment.CurrentRow.Cells["Section"].Value.ToString();
                 string studentType = dtgRegistrarAssessment.CurrentRow.Cells["StudentType"].Value.ToString();
+                string modeOfPaymemt = dtgRegistrarAssessment.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
+                string enrollmentStatus = dtgRegistrarAssessment.CurrentRow.Cells["EnrollmentStatus"].Value.ToString();
 
                 RegistrarViewAssessment viewForm = new RegistrarViewAssessment(
                 id,
@@ -128,7 +131,9 @@ namespace EventDriven.Project.UI
                 gender,
                 gradeLevel,
                 section,
-                studentType
+                studentType,
+                modeOfPaymemt,
+                enrollmentStatus
             );
 
                 viewForm.Show();
