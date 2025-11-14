@@ -29,186 +29,154 @@
         private void InitializeComponent()
         {
             PRIN_BUTTON = new Button();
-            TOT_TAL_LBL_RGTR = new Label();
+            MODE_LBL_RGTR = new Label();
             SECT_TION_LBL_RGTR = new Label();
             STU_NAME_LBL_RGTR = new Label();
-            S_Y_BOTTOM_LBL_RGTR = new Label();
             STATUS_BOTTOM_LBL_RGTR = new Label();
-            S_Y_LBL_RGTR = new Label();
-            STATUS_UP_LBL_RGTR = new Label();
+            TYPE_LBL_RGTR = new Label();
             STU_ID_LBL_RGTR = new Label();
             label8 = new Label();
-            label7 = new Label();
             label2 = new Label();
             label1 = new Label();
             label6 = new Label();
             label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
             dataGridView_RGTR = new DataGridView();
             label21 = new Label();
             pictureBox1 = new PictureBox();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_RGTR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // PRIN_BUTTON
             // 
-            PRIN_BUTTON.Location = new Point(439, 549);
+            PRIN_BUTTON.Location = new Point(411, 552);
             PRIN_BUTTON.Name = "PRIN_BUTTON";
             PRIN_BUTTON.Size = new Size(69, 23);
             PRIN_BUTTON.TabIndex = 63;
             PRIN_BUTTON.Text = "Print";
             PRIN_BUTTON.UseVisualStyleBackColor = true;
+            PRIN_BUTTON.Click += PRIN_BUTTON_Click;
             // 
-            // TOT_TAL_LBL_RGTR
+            // MODE_LBL_RGTR
             // 
-            TOT_TAL_LBL_RGTR.AutoSize = true;
-            TOT_TAL_LBL_RGTR.Location = new Point(65, 458);
-            TOT_TAL_LBL_RGTR.Name = "TOT_TAL_LBL_RGTR";
-            TOT_TAL_LBL_RGTR.Size = new Size(71, 15);
-            TOT_TAL_LBL_RGTR.TabIndex = 62;
-            TOT_TAL_LBL_RGTR.Text = "<<TOTAL>>";
+            MODE_LBL_RGTR.AutoSize = true;
+            MODE_LBL_RGTR.Location = new Point(135, 468);
+            MODE_LBL_RGTR.Name = "MODE_LBL_RGTR";
+            MODE_LBL_RGTR.Size = new Size(73, 15);
+            MODE_LBL_RGTR.TabIndex = 62;
+            MODE_LBL_RGTR.Text = "<<MODE>>";
             // 
             // SECT_TION_LBL_RGTR
             // 
             SECT_TION_LBL_RGTR.AutoSize = true;
-            SECT_TION_LBL_RGTR.Location = new Point(349, 195);
+            SECT_TION_LBL_RGTR.Location = new Point(393, 170);
             SECT_TION_LBL_RGTR.Name = "SECT_TION_LBL_RGTR";
-            SECT_TION_LBL_RGTR.Size = new Size(86, 15);
+            SECT_TION_LBL_RGTR.Size = new Size(87, 15);
             SECT_TION_LBL_RGTR.TabIndex = 61;
             SECT_TION_LBL_RGTR.Text = "<<SECTION>>";
             // 
             // STU_NAME_LBL_RGTR
             // 
             STU_NAME_LBL_RGTR.AutoSize = true;
-            STU_NAME_LBL_RGTR.Location = new Point(383, 170);
+            STU_NAME_LBL_RGTR.Location = new Point(117, 198);
             STU_NAME_LBL_RGTR.Name = "STU_NAME_LBL_RGTR";
-            STU_NAME_LBL_RGTR.Size = new Size(122, 15);
+            STU_NAME_LBL_RGTR.Size = new Size(124, 15);
             STU_NAME_LBL_RGTR.TabIndex = 60;
             STU_NAME_LBL_RGTR.Text = "<<STUDENTNAME>>";
-            // 
-            // S_Y_BOTTOM_LBL_RGTR
-            // 
-            S_Y_BOTTOM_LBL_RGTR.AutoSize = true;
-            S_Y_BOTTOM_LBL_RGTR.Location = new Point(101, 501);
-            S_Y_BOTTOM_LBL_RGTR.Name = "S_Y_BOTTOM_LBL_RGTR";
-            S_Y_BOTTOM_LBL_RGTR.Size = new Size(113, 15);
-            S_Y_BOTTOM_LBL_RGTR.TabIndex = 59;
-            S_Y_BOTTOM_LBL_RGTR.Text = "<<SCHOOLYEAR>>";
             // 
             // STATUS_BOTTOM_LBL_RGTR
             // 
             STATUS_BOTTOM_LBL_RGTR.AutoSize = true;
-            STATUS_BOTTOM_LBL_RGTR.Location = new Point(339, 501);
+            STATUS_BOTTOM_LBL_RGTR.Location = new Point(74, 492);
             STATUS_BOTTOM_LBL_RGTR.Name = "STATUS_BOTTOM_LBL_RGTR";
-            STATUS_BOTTOM_LBL_RGTR.Size = new Size(77, 15);
+            STATUS_BOTTOM_LBL_RGTR.Size = new Size(79, 15);
             STATUS_BOTTOM_LBL_RGTR.TabIndex = 58;
             STATUS_BOTTOM_LBL_RGTR.Text = "<<STATUS>>";
             // 
-            // S_Y_LBL_RGTR
+            // TYPE_LBL_RGTR
             // 
-            S_Y_LBL_RGTR.AutoSize = true;
-            S_Y_LBL_RGTR.Location = new Point(101, 195);
-            S_Y_LBL_RGTR.Name = "S_Y_LBL_RGTR";
-            S_Y_LBL_RGTR.Size = new Size(113, 15);
-            S_Y_LBL_RGTR.TabIndex = 57;
-            S_Y_LBL_RGTR.Text = "<<SCHOOLYEAR>>";
-            // 
-            // STATUS_UP_LBL_RGTR
-            // 
-            STATUS_UP_LBL_RGTR.AutoSize = true;
-            STATUS_UP_LBL_RGTR.Location = new Point(72, 225);
-            STATUS_UP_LBL_RGTR.Name = "STATUS_UP_LBL_RGTR";
-            STATUS_UP_LBL_RGTR.Size = new Size(77, 15);
-            STATUS_UP_LBL_RGTR.TabIndex = 56;
-            STATUS_UP_LBL_RGTR.Text = "<<STATUS>>";
+            TYPE_LBL_RGTR.AutoSize = true;
+            TYPE_LBL_RGTR.Location = new Point(111, 224);
+            TYPE_LBL_RGTR.Name = "TYPE_LBL_RGTR";
+            TYPE_LBL_RGTR.Size = new Size(66, 15);
+            TYPE_LBL_RGTR.TabIndex = 56;
+            TYPE_LBL_RGTR.Text = "<<TYPE>>";
             // 
             // STU_ID_LBL_RGTR
             // 
             STU_ID_LBL_RGTR.AutoSize = true;
             STU_ID_LBL_RGTR.Location = new Point(95, 170);
             STU_ID_LBL_RGTR.Name = "STU_ID_LBL_RGTR";
-            STU_ID_LBL_RGTR.Size = new Size(99, 15);
+            STU_ID_LBL_RGTR.Size = new Size(101, 15);
             STU_ID_LBL_RGTR.TabIndex = 55;
             STU_ID_LBL_RGTR.Text = "<<STUDENTID>>";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(291, 501);
+            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(24, 492);
             label8.Name = "label8";
-            label8.Size = new Size(42, 15);
+            label8.Size = new Size(43, 15);
             label8.TabIndex = 54;
             label8.Text = "Status:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(24, 501);
-            label7.Name = "label7";
-            label7.Size = new Size(71, 15);
-            label7.TabIndex = 53;
-            label7.Text = "School Year:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 458);
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(24, 468);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(105, 15);
             label2.TabIndex = 52;
-            label2.Text = "Total:";
+            label2.Text = "Mode of Payment:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(291, 195);
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(335, 170);
             label1.Name = "label1";
-            label1.Size = new Size(52, 15);
+            label1.Size = new Size(68, 15);
             label1.TabIndex = 51;
-            label1.Text = "Section: ";
+            label1.Text = "Yr/Section: ";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(291, 170);
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label6.Location = new Point(24, 198);
             label6.Name = "label6";
-            label6.Size = new Size(86, 15);
+            label6.Size = new Size(87, 15);
             label6.TabIndex = 50;
             label6.Text = "Student Name:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 225);
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label3.Location = new Point(24, 224);
             label3.Name = "label3";
-            label3.Size = new Size(42, 15);
+            label3.Size = new Size(80, 15);
             label3.TabIndex = 49;
-            label3.Text = "Status:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(24, 195);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 15);
-            label4.TabIndex = 48;
-            label4.Text = "School Year:";
+            label3.Text = "Student Type:";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label5.Location = new Point(24, 170);
             label5.Name = "label5";
-            label5.Size = new Size(65, 15);
+            label5.Size = new Size(68, 15);
             label5.TabIndex = 47;
             label5.Text = "Student ID:";
             // 
             // dataGridView_RGTR
             // 
             dataGridView_RGTR.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_RGTR.Location = new Point(24, 246);
+            dataGridView_RGTR.Location = new Point(24, 253);
             dataGridView_RGTR.Name = "dataGridView_RGTR";
             dataGridView_RGTR.Size = new Size(456, 201);
             dataGridView_RGTR.TabIndex = 46;
@@ -234,35 +202,42 @@
             pictureBox1.TabIndex = 44;
             pictureBox1.TabStop = false;
             // 
-            // Registrar_Assessment
+            // btnBack
+            // 
+            btnBack.Location = new Point(24, 552);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(69, 23);
+            btnBack.TabIndex = 64;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // RegistrarViewAssessment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(525, 587);
+            Controls.Add(btnBack);
             Controls.Add(PRIN_BUTTON);
-            Controls.Add(TOT_TAL_LBL_RGTR);
+            Controls.Add(MODE_LBL_RGTR);
             Controls.Add(SECT_TION_LBL_RGTR);
             Controls.Add(STU_NAME_LBL_RGTR);
-            Controls.Add(S_Y_BOTTOM_LBL_RGTR);
             Controls.Add(STATUS_BOTTOM_LBL_RGTR);
-            Controls.Add(S_Y_LBL_RGTR);
-            Controls.Add(STATUS_UP_LBL_RGTR);
+            Controls.Add(TYPE_LBL_RGTR);
             Controls.Add(STU_ID_LBL_RGTR);
             Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label6);
             Controls.Add(label3);
-            Controls.Add(label4);
             Controls.Add(label5);
             Controls.Add(dataGridView_RGTR);
             Controls.Add(label21);
             Controls.Add(pictureBox1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Registrar_Assessment";
+            Name = "RegistrarViewAssessment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar_Assessment";
             ((System.ComponentModel.ISupportInitialize)dataGridView_RGTR).EndInit();
@@ -274,24 +249,21 @@
         #endregion
 
         private Button PRIN_BUTTON;
-        private Label TOT_TAL_LBL_RGTR;
+        private Label MODE_LBL_RGTR;
         private Label SECT_TION_LBL_RGTR;
         private Label STU_NAME_LBL_RGTR;
-        private Label S_Y_BOTTOM_LBL_RGTR;
         private Label STATUS_BOTTOM_LBL_RGTR;
-        private Label S_Y_LBL_RGTR;
-        private Label STATUS_UP_LBL_RGTR;
+        private Label TYPE_LBL_RGTR;
         private Label STU_ID_LBL_RGTR;
         private Label label8;
-        private Label label7;
         private Label label2;
         private Label label1;
         private Label label6;
         private Label label3;
-        private Label label4;
         private Label label5;
         private DataGridView dataGridView_RGTR;
         private Label label21;
         private PictureBox pictureBox1;
+        private Button btnBack;
     }
 }

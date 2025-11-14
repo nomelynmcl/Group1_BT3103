@@ -38,8 +38,6 @@
             pictureBox2 = new PictureBox();
             btnLogoutAdmin = new Button();
             btnAdminOverview = new Button();
-            btnSearchStudentAdmn = new Button();
-            txtAdminSearch = new TextBox();
             lblPayment = new Label();
             lblPaymentHistory = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,6 +87,7 @@
             lblAssessment.Size = new Size(109, 20);
             lblAssessment.TabIndex = 3;
             lblAssessment.Text = "ASSESSMENT";
+            lblAssessment.Click += lblAssessment_Click;
             // 
             // lblStudentRegistration
             // 
@@ -114,10 +113,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(360, 114);
+            pictureBox2.Location = new Point(360, 72);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(700, 282);
+            pictureBox2.Size = new Size(700, 324);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
@@ -129,7 +128,7 @@
             btnLogoutAdmin.Location = new Point(1054, 24);
             btnLogoutAdmin.Margin = new Padding(3, 2, 3, 2);
             btnLogoutAdmin.Name = "btnLogoutAdmin";
-            btnLogoutAdmin.Size = new Size(79, 24);
+            btnLogoutAdmin.Size = new Size(79, 29);
             btnLogoutAdmin.TabIndex = 8;
             btnLogoutAdmin.Text = "Logout";
             btnLogoutAdmin.UseVisualStyleBackColor = false;
@@ -147,26 +146,6 @@
             btnAdminOverview.TabIndex = 11;
             btnAdminOverview.Text = "ADMIN OVERVIEW";
             btnAdminOverview.UseVisualStyleBackColor = false;
-            // 
-            // btnSearchStudentAdmn
-            // 
-            btnSearchStudentAdmn.BackColor = Color.LightGray;
-            btnSearchStudentAdmn.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearchStudentAdmn.Location = new Point(934, 70);
-            btnSearchStudentAdmn.Margin = new Padding(3, 2, 3, 2);
-            btnSearchStudentAdmn.Name = "btnSearchStudentAdmn";
-            btnSearchStudentAdmn.Size = new Size(126, 28);
-            btnSearchStudentAdmn.TabIndex = 12;
-            btnSearchStudentAdmn.Text = "Search Student";
-            btnSearchStudentAdmn.UseVisualStyleBackColor = false;
-            // 
-            // txtAdminSearch
-            // 
-            txtAdminSearch.Location = new Point(357, 75);
-            txtAdminSearch.Margin = new Padding(3, 2, 3, 2);
-            txtAdminSearch.Name = "txtAdminSearch";
-            txtAdminSearch.Size = new Size(572, 23);
-            txtAdminSearch.TabIndex = 13;
             // 
             // lblPayment
             // 
@@ -197,8 +176,6 @@
             ClientSize = new Size(1155, 499);
             Controls.Add(lblPaymentHistory);
             Controls.Add(lblPayment);
-            Controls.Add(txtAdminSearch);
-            Controls.Add(btnSearchStudentAdmn);
             Controls.Add(btnAdminOverview);
             Controls.Add(btnLogoutAdmin);
             Controls.Add(pictureBox2);
@@ -229,8 +206,6 @@
         private PictureBox pictureBox2;
         private Button btnLogoutAdmin;
         private Button btnAdminOverview;
-        private Button btnSearchStudentAdmn;
-        private TextBox txtAdminSearch;
         private Label lblPayment;
         private Label lblPaymentHistory;
     }

@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
@@ -18,6 +10,7 @@ namespace EventDriven.Project.UI
         private StudentAssessmentModel studentAssessmentModel;
         private List<StudentAssessmentModel> studentAssement;
         private List<StudentAssessmentModel> studentSearch;
+
         public AdminAssesment()
         {
             InitializeComponent();
@@ -31,7 +24,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -54,7 +47,9 @@ namespace EventDriven.Project.UI
                                 Gender = reader["Gender"].ToString(),
                                 GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString()),
                                 Section = reader["Section"].ToString(),
-                                StudentType = reader["StudentType"].ToString()
+                                StudentType = reader["StudentType"].ToString(),
+                                ModeOfPayment = reader["ModeOfPayment"].ToString(),
+                                EnrollmentStatus = reader["EnrollmentStatus"].ToString()
                             });
                         }
 
@@ -80,7 +75,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 s.Id.ToString().ToLower().Contains(searchValue) ||
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
@@ -91,8 +85,6 @@ namespace EventDriven.Project.UI
             {
                 MessageBox.Show("No matching student found.");
             }
-
-            // Rebind the filtered results to the grid
             dtgAdminAssessment.DataSource = new BindingSource { DataSource = filtered };
         }
 
@@ -116,6 +108,8 @@ namespace EventDriven.Project.UI
                 int gradeLevel = Convert.ToInt32(dtgAdminAssessment.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string section = dtgAdminAssessment.CurrentRow.Cells["Section"].Value.ToString();
                 string studentType = dtgAdminAssessment.CurrentRow.Cells["StudentType"].Value.ToString();
+                string enrollmentStatus = dtgAdminAssessment.CurrentRow.Cells["EnrollmentStatus"].Value.ToString();
+                string modeOfPayment = dtgAdminAssessment.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
 
                 AdminViewAssessment viewForm = new AdminViewAssessment(
                 id,
@@ -127,7 +121,9 @@ namespace EventDriven.Project.UI
                 gender,
                 gradeLevel,
                 section,
-                studentType
+                studentType,
+                modeOfPayment,
+                enrollmentStatus
             );
 
                 viewForm.Show();

@@ -18,6 +18,8 @@ namespace EventDriven.Project.Model
         public int GradeLevel { get; set; }
         public string Section { get; set; }
         public string StudentType { get; set; }
+        public string ModeOfPayment { get; set; }
+        public string EnrollmentStatus { get; set; }
 
     }
 }
