@@ -44,5 +44,12 @@ namespace EventDriven.Project.UI
             assesment.Show();
             this.Hide();
         }
+
+        private void lblRegistrarReport_Click(object sender, EventArgs e)
+        {
+            RegistrarReport report = new RegistrarReport();
+            report.Show();
+            this.Hide();
+        }
     }
 }

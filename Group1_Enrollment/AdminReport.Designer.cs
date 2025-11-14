@@ -52,6 +52,7 @@
             AR_SOA_GRID = new DataGridView();
             label5 = new Label();
             AR_PRINT_BTN = new Button();
+            btnViewSOA = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
@@ -94,6 +95,7 @@
             pcAdminLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo3.TabIndex = 0;
             pcAdminLogo3.TabStop = false;
+            pcAdminLogo3.Click += pcAdminLogo3_Click;
             // 
             // btnAdminStudentInformation3
             // 
@@ -108,6 +110,7 @@
             btnAdminStudentInformation3.TabIndex = 3;
             btnAdminStudentInformation3.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation3.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation3.Click += btnAdminStudentInformation3_Click;
             // 
             // btnAdminAssessment3
             // 
@@ -120,6 +123,7 @@
             btnAdminAssessment3.TabIndex = 4;
             btnAdminAssessment3.Text = "ASSESSMENT";
             btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
             // btnAdminStudreg3
             // 
@@ -132,6 +136,7 @@
             btnAdminStudreg3.TabIndex = 5;
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
+            btnAdminStudreg3.Click += btnAdminStudreg3_Click;
             // 
             // btnAdminPay3
             // 
@@ -144,6 +149,7 @@
             btnAdminPay3.TabIndex = 6;
             btnAdminPay3.Text = "PAYMENT";
             btnAdminPay3.UseVisualStyleBackColor = true;
+            btnAdminPay3.Click += btnAdminPay3_Click;
             // 
             // btnAdminHistory3
             // 
@@ -156,6 +162,7 @@
             btnAdminHistory3.TabIndex = 7;
             btnAdminHistory3.Text = "PAYMENT HISTORY";
             btnAdminHistory3.UseVisualStyleBackColor = true;
+            btnAdminHistory3.Click += btnAdminHistory3_Click;
             // 
             // btnAdminReport3
             // 
@@ -182,6 +189,7 @@
             btnAdminOut3.TabIndex = 9;
             btnAdminOut3.Text = "LOG OUT";
             btnAdminOut3.UseVisualStyleBackColor = true;
+            btnAdminOut3.Click += btnAdminOut3_Click;
             // 
             // label1
             // 
@@ -240,6 +248,7 @@
             AR_LOE_GRID.Name = "AR_LOE_GRID";
             AR_LOE_GRID.Size = new Size(507, 265);
             AR_LOE_GRID.TabIndex = 86;
+            AR_LOE_GRID.CellContentClick += AR_LOE_GRID_CellContentClick;
             // 
             // AR_LOE_TXTBOX
             // 
@@ -256,12 +265,13 @@
             AR_LOE_BTN.TabIndex = 88;
             AR_LOE_BTN.Text = "Search";
             AR_LOE_BTN.UseVisualStyleBackColor = true;
+            AR_LOE_BTN.Click += AR_LOE_BTN_Click;
             // 
             // AR_NOTD
             // 
             AR_NOTD.AutoSize = true;
             AR_NOTD.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AR_NOTD.Location = new Point(869, 55);
+            AR_NOTD.Location = new Point(877, 55);
             AR_NOTD.Name = "AR_NOTD";
             AR_NOTD.Size = new Size(56, 65);
             AR_NOTD.TabIndex = 105;
@@ -271,18 +281,18 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(771, 17);
+            label4.Location = new Point(801, 17);
             label4.Name = "label4";
-            label4.Size = new Size(250, 20);
+            label4.Size = new Size(212, 20);
             label4.TabIndex = 104;
-            label4.Text = "NUMBER OF TRANSACTION DATE";
+            label4.Text = "NUMBER OF TRANSACTION ";
             // 
             // AR_SOA_GRID
             // 
             AR_SOA_GRID.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AR_SOA_GRID.Location = new Point(819, 204);
+            AR_SOA_GRID.Location = new Point(804, 204);
             AR_SOA_GRID.Name = "AR_SOA_GRID";
-            AR_SOA_GRID.Size = new Size(202, 265);
+            AR_SOA_GRID.Size = new Size(217, 265);
             AR_SOA_GRID.TabIndex = 107;
             // 
             // label5
@@ -297,12 +307,23 @@
             // 
             // AR_PRINT_BTN
             // 
-            AR_PRINT_BTN.Location = new Point(971, 487);
+            AR_PRINT_BTN.Location = new Point(946, 487);
             AR_PRINT_BTN.Name = "AR_PRINT_BTN";
             AR_PRINT_BTN.Size = new Size(75, 23);
             AR_PRINT_BTN.TabIndex = 108;
             AR_PRINT_BTN.Text = "Print";
             AR_PRINT_BTN.UseVisualStyleBackColor = true;
+            AR_PRINT_BTN.Click += AR_PRINT_BTN_Click;
+            // 
+            // btnViewSOA
+            // 
+            btnViewSOA.Location = new Point(613, 487);
+            btnViewSOA.Name = "btnViewSOA";
+            btnViewSOA.Size = new Size(167, 23);
+            btnViewSOA.TabIndex = 109;
+            btnViewSOA.Text = "View Statement of Account";
+            btnViewSOA.UseVisualStyleBackColor = true;
+            btnViewSOA.Click += btnViewSOA_Click_1;
             // 
             // AdminReport
             // 
@@ -310,6 +331,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
+            Controls.Add(btnViewSOA);
             Controls.Add(AR_PRINT_BTN);
             Controls.Add(AR_SOA_GRID);
             Controls.Add(label5);
@@ -328,6 +350,7 @@
             MinimizeBox = false;
             Name = "AdminReport";
             StartPosition = FormStartPosition.CenterScreen;
+            Load += AdminReport_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).EndInit();
@@ -362,5 +385,6 @@
         private DataGridView AR_SOA_GRID;
         private Label label5;
         private Button AR_PRINT_BTN;
+        private Button btnViewSOA;
     }
 }

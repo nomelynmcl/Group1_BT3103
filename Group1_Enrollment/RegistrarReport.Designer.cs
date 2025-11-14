@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class RegistarReport
+    partial class RegistrarReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistarReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarReport));
             RR_LOE_BTN = new Button();
             RR_LOE_TXTBOX = new TextBox();
             RR_LOE_GRID = new DataGridView();
@@ -39,12 +39,12 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
+            pcRegistrarLogo4 = new PictureBox();
             btnAdminStudentInformation3 = new Button();
             btnAdminAssessment3 = new Button();
             btnAdminStudreg3 = new Button();
             btnAdminReport3 = new Button();
             btnAdminOut3 = new Button();
-            pcRegistrarLogo4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)RR_LOE_GRID).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -59,6 +59,7 @@
             RR_LOE_BTN.TabIndex = 97;
             RR_LOE_BTN.Text = "Search";
             RR_LOE_BTN.UseVisualStyleBackColor = true;
+            RR_LOE_BTN.Click += RR_LOE_BTN_Click;
             // 
             // RR_LOE_TXTBOX
             // 
@@ -148,6 +149,18 @@
             panel1.Size = new Size(248, 140);
             panel1.TabIndex = 0;
             // 
+            // pcRegistrarLogo4
+            // 
+            pcRegistrarLogo4.BackColor = Color.CadetBlue;
+            pcRegistrarLogo4.Image = (Image)resources.GetObject("pcRegistrarLogo4.Image");
+            pcRegistrarLogo4.Location = new Point(44, 11);
+            pcRegistrarLogo4.Name = "pcRegistrarLogo4";
+            pcRegistrarLogo4.Size = new Size(154, 126);
+            pcRegistrarLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcRegistrarLogo4.TabIndex = 1;
+            pcRegistrarLogo4.TabStop = false;
+            pcRegistrarLogo4.Click += pcRegistrarLogo4_Click;
+            // 
             // btnAdminStudentInformation3
             // 
             btnAdminStudentInformation3.BackColor = Color.CadetBlue;
@@ -161,6 +174,7 @@
             btnAdminStudentInformation3.TabIndex = 3;
             btnAdminStudentInformation3.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation3.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation3.Click += btnAdminStudentInformation3_Click;
             // 
             // btnAdminAssessment3
             // 
@@ -173,6 +187,7 @@
             btnAdminAssessment3.TabIndex = 4;
             btnAdminAssessment3.Text = "ASSESSMENT";
             btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
             // btnAdminStudreg3
             // 
@@ -185,6 +200,7 @@
             btnAdminStudreg3.TabIndex = 5;
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
+            btnAdminStudreg3.Click += btnAdminStudreg3_Click;
             // 
             // btnAdminReport3
             // 
@@ -211,19 +227,9 @@
             btnAdminOut3.TabIndex = 9;
             btnAdminOut3.Text = "LOG OUT";
             btnAdminOut3.UseVisualStyleBackColor = true;
+            btnAdminOut3.Click += btnAdminOut3_Click;
             // 
-            // pcRegistrarLogo4
-            // 
-            pcRegistrarLogo4.BackColor = Color.CadetBlue;
-            pcRegistrarLogo4.Image = (Image)resources.GetObject("pcRegistrarLogo4.Image");
-            pcRegistrarLogo4.Location = new Point(44, 11);
-            pcRegistrarLogo4.Name = "pcRegistrarLogo4";
-            pcRegistrarLogo4.Size = new Size(154, 126);
-            pcRegistrarLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcRegistrarLogo4.TabIndex = 1;
-            pcRegistrarLogo4.TabStop = false;
-            // 
-            // RegistarReport
+            // RegistrarReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -240,9 +246,10 @@
             Controls.Add(flowLayoutPanel1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "RegistarReport";
+            Name = "RegistrarReport";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistarReport";
+            Load += RegistarReport_Load;
             ((System.ComponentModel.ISupportInitialize)RR_LOE_GRID).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

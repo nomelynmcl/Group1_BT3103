@@ -31,16 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierDashboard));
             lblCashierPayHistory = new Label();
             lblCashierPayment = new Label();
-            txtCashierSearch = new TextBox();
-            btnCashierSearch = new Button();
             btnCashierOverview = new Button();
             btnLogoutCashier = new Button();
-            pictureBox2 = new PictureBox();
             lblCashierReport = new Label();
             lblCashier = new Label();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // lblCashierPayHistory
@@ -64,27 +62,6 @@
             lblCashierPayment.TabIndex = 27;
             lblCashierPayment.Text = "PAYMENT";
             lblCashierPayment.Click += lblCashierPayment_Click;
-            // 
-            // txtCashierSearch
-            // 
-            txtCashierSearch.Location = new Point(314, 79);
-            txtCashierSearch.Margin = new Padding(3, 2, 3, 2);
-            txtCashierSearch.Name = "txtCashierSearch";
-            txtCashierSearch.Size = new Size(572, 23);
-            txtCashierSearch.TabIndex = 26;
-            // 
-            // btnCashierSearch
-            // 
-            btnCashierSearch.BackColor = Color.LightGray;
-            btnCashierSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCashierSearch.Location = new Point(891, 74);
-            btnCashierSearch.Margin = new Padding(3, 2, 3, 2);
-            btnCashierSearch.Name = "btnCashierSearch";
-            btnCashierSearch.Size = new Size(126, 28);
-            btnCashierSearch.TabIndex = 25;
-            btnCashierSearch.Text = "Search Student";
-            btnCashierSearch.UseVisualStyleBackColor = false;
-            btnCashierSearch.Click += btnCashierSearch_Click;
             // 
             // btnCashierOverview
             // 
@@ -112,17 +89,6 @@
             btnLogoutCashier.UseVisualStyleBackColor = false;
             btnLogoutCashier.Click += btnLogoutCashier_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(317, 118);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(700, 282);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 22;
-            pictureBox2.TabStop = false;
-            // 
             // lblCashierReport
             // 
             lblCashierReport.AutoSize = true;
@@ -132,6 +98,7 @@
             lblCashierReport.Size = new Size(68, 20);
             lblCashierReport.TabIndex = 21;
             lblCashierReport.Text = "REPORT";
+            lblCashierReport.Click += lblCashierReport_Click;
             // 
             // lblCashier
             // 
@@ -155,26 +122,35 @@
             pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(314, 80);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(700, 324);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 29;
+            pictureBox3.TabStop = false;
+            // 
             // CashierDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1129, 500);
+            Controls.Add(pictureBox3);
             Controls.Add(lblCashierPayHistory);
             Controls.Add(lblCashierPayment);
-            Controls.Add(txtCashierSearch);
-            Controls.Add(btnCashierSearch);
             Controls.Add(btnCashierOverview);
             Controls.Add(btnLogoutCashier);
-            Controls.Add(pictureBox2);
             Controls.Add(lblCashierReport);
             Controls.Add(lblCashier);
             Controls.Add(pictureBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "CashierDashboard";
             Text = "CashierDashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,13 +160,11 @@
 
         private Button btnCashierOverview;
         private Button btnLogoutCashier;
-        private PictureBox pictureBox2;
         private Label lblCashierReport;
         private Label lblCashier;
         private PictureBox pictureBox1;
         private Label lblCashierPayHistory;
         private Label lblCashierPayment;
-        private TextBox txtCashierSearch;
-        private Button btnCashierSearch;
+        private PictureBox pictureBox3;
     }
 }

@@ -47,5 +47,12 @@ namespace EventDriven.Project.UI
             loginForm.Show();
             this.Close();
         }
+
+        private void lblCashierReport_Click(object sender, EventArgs e)
+        {
+            CashierReport report = new CashierReport();
+            report.Show();
+            this.Close();
+        }
     }
 }

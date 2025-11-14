@@ -93,6 +93,7 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            pcAdminLogo2.Click += pcAdminLogo2_Click;
             // 
             // btnAdminPay2
             // 
@@ -107,6 +108,7 @@
             btnAdminPay2.TabIndex = 6;
             btnAdminPay2.Text = "PAYMENT";
             btnAdminPay2.UseVisualStyleBackColor = false;
+            btnAdminPay2.Click += btnAdminPay2_Click;
             // 
             // btnAdminHistory2
             // 
@@ -119,6 +121,7 @@
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
+            btnAdminHistory2.Click += btnAdminHistory2_Click;
             // 
             // btnAdminReport2
             // 
@@ -147,6 +150,7 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = false;
+            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
             // SR_SOA_BTN
             // 
@@ -156,6 +160,7 @@
             SR_SOA_BTN.TabIndex = 101;
             SR_SOA_BTN.Text = "Search";
             SR_SOA_BTN.UseVisualStyleBackColor = true;
+            SR_SOA_BTN.Click += SR_SOA_BTN_Click;
             // 
             // SR_SOA_TXTBOX
             // 
@@ -204,12 +209,13 @@
             // 
             // SR_PRINT_BTN
             // 
-            SR_PRINT_BTN.Location = new Point(959, 487);
+            SR_PRINT_BTN.Location = new Point(922, 487);
             SR_PRINT_BTN.Name = "SR_PRINT_BTN";
             SR_PRINT_BTN.Size = new Size(75, 23);
             SR_PRINT_BTN.TabIndex = 104;
             SR_PRINT_BTN.Text = "Print";
             SR_PRINT_BTN.UseVisualStyleBackColor = true;
+            SR_PRINT_BTN.Click += SR_PRINT_BTN_Click;
             // 
             // CashierReport
             // 

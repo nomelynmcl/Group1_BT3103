@@ -109,6 +109,7 @@
             lblReport.Size = new Size(68, 20);
             lblReport.TabIndex = 5;
             lblReport.Text = "REPORT";
+            lblReport.Click += lblReport_Click;
             // 
             // pictureBox2
             // 
