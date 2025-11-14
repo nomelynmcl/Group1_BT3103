@@ -65,7 +65,7 @@
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegistarReport.cs">
+    <Compile Update="RegistrarReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RegistrarAssesment.cs">

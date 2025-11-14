@@ -77,6 +77,7 @@
             lblRegistrarReport.Size = new Size(68, 20);
             lblRegistrarReport.TabIndex = 21;
             lblRegistrarReport.Text = "REPORT";
+            lblRegistrarReport.Click += lblRegistrarReport_Click;
             // 
             // lblRegistrarStudentRegistration
             // 
