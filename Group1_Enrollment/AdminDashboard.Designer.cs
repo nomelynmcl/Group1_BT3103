@@ -167,6 +167,7 @@
             lblPaymentHistory.Size = new Size(156, 20);
             lblPaymentHistory.TabIndex = 15;
             lblPaymentHistory.Text = "PAYMENT HISTORY";
+            lblPaymentHistory.Click += lblPaymentHistory_Click;
             // 
             // AdminDashboard
             // 
