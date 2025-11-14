@@ -39,8 +39,6 @@
             btnRegistrar_StudInfo = new Button();
             btnRegistrar_Assessment = new Button();
             btnRegistrar_StudRegistration = new Button();
-            btnRegistrar_Pay = new Button();
-            btnRegistrar_PayHistory = new Button();
             btnRegistrar_Report = new Button();
             btnRegistrar_Out = new Button();
             btnRegistrarStudReg_View = new Button();
@@ -98,8 +96,6 @@
             flowLayoutPanel1.Controls.Add(btnRegistrar_StudInfo);
             flowLayoutPanel1.Controls.Add(btnRegistrar_Assessment);
             flowLayoutPanel1.Controls.Add(btnRegistrar_StudRegistration);
-            flowLayoutPanel1.Controls.Add(btnRegistrar_Pay);
-            flowLayoutPanel1.Controls.Add(btnRegistrar_PayHistory);
             flowLayoutPanel1.Controls.Add(btnRegistrar_Report);
             flowLayoutPanel1.Controls.Add(btnRegistrar_Out);
             flowLayoutPanel1.Dock = DockStyle.Left;
@@ -169,35 +165,11 @@
             btnRegistrar_StudRegistration.Text = " STUDENT REGISTRATION";
             btnRegistrar_StudRegistration.UseVisualStyleBackColor = false;
             // 
-            // btnRegistrar_Pay
-            // 
-            btnRegistrar_Pay.FlatStyle = FlatStyle.Flat;
-            btnRegistrar_Pay.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrar_Pay.Location = new Point(20, 300);
-            btnRegistrar_Pay.Margin = new Padding(20, 3, 3, 3);
-            btnRegistrar_Pay.Name = "btnRegistrar_Pay";
-            btnRegistrar_Pay.Size = new Size(211, 42);
-            btnRegistrar_Pay.TabIndex = 6;
-            btnRegistrar_Pay.Text = "PAYMENT";
-            btnRegistrar_Pay.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrar_PayHistory
-            // 
-            btnRegistrar_PayHistory.FlatStyle = FlatStyle.Flat;
-            btnRegistrar_PayHistory.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrar_PayHistory.Location = new Point(20, 348);
-            btnRegistrar_PayHistory.Margin = new Padding(20, 3, 3, 3);
-            btnRegistrar_PayHistory.Name = "btnRegistrar_PayHistory";
-            btnRegistrar_PayHistory.Size = new Size(211, 42);
-            btnRegistrar_PayHistory.TabIndex = 7;
-            btnRegistrar_PayHistory.Text = "PAYMENT HISTORY";
-            btnRegistrar_PayHistory.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrar_Report
             // 
             btnRegistrar_Report.FlatStyle = FlatStyle.Flat;
             btnRegistrar_Report.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrar_Report.Location = new Point(20, 396);
+            btnRegistrar_Report.Location = new Point(20, 300);
             btnRegistrar_Report.Margin = new Padding(20, 3, 3, 3);
             btnRegistrar_Report.Name = "btnRegistrar_Report";
             btnRegistrar_Report.Size = new Size(211, 42);
@@ -209,7 +181,7 @@
             // 
             btnRegistrar_Out.FlatStyle = FlatStyle.Flat;
             btnRegistrar_Out.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrar_Out.Location = new Point(20, 444);
+            btnRegistrar_Out.Location = new Point(20, 348);
             btnRegistrar_Out.Margin = new Padding(20, 3, 3, 3);
             btnRegistrar_Out.Name = "btnRegistrar_Out";
             btnRegistrar_Out.Size = new Size(211, 42);
@@ -281,8 +253,6 @@
         private Button btnRegistrar_StudInfo;
         private Button btnRegistrar_Assessment;
         private Button btnRegistrar_StudRegistration;
-        private Button btnRegistrar_Pay;
-        private Button btnRegistrar_PayHistory;
         private Button btnRegistrar_Report;
         private Button btnRegistrar_Out;
         private Button btnRegistrarStudReg_View;

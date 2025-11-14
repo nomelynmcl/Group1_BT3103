@@ -35,8 +35,6 @@
             btnRegistrarStudentInformation2 = new Button();
             btnRegistrarAssessment2 = new Button();
             btnRegistrarStudRegis2 = new Button();
-            btnRegistrarPay2 = new Button();
-            btnRegistrarPayHistory2 = new Button();
             btnRegistrarReport2 = new Button();
             btnRegistrarOut2 = new Button();
             cbRegistrarAddLevel = new ComboBox();
@@ -84,8 +82,6 @@
             flowLayoutPanel1.Controls.Add(btnRegistrarStudentInformation2);
             flowLayoutPanel1.Controls.Add(btnRegistrarAssessment2);
             flowLayoutPanel1.Controls.Add(btnRegistrarStudRegis2);
-            flowLayoutPanel1.Controls.Add(btnRegistrarPay2);
-            flowLayoutPanel1.Controls.Add(btnRegistrarPayHistory2);
             flowLayoutPanel1.Controls.Add(btnRegistrarReport2);
             flowLayoutPanel1.Controls.Add(btnRegistrarOut2);
             flowLayoutPanel1.Dock = DockStyle.Left;
@@ -152,35 +148,11 @@
             btnRegistrarStudRegis2.Text = " STUDENT REGISTRATION";
             btnRegistrarStudRegis2.UseVisualStyleBackColor = true;
             // 
-            // btnRegistrarPay2
-            // 
-            btnRegistrarPay2.FlatStyle = FlatStyle.Flat;
-            btnRegistrarPay2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrarPay2.Location = new Point(20, 300);
-            btnRegistrarPay2.Margin = new Padding(20, 3, 3, 3);
-            btnRegistrarPay2.Name = "btnRegistrarPay2";
-            btnRegistrarPay2.Size = new Size(211, 42);
-            btnRegistrarPay2.TabIndex = 6;
-            btnRegistrarPay2.Text = "PAYMENT";
-            btnRegistrarPay2.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrarPayHistory2
-            // 
-            btnRegistrarPayHistory2.FlatStyle = FlatStyle.Flat;
-            btnRegistrarPayHistory2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrarPayHistory2.Location = new Point(20, 348);
-            btnRegistrarPayHistory2.Margin = new Padding(20, 3, 3, 3);
-            btnRegistrarPayHistory2.Name = "btnRegistrarPayHistory2";
-            btnRegistrarPayHistory2.Size = new Size(211, 42);
-            btnRegistrarPayHistory2.TabIndex = 7;
-            btnRegistrarPayHistory2.Text = "PAYMENT HISTORY";
-            btnRegistrarPayHistory2.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrarReport2
             // 
             btnRegistrarReport2.FlatStyle = FlatStyle.Flat;
             btnRegistrarReport2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrarReport2.Location = new Point(20, 396);
+            btnRegistrarReport2.Location = new Point(20, 300);
             btnRegistrarReport2.Margin = new Padding(20, 3, 3, 3);
             btnRegistrarReport2.Name = "btnRegistrarReport2";
             btnRegistrarReport2.Size = new Size(211, 42);
@@ -192,7 +164,7 @@
             // 
             btnRegistrarOut2.FlatStyle = FlatStyle.Flat;
             btnRegistrarOut2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrarOut2.Location = new Point(20, 444);
+            btnRegistrarOut2.Location = new Point(20, 348);
             btnRegistrarOut2.Margin = new Padding(20, 3, 3, 3);
             btnRegistrarOut2.Name = "btnRegistrarOut2";
             btnRegistrarOut2.Size = new Size(211, 42);
@@ -574,8 +546,6 @@
         private Button btnRegistrarStudentInformation2;
         private Button btnRegistrarAssessment2;
         private Button btnRegistrarStudRegis2;
-        private Button btnRegistrarPay2;
-        private Button btnRegistrarPayHistory2;
         private Button btnRegistrarReport2;
         private Button btnRegistrarOut2;
         private ComboBox cbRegistrarAddLevel;

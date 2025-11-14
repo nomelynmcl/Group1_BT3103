@@ -37,8 +37,6 @@
             btnAdminStudentInformation4 = new Button();
             btnAdminAssessment4 = new Button();
             btnAdminStudreg4 = new Button();
-            btnAdminPay4 = new Button();
-            btnAdminHistory4 = new Button();
             btnAdminReport4 = new Button();
             btnAdminOut4 = new Button();
             btnBack_RegistrarStudentInformationEdit = new Button();
@@ -109,8 +107,6 @@
             flowLayoutPanel1.Controls.Add(btnAdminStudentInformation4);
             flowLayoutPanel1.Controls.Add(btnAdminAssessment4);
             flowLayoutPanel1.Controls.Add(btnAdminStudreg4);
-            flowLayoutPanel1.Controls.Add(btnAdminPay4);
-            flowLayoutPanel1.Controls.Add(btnAdminHistory4);
             flowLayoutPanel1.Controls.Add(btnAdminReport4);
             flowLayoutPanel1.Controls.Add(btnAdminOut4);
             flowLayoutPanel1.Dock = DockStyle.Left;
@@ -178,35 +174,11 @@
             btnAdminStudreg4.Text = " STUDENT REGISTRATION";
             btnAdminStudreg4.UseVisualStyleBackColor = false;
             // 
-            // btnAdminPay4
-            // 
-            btnAdminPay4.FlatStyle = FlatStyle.Flat;
-            btnAdminPay4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay4.Location = new Point(20, 300);
-            btnAdminPay4.Margin = new Padding(20, 3, 3, 3);
-            btnAdminPay4.Name = "btnAdminPay4";
-            btnAdminPay4.Size = new Size(211, 42);
-            btnAdminPay4.TabIndex = 6;
-            btnAdminPay4.Text = "PAYMENT";
-            btnAdminPay4.UseVisualStyleBackColor = true;
-            // 
-            // btnAdminHistory4
-            // 
-            btnAdminHistory4.FlatStyle = FlatStyle.Flat;
-            btnAdminHistory4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory4.Location = new Point(20, 348);
-            btnAdminHistory4.Margin = new Padding(20, 3, 3, 3);
-            btnAdminHistory4.Name = "btnAdminHistory4";
-            btnAdminHistory4.Size = new Size(211, 42);
-            btnAdminHistory4.TabIndex = 7;
-            btnAdminHistory4.Text = "PAYMENT HISTORY";
-            btnAdminHistory4.UseVisualStyleBackColor = true;
-            // 
             // btnAdminReport4
             // 
             btnAdminReport4.FlatStyle = FlatStyle.Flat;
             btnAdminReport4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport4.Location = new Point(20, 396);
+            btnAdminReport4.Location = new Point(20, 300);
             btnAdminReport4.Margin = new Padding(20, 3, 3, 3);
             btnAdminReport4.Name = "btnAdminReport4";
             btnAdminReport4.Size = new Size(211, 42);
@@ -218,7 +190,7 @@
             // 
             btnAdminOut4.FlatStyle = FlatStyle.Flat;
             btnAdminOut4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOut4.Location = new Point(20, 444);
+            btnAdminOut4.Location = new Point(20, 348);
             btnAdminOut4.Margin = new Padding(20, 3, 3, 3);
             btnAdminOut4.Name = "btnAdminOut4";
             btnAdminOut4.Size = new Size(211, 42);
@@ -675,8 +647,6 @@
         private Button btnAdminStudentInformation4;
         private Button btnAdminAssessment4;
         private Button btnAdminStudreg4;
-        private Button btnAdminPay4;
-        private Button btnAdminHistory4;
         private Button btnAdminReport4;
         private Button btnAdminOut4;
         private Button btnBack_RegistrarStudentInformationEdit;
