@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
@@ -38,7 +30,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 s.Id.ToString().ToLower().Contains(searchValue) ||
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
@@ -168,7 +159,16 @@ namespace EventDriven.Project.UI
 
         private void btnAdminReport2_Click(object sender, EventArgs e)
         {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Close();
+        }
 
+        private void pcRegistrarLogo3_Click(object sender, EventArgs e)
+        {
+            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
+            registrarDashboard.Show();
+            this.Close();
         }
     }
 }

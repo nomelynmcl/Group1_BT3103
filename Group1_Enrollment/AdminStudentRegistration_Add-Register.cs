@@ -58,7 +58,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Fill checked items for Mode of Payment
             if (!string.IsNullOrEmpty(modeOfPayment))
             {
                 var payItems = modeOfPayment.Split(',').Select(p => p.Trim()).ToList();
@@ -69,7 +68,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Allow only one selection for Mode of Payment
             clbModeOfPayment_AdminStudentRegistrationAdd.ItemCheck += (s, e) =>
             {
                 if (e.NewValue == CheckState.Checked)
@@ -82,7 +80,6 @@ namespace EventDriven.Project.UI
                 }
             };
 
-            //Detect when any field is edited
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is System.Windows.Forms.TextBox)
@@ -95,13 +92,12 @@ namespace EventDriven.Project.UI
                     (ctrl as DateTimePicker).ValueChanged += (s, e) => isEdited = true;
             }
 
-            // Auto-change section when grade level changes
             cbYearLevel_AdminStudentRegistrationAdd.SelectedIndexChanged += (s, e) =>
             {
                 if (int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.Text, out int selectedGrade))
                 {
                     lbAdminStudReg_SectionAdd.Text = GetSectionByGradeLevel(selectedGrade);
-                    isEdited = true; // Mark as edited
+                    isEdited = true; 
                 }
             };
         }
@@ -138,7 +134,6 @@ namespace EventDriven.Project.UI
 
             string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
 
-            // Convert checked items to comma-separated strings
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
 
@@ -151,7 +146,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Update existing student record with registration info
             string query = @"UPDATE StudentRecord
                              SET Requirements = @Requirements,
                                  ModeOfPayment = @ModeOfPayment,
@@ -261,7 +255,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Validate grade level
             if (cbYearLevel_AdminStudentRegistrationAdd.SelectedItem == null || !int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.SelectedItem.ToString(), out int gradeLevel))
             {
                 MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -283,11 +276,9 @@ namespace EventDriven.Project.UI
             string studentType = cbStudentType_AdminStudentRegistrationAdd.SelectedItem.ToString();
             string section = lbAdminStudReg_SectionAdd.Text.Trim();
 
-            // Collect all checked items for Requirements
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
 
-            // Collect all checked items for Mode of Payment
             string modeOfPayment = string.Join(", ",
                 clbModeOfPayment_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
 
@@ -313,6 +304,54 @@ namespace EventDriven.Project.UI
                 modeOfPayment);
             adminStudReg_view.Show();
             this.Hide();
+        }
+
+        private void pcAdminLogo4_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudentInformation4_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation adminStudentInformation = new AdminStudentInformation();
+            adminStudentInformation.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment4_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay4_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+        }
+
+        private void btnAdminHistory4_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport4_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
+            this.Close();
+        }
+
+        private void btnAdminOut4_Click_1(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

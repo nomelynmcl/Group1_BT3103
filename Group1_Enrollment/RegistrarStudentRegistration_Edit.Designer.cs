@@ -206,6 +206,7 @@
             pcAdminLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo4.TabIndex = 0;
             pcAdminLogo4.TabStop = false;
+            pcAdminLogo4.Click += pcAdminLogo4_Click;
             // 
             // btnAdminStudentInformation4
             // 
@@ -233,6 +234,7 @@
             btnAdminAssessment4.TabIndex = 4;
             btnAdminAssessment4.Text = "ASSESSMENT";
             btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
             // 
             // btnStudentRegistration_Admin
             // 
@@ -259,6 +261,7 @@
             btnAdminReport4.TabIndex = 8;
             btnAdminReport4.Text = "REPORT";
             btnAdminReport4.UseVisualStyleBackColor = true;
+            btnAdminReport4.Click += btnAdminReport4_Click;
             // 
             // btnAdminOut4
             // 

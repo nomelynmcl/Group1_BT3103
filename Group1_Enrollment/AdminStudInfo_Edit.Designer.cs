@@ -157,6 +157,7 @@
             btnAdminAssessment4.TabIndex = 4;
             btnAdminAssessment4.Text = "ASSESSMENT";
             btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
             // 
             // btnAdminStudreg4
             // 
@@ -169,6 +170,7 @@
             btnAdminStudreg4.TabIndex = 5;
             btnAdminStudreg4.Text = " STUDENT REGISTRATION";
             btnAdminStudreg4.UseVisualStyleBackColor = true;
+            btnAdminStudreg4.Click += btnAdminStudreg4_Click;
             // 
             // btnAdminPay4
             // 
@@ -181,6 +183,7 @@
             btnAdminPay4.TabIndex = 6;
             btnAdminPay4.Text = "PAYMENT";
             btnAdminPay4.UseVisualStyleBackColor = true;
+            btnAdminPay4.Click += btnAdminPay4_Click;
             // 
             // btnAdminHistory4
             // 
@@ -193,6 +196,7 @@
             btnAdminHistory4.TabIndex = 7;
             btnAdminHistory4.Text = "PAYMENT HISTORY";
             btnAdminHistory4.UseVisualStyleBackColor = true;
+            btnAdminHistory4.Click += btnAdminHistory4_Click;
             // 
             // btnAdminReport4
             // 
@@ -205,6 +209,7 @@
             btnAdminReport4.TabIndex = 8;
             btnAdminReport4.Text = "REPORT";
             btnAdminReport4.UseVisualStyleBackColor = true;
+            btnAdminReport4.Click += btnAdminReport4_Click;
             // 
             // btnAdminOut4
             // 
@@ -217,6 +222,7 @@
             btnAdminOut4.TabIndex = 9;
             btnAdminOut4.Text = "LOG OUT";
             btnAdminOut4.UseVisualStyleBackColor = true;
+            btnAdminOut4.Click += btnAdminOut4_Click;
             // 
             // btnAdminBack_Edit
             // 

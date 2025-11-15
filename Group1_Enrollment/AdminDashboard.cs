@@ -75,5 +75,12 @@ namespace EventDriven.Project.UI
             report.Show();
             this.Close();
         }
+
+        private void btnAdminOverview_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();    
+            adminReport.Show();
+            this.Close();
+        }
     }
 }

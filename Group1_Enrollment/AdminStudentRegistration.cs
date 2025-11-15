@@ -84,7 +84,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgAdminStudentRegList.CurrentRow != null)
             {
-                // Get data from the selected row
                 int studentId = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Id"].Value.ToString());
                 string lastname = dtgAdminStudentRegList.CurrentRow.Cells["LastName"].Value.ToString();
                 string firstname = dtgAdminStudentRegList.CurrentRow.Cells["FirstName"].Value.ToString();
@@ -104,7 +103,6 @@ namespace EventDriven.Project.UI
                 string requirements = dtgAdminStudentRegList.CurrentRow.Cells["Requirements"].Value.ToString();
                 string modeOfPayment = dtgAdminStudentRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
 
-                // Open registration form with prefilled data
                 AdminStudentRegistration_Add addForm = new AdminStudentRegistration_Add(
                     studentId,
                     lastname,
@@ -139,7 +137,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgAdminStudentRegList.CurrentRow != null)
             {
-                // Get data from the c
                 int id = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Id"].Value.ToString());
                 string firstname = dtgAdminStudentRegList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string lastname = dtgAdminStudentRegList.CurrentRow.Cells["LastName"].Value.ToString();
@@ -250,8 +247,6 @@ namespace EventDriven.Project.UI
                 dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = studentSearch };
                 return;
             }
-
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
                 (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
@@ -262,7 +257,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("No matching student found.");
             }
 
-            // Rebind the filtered results to the grid
             dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = filtered };
         }
 
@@ -289,6 +283,34 @@ namespace EventDriven.Project.UI
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment2_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay2_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory2_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminHistory = new AdminPaymentHistory();
+            adminHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport2_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
             this.Close();
         }
     }

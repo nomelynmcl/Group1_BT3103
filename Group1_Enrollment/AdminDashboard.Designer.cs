@@ -147,6 +147,7 @@
             btnAdminOverview.TabIndex = 11;
             btnAdminOverview.Text = "ADMIN OVERVIEW";
             btnAdminOverview.UseVisualStyleBackColor = false;
+            btnAdminOverview.Click += btnAdminOverview_Click;
             // 
             // lblPayment
             // 

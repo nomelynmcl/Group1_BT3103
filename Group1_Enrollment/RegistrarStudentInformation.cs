@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
@@ -38,7 +30,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgRegistrarStudentInfoList.CurrentRow != null)
             {
-                // Get data from the cell
                 int id = Convert.ToInt32(dtgRegistrarStudentInfoList.CurrentRow.Cells["Id"].Value.ToString());
                 string firstname = dtgRegistrarStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string lastname = dtgRegistrarStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
@@ -201,7 +192,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
                 (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
@@ -212,7 +202,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("No matching student found.");
             }
 
-            // Rebind the filtered results to the grid
             dtgRegistrarStudentInfoList.DataSource = new BindingSource { DataSource = filtered };
         }
 
@@ -220,7 +209,28 @@ namespace EventDriven.Project.UI
         {
             RegistrarStudentRegistration regStudReg = new RegistrarStudentRegistration();
             regStudReg.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void pcRegistrarLogo2_Click(object sender, EventArgs e)
+        {
+            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
+            registrarDashboard.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarAssessment_Click(object sender, EventArgs e)
+        {
+            RegistrarStudentRegistration registration = new RegistrarStudentRegistration();
+            registration.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarReport_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Close();
         }
     }
 }

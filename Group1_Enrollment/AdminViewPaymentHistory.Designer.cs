@@ -185,6 +185,7 @@
             btnReport_ViewPaymentHistory_Admin.TabIndex = 8;
             btnReport_ViewPaymentHistory_Admin.Text = "REPORT";
             btnReport_ViewPaymentHistory_Admin.UseVisualStyleBackColor = true;
+            btnReport_ViewPaymentHistory_Admin.Click += btnReport_ViewPaymentHistory_Admin_Click;
             // 
             // btnLogout_ViewPaymentHistory_Admin
             // 

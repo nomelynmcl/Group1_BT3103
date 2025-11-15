@@ -54,6 +54,7 @@
             btnRegistrarOverview.TabIndex = 24;
             btnRegistrarOverview.Text = "REGISTRAR OVERVIEW";
             btnRegistrarOverview.UseVisualStyleBackColor = false;
+            btnRegistrarOverview.Click += btnRegistrarOverview_Click;
             // 
             // btnLogoutRegistrar
             // 

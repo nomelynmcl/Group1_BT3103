@@ -135,6 +135,7 @@
             btnRegistrarAssessment2.TabIndex = 4;
             btnRegistrarAssessment2.Text = "ASSESSMENT";
             btnRegistrarAssessment2.UseVisualStyleBackColor = true;
+            btnRegistrarAssessment2.Click += btnRegistrarAssessment2_Click;
             // 
             // btnRegistrarStudRegis2
             // 
@@ -147,6 +148,7 @@
             btnRegistrarStudRegis2.TabIndex = 5;
             btnRegistrarStudRegis2.Text = " STUDENT REGISTRATION";
             btnRegistrarStudRegis2.UseVisualStyleBackColor = true;
+            btnRegistrarStudRegis2.Click += btnRegistrarStudRegis2_Click;
             // 
             // btnRegistrarReport2
             // 
@@ -159,6 +161,7 @@
             btnRegistrarReport2.TabIndex = 8;
             btnRegistrarReport2.Text = "REPORT";
             btnRegistrarReport2.UseVisualStyleBackColor = true;
+            btnRegistrarReport2.Click += btnRegistrarReport2_Click;
             // 
             // btnRegistrarOut2
             // 

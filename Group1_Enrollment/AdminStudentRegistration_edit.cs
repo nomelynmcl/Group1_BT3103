@@ -49,12 +49,10 @@ namespace EventDriven.Project.UI
             txtGuardianContactNumber_AdminStudentRegistrationEdit.Text = guardianContact;
             cbStudentType_AdminStudentRegistration.Text = studentType;
 
-            //  Auto-set section based on grade
             lbAdminStudReg_SectionEdit.Text = string.IsNullOrWhiteSpace(section)
                 ? GetSectionByGradeLevel(gradeLevel)
                 : section;
 
-            //  Auto-check Requirements
             if (!string.IsNullOrWhiteSpace(requirements))
             {
                 var reqItems = requirements.Split(',').Select(r => r.Trim().ToLower()).ToList();
@@ -66,7 +64,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            //  Auto-check Mode of Payment
             if (!string.IsNullOrWhiteSpace(modeOfPayment))
             {
                 var payItems = modeOfPayment.Split(',').Select(p => p.Trim().ToLower()).ToList();
@@ -78,13 +75,11 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Track unsaved changes for Requirements
             clbRequirements_AdminStudentRegistration.ItemCheck += (s, e) =>
             {
                 this.BeginInvoke(new Action(() => isEdited = true));
             };
 
-            // Allow only one mode of payment and track unsaved changes
             clbModeOfPayment_AdminStudentRegistration.ItemCheck += (s, e) =>
             {
                 if (e.NewValue == CheckState.Checked)
@@ -101,11 +96,9 @@ namespace EventDriven.Project.UI
                 this.BeginInvoke(new Action(() => isEdited = true));
             };
 
-            //  Update section instantly when grade changes
             cbYearLevel_AdminStudentRegistration.SelectedIndexChanged += UpdateSectionInstantly;
             cbYearLevel_AdminStudentRegistration.TextChanged += UpdateSectionInstantly;
 
-            //  Track edited fields
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is TextBox || ctrl is ComboBox || ctrl is CheckedListBox || ctrl is DateTimePicker)
@@ -115,7 +108,6 @@ namespace EventDriven.Project.UI
             }
         }
 
-        // 🔹 Updates section as soon as grade level changes
         private void UpdateSectionInstantly(object sender, EventArgs e)
         {
             if (int.TryParse(cbYearLevel_AdminStudentRegistration.Text, out int selectedGrade))
@@ -125,7 +117,6 @@ namespace EventDriven.Project.UI
             }
         }
 
-        // 🔹 Section logic
         private string GetSectionByGradeLevel(int gradeLevel)
         {
             return gradeLevel switch
@@ -151,7 +142,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnRegister_AdminStudentRegistration.PerformClick(); // Save first
+                    btnRegister_AdminStudentRegistration.PerformClick(); 
                     AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
                     adminStudReg.Show();
                     this.Close();
@@ -162,7 +153,6 @@ namespace EventDriven.Project.UI
                     adminStudReg.Show();
                     this.Close();
                 }
-                // Cancel does nothing
             }
             else
             {
@@ -191,11 +181,9 @@ namespace EventDriven.Project.UI
             string studentType = cbStudentType_AdminStudentRegistration.Text.Trim();
             string section = lbAdminStudReg_SectionEdit.Text.Trim();
 
-            // Collect all checked items for Requirements
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistration.CheckedItems.Cast<string>());
 
-            // Collect all checked items for Mode of Payment
             string modeOfPayment = string.Join(", ",
                 clbModeOfPayment_AdminStudentRegistration.CheckedItems.Cast<string>());
 
@@ -223,7 +211,7 @@ namespace EventDriven.Project.UI
             viewForm.Show();
             this.Hide();
         }
-        
+
 
         private void btnAdminStudentInformation4_Click(object sender, EventArgs e)
         {
@@ -257,7 +245,6 @@ namespace EventDriven.Project.UI
             DateTime newBirthdate = dtAdminEditBirthdate.Value;
             string newSection = lbAdminStudReg_SectionEdit.Text.Trim();
 
-            //  Correct way to get ALL checked items
             string newRequirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistration.CheckedItems.Cast<string>());
 
@@ -329,7 +316,7 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("Error updating record: " + ex.Message);
             }
         }
-            
+
 
         private void btnDelete_AdminStudentRegistration_Click(object sender, EventArgs e)
         {
@@ -354,7 +341,6 @@ namespace EventDriven.Project.UI
                         {
                             MessageBox.Show("✅ Student record deleted successfully!");
 
-                            // After deletion, go back to main Student Registration form
                             this.Hide();
                             var adminStudReg = new AdminStudentRegistration();
                             adminStudReg.ShowDialog();
@@ -371,6 +357,41 @@ namespace EventDriven.Project.UI
                     MessageBox.Show("❌ Error deleting record: " + ex.Message);
                 }
             }
+        }
+
+        private void pcAdminLogo4_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment4_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay4_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory4_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminHistory = new AdminPaymentHistory();
+            adminHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport4_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
+            this.Close();
         }
     }
 }

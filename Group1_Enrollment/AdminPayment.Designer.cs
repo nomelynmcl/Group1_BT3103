@@ -279,6 +279,7 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            pcAdminLogo2.Click += pcAdminLogo2_Click;
             // 
             // btnAdminStudentInformation2
             // 
@@ -293,6 +294,7 @@
             btnAdminStudentInformation2.TabIndex = 3;
             btnAdminStudentInformation2.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation2.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation2.Click += btnAdminStudentInformation2_Click;
             // 
             // btnAdminAssessment2
             // 
@@ -307,6 +309,7 @@
             btnAdminAssessment2.TabIndex = 4;
             btnAdminAssessment2.Text = "ASSESSMENT";
             btnAdminAssessment2.UseVisualStyleBackColor = false;
+            btnAdminAssessment2.Click += btnAdminAssessment2_Click;
             // 
             // btnAdminStudreg2
             // 
@@ -319,6 +322,7 @@
             btnAdminStudreg2.TabIndex = 5;
             btnAdminStudreg2.Text = " STUDENT REGISTRATION";
             btnAdminStudreg2.UseVisualStyleBackColor = true;
+            btnAdminStudreg2.Click += btnAdminStudreg2_Click;
             // 
             // btnAdminPay2
             // 
@@ -345,6 +349,7 @@
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
+            btnAdminHistory2.Click += btnAdminHistory2_Click;
             // 
             // btnAdminReport2
             // 
@@ -357,6 +362,7 @@
             btnAdminReport2.TabIndex = 8;
             btnAdminReport2.Text = "REPORT";
             btnAdminReport2.UseVisualStyleBackColor = true;
+            btnAdminReport2.Click += btnAdminReport2_Click;
             // 
             // btnAdminOut2
             // 
@@ -369,6 +375,7 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
+            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
             // AdminPayment_SearchBTN
             // 

@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
@@ -109,7 +101,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgRegistrar_StudRegList.CurrentRow != null)
             {
-                // Get data from the selected row
                 int studentId = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Id"].Value.ToString());
                 string lastname = dtgRegistrar_StudRegList.CurrentRow.Cells["LastName"].Value.ToString();
                 string firstname = dtgRegistrar_StudRegList.CurrentRow.Cells["FirstName"].Value.ToString();
@@ -129,7 +120,6 @@ namespace EventDriven.Project.UI
                 string requirements = dtgRegistrar_StudRegList.CurrentRow.Cells["Requirements"].Value.ToString();
                 string modeOfPayment = dtgRegistrar_StudRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
 
-                // Open registration form with prefilled data
                 RegistrarStudentRegistration_Add addForm = new RegistrarStudentRegistration_Add(
                     studentId,
                     lastname,
@@ -164,7 +154,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgRegistrar_StudRegList.CurrentRow != null)
             {
-                // Get data from the c
                 int id = Convert.ToInt32(dtgRegistrar_StudRegList.CurrentRow.Cells["Id"].Value.ToString());
                 string firstname = dtgRegistrar_StudRegList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string lastname = dtgRegistrar_StudRegList.CurrentRow.Cells["LastName"].Value.ToString();
@@ -277,7 +266,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
                 (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
@@ -288,8 +276,21 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("No matching student found.");
             }
 
-            // Rebind the filtered results to the grid
             dtgRegistrar_StudRegList.DataSource = new BindingSource { DataSource = filtered };
+        }
+
+        private void btnRegistrar_Assessment_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment registrarAssesment = new RegistrarAssesment();
+            registrarAssesment.Show();
+            this.Close();
+        }
+
+        private void btnRegistrar_Report_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Close();
         }
     }
 }

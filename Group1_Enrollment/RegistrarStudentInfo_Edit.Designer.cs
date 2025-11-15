@@ -136,6 +136,7 @@
             btnRegistrarAssessment3.TabIndex = 4;
             btnRegistrarAssessment3.Text = "ASSESSMENT";
             btnRegistrarAssessment3.UseVisualStyleBackColor = true;
+            btnRegistrarAssessment3.Click += btnRegistrarAssessment3_Click;
             // 
             // btnRegistrarStudRegis3
             // 
@@ -148,6 +149,7 @@
             btnRegistrarStudRegis3.TabIndex = 5;
             btnRegistrarStudRegis3.Text = " STUDENT REGISTRATION";
             btnRegistrarStudRegis3.UseVisualStyleBackColor = true;
+            btnRegistrarStudRegis3.Click += btnRegistrarStudRegis3_Click;
             // 
             // btnRegistrarReport3
             // 
@@ -160,6 +162,7 @@
             btnRegistrarReport3.TabIndex = 8;
             btnRegistrarReport3.Text = "REPORT";
             btnRegistrarReport3.UseVisualStyleBackColor = true;
+            btnRegistrarReport3.Click += btnRegistrarReport3_Click;
             // 
             // btnRegistrarOut3
             // 

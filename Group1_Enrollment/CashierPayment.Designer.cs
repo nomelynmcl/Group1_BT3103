@@ -111,6 +111,7 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            pcAdminLogo2.Click += pcAdminLogo2_Click;
             // 
             // btnAdminPay2
             // 
@@ -137,6 +138,7 @@
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
+            btnAdminHistory2.Click += btnAdminHistory2_Click;
             // 
             // btnAdminReport2
             // 
@@ -149,6 +151,7 @@
             btnAdminReport2.TabIndex = 8;
             btnAdminReport2.Text = "REPORT";
             btnAdminReport2.UseVisualStyleBackColor = true;
+            btnAdminReport2.Click += btnAdminReport2_Click;
             // 
             // btnAdminOut2
             // 
@@ -161,6 +164,7 @@
             btnAdminOut2.TabIndex = 9;
             btnAdminOut2.Text = "LOG OUT";
             btnAdminOut2.UseVisualStyleBackColor = true;
+            btnAdminOut2.Click += btnAdminOut2_Click;
             // 
             // label2
             // 

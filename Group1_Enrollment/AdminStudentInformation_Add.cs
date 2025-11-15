@@ -13,7 +13,7 @@ namespace EventDriven.Project.UI
 {
     public partial class AdminStudentInformation_Add : Form
     {
-        
+
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private int newlyAddedStudentId;
 
@@ -57,7 +57,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Validate grade level
             if (cbAdminAddLevel.SelectedItem == null || !int.TryParse(cbAdminAddLevel.SelectedItem.ToString(), out int gradeLevel))
             {
                 MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,8 +96,8 @@ namespace EventDriven.Project.UI
             viewForm.Show();
             this.Hide();
         }
-    
-        
+
+
 
         private void btnAdminOut3_Click(object sender, EventArgs e)
         {
@@ -127,7 +126,6 @@ namespace EventDriven.Project.UI
             string section = "unassigned";
             string enrollmentStatus = "unassigned";
 
-            // 2. Insert the data into database
             string query = @"INSERT INTO StudentRecord 
                     (Lastname, Firstname, Middlename, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus) 
                     VALUES 
@@ -160,13 +158,11 @@ namespace EventDriven.Project.UI
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("✅ Student added successfully!");
 
-                        // Optional: Refresh the main DataGridView if it's open
                         if (Application.OpenForms["AdminStudentInformation"] != null)
                         {
                             var mainForm = (AdminStudentInformation)Application.OpenForms["AdminStudentInformation"];
-                            mainForm.LoadStudentRecords(); // make LoadStudentRecords public
+                            mainForm.LoadStudentRecords();
                         }
- // close the Add form
                     }
                     catch (Exception ex)
                     {
@@ -174,6 +170,47 @@ namespace EventDriven.Project.UI
                     }
                 }
             }
+        }
+
+        private void pcAdminLogo3_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment3_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudreg3_Click(object sender, EventArgs e)
+        {
+            AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
+            adminStudentRegistration.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay3_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory3_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport3_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
         }
     }
 }

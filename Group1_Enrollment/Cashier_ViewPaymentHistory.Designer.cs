@@ -147,6 +147,7 @@
             btnReport_ViewPaymentHistory_Cashier.TabIndex = 5;
             btnReport_ViewPaymentHistory_Cashier.Text = "REPORT";
             btnReport_ViewPaymentHistory_Cashier.UseVisualStyleBackColor = false;
+            btnReport_ViewPaymentHistory_Cashier.Click += btnReport_ViewPaymentHistory_Cashier_Click;
             // 
             // btnLogout_ViewPaymentHistory_Cashier
             // 

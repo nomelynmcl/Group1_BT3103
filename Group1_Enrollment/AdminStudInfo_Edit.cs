@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Collections.Specialized.BitVector32;
+﻿using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -141,7 +129,7 @@ namespace EventDriven.Project.UI
                     if (rows > 0)
                     {
                         MessageBox.Show("✅ Record updated successfully!");
-                        
+
                     }
                     else
                     {
@@ -180,11 +168,8 @@ namespace EventDriven.Project.UI
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("🗑️ Record deleted successfully!");
-
-                            // Close edit form after deletion
                             this.Close();
 
-                            // Optional: Refresh main form's DataGridView
                             AdminStudentInformation mainForm = Application.OpenForms
                                 .OfType<AdminStudentInformation>()
                                 .FirstOrDefault();
@@ -244,6 +229,48 @@ namespace EventDriven.Project.UI
 
             viewForm.Show();
             this.Hide();
+        }
+
+        private void btnAdminAssessment4_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudreg4_Click(object sender, EventArgs e)
+        {
+            AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
+            adminStudentRegistration.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay4_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory4_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport4_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
+            this.Close();
+        }
+
+        private void btnAdminOut4_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

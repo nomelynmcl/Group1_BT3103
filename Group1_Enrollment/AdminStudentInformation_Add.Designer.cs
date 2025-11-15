@@ -398,6 +398,7 @@
             pcAdminLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo3.TabIndex = 0;
             pcAdminLogo3.TabStop = false;
+            pcAdminLogo3.Click += pcAdminLogo3_Click;
             // 
             // btnAdminStudentInformation3
             // 
@@ -424,6 +425,7 @@
             btnAdminAssessment3.TabIndex = 4;
             btnAdminAssessment3.Text = "ASSESSMENT";
             btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
             // btnAdminStudreg3
             // 
@@ -436,6 +438,7 @@
             btnAdminStudreg3.TabIndex = 5;
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
+            btnAdminStudreg3.Click += btnAdminStudreg3_Click;
             // 
             // btnAdminPay3
             // 
@@ -448,6 +451,7 @@
             btnAdminPay3.TabIndex = 6;
             btnAdminPay3.Text = "PAYMENT";
             btnAdminPay3.UseVisualStyleBackColor = true;
+            btnAdminPay3.Click += btnAdminPay3_Click;
             // 
             // btnAdminHistory3
             // 
@@ -460,6 +464,7 @@
             btnAdminHistory3.TabIndex = 7;
             btnAdminHistory3.Text = "PAYMENT HISTORY";
             btnAdminHistory3.UseVisualStyleBackColor = true;
+            btnAdminHistory3.Click += btnAdminHistory3_Click;
             // 
             // btnAdminReport3
             // 
@@ -472,6 +477,7 @@
             btnAdminReport3.TabIndex = 8;
             btnAdminReport3.Text = "REPORT";
             btnAdminReport3.UseVisualStyleBackColor = true;
+            btnAdminReport3.Click += btnAdminReport3_Click;
             // 
             // btnAdminOut3
             // 

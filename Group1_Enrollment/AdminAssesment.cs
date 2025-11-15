@@ -151,22 +151,36 @@ namespace EventDriven.Project.UI
 
         private void btnAdminPay2_Click(object sender, EventArgs e)
         {
+            AdminPayment payment = new AdminPayment();
+            payment.Show();
+            this.Close();
         }
 
         private void btnAdminHistory2_Click(object sender, EventArgs e)
         {
-
+            AdminPaymentHistory paymentHistory = new AdminPaymentHistory();
+            paymentHistory.Show();
+            this.Close();
         }
 
         private void btnAdminReport2_Click(object sender, EventArgs e)
         {
-
+            AdminReport report = new AdminReport();
+            report.Show();
+            this.Close();
         }
 
         private void btnAdminOut2_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
+        }
+
+        private void pcAdminLogo2_Click(object sender, EventArgs e)
+        {
+            AdminDashboard dashboard = new AdminDashboard();
+            dashboard.Show();
             this.Close();
         }
     }
