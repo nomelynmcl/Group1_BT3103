@@ -99,6 +99,7 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            pcAdminLogo2.Click += pcAdminLogo2_Click;
             // 
             // btnAdminStudentInformation2
             // 
@@ -126,6 +127,7 @@
             btnAdminAssessment2.TabIndex = 4;
             btnAdminAssessment2.Text = "ASSESSMENT";
             btnAdminAssessment2.UseVisualStyleBackColor = true;
+            btnAdminAssessment2.Click += btnAdminAssessment2_Click;
             // 
             // btnAdminStudreg2
             // 
@@ -151,6 +153,7 @@
             btnAdminPay2.TabIndex = 6;
             btnAdminPay2.Text = "PAYMENT";
             btnAdminPay2.UseVisualStyleBackColor = true;
+            btnAdminPay2.Click += btnAdminPay2_Click;
             // 
             // btnAdminHistory2
             // 
@@ -163,6 +166,7 @@
             btnAdminHistory2.TabIndex = 7;
             btnAdminHistory2.Text = "PAYMENT HISTORY";
             btnAdminHistory2.UseVisualStyleBackColor = true;
+            btnAdminHistory2.Click += btnAdminHistory2_Click;
             // 
             // btnAdminReport2
             // 
@@ -175,6 +179,7 @@
             btnAdminReport2.TabIndex = 8;
             btnAdminReport2.Text = "REPORT";
             btnAdminReport2.UseVisualStyleBackColor = true;
+            btnAdminReport2.Click += btnAdminReport2_Click;
             // 
             // btnAdminOut2
             // 

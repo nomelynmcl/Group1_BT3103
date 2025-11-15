@@ -54,5 +54,12 @@ namespace EventDriven.Project.UI
             report.Show();
             this.Close();
         }
+
+        private void btnCashierOverview_Click(object sender, EventArgs e)
+        {
+            CashierReport cashierReport = new CashierReport();
+            cashierReport.Show();
+            this.Close();
+        }
     }
 }

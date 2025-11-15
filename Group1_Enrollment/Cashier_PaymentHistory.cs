@@ -45,23 +45,23 @@ namespace EventDriven.Project.UI
                         {
                             records.Add(new StudentPaymentModel
                             {
-                                Id = Convert.ToInt32(reader["Id"].ToString()),
-                                Firstname = reader["FirstName"].ToString(),
-                                Lastname = reader["LastName"].ToString(),
-                                Middlename = reader["MiddleName"].ToString(),
-                                GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString()),
-                                Section = reader["Section"].ToString(),
-                                StudentType = reader["StudentType"].ToString(),
-                                ModeOfPayment = reader["ModeOfPayment"].ToString(),
-                                EnrollmentStatus = reader["EnrollmentStatus"].ToString(),
-                                TransactionId = Convert.ToInt32(reader["TransactionId"].ToString()),
-                                PaymentDate = Convert.ToDateTime(reader["PaymentDate"].ToString()),
-                                AmountPaid = Convert.ToDecimal(reader["AmountPaid"].ToString())
+                                Id = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0,
+                                Firstname = reader["FirstName"]?.ToString() ?? "",
+                                Lastname = reader["LastName"]?.ToString() ?? "",
+                                Middlename = reader["MiddleName"]?.ToString() ?? "",
+                                GradeLevel = reader["GradeLevel"] != DBNull.Value ? Convert.ToInt32(reader["GradeLevel"]) : 0,
+                                Section = reader["Section"]?.ToString() ?? "",
+                                StudentType = reader["StudentType"]?.ToString() ?? "",
+                                ModeOfPayment = reader["ModeOfPayment"]?.ToString() ?? "",
+                                EnrollmentStatus = reader["EnrollmentStatus"]?.ToString() ?? "",
 
+                                TransactionId = reader["TransactionId"] != DBNull.Value ? Convert.ToInt32(reader["TransactionId"]) : 0,
+                                PaymentDate = reader["PaymentDate"] != DBNull.Value ? Convert.ToDateTime(reader["PaymentDate"]) : DateTime.MinValue,
+                                AmountPaid = reader["AmountPaid"] != DBNull.Value ? Convert.ToDecimal(reader["AmountPaid"]) : 0
                             });
                         }
 
-                        studentSearch = records;
+                    studentSearch = records;
                         dtgPaymentHistory_Cashier.DataSource = new BindingSource { DataSource = studentSearch };
                     }
                 }
@@ -161,6 +161,13 @@ namespace EventDriven.Project.UI
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
+        }
+
+        private void btnReport_PaymentHistory_Cashier_Click(object sender, EventArgs e)
+        {
+            CashierReport cashierReport = new CashierReport();
+            cashierReport.Show();
             this.Close();
         }
     }

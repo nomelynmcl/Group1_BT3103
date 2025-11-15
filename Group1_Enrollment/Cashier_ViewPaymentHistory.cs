@@ -92,7 +92,6 @@ namespace EventDriven.Project.UI
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // ✅ We don’t clear the grid so that the breakdown stays
                             bool hasTransaction = false;
                             decimal latestRemaining = 0;
 
@@ -162,6 +161,13 @@ namespace EventDriven.Project.UI
         {
             CashierDashboard cashierDashboard = new CashierDashboard();
             cashierDashboard.Show();
+            this.Close();
+        }
+
+        private void btnReport_ViewPaymentHistory_Cashier_Click(object sender, EventArgs e)
+        {
+            CashierReport cashierReport = new CashierReport();
+            cashierReport.Show();
             this.Close();
         }
     }

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EventDriven.Project.UI
 {
@@ -67,7 +58,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Fill checked items for Mode of Payment
             if (!string.IsNullOrEmpty(modeOfPayment))
             {
                 var payItems = modeOfPayment.Split(',').Select(p => p.Trim()).ToList();
@@ -78,7 +68,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // ✅ Allow only one selection for Mode of Payment
             clbModeOfPayment_RegistrarStudentInformationEdit.ItemCheck += (s, e) =>
             {
                 if (e.NewValue == CheckState.Checked)
@@ -91,7 +80,6 @@ namespace EventDriven.Project.UI
                 }
             };
 
-            //Detect when any field is edited
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is TextBox)
@@ -104,13 +92,12 @@ namespace EventDriven.Project.UI
                     (ctrl as DateTimePicker).ValueChanged += (s, e) => isEdited = true;
             }
 
-            // Auto-change section when grade level changes
             cbYearLevel_RegistrarStudentInformationEdit.SelectedIndexChanged += (s, e) =>
             {
                 if (int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.Text, out int selectedGrade))
                 {
                     cbYearLevel_RegistrarStudentInformationEdit.Text = GetSectionByGradeLevel(selectedGrade);
-                    isEdited = true; // Mark as edited
+                    isEdited = true; 
                 }
             };
         }
@@ -165,7 +152,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnRegister_RegistrarStudentInformationEdit.PerformClick(); // Save first
+                    btnRegister_RegistrarStudentInformationEdit.PerformClick(); 
                     RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
                     registrarStudentRegistration.Show();
                     this.Close();
@@ -212,7 +199,7 @@ namespace EventDriven.Project.UI
 
             string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
 
-            // Convert checked items to comma-separated strings
+            
             string requirements = string.Join(", ",
                 clbRequirements_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
 
@@ -225,7 +212,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Update existing student record with registration info
             string query = @"UPDATE StudentRecord
                              SET Requirements = @Requirements,
                                  ModeOfPayment = @ModeOfPayment,
@@ -298,7 +284,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Validate grade level
             if (cbYearLevel_RegistrarStudentInformationEdit.SelectedItem == null || !int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.SelectedItem.ToString(), out int gradeLevel))
             {
                 MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -320,11 +305,9 @@ namespace EventDriven.Project.UI
             string section = lbRegistrarStudReg_Section.Text.Trim();
             string studentType = cbStudentType_RegistrarStudentInformationEdit.SelectedItem.ToString();
 
-            // Collect all checked items for Requirements
             string requirements = string.Join(", ",
                 clbRequirements_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
 
-            // Collect all checked items for Mode of Payment
             string modeOfPayment = string.Join(", ",
                 clbModeOfPayment_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
 
@@ -350,6 +333,34 @@ namespace EventDriven.Project.UI
                 modeOfPayment);
             registrarStudReg_view.Show();
             this.Hide();
+        }
+
+        private void pcAdminLogo4_Click(object sender, EventArgs e)
+        {
+            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
+            registrarDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudentInformation4_Click(object sender, EventArgs e)
+        {
+            Registrar___Student_Information registrar___Student_Information = new Registrar___Student_Information();
+            registrar___Student_Information.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment4_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment registrarAssesment = new RegistrarAssesment();
+            registrarAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport4_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Close();
         }
     }
 }

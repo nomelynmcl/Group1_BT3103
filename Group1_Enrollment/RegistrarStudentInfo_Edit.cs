@@ -167,11 +167,8 @@ namespace EventDriven.Project.UI
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("🗑️ Record deleted successfully!");
-
-                            // Close edit form after deletion
                             this.Close();
 
-                            // Optional: Refresh main form's DataGridView
                             Registrar___Student_Information mainForm = Application.OpenForms
                                 .OfType<Registrar___Student_Information>()
                                 .FirstOrDefault();
@@ -244,6 +241,27 @@ namespace EventDriven.Project.UI
         {
             RegistrarDashboard regDashboard = new RegistrarDashboard();
             regDashboard.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarAssessment3_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment registrarAssesment = new RegistrarAssesment();
+            registrarAssesment.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarStudRegis3_Click(object sender, EventArgs e)
+        {
+            RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
+            registrarStudentRegistration.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarReport3_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
             this.Close();
         }
     }

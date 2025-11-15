@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EventDriven.Project.Model;
+﻿using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -48,7 +38,6 @@ namespace EventDriven.Project.UI
             string section = "unassigned";
             string enrollmentStatus = "unassigned";
 
-            // 2. Insert the data into database
             string query = @"INSERT INTO StudentRecord 
                     (Lastname, Firstname, Middlename, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus) 
                     VALUES 
@@ -81,13 +70,11 @@ namespace EventDriven.Project.UI
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("✅ Student added successfully!");
 
-                        // Optional: Refresh the main DataGridView if it's open
                         if (Application.OpenForms["Registrar___Student_Information"] != null)
                         {
                             var mainForm = (Registrar___Student_Information)Application.OpenForms["Registrar___Student_Information"];
-                            mainForm.LoadStudentRecords(); // make LoadStudentRecords public
+                            mainForm.LoadStudentRecords(); 
                         }
-                        // close the Add form
                     }
                     catch (Exception ex)
                     {
@@ -104,8 +91,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("⚠ Please enter a valid age.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Validate grade level
             if (cbRegistrarAddLevel.SelectedItem == null || !int.TryParse(cbRegistrarAddLevel.SelectedItem.ToString(), out int gradeLevel))
             {
                 MessageBox.Show("⚠ Please select a valid grade level.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -157,6 +142,27 @@ namespace EventDriven.Project.UI
         {
             RegistrarDashboard regDashboard = new RegistrarDashboard();
             regDashboard.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarAssessment2_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment registrarAssesment = new RegistrarAssesment();
+            registrarAssesment.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarStudRegis2_Click(object sender, EventArgs e)
+        {
+            RegistrarStudentRegistration registrarStudentRegistration = new RegistrarStudentRegistration();
+            registrarStudentRegistration.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarReport2_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
             this.Close();
         }
     }

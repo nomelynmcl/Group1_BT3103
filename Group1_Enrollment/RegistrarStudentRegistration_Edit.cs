@@ -49,12 +49,10 @@ namespace EventDriven.Project.UI
             txtGuardianContact_StudRegEditRegistrar.Text = guardianContact;
             cbStudentType_RegistrarStudentRegistration.Text = studentType;
 
-            //  Auto-set section based on grade
             lbSection_StudRegEditRegistrar.Text = string.IsNullOrWhiteSpace(section)
                 ? GetSectionByGradeLevel(gradeLevel)
                 : section;
 
-            //  Auto-check Requirements
             if (!string.IsNullOrWhiteSpace(requirements))
             {
                 var reqItems = requirements.Split(',').Select(r => r.Trim().ToLower()).ToList();
@@ -66,7 +64,6 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            //  Auto-check Mode of Payment
             if (!string.IsNullOrWhiteSpace(modeOfPayment))
             {
                 var payItems = modeOfPayment.Split(',').Select(p => p.Trim().ToLower()).ToList();
@@ -78,13 +75,11 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Track unsaved changes for Requirements
             clbRequirements_RegistrarStudentRegistration.ItemCheck += (s, e) =>
             {
                 this.BeginInvoke(new Action(() => isEdited = true));
             };
 
-            // Allow only one mode of payment and track unsaved changes
             clbModeOfPayment_RegistrarStudentRegistration.ItemCheck += (s, e) =>
             {
                 if (e.NewValue == CheckState.Checked)
@@ -101,11 +96,9 @@ namespace EventDriven.Project.UI
                 this.BeginInvoke(new Action(() => isEdited = true));
             };
 
-            //  Update section instantly when grade changes
             cbYearLevel_RegistrarStudentRegistration.SelectedIndexChanged += UpdateSectionInstantly;
             cbYearLevel_RegistrarStudentRegistration.TextChanged += UpdateSectionInstantly;
 
-            //  Track edited fields
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is TextBox || ctrl is ComboBox || ctrl is CheckedListBox || ctrl is DateTimePicker)
@@ -115,7 +108,6 @@ namespace EventDriven.Project.UI
             }
         }
 
-        // 🔹 Updates section as soon as grade level changes
         private void UpdateSectionInstantly(object sender, EventArgs e)
         {
             if (int.TryParse(cbYearLevel_RegistrarStudentRegistration.Text, out int selectedGrade))
@@ -125,7 +117,6 @@ namespace EventDriven.Project.UI
             }
         }
 
-        // 🔹 Section logic
         private string GetSectionByGradeLevel(int gradeLevel)
         {
             return gradeLevel switch
@@ -152,7 +143,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnSave_RegistrarStudentRegistration.PerformClick(); // Save first
+                    btnSave_RegistrarStudentRegistration.PerformClick(); 
                     RegistrarStudentRegistration registrarStudReg = new RegistrarStudentRegistration();
                     registrarStudReg.Show();
                     this.Close();
@@ -163,7 +154,6 @@ namespace EventDriven.Project.UI
                     registrarStudReg.Show();
                     this.Close();
                 }
-                // Cancel does nothing
             }
             else
             {
@@ -191,7 +181,6 @@ namespace EventDriven.Project.UI
             DateTime newBirthdate = dtEdit_RegistrarBirthdate.Value;
             string newSection = lbSection_StudRegEditRegistrar.Text.Trim();
 
-            //  Correct way to get ALL checked items
             string newRequirements = string.Join(", ",
                 clbRequirements_RegistrarStudentRegistration.CheckedItems.Cast<string>());
 
@@ -287,7 +276,6 @@ namespace EventDriven.Project.UI
                         {
                             MessageBox.Show("✅ Student record deleted successfully!");
 
-                            // After deletion, go back to main Student Registration form
                             this.Hide();
                             var registrarStudReg = new RegistrarStudentRegistration();
                             registrarStudReg.ShowDialog();
@@ -339,13 +327,11 @@ namespace EventDriven.Project.UI
             string studentType = cbStudentType_RegistrarStudentRegistration.Text.Trim();
             string section = lbSection_StudRegEditRegistrar.Text.Trim();
 
-            // Collect all checked items for Requirements
             string requirements = string.Join(", ",
                 clbRequirements_RegistrarStudentRegistration.CheckedItems.Cast<string>());
 
-            // Collect all checked items for Mode of Payment
             string modeOfPayment = string.Join(", ",
-                clbModeOfPayment_RegistrarStudentRegistration .CheckedItems.Cast<string>());
+                clbModeOfPayment_RegistrarStudentRegistration.CheckedItems.Cast<string>());
 
             RegistrarStudentRegistration_View viewForm = new RegistrarStudentRegistration_View(
                 id,
@@ -370,6 +356,27 @@ namespace EventDriven.Project.UI
 
             viewForm.Show();
             this.Hide();
+        }
+
+        private void pcAdminLogo4_Click(object sender, EventArgs e)
+        {
+            RegistrarDashboard registrarDashboard = new RegistrarDashboard();
+            registrarDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment4_Click(object sender, EventArgs e)
+        {
+            RegistrarAssesment registrarAssesment = new RegistrarAssesment();
+            registrarAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport4_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Close();
         }
     }
 }

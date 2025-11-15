@@ -9,7 +9,6 @@ namespace EventDriven.Project.UI
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private ListBox lstSuggestions;
 
-        // Variables to hold latest transaction for printing
         private string lastModeOfPayment;
         private decimal lastAmountPaid;
         private decimal lastRemainingBalance;
@@ -50,15 +49,13 @@ namespace EventDriven.Project.UI
                     string fullName = parts[1].Trim();
                     string gradeSection = parts[2].Trim();
 
-                    // Fill labels on form
                     AdminStuID_LBL.Text = id;
                     AdminStuName_LBL.Text = fullName;
                     AdminYLSection_LBL.Text = gradeSection;
 
                     AdminPayment_TXTBOX.Text = id;
 
-                    // Load the payment mode for this student
-                    LoadStudentPaymentInfo(id); // now studentId exists
+                    LoadStudentPaymentInfo(id);
                 }
 
                 lstSuggestions.Visible = false;
@@ -70,16 +67,13 @@ namespace EventDriven.Project.UI
         {
             dtCurrDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
 
-            // Initialize CheckedListBox with payment modes
             clbModeOfPayment_AdminPay.Items.Clear();
             clbModeOfPayment_AdminPay.Items.Add("Cash");
             clbModeOfPayment_AdminPay.Items.Add("Low Down Payment");
             clbModeOfPayment_AdminPay.Items.Add("Low Quarterly Payment");
 
-            // Ensure only one mode can be checked at a time
             clbModeOfPayment_AdminPay.ItemCheck += clbModeOfPayment_AdminPay_ItemCheck;
 
-            // Initialize DataGridView
             AdminPayment_GridView.Columns.Clear();
             AdminPayment_GridView.Columns.Add("Item", "Item");
             AdminPayment_GridView.Columns.Add("BaseAmount", "Base Amount (₱)");
@@ -164,13 +158,11 @@ namespace EventDriven.Project.UI
                     if (result != null)
                     {
                         string mode = result.ToString().Trim();
-                        SetPaymentMode(mode); // this will auto-check and autofill
+                        SetPaymentMode(mode);
                     }
                 }
                 LoadPaymentTransactions(studentId);
 
-
-                // Then check if fully paid
                 decimal remaining = GetCurrentBalance(studentId);
                 CheckIfFullyPaid(remaining);
             }
@@ -182,13 +174,11 @@ namespace EventDriven.Project.UI
         {
             if (balance <= 0)
             {
-                // Disable payment input and button
                 txtAdminPayment.Enabled = false;
                 AdminConfirmPayment.Enabled = false;
             }
             else
             {
-                // Enable again for future transactions
                 txtAdminPayment.Enabled = true;
                 AdminConfirmPayment.Enabled = true;
             }
@@ -198,11 +188,9 @@ namespace EventDriven.Project.UI
         {
             string normalizedMode = mode.Trim().ToLower();
 
-            // Uncheck all first
             for (int i = 0; i < clbModeOfPayment_AdminPay.Items.Count; i++)
                 clbModeOfPayment_AdminPay.SetItemChecked(i, false);
 
-            // Determine which mode to check
             if (normalizedMode.Contains("cash"))
             {
                 clbModeOfPayment_AdminPay.SetItemChecked(0, true);
@@ -226,7 +214,6 @@ namespace EventDriven.Project.UI
 
         private void clbModeOfPayment_AdminPay_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            // Allow only one mode checked at a time
             if (e.NewValue == CheckState.Checked)
             {
                 for (int i = 0; i < clbModeOfPayment_AdminPay.Items.Count; i++)
@@ -278,7 +265,6 @@ namespace EventDriven.Project.UI
         {
             if (clbModeOfPayment_AdminPay.SelectedIndex == -1) return;
 
-            // Allow only one checked at a time
             for (int i = 0; i < clbModeOfPayment_AdminPay.Items.Count; i++)
             {
                 if (i != clbModeOfPayment_AdminPay.SelectedIndex)
@@ -291,7 +277,6 @@ namespace EventDriven.Project.UI
 
         private void AdminCompute_BTN_Click(object sender, EventArgs e)
         {
-            // Validate input
             if (string.IsNullOrWhiteSpace(txtAdminPayment.Text))
             {
                 MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -304,7 +289,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Get selected mode
             string selectedMode = clbModeOfPayment_AdminPay.CheckedItems.Count > 0
                 ? clbModeOfPayment_AdminPay.CheckedItems[0].ToString()
                 : "";
@@ -316,7 +300,6 @@ namespace EventDriven.Project.UI
             }
 
             int studentId = int.Parse(AdminStuID_LBL.Text);
-            // Get total fee from DataGridView (assuming "Total" row or last row has the adjusted total)
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
             {
@@ -327,11 +310,9 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Reset labels
             AdminChange_LBL.Text = "";
             lbAdminPay_Remaining.Text = "";
 
-            // ---- CASH MODE ----
             if (selectedMode == "Cash")
             {
                 if (payment < totalAmount)
@@ -346,7 +327,6 @@ namespace EventDriven.Project.UI
                 lbAdminPay_Remaining.Text = "₱0.00";
             }
 
-            // ---- INSTALLMENT (LDP / LMP) ----
             else
             {
                 if (payment < 500)
@@ -365,7 +345,7 @@ namespace EventDriven.Project.UI
                 }
                 else
                 {
-                    decimal change = Math.Abs(remainingBalance); // payment > total
+                    decimal change = Math.Abs(remainingBalance);
                     lbAdminPay_Remaining.Text = "₱0.00";
                     AdminChange_LBL.Text = $"₱{change.ToString()}";
                 }
@@ -405,7 +385,6 @@ namespace EventDriven.Project.UI
                 remainingBalance = 0;
             }
 
-            // --- Insert the transaction and capture the TransactionId ---
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -430,24 +409,19 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // --- Save details for printing ---
             lastModeOfPayment = modeOfPayment;
             lastAmountPaid = amountPaid;
             lastRemainingBalance = remainingBalance;
             lastChange = change;
 
-            // --- Reload payment history ---
             LoadPaymentTransactions(studentId);
 
             AdminChange_LBL.Text = $"₱{change:N2}";
             lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
 
-            // --- Show confirmation with transaction ID ---
             MessageBox.Show($"Payment recorded successfully!\nTransaction ID: {lastTransactionId}",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-            // --- Disable controls if fully paid ---
             if (remainingBalance <= 0)
             {
                 txtAdminPayment.Enabled = false;
@@ -499,13 +473,11 @@ namespace EventDriven.Project.UI
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // ✅ We don’t clear the grid so that the breakdown stays
                             bool hasTransaction = false;
                             decimal latestRemaining = 0;
 
                             if (reader.HasRows)
                             {
-                                // Add separation for clarity
                                 AdminPayment_GridView.Rows.Add("", "", "");
                                 AdminPayment_GridView.Rows.Add("— Past Transactions —", "", "");
                                 AdminPayment_GridView.Rows.Add("", "", "");
@@ -526,11 +498,9 @@ namespace EventDriven.Project.UI
 
                                 if (hasTransaction)
                                 {
-                                    // Add final summary row
                                     AdminPayment_GridView.Rows.Add("", "", "");
                                     AdminPayment_GridView.Rows.Add("Current Remaining Balance", "", $"₱{latestRemaining:N2}");
 
-                                    // Update label too
                                     lbAdminPay_Remaining.Text = $"₱{latestRemaining:N2}";
                                 }
                             }
@@ -549,7 +519,6 @@ namespace EventDriven.Project.UI
         {
             txtAdminPayment.Text = "";
             AdminChange_LBL.Text = "₱0.00";
-            // Keep payment mode selection for installments if needed
             lbAdminPay_Remaining.Text = "";
         }
 
@@ -572,9 +541,8 @@ namespace EventDriven.Project.UI
                 PrintDocument printDocument1 = new PrintDocument();
                 printDocument1.PrintPage += PrintDocument1_PrintPage;
 
-                // Set receipt-style paper size: 80mm x arbitrary height
-                int width = 370;  // 80mm ≈ 3.15 inch → 315
-                int height = 1000; // enough height for receipt content
+                int width = 370;  
+                int height = 1000;
                 PaperSize receiptSize = new PaperSize("Receipt", width, height);
 
                 printDocument1.DefaultPageSettings.PaperSize = receiptSize;
@@ -603,19 +571,16 @@ namespace EventDriven.Project.UI
             int leftMargin = 10;
 
 
-            // Get the printable width of the page
             int pageWidth = e.PageBounds.Width;
             int rightMargin = e.MarginBounds.Right;
 
-            // Helper function to center text
             void DrawCenteredString(string text, Font font, int yPos)
             {
                 float textWidth = e.Graphics.MeasureString(text, font).Width;
-                float x = (pageWidth - textWidth) / 2;  // compute center position
+                float x = (pageWidth - textWidth) / 2;
                 e.Graphics.DrawString(text, font, Brushes.Black, x, yPos);
             }
 
-            // Example usage:
             DrawCenteredString("ORION TECH-HIGH SCHOOL", headerFont, y);
             y += 25;
             DrawCenteredString("PAYMENT RECEIPT", headerFont, y);
@@ -627,29 +592,24 @@ namespace EventDriven.Project.UI
             g.DrawString($"Student ID: {AdminStuID_LBL.Text}", regularFont, Brushes.Black, leftMargin, y); y += 15;
             g.DrawString($"Name: {AdminStuName_LBL.Text}", regularFont, Brushes.Black, leftMargin, y); y += 20;
 
-
-            // ✅ Get mode of payment safely
             string modeOfPayment = string.Empty;
 
-            // Try from CheckedListBox first
             if (clbModeOfPayment_AdminPay.CheckedItems.Count > 0)
                 modeOfPayment = clbModeOfPayment_AdminPay.CheckedItems[0].ToString();
             else if (clbModeOfPayment_AdminPay.SelectedItem != null)
                 modeOfPayment = clbModeOfPayment_AdminPay.SelectedItem.ToString();
-            // Fallback to stored value if available
             else if (!string.IsNullOrEmpty(lastModeOfPayment))
                 modeOfPayment = lastModeOfPayment;
             else
                 modeOfPayment = "N/A";
-            // Optional: include Grade/Section if you store it
             g.DrawString($"Mode of Payment: {modeOfPayment}", regularFont, Brushes.Black, leftMargin, y); y += 20;
 
-            // --- PAYMENT DETAILS ---
+
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
             g.DrawString("DESCRIPTION                           AMOUNT", regularFont, Brushes.Black, leftMargin, y); y += 15;
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
 
-            // ✅ Safe conversions for numeric values
+
             decimal amountPaid = 0;
             decimal change = 0;
             decimal remaining = 0;
@@ -666,7 +626,6 @@ namespace EventDriven.Project.UI
             g.DrawString("Items Breakdown:", regularFont, Brushes.Black, 10, y);
             y += 20;
 
-            // Add breakdown from DataGridView (optional)
             foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
             {
                 if (row.Cells[0].Value != null && row.Cells[1].Value != null && row.Cells[2].Value != null)
@@ -684,6 +643,55 @@ namespace EventDriven.Project.UI
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, 10, y);
             y += 20;
             DrawCenteredString("Keep this receipt as proof of payment", regularFont, y);
+        }
+
+        private void pcAdminLogo2_Click(object sender, EventArgs e)
+        {
+            AdminDashboard dashboard = new AdminDashboard();
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudentInformation2_Click(object sender, EventArgs e)
+        {
+            AdminStudentInformation adminStudentInformation = new AdminStudentInformation();
+            adminStudentInformation.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment2_Click(object sender, EventArgs e)
+        {
+            AdminAssesment assessment = new AdminAssesment();
+            assessment.Show();
+            this.Close();
+        }
+
+        private void btnAdminStudreg2_Click(object sender, EventArgs e)
+        {
+            AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
+            adminStudentRegistration.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory2_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport2_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
+            this.Close();
+        }
+
+        private void btnAdminOut2_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

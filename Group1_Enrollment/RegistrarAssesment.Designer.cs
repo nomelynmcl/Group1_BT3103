@@ -115,6 +115,7 @@
             pcRegistrarLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
             pcRegistrarLogo3.TabIndex = 1;
             pcRegistrarLogo3.TabStop = false;
+            pcRegistrarLogo3.Click += pcRegistrarLogo3_Click;
             // 
             // pcAdminLogo2
             // 

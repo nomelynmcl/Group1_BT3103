@@ -8,7 +8,6 @@ namespace EventDriven.Project.UI
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private ListBox lstSuggestions;
 
-        // Variables to hold latest transaction for printing
         private string lastModeOfPayment;
         private decimal lastAmountPaid;
         private decimal lastRemainingBalance;
@@ -49,15 +48,13 @@ namespace EventDriven.Project.UI
                     string fullName = parts[1].Trim();
                     string gradeSection = parts[2].Trim();
 
-                    // Fill labels on form
                     CashierStuID_LBL.Text = id;
                     CashierStuName_LBL.Text = fullName;
                     CashierYLSection_LBL.Text = gradeSection;
 
                     CashierPayment_TXTBOX.Text = id;
 
-                    // Load the payment mode for this student
-                    LoadStudentPaymentInfo(id); // now studentId exists
+                    LoadStudentPaymentInfo(id); 
                 }
 
                 lstSuggestions.Visible = false;
@@ -69,16 +66,13 @@ namespace EventDriven.Project.UI
         {
             dtRegDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
 
-            // Initialize CheckedListBox with payment modes
             clbModeOfPayment_CashierPay.Items.Clear();
             clbModeOfPayment_CashierPay.Items.Add("Cash");
             clbModeOfPayment_CashierPay.Items.Add("Low Down Payment");
             clbModeOfPayment_CashierPay.Items.Add("Low Quarterly Payment");
 
-            // Ensure only one mode can be checked at a time
             clbModeOfPayment_CashierPay.ItemCheck += clbModeOfPayment_CashierPay_ItemCheck;
 
-            // Initialize DataGridView
             CashierPayment_GridView.Columns.Clear();
             CashierPayment_GridView.Columns.Add("Item", "Item");
             CashierPayment_GridView.Columns.Add("BaseAmount", "Base Amount (₱)");
@@ -161,13 +155,11 @@ namespace EventDriven.Project.UI
                     if (result != null)
                     {
                         string mode = result.ToString().Trim();
-                        SetPaymentMode(mode); // this will auto-check and autofill
+                        SetPaymentMode(mode);
                     }
                 }
                 LoadPaymentTransactions(studentId);
 
-
-                // Then check if fully paid
                 decimal remaining = GetCurrentBalance(studentId);
                 CheckIfFullyPaid(remaining);
             }
@@ -176,13 +168,11 @@ namespace EventDriven.Project.UI
         {
             if (balance <= 0)
             {
-                // Disable payment input and button
                 txtCashierPay.Enabled = false;
                 CashierConfirmPayment.Enabled = false;
             }
             else
             {
-                // Enable again for future transactions
                 txtCashierPay.Enabled = true;
                 CashierConfirmPayment.Enabled = true;
             }
@@ -192,11 +182,9 @@ namespace EventDriven.Project.UI
         {
             string normalizedMode = mode.Trim().ToLower();
 
-            // Uncheck all first
             for (int i = 0; i < clbModeOfPayment_CashierPay.Items.Count; i++)
                 clbModeOfPayment_CashierPay.SetItemChecked(i, false);
 
-            // Determine which mode to check
             if (normalizedMode.Contains("cash"))
             {
                 clbModeOfPayment_CashierPay.SetItemChecked(0, true);
@@ -220,7 +208,6 @@ namespace EventDriven.Project.UI
 
         private void clbModeOfPayment_CashierPay_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            // Allow only one mode checked at a time
             if (e.NewValue == CheckState.Checked)
             {
                 for (int i = 0; i < clbModeOfPayment_CashierPay.Items.Count; i++)
@@ -272,7 +259,6 @@ namespace EventDriven.Project.UI
         {
             if (clbModeOfPayment_CashierPay.SelectedIndex == -1) return;
 
-            // Allow only one checked at a time
             for (int i = 0; i < clbModeOfPayment_CashierPay.Items.Count; i++)
             {
                 if (i != clbModeOfPayment_CashierPay.SelectedIndex)
@@ -285,7 +271,6 @@ namespace EventDriven.Project.UI
 
         private void CashierCompute_BTN_Click(object sender, EventArgs e)
         {
-            // Validate input
             if (string.IsNullOrWhiteSpace(txtCashierPay.Text))
             {
                 MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -297,8 +282,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("Invalid amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Get selected mode
             string selectedMode = clbModeOfPayment_CashierPay.CheckedItems.Count > 0
                 ? clbModeOfPayment_CashierPay.CheckedItems[0].ToString()
                 : "";
@@ -310,7 +293,6 @@ namespace EventDriven.Project.UI
             }
 
             int studentId = int.Parse(CashierStuID_LBL.Text);
-            // Get total fee from DataGridView (assuming "Total" row or last row has the adjusted total)
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in CashierPayment_GridView.Rows)
             {
@@ -321,11 +303,10 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // Reset labels
+
             CashierChange_LBL.Text = "";
             CashierRemaining_LBL.Text = "";
 
-            // ---- CASH MODE ----
             if (selectedMode == "Cash")
             {
                 if (payment < totalAmount)
@@ -339,8 +320,6 @@ namespace EventDriven.Project.UI
                 CashierChange_LBL.Text = $"₱{change:N2}";
                 CashierRemaining_LBL.Text = "₱0.00";
             }
-
-            // ---- INSTALLMENT (LDP / LMP) ----
             else
             {
                 if (payment < 500)
@@ -359,7 +338,7 @@ namespace EventDriven.Project.UI
                 }
                 else
                 {
-                    decimal change = Math.Abs(remainingBalance); // payment > total
+                    decimal change = Math.Abs(remainingBalance);
                     CashierRemaining_LBL.Text = "₱0.00";
                     CashierChange_LBL.Text = $"₱{change.ToString()}";
                 }
@@ -398,8 +377,6 @@ namespace EventDriven.Project.UI
                 change = Math.Abs(remainingBalance);
                 remainingBalance = 0;
             }
-
-            // --- Insert the transaction and capture the TransactionId ---
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -424,23 +401,18 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            // --- Save details for printing ---
             lastModeOfPayment = modeOfPayment;
             lastAmountPaid = amountPaid;
             lastRemainingBalance = remainingBalance;
             lastChange = change;
-            // --- Reload payment history ---
             LoadPaymentTransactions(studentId);
 
             CashierChange_LBL.Text = $"₱{change:N2}";
             CashierRemaining_LBL.Text = $"₱{remainingBalance:N2}";
 
-            // --- Show confirmation with transaction ID ---
             MessageBox.Show($"Payment recorded successfully!\nTransaction ID: {lastTransactionId}",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-            // --- Disable controls if fully paid ---
             if (remainingBalance <= 0)
             {
                 txtCashierPay.Enabled = false;
@@ -492,13 +464,11 @@ namespace EventDriven.Project.UI
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // ✅ We don’t clear the grid so that the breakdown stays
                             bool hasTransaction = false;
                             decimal latestRemaining = 0;
 
                             if (reader.HasRows)
                             {
-                                // Add separation for clarity
                                 CashierPayment_GridView.Rows.Add("", "", "");
                                 CashierPayment_GridView.Rows.Add("— Past Transactions —", "", "");
                                 CashierPayment_GridView.Rows.Add("", "", "");
@@ -519,11 +489,9 @@ namespace EventDriven.Project.UI
 
                                 if (hasTransaction)
                                 {
-                                    // Add final summary row
                                     CashierPayment_GridView.Rows.Add("", "", "");
                                     CashierPayment_GridView.Rows.Add("Current Remaining Balance", "", $"₱{latestRemaining:N2}");
 
-                                    // Update label too
                                     CashierRemaining_LBL.Text = $"₱{latestRemaining:N2}";
                                 }
                             }
@@ -542,7 +510,6 @@ namespace EventDriven.Project.UI
         {
             txtCashierPay.Text = "";
             CashierChange_LBL.Text = "₱0.00";
-            // Keep payment mode selection for installments if needed
             CashierRemaining_LBL.Text = "";
         }
 
@@ -565,9 +532,8 @@ namespace EventDriven.Project.UI
                 PrintDocument printDocument1 = new PrintDocument();
                 printDocument1.PrintPage += PrintDocument1_PrintPage;
 
-                // Set receipt-style paper size: 80mm x arbitrary height
-                int width = 370;  // 80mm ≈ 3.15 inch → 315
-                int height = 1000; // enough height for receipt content
+                int width = 370;  
+                int height = 1000; 
                 PaperSize receiptSize = new PaperSize("Receipt", width, height);
 
                 printDocument1.DefaultPageSettings.PaperSize = receiptSize;
@@ -596,19 +562,16 @@ namespace EventDriven.Project.UI
             int leftMargin = 10;
 
 
-            // Get the printable width of the page
             int pageWidth = e.PageBounds.Width;
             int rightMargin = e.MarginBounds.Right;
 
-            // Helper function to center text
             void DrawCenteredString(string text, Font font, int yPos)
             {
                 float textWidth = e.Graphics.MeasureString(text, font).Width;
-                float x = (pageWidth - textWidth) / 2;  // compute center position
+                float x = (pageWidth - textWidth) / 2;  
                 e.Graphics.DrawString(text, font, Brushes.Black, x, yPos);
             }
 
-            // Example usage:
             DrawCenteredString("ORION TECH-HIGH SCHOOL", headerFont, y);
             y += 25;
             DrawCenteredString("PAYMENT RECEIPT", headerFont, y);
@@ -623,28 +586,23 @@ namespace EventDriven.Project.UI
             g.DrawString($"Name: {CashierStuName_LBL.Text}", regularFont, Brushes.Black, leftMargin, y); y += 20;
 
 
-            // ✅ Get mode of payment safely
             string modeOfPayment = string.Empty;
 
-            // Try from CheckedListBox first
             if (clbModeOfPayment_CashierPay.CheckedItems.Count > 0)
                 modeOfPayment = clbModeOfPayment_CashierPay.CheckedItems[0].ToString();
             else if (clbModeOfPayment_CashierPay.SelectedItem != null)
                 modeOfPayment = clbModeOfPayment_CashierPay.SelectedItem.ToString();
-            // Fallback to stored value if available
             else if (!string.IsNullOrEmpty(lastModeOfPayment))
                 modeOfPayment = lastModeOfPayment;
             else
                 modeOfPayment = "N/A";
-            // Optional: include Grade/Section if you store it
             g.DrawString($"Mode of Payment: {modeOfPayment}", regularFont, Brushes.Black, leftMargin, y); y += 20;
 
-            // --- PAYMENT DETAILS ---
+           
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
             g.DrawString("DESCRIPTION                           AMOUNT", regularFont, Brushes.Black, leftMargin, y); y += 15;
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, leftMargin, y); y += 15;
 
-            // ✅ Safe conversions for numeric values
             decimal amountPaid = 0;
             decimal change = 0;
             decimal remaining = 0;
@@ -661,7 +619,6 @@ namespace EventDriven.Project.UI
             g.DrawString("Items Breakdown:", regularFont, Brushes.Black, 10, y);
             y += 20;
 
-            // Add breakdown from DataGridView (optional)
             foreach (DataGridViewRow row in CashierPayment_GridView.Rows)
             {
                 if (row.Cells[0].Value != null && row.Cells[1].Value != null && row.Cells[2].Value != null)
@@ -679,6 +636,34 @@ namespace EventDriven.Project.UI
             g.DrawString("---------------------------------------------", regularFont, Brushes.Black, 10, y);
             y += 20;
             DrawCenteredString("Keep this receipt as proof of payment", regularFont, y);
+        }
+
+        private void pcAdminLogo2_Click(object sender, EventArgs e)
+        {
+            CashierDashboard cashierDashboard = new CashierDashboard();
+            cashierDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport2_Click(object sender, EventArgs e)
+        {
+            CashierReport cashierReport = new CashierReport();
+            cashierReport.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory2_Click(object sender, EventArgs e)
+        {
+            Cashier_PaymentHistory cashier_PaymentHistory = new Cashier_PaymentHistory();
+            cashier_PaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminOut2_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

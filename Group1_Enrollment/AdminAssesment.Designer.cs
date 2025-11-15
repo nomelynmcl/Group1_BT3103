@@ -103,6 +103,7 @@
             pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo2.TabIndex = 0;
             pcAdminLogo2.TabStop = false;
+            pcAdminLogo2.Click += pcAdminLogo2_Click;
             // 
             // btnAdminStudentInformation2
             // 

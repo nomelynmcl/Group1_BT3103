@@ -51,5 +51,12 @@ namespace EventDriven.Project.UI
             report.Show();
             this.Hide();
         }
+
+        private void btnRegistrarOverview_Click(object sender, EventArgs e)
+        {
+            RegistrarReport registrarReport = new RegistrarReport();
+            registrarReport.Show();
+            this.Hide();
+        }
     }
 }

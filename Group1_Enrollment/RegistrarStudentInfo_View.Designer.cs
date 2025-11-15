@@ -339,6 +339,7 @@
             Name = "RegistrarStudentInfo_View";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View - Student Information";
+            Load += RegistrarStudentInfo_View_Load;
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo5).EndInit();
             ResumeLayout(false);
             PerformLayout();

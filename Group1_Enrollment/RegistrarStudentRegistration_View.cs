@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing.Printing;
 
 namespace EventDriven.Project.UI
 {
@@ -85,10 +76,9 @@ namespace EventDriven.Project.UI
 
             float pageWidth = e.PageBounds.Width;
 
-            // 🏫 Optional: Draw your logo at the top-left
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); // <- update path
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); 
                 float logox = 100;
                 e.Graphics.DrawImage(logo, leftMargin, y - 50, 250, 150);
 
@@ -96,10 +86,8 @@ namespace EventDriven.Project.UI
             }
             catch
             {
-                // ignore if logo not found
             }
 
-            // --- Centered Header ---
             string[] headerLines =
             {
         "Republic of the Philippines",
@@ -126,7 +114,6 @@ namespace EventDriven.Project.UI
             y += 30;
 
 
-            // Function to draw label + value
             void DrawLine(string label, string value)
             {
                 e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);

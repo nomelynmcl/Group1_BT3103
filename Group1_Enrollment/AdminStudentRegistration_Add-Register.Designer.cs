@@ -392,6 +392,7 @@
             btnAdminOut4.TabIndex = 9;
             btnAdminOut4.Text = "LOG OUT";
             btnAdminOut4.UseVisualStyleBackColor = true;
+            btnAdminOut4.Click += btnAdminOut4_Click_1;
             // 
             // btnAdminReport4
             // 
@@ -404,6 +405,7 @@
             btnAdminReport4.TabIndex = 8;
             btnAdminReport4.Text = "REPORT";
             btnAdminReport4.UseVisualStyleBackColor = true;
+            btnAdminReport4.Click += btnAdminReport4_Click;
             // 
             // btnAdminHistory4
             // 
@@ -416,6 +418,7 @@
             btnAdminHistory4.TabIndex = 7;
             btnAdminHistory4.Text = "PAYMENT HISTORY";
             btnAdminHistory4.UseVisualStyleBackColor = true;
+            btnAdminHistory4.Click += btnAdminHistory4_Click;
             // 
             // btnAdminPay4
             // 
@@ -428,6 +431,7 @@
             btnAdminPay4.TabIndex = 6;
             btnAdminPay4.Text = "PAYMENT";
             btnAdminPay4.UseVisualStyleBackColor = true;
+            btnAdminPay4.Click += btnAdminPay4_Click;
             // 
             // btnStudentRegistration_Admin
             // 
@@ -454,6 +458,7 @@
             btnAdminAssessment4.TabIndex = 4;
             btnAdminAssessment4.Text = "ASSESSMENT";
             btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
             // 
             // btnAdminStudentInformation4
             // 
@@ -468,6 +473,7 @@
             btnAdminStudentInformation4.TabIndex = 3;
             btnAdminStudentInformation4.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation4.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation4.Click += btnAdminStudentInformation4_Click;
             // 
             // panel1
             // 
@@ -487,6 +493,7 @@
             pcAdminLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo4.TabIndex = 0;
             pcAdminLogo4.TabStop = false;
+            pcAdminLogo4.Click += pcAdminLogo4_Click;
             // 
             // flowLayoutPanel1
             // 

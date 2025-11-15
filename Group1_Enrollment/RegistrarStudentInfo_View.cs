@@ -7,7 +7,7 @@ namespace EventDriven.Project.UI
         private string fullName, age, birthdate, gender, address,
                        contactNumber, guardianName, guardianContact,
                        gradeLevel, studentType;
-        
+
 
         public RegistrarStudentInfo_View(
             string firstName,
@@ -26,7 +26,7 @@ namespace EventDriven.Project.UI
             string studentType)
         {
             InitializeComponent();
-            
+
 
             this.fullName = $"{firstName} {middleName} {lastName}".Replace("  ", " ").Trim();
             this.lbRegistrarViewAge.Text = age.ToString();
@@ -67,21 +67,18 @@ namespace EventDriven.Project.UI
 
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); // <- change path
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); 
                 e.Graphics.DrawImage(logo, leftMargin, y - 100, 150, 150);
             }
             catch
             {
-                // Ignore if logo not found
             }
 
-            // Title and header
             e.Graphics.DrawString("Orion Tech-High School", titleFont, Brushes.Black, leftMargin + 150, y - 40);
             e.Graphics.DrawString("Student Information", headerFont, Brushes.Black, leftMargin, y += 40);
             y += 30;
 
 
-            // Function to draw label + value
             void DrawLine(string label, string value)
             {
                 e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);
@@ -114,7 +111,6 @@ namespace EventDriven.Project.UI
             printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Letter", 850, 1100);
             printDocument1.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
 
-            // Show the Print Preview Dialog instead of the Print Dialog
             PrintPreviewDialog previewDialog = new PrintPreviewDialog();
             previewDialog.Document = printDocument1;
             previewDialog.WindowState = FormWindowState.Maximized;
@@ -126,7 +122,12 @@ namespace EventDriven.Project.UI
             Registrar___Student_Information regStudInfo = new Registrar___Student_Information();
             regStudInfo.Show();
             this.Close();
-            
+
+        }
+
+        private void RegistrarStudentInfo_View_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

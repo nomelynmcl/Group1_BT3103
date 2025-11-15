@@ -122,6 +122,7 @@
             pcRegistrarLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
             pcRegistrarLogo2.TabIndex = 0;
             pcRegistrarLogo2.TabStop = false;
+            pcRegistrarLogo2.Click += pcRegistrarLogo2_Click;
             // 
             // btnRegistrarStudentInformation
             // 
@@ -148,6 +149,7 @@
             btnRegistrarAssessment.TabIndex = 4;
             btnRegistrarAssessment.Text = "ASSESSMENT";
             btnRegistrarAssessment.UseVisualStyleBackColor = true;
+            btnRegistrarAssessment.Click += btnRegistrarAssessment_Click;
             // 
             // btnRegistrarStudRegis
             // 
@@ -173,6 +175,7 @@
             btnRegistrarReport.TabIndex = 8;
             btnRegistrarReport.Text = "REPORT";
             btnRegistrarReport.UseVisualStyleBackColor = true;
+            btnRegistrarReport.Click += btnRegistrarReport_Click;
             // 
             // btnRegistrarOut
             // 

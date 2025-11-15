@@ -75,6 +75,7 @@
             btnCashierOverview.TabIndex = 24;
             btnCashierOverview.Text = "CASHIER OVERVIEW";
             btnCashierOverview.UseVisualStyleBackColor = false;
+            btnCashierOverview.Click += btnCashierOverview_Click;
             // 
             // btnLogoutCashier
             // 

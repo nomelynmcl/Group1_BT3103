@@ -104,7 +104,6 @@ namespace EventDriven.Project.UI
         {
             if (dtgAdminStudentInfoList.CurrentRow != null)
             {
-                // Get data from the c
                 int id = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["Id"].Value.ToString());
                 string firstname = dtgAdminStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string lastname = dtgAdminStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
@@ -161,7 +160,6 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            // Filter the student list
             var filtered = studentSearch.Where(s =>
                 (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
                 (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
@@ -172,7 +170,6 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("No matching student found.");
             }
 
-            // Rebind the filtered results to the grid
             dtgAdminStudentInfoList.DataSource = new BindingSource { DataSource = filtered };
         }
 
@@ -235,6 +232,41 @@ namespace EventDriven.Project.UI
             AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
             adminStudReg.Show();
             this.Hide();
+        }
+
+        private void pcAdminLogo2_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+
+        private void btnAdminAssessment2_Click(object sender, EventArgs e)
+        {
+            AdminAssesment adminAssesment = new AdminAssesment();
+            adminAssesment.Show();
+            this.Close();
+        }
+
+        private void btnAdminPay2_Click(object sender, EventArgs e)
+        {
+            AdminPayment adminPayment = new AdminPayment();
+            adminPayment.Show();
+            this.Close();
+        }
+
+        private void btnAdminHistory2_Click(object sender, EventArgs e)
+        {
+            AdminPaymentHistory adminPaymentHistory = new AdminPaymentHistory();
+            adminPaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport2_Click(object sender, EventArgs e)
+        {
+            AdminReport adminReport = new AdminReport();
+            adminReport.Show();
+            this.Close();
         }
     }
 }
