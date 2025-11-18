@@ -145,8 +145,8 @@ namespace EventDriven.Project.UI
 
         private void btnPayment_ViewPaymentHistory_Cashier_Click(object sender, EventArgs e)
         {
-            CashierPayment payment = new CashierPayment();
-            payment.Show();
+            CashierPayment cashierPayment = new CashierPayment();
+            cashierPayment.Show();
             this.Close();
         }
 
@@ -169,6 +169,11 @@ namespace EventDriven.Project.UI
             CashierReport cashierReport = new CashierReport();
             cashierReport.Show();
             this.Close();
+        }
+
+        private void Cashier_ViewPaymentHistory_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

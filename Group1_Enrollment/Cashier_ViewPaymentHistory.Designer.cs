@@ -82,7 +82,7 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(251, 522);
+            flowLayoutPanel1.Size = new Size(251, 749);
             flowLayoutPanel1.TabIndex = 104;
             // 
             // panel1
@@ -339,7 +339,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1058, 522);
+            ClientSize = new Size(1370, 749);
             Controls.Add(lbModeHistory);
             Controls.Add(label6);
             Controls.Add(lbStatusHistory);
@@ -366,6 +366,7 @@
             Name = "Cashier_ViewPaymentHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cashier_ViewPaymentHistory";
+            Load += Cashier_ViewPaymentHistory_Load;
             ((System.ComponentModel.ISupportInitialize)dtgCharges_ViewPaymentHistory_Cashier).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

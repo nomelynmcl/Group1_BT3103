@@ -6,7 +6,8 @@ namespace EventDriven.Project.UI
     public partial class AdminStudentRegistration_Add : Form
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
-        private bool isEdited = false;
+        private bool isEdited;
+        private bool isSaved;
 
         public AdminStudentRegistration_Add(
             int id,
@@ -195,11 +196,17 @@ namespace EventDriven.Project.UI
                         int rows = cmd.ExecuteNonQuery();
 
                         if (rows > 0)
+                        {
                             MessageBox.Show("✅ Student registration completed successfully!");
+                            isSaved = true;
+                            isEdited = false;
+                        }
                         else
+                        {
                             MessageBox.Show("❌ Student ID not found in records.");
-
+                        }
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show("❌ Error: " + ex.Message);
@@ -216,7 +223,7 @@ namespace EventDriven.Project.UI
 
         private void btnBack_AdminStudentRegisAdd_Click(object sender, EventArgs e)
         {
-            if (isEdited)
+            if (isEdited && !isSaved)
             {
                 DialogResult result = MessageBox.Show(
                     "You have unsaved changes. Do you want to save before going back?",
@@ -227,22 +234,22 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnAdd_AdminStudentRegistrationAdd.PerformClick(); // Save first
-                    AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
-                    adminStudentRegistration.Show();
+                    btnAdd_AdminStudentRegistrationAdd.PerformClick(); 
+                    AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
+                    adminStudReg.Show();
                     this.Close();
                 }
                 else if (result == DialogResult.No)
                 {
-                    AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
-                    adminStudentRegistration.Show();
+                    AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
+                    adminStudReg.Show();
                     this.Close();
                 }
             }
             else
             {
-                AdminStudentRegistration adminStudentRegistration = new AdminStudentRegistration();
-                adminStudentRegistration.Show();
+                AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
+                adminStudReg.Show();
                 this.Close();
             }
         }

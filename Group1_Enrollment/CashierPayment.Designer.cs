@@ -79,7 +79,7 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(251, 522);
+            flowLayoutPanel1.Size = new Size(251, 518);
             flowLayoutPanel1.TabIndex = 86;
             // 
             // panel1
@@ -407,7 +407,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(780, 522);
+            ClientSize = new Size(793, 518);
             Controls.Add(label6);
             Controls.Add(txtCashierPay);
             Controls.Add(clbModeOfPayment_CashierPay);
