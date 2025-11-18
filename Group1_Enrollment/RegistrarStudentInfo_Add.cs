@@ -9,6 +9,9 @@ namespace EventDriven.Project.UI
         public RegistrarStudentInfo_Add()
         {
             InitializeComponent();
+
+            txtRegistrarAddStudContact.MaxLength = 11;
+            txtRegistrarAddGuardianContact.MaxLength = 11;
         }
 
         private void btnRegistrarBack_Click(object sender, EventArgs e)

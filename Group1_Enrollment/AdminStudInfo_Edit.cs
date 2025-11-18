@@ -44,6 +44,9 @@ namespace EventDriven.Project.UI
             txtAdminEditGuardianContact.Text = guardianContact;
             cbAdminEditType.Text = studentType;
 
+            txtAdminEditStudContact.MaxLength = 11;
+            txtAdminEditGuardianContact.MaxLength = 11;
+
         }
 
         private void pcAdminLogo4_Click(object sender, EventArgs e)

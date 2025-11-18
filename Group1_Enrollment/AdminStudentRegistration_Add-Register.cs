@@ -101,6 +101,12 @@ namespace EventDriven.Project.UI
                     isEdited = true; 
                 }
             };
+
+            txtContactNumber_AdminStudentRegistrationAdd.MaxLength = 11;
+            txtGuardianContactNumber_AdminStudentRegistrationAdd.MaxLength = 11;
+
+            int studentId = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text);
+            UpdateStudentStatus(studentId);
         }
 
         private string GetSectionByGradeLevel(int gradeLevel)
@@ -359,6 +365,32 @@ namespace EventDriven.Project.UI
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Close();
+        }
+
+        private void UpdateStudentStatus(int studentId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT TOP 1 AmountPaid FROM PaymentRecord WHERE Id=@StudentId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToDecimal(result) > 0)
+                            lbStatus.Text = "Enrolled";
+                        else
+                            lbStatus.Text = "Pending Enrollment";
+                    }
+                }
+            }
+            catch
+            {
+                lbStatus.Text = "Pending Enrollment";
+            }
         }
     }
 }

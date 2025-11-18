@@ -98,9 +98,14 @@ namespace EventDriven.Project.UI
                 if (int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.Text, out int selectedGrade))
                 {
                     cbYearLevel_RegistrarStudentInformationEdit.Text = GetSectionByGradeLevel(selectedGrade);
-                    isEdited = true; 
+                    isEdited = true;
                 }
             };
+
+            txtContactNumber_RegistrarStudentInformationEdit.MaxLength = 11;
+            txtGuardiansContactNumber_RegistrarStudentInformationEdit.MaxLength = 11;
+
+            UpdateStudentStatus(studentId);
         }
 
         public string GetSectionByGradeLevel(int gradeLevel)
@@ -153,7 +158,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnRegister_RegistrarStudentInformationEdit.PerformClick(); 
+                    btnRegister_RegistrarStudentInformationEdit.PerformClick();
                     AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
                     adminStudReg.Show();
                     this.Close();
@@ -200,7 +205,7 @@ namespace EventDriven.Project.UI
 
             string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
 
-            
+
             string requirements = string.Join(", ",
                 clbRequirements_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
 
@@ -369,6 +374,32 @@ namespace EventDriven.Project.UI
             RegistrarReport registrarReport = new RegistrarReport();
             registrarReport.Show();
             this.Close();
+        }
+
+        private void UpdateStudentStatus(int studentId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT TOP 1 AmountPaid FROM PaymentRecord WHERE Id=@StudentId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToDecimal(result) > 0)
+                            lbStatus.Text = "Enrolled";
+                        else
+                            lbStatus.Text = "Pending Enrollment";
+                    }
+                }
+            }
+            catch
+            {
+                lbStatus.Text = "Pending Enrollment";
+            }
         }
     }
 }

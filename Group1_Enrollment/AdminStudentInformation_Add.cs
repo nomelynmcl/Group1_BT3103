@@ -20,6 +20,9 @@ namespace EventDriven.Project.UI
         public AdminStudentInformation_Add()
         {
             InitializeComponent();
+
+            txtAdminAddStudContact.MaxLength = 11;
+            txtAdminAddGuardianContact.MaxLength = 11;
         }
 
         private void button7_Click(object sender, EventArgs e)

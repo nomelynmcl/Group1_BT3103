@@ -47,32 +47,30 @@ namespace EventDriven.Project.UI
 
             if (modeOfPayment == "Cash")
             {
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "2,000");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "1,500");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "1,700");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "5,200");
-            }
-            else if (modeOfPayment == "Low Down Payment")
-            {
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "2,500");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "1,875");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "2,125");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "6,500");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Down Payment", "500");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Remaining Balance", "6,000");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Quarterly Payment (4x)", "1,500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "₱2,000");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "₱1,500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "₱1,700");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "₱5,200");
             }
             else if (modeOfPayment == "Low Quarterly Payment")
             {
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "2,700");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "2,025");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "2,295");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "7,020");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Down Payment", "500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "₱2,500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "₱1,875");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "₱2,125");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "₱6,500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Down Payment", "₱700");
                 dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Remaining Balance", "6,520");
-                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Quarterly Payment (4x)", "1,630");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Quarterly Payment (4x)", "₱1,450");
+            }
+            else if (modeOfPayment == "Low Down Payment")
+            {
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Tuition Fee", "₱2,700");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Miscellaneous Fee", "₱2,025");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Others", "₱2,295");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Total", "₱7,020");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Down Payment", "₱500");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("");
+                dtgCharges_ViewPaymentHistory_Cashier.Rows.Add("Quarterly Payment (4x)", "₱1,630");
             }
         }
 

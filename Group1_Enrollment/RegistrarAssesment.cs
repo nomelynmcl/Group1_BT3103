@@ -26,17 +26,20 @@ namespace EventDriven.Project.UI
 
             if (string.IsNullOrEmpty(searchValue))
             {
-                dtgRegistrarAssessment.DataSource = new BindingSource { DataSource = studentSearch };
+                dtgRegistrarAssessment.DataSource = new BindingSource { DataSource = studentSearch.ToList() };
                 return;
             }
 
-            var filtered = studentSearch.Where(s =>
-                s.Id.ToString().ToLower().Contains(searchValue) ||
-                (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
-                (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
-                (!string.IsNullOrEmpty(s.Lastname) && s.Lastname.ToLower().Contains(searchValue)));
+            var filtered = studentSearch
+                .Where(s =>
+                    s.Id.ToString().ToLower().Contains(searchValue) ||
+                    (!string.IsNullOrEmpty(s.Firstname) && s.Firstname.ToLower().Contains(searchValue)) ||
+                    (!string.IsNullOrEmpty(s.Middlename) && s.Middlename.ToLower().Contains(searchValue)) ||
+                    (!string.IsNullOrEmpty(s.Lastname) && s.Lastname.ToLower().Contains(searchValue))
+                )
+                .ToList(); 
 
-            if (filtered.Count() == 0)
+            if (filtered.Count == 0)
             {
                 MessageBox.Show("No matching student found.");
             }

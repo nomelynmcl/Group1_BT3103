@@ -44,31 +44,29 @@ namespace EventDriven.Project.UI
 
             if (modeOfPayment == "Cash")
             {
-                dataGridView_RGTR.Rows.Add("Tuition Fee", "2,000");
-                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "1,500");
-                dataGridView_RGTR.Rows.Add("Others", "1,700");
-                dataGridView_RGTR.Rows.Add("Total", "5,200");
-            }
-            else if (modeOfPayment == "Low Down Payment")
-            {
-                dataGridView_RGTR.Rows.Add("Tuition Fee", "2,500");
-                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "1,875");
-                dataGridView_RGTR.Rows.Add("Others", "2,125");
-                dataGridView_RGTR.Rows.Add("Total", "6,500");
-                dataGridView_RGTR.Rows.Add("");
-                dataGridView_RGTR.Rows.Add("Down Payment", "500");
-                dataGridView_RGTR.Rows.Add("Remaining Balance", "6,000");
-                dataGridView_RGTR.Rows.Add("Quarterly Payment (4x)", "1,500");
+                dataGridView_RGTR.Rows.Add("Tuition Fee", "₱2,000");
+                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "₱1,500");
+                dataGridView_RGTR.Rows.Add("Others", "₱1,700");
+                dataGridView_RGTR.Rows.Add("Total", "₱5,200");
             }
             else if (modeOfPayment == "Low Quarterly Payment")
             {
-                dataGridView_RGTR.Rows.Add("Tuition Fee", "2,700");
-                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "2,025");
-                dataGridView_RGTR.Rows.Add("Total", "7,020");
-                dataGridView_RGTR.Rows.Add("Down Payment", "500");
+                dataGridView_RGTR.Rows.Add("Tuition Fee", "₱2,500");
+                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "₱1,875");
+                dataGridView_RGTR.Rows.Add("Others", "₱2,125");
+                dataGridView_RGTR.Rows.Add("Total", "₱6,500");
+                dataGridView_RGTR.Rows.Add("Required Down Payment", "₱700");
                 dataGridView_RGTR.Rows.Add("");
-                dataGridView_RGTR.Rows.Add("Remaining Balance", "6,520");
-                dataGridView_RGTR.Rows.Add("Quarterly Payment (4x)", "1,630");
+                dataGridView_RGTR.Rows.Add("Quarterly Payment (4x)", "₱1,500");
+            }
+            else if (modeOfPayment == "Low Down Payment")
+            {
+                dataGridView_RGTR.Rows.Add("Tuition Fee", "₱2,700");
+                dataGridView_RGTR.Rows.Add("Miscellaneous Fee", "₱2,025");
+                dataGridView_RGTR.Rows.Add("Total", "₱7,020");
+                dataGridView_RGTR.Rows.Add("Required Down Payment", "₱500");
+                dataGridView_RGTR.Rows.Add("");
+                dataGridView_RGTR.Rows.Add("Quarterly Payment (4x)", "₱1,630");
             }
         }
 

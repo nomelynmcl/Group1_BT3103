@@ -11,6 +11,12 @@ namespace EventDriven.Project.UI
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private List<StudentAssessmentModel> studentSearch;
 
+        private string selectedStudentId = "";
+        private string selectedStudentName = "";
+        private string selectedGradeSection = "";
+        private string selectedStudentType = "";
+        private string selectedModeOfPayment = "";
+
         public AdminReport()
         {
             InitializeComponent();
@@ -92,34 +98,34 @@ namespace EventDriven.Project.UI
 
             if (modeOfPayment == "Cash")
             {
-                AR_SOA_GRID.Rows.Add("Tuition Fee", "2,000");
-                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "1,500");
-                AR_SOA_GRID.Rows.Add("Others", "1,700");
-                AR_SOA_GRID.Rows.Add("Total", "5,200");
-            }
-            else if (modeOfPayment == "Low Down Payment")
-            {
-                AR_SOA_GRID.Rows.Add("Tuition Fee", "2,500");
-                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "1,875");
-                AR_SOA_GRID.Rows.Add("Others", "2,125");
-                AR_SOA_GRID.Rows.Add("Total", "6,500");
-                AR_SOA_GRID.Rows.Add("");
-                AR_SOA_GRID.Rows.Add("Down Payment", "500");
-                AR_SOA_GRID.Rows.Add("Remaining Balance", "6,000");
-                AR_SOA_GRID.Rows.Add("Quarterly Payment", "1,500");
+                AR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,000");
+                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱1,500");
+                AR_SOA_GRID.Rows.Add("Others", "₱1,700");
+                AR_SOA_GRID.Rows.Add("Total", "₱5,200");
             }
             else if (modeOfPayment == "Low Quarterly Payment")
             {
-                AR_SOA_GRID.Rows.Add("Tuition Fee", "2,700");
-                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "2,025");
-                AR_SOA_GRID.Rows.Add("Others", "2,295");
-                AR_SOA_GRID.Rows.Add("Total", "7,020");
-                AR_SOA_GRID.Rows.Add("Down Payment", "500");
+                AR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,500");
+                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱1,875");
+                AR_SOA_GRID.Rows.Add("Others", "₱2,125");
+                AR_SOA_GRID.Rows.Add("Total", "₱6,500");
                 AR_SOA_GRID.Rows.Add("");
-                AR_SOA_GRID.Rows.Add("Remaining Balance", "6,520");
-                AR_SOA_GRID.Rows.Add("Quarterly Payment", "1,630");
+                AR_SOA_GRID.Rows.Add("Required Down Payment", "₱700");
+                AR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,450");
+            }
+            else if (modeOfPayment == "Low Down Payment")
+            {
+                AR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,700");
+                AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱2,025");
+                AR_SOA_GRID.Rows.Add("Others", "₱2,295");
+                AR_SOA_GRID.Rows.Add("Total", "₱7,020");
+                AR_SOA_GRID.Rows.Add("Required Down Payment", "₱500");
+                AR_SOA_GRID.Rows.Add("");
+                AR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,630");
             }
         }
+
+        
 
         private void btnViewSOA_Click_1(object sender, EventArgs e)
         {
@@ -139,20 +145,23 @@ namespace EventDriven.Project.UI
 
         private decimal GetUpdatedRemainingBalance(int studentId)
         {
-            decimal latestRemaining = 0;
-
+            decimal remainingBalance = 0;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = "SELECT ISNULL(MAX(RemainingBalance), 0) FROM PaymentRecord WHERE Id=@StudentId";
+                string query = @"SELECT TOP 1 RemainingBalance 
+                                 FROM PaymentRecord 
+                                 WHERE Id=@Id 
+                                 ORDER BY TransactionId DESC";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@StudentId", studentId);
-                    latestRemaining = Convert.ToDecimal(cmd.ExecuteScalar());
+                    cmd.Parameters.AddWithValue("@Id", studentId);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                        remainingBalance = Convert.ToDecimal(result);
                 }
             }
-
-            return latestRemaining; 
+            return remainingBalance;
         }
 
 

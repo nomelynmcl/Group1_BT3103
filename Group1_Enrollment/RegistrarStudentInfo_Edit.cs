@@ -50,6 +50,9 @@ namespace EventDriven.Project.UI
             txtRegistrarEditGuardian.Text = guardian.ToString();
             txtRegistrarEditGuardianContact.Text = guardianContact;
             cbRegistrarEditType.Text = studentType;
+
+            txtRegistrarEditStudContact.MaxLength = 11;
+            txtRegistrarEditGuardianContact.MaxLength = 11;
         }
 
         private void btnRegistrarBack_Edit_Click(object sender, EventArgs e)
