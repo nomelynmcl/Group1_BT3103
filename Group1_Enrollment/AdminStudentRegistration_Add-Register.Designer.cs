@@ -532,7 +532,7 @@
             // clbModeOfPayment_AdminStudentRegistrationAdd
             // 
             clbModeOfPayment_AdminStudentRegistrationAdd.FormattingEnabled = true;
-            clbModeOfPayment_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "Low Down Payment", "Low Monthly Payment", "Cash" });
+            clbModeOfPayment_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "Low Down Payment", "Low Quarterly Payment", "Cash" });
             clbModeOfPayment_AdminStudentRegistrationAdd.Location = new Point(782, 396);
             clbModeOfPayment_AdminStudentRegistrationAdd.Margin = new Padding(3, 2, 3, 2);
             clbModeOfPayment_AdminStudentRegistrationAdd.Name = "clbModeOfPayment_AdminStudentRegistrationAdd";

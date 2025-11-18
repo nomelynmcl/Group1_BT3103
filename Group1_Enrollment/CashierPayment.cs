@@ -77,6 +77,8 @@ namespace EventDriven.Project.UI
             CashierPayment_GridView.Columns.Add("Item", "Item");
             CashierPayment_GridView.Columns.Add("BaseAmount", "Base Amount (₱)");
             CashierPayment_GridView.Columns.Add("AdjustedAmount", "Adjusted Amount (₱)");
+
+            
         }
 
         private void CashierPayment_SearchBTN_Click(object sender, EventArgs e)
@@ -160,13 +162,18 @@ namespace EventDriven.Project.UI
                 }
                 LoadPaymentTransactions(studentId);
 
-                decimal remaining = GetCurrentBalance(studentId);
+                decimal? remaining = GetCurrentBalance(studentId);
                 CheckIfFullyPaid(remaining);
             }
         }
-        private void CheckIfFullyPaid(decimal balance)
+        private void CheckIfFullyPaid(decimal? balance)
         {
-            if (balance <= 0)
+            if (!balance.HasValue) 
+            {
+                txtCashierPay.Enabled = true;
+                CashierConfirmPayment.Enabled = true;
+            }
+            else if (balance.Value <= 0)
             {
                 txtCashierPay.Enabled = false;
                 CashierConfirmPayment.Enabled = false;
@@ -228,30 +235,30 @@ namespace EventDriven.Project.UI
 
             if (method == "Cash")
             {
-                CashierPayment_GridView.Rows.Add("Tuition Fee", "2,000", "2,000");
-                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "1,500", "1,500");
-                CashierPayment_GridView.Rows.Add("Others", "1,700", "1,700");
-                CashierPayment_GridView.Rows.Add("Total", "5,200", "5,200");
+                CashierPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,000");
+                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱1,500");
+                CashierPayment_GridView.Rows.Add("Others", "₱1,700", "₱1,700");
+                CashierPayment_GridView.Rows.Add("Total", "₱5,200", "₱5,200");
             }
             else if (method == "Low Down Payment")
             {
-                CashierPayment_GridView.Rows.Add("Tuition Fee", "2,000", "2,500");
-                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "1,500", "1,875");
-                CashierPayment_GridView.Rows.Add("Others", "1,700", "2,125");
-                CashierPayment_GridView.Rows.Add("Total", "5,200", "6,500");
-                CashierPayment_GridView.Rows.Add("Down Payment", "-", "500");
-                CashierPayment_GridView.Rows.Add("Remaining Balance", "-", "6,000");
-                CashierPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "1,500");
+                CashierPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,500");
+                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱1,875");
+                CashierPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,125");
+                CashierPayment_GridView.Rows.Add("Total", "₱5,200", "₱6,500");
+                CashierPayment_GridView.Rows.Add("Down Payment", "-", "₱500");
+                CashierPayment_GridView.Rows.Add("Remaining Balance", "-", "₱6,000");
+                CashierPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "₱1,500");
             }
             else if (method == "Low Quarterly Payment")
             {
-                CashierPayment_GridView.Rows.Add("Tuition Fee", "2,000", "2,700");
-                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "1,500", "2,025");
-                CashierPayment_GridView.Rows.Add("Others", "1,700", "2,295");
-                CashierPayment_GridView.Rows.Add("Total", "5,200", "7,020");
-                CashierPayment_GridView.Rows.Add("Down Payment", "-", "500");
-                CashierPayment_GridView.Rows.Add("Remaining Balance", "-", "6,520");
-                CashierPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "1,630");
+                CashierPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,700");
+                CashierPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱2,025");
+                CashierPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,295");
+                CashierPayment_GridView.Rows.Add("Total", "₱5,200", "₱7,020");
+                CashierPayment_GridView.Rows.Add("Down Payment", "-", "₱500");
+                CashierPayment_GridView.Rows.Add("Remaining Balance", "-", "₱6,520");
+                CashierPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "₱1,630");
             }
         }
 
@@ -282,6 +289,7 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("Invalid amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             string selectedMode = clbModeOfPayment_CashierPay.CheckedItems.Count > 0
                 ? clbModeOfPayment_CashierPay.CheckedItems[0].ToString()
                 : "";
@@ -293,16 +301,16 @@ namespace EventDriven.Project.UI
             }
 
             int studentId = int.Parse(CashierStuID_LBL.Text);
+
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in CashierPayment_GridView.Rows)
             {
                 if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
                 {
-                    decimal.TryParse(row.Cells[2].Value.ToString(), out totalAmount);
+                    decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", ""), out totalAmount);
                     break;
                 }
             }
-
 
             CashierChange_LBL.Text = "";
             CashierRemaining_LBL.Text = "";
@@ -315,10 +323,14 @@ namespace EventDriven.Project.UI
                     return;
                 }
 
-
-                decimal change = totalAmount - payment;
+                decimal change = payment - totalAmount;
                 CashierChange_LBL.Text = $"₱{change:N2}";
                 CashierRemaining_LBL.Text = "₱0.00";
+
+                
+                lastAmountPaid = payment;
+                lastRemainingBalance = 0;
+                lastChange = change;
             }
             else
             {
@@ -328,21 +340,28 @@ namespace EventDriven.Project.UI
                     return;
                 }
 
-                decimal currentBalance = GetCurrentBalance(studentId);
-                decimal remainingBalance = currentBalance - payment;
+                decimal? currentBalance = GetCurrentBalance(studentId) ?? totalAmount; 
+                decimal remainingBalance = currentBalance.Value - payment;
 
                 if (remainingBalance > 0)
                 {
-                    CashierRemaining_LBL.Text = $"₱{remainingBalance.ToString()}";
+                    CashierRemaining_LBL.Text = $"₱{remainingBalance:N2}";
                     CashierChange_LBL.Text = "₱0.00";
                 }
                 else
                 {
                     decimal change = Math.Abs(remainingBalance);
                     CashierRemaining_LBL.Text = "₱0.00";
-                    CashierChange_LBL.Text = $"₱{change.ToString()}";
+                    CashierChange_LBL.Text = $"₱{change:N2}";
                 }
+
+                
+                lastAmountPaid = payment;
+                lastRemainingBalance = remainingBalance > 0 ? remainingBalance : 0;
+                lastChange = remainingBalance < 0 ? Math.Abs(remainingBalance) : 0;
             }
+
+            lastModeOfPayment = selectedMode;
         }
 
         private void CashierConfirmPayment_Click(object sender, EventArgs e)
@@ -368,8 +387,23 @@ namespace EventDriven.Project.UI
             }
 
             string modeOfPayment = clbModeOfPayment_CashierPay.CheckedItems[0].ToString();
-            decimal currentBalance = GetCurrentBalance(studentId);
-            decimal remainingBalance = currentBalance - amountPaid;
+            decimal? currentBalance = GetCurrentBalance(studentId);
+            if (currentBalance == null)
+            {
+                
+                currentBalance = 0;
+                foreach (DataGridViewRow row in CashierPayment_GridView.Rows)
+                {
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
+                    {
+                        decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", ""), out decimal total);
+                        currentBalance = total;
+                        break;
+                    }
+                }
+            }
+
+            decimal remainingBalance = currentBalance.Value - amountPaid;
             decimal change = 0;
 
             if (remainingBalance < 0)
@@ -377,14 +411,13 @@ namespace EventDriven.Project.UI
                 change = Math.Abs(remainingBalance);
                 remainingBalance = 0;
             }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 string query = @"INSERT INTO PaymentRecord 
-             (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
-             VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance);
-             SELECT SCOPE_IDENTITY();";
-
+                 (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
+                 VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance)";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@StudentId", studentId);
@@ -392,43 +425,46 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@ModeOfPayment", modeOfPayment);
                     cmd.Parameters.AddWithValue("@AmountPaid", amountPaid);
                     cmd.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                    cmd.ExecuteNonQuery();
+                }
 
+                
+                string idQuery = "SELECT TOP 1 TransactionId FROM PaymentRecord WHERE Id=@Id ORDER BY TransactionId DESC";
+                using (SqlCommand cmd = new SqlCommand(idQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", studentId);
                     object result = cmd.ExecuteScalar();
-                    if (result != null)
-                    {
-                        lastTransactionId = Convert.ToInt32(result);
-                    }
+                    lastTransactionId = result != null ? Convert.ToInt32(result) : 0;
                 }
             }
 
-            lastModeOfPayment = modeOfPayment;
+            
             lastAmountPaid = amountPaid;
             lastRemainingBalance = remainingBalance;
             lastChange = change;
+            lastModeOfPayment = modeOfPayment;
+
             LoadPaymentTransactions(studentId);
 
-            CashierChange_LBL.Text = $"₱{change:N2}";
-            CashierRemaining_LBL.Text = $"₱{remainingBalance:N2}";
-
-            MessageBox.Show($"Payment recorded successfully!\nTransaction ID: {lastTransactionId}",
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CashierChange_LBL.Text = $"₱{lastChange:N2}";
+            CashierRemaining_LBL.Text = $"₱{lastRemainingBalance:N2}";
 
             if (remainingBalance <= 0)
             {
                 txtCashierPay.Enabled = false;
                 clbModeOfPayment_CashierPay.Enabled = false;
                 CashierConfirmPayment.Enabled = false;
-                MessageBox.Show("Payment completed. Student has fully settled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Payment completed. Student has fully settled.\nTransaction ID: {lastTransactionId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 ResetTransactionForm();
+                MessageBox.Show($"Payment recorded. You can proceed with next transaction.\nTransaction ID: {lastTransactionId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private decimal GetCurrentBalance(int studentId)
+        private decimal? GetCurrentBalance(int studentId)
         {
-            decimal remainingBalance = 0;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -441,10 +477,11 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@Id", studentId);
                     object result = cmd.ExecuteScalar();
                     if (result != null)
-                        remainingBalance = Convert.ToDecimal(result);
+                        return Convert.ToDecimal(result);
+                    else
+                        return null; 
                 }
             }
-            return remainingBalance;
         }
 
 
