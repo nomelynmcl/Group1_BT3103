@@ -47,32 +47,30 @@ namespace EventDriven.Project.UI
 
             if (modeOfPayment == "Cash")
             {
-                AssessmentGrid.Rows.Add("Tuition Fee", "2,000");
-                AssessmentGrid.Rows.Add("Miscellaneous Fee", "1,500");
-                AssessmentGrid.Rows.Add("Others", "1,700");
-                AssessmentGrid.Rows.Add("Total", "5,200");
-            }
-            else if (modeOfPayment == "Low Down Payment")
-            {
-                AssessmentGrid.Rows.Add("Tuition Fee", "2,500");
-                AssessmentGrid.Rows.Add("Miscellaneous Fee", "1,875");
-                AssessmentGrid.Rows.Add("Others", "2,125");
-                AssessmentGrid.Rows.Add("Total", "6,500");
-                AssessmentGrid.Rows.Add("");
-                AssessmentGrid.Rows.Add("Down Payment", "500");
-                AssessmentGrid.Rows.Add("Remaining Balance", "6,000");
-                AssessmentGrid.Rows.Add("Quarterly Payment (4x)", "1,500");
+                AssessmentGrid.Rows.Add("Tuition Fee", "₱2,000");
+                AssessmentGrid.Rows.Add("Miscellaneous Fee", "₱1,500");
+                AssessmentGrid.Rows.Add("Others", "₱1,700");
+                AssessmentGrid.Rows.Add("Total", "₱5,200");
             }
             else if (modeOfPayment == "Low Quarterly Payment")
             {
-                AssessmentGrid.Rows.Add("Tuition Fee", "2,700");
-                AssessmentGrid.Rows.Add("Miscellaneous Fee", "2,025");
-                AssessmentGrid.Rows.Add("Others", "2,295");
-                AssessmentGrid.Rows.Add("Total", "7,020");
-                AssessmentGrid.Rows.Add("Down Payment", "500");
+                AssessmentGrid.Rows.Add("Tuition Fee", "₱2,500");
+                AssessmentGrid.Rows.Add("Miscellaneous Fee", "₱1,875");
+                AssessmentGrid.Rows.Add("Others", "₱2,125");
+                AssessmentGrid.Rows.Add("Total", "₱6,500");
+                AssessmentGrid.Rows.Add("Required Down Payment", "₱700");
                 AssessmentGrid.Rows.Add("");
-                AssessmentGrid.Rows.Add("Remaining Balance", "6,520");
-                AssessmentGrid.Rows.Add("Quarterly Payment (4x)", "1,630");
+                AssessmentGrid.Rows.Add("Quarterly Payment (4x)", "₱1,450");
+            }
+            else if (modeOfPayment == "Low Down Payment")
+            {
+                AssessmentGrid.Rows.Add("Tuition Fee", "₱2,700");
+                AssessmentGrid.Rows.Add("Miscellaneous Fee", "₱2,025");
+                AssessmentGrid.Rows.Add("Others", "₱2,295");
+                AssessmentGrid.Rows.Add("Total", "7,020");
+                AssessmentGrid.Rows.Add("Required Down Payment", "₱500");
+                AssessmentGrid.Rows.Add("");
+                AssessmentGrid.Rows.Add("Quarterly Payment (4x)", "₱1,630");
             }
         }
 

@@ -170,7 +170,7 @@ namespace EventDriven.Project.UI
 
         private void CheckIfFullyPaid(decimal? balance)
         {
-            if (!balance.HasValue) 
+            if (!balance.HasValue)
             {
                 txtAdminPayment.Enabled = true;
                 AdminConfirmPayment.Enabled = true;
@@ -235,6 +235,24 @@ namespace EventDriven.Project.UI
             AdminPayment_GridView.DataSource = null;
             AdminPayment_GridView.Rows.Clear();
 
+            int studentId = 0;
+            if (!int.TryParse(AdminStuID_LBL.Text, out studentId))
+                return;
+
+            bool firstPayment = false;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT COUNT(*) FROM PaymentRecord WHERE Id=@Id";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", studentId);
+                    int count = (int)cmd.ExecuteScalar();
+                    firstPayment = count == 0;
+                }
+            }
+
             if (method == "Cash")
             {
                 AdminPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,000");
@@ -242,25 +260,29 @@ namespace EventDriven.Project.UI
                 AdminPayment_GridView.Rows.Add("Others", "₱1,700", "₱1,700");
                 AdminPayment_GridView.Rows.Add("Total", "₱5,200", "₱5,200");
             }
-            else if (method == "Low Down Payment")
-            {
-                AdminPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,500");
-                AdminPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱1,875");
-                AdminPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,125");
-                AdminPayment_GridView.Rows.Add("Total", "₱5,200", "₱6,500");
-                AdminPayment_GridView.Rows.Add("Down Payment", "-", "₱500");
-                AdminPayment_GridView.Rows.Add("Remaining Balance", "-", "₱6,000");
-                AdminPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "₱1,500");
-            }
             else if (method == "Low Quarterly Payment")
             {
-                AdminPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,700");
-                AdminPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱2,025");
-                AdminPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,295");
-                AdminPayment_GridView.Rows.Add("Total", "₱5,200", "₱7,020");
-                AdminPayment_GridView.Rows.Add("Down Payment", "-", "₱500");
-                AdminPayment_GridView.Rows.Add("Remaining Balance", "-", "₱6,520");
-                AdminPayment_GridView.Rows.Add("Quarterly Payment (4x)", "-", "₱1,630");
+                if (firstPayment)
+                {
+                    AdminPayment_GridView.Rows.Add("Down Payment (Minimum)", "₱700", "₱700");
+                    AdminPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,500");
+                    AdminPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱1,875");
+                    AdminPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,125");
+                    AdminPayment_GridView.Rows.Add("Total", "₱5,200", "₱6,500");
+                    AdminPayment_GridView.Rows.Add("Quarterly Payment (4x)", "", "₱1,450");
+                }
+            }
+            else if (method == "Low Down Payment")
+            {
+                if (firstPayment)
+                {
+                    AdminPayment_GridView.Rows.Add("Down Payment (Minimum)", "₱500", "₱500");
+                    AdminPayment_GridView.Rows.Add("Tuition Fee", "₱2,000", "₱2,700");
+                    AdminPayment_GridView.Rows.Add("Miscellaneous Fee", "₱1,500", "₱2,025");
+                    AdminPayment_GridView.Rows.Add("Others", "₱1,700", "₱2,295");
+                    AdminPayment_GridView.Rows.Add("Total", "₱5,200", "₱7,020");
+                    AdminPayment_GridView.Rows.Add("Quarterly Payment (4x)", "", "₱1,630");
+                }
             }
         }
 
@@ -286,83 +308,87 @@ namespace EventDriven.Project.UI
                 return;
             }
 
-            if (!decimal.TryParse(txtAdminPayment.Text, out decimal payment))
+            string cleanPayment = txtAdminPayment.Text.Replace("₱", "").Replace(",", "").Trim();
+
+            if (!decimal.TryParse(cleanPayment, out decimal payment))
             {
                 MessageBox.Show("Invalid amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            string selectedMode = clbModeOfPayment_AdminPay.CheckedItems.Count > 0
-                ? clbModeOfPayment_AdminPay.CheckedItems[0].ToString()
-                : "";
 
-            if (string.IsNullOrEmpty(selectedMode))
+            if (clbModeOfPayment_AdminPay.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Please select a mode of payment first.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             int studentId = int.Parse(AdminStuID_LBL.Text);
+            string selectedMode = clbModeOfPayment_AdminPay.CheckedItems[0].ToString();
+            bool firstPayment = false;
 
-            decimal totalAmount = 0;
-            foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
+                con.Open();
+                string query = "SELECT COUNT(*) FROM PaymentRecord WHERE Id=@Id";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", ""), out totalAmount);
-                    break;
+                    cmd.Parameters.AddWithValue("@Id", studentId);
+                    int count = (int)cmd.ExecuteScalar();
+                    firstPayment = count == 0;
                 }
             }
 
-            AdminChange_LBL.Text = "";
-            lbAdminPay_Remaining.Text = "";
-
-            if (selectedMode == "Cash")
+            if (selectedMode == "Low Quarterly Payment")
             {
-                if (payment < totalAmount)
+                if (firstPayment && payment < 700)
                 {
-                    MessageBox.Show("Insufficient payment. Must be equal or greater than total.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Down payment for Low Quarterly Payment must be at least ₱700.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                decimal change = payment - totalAmount;
-                AdminChange_LBL.Text = $"₱{change:N2}";
-                lbAdminPay_Remaining.Text = "₱0.00";
-
-
-                lastAmountPaid = payment;
-                lastRemainingBalance = 0;
-                lastChange = change;
-            }
-            else
-            {
-                if (payment < 500)
+                else if (!firstPayment && payment < 1450)
                 {
-                    MessageBox.Show("Minimum down payment is ₱500.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Quarterly payment must be at least ₱1,450.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                decimal? currentBalance = GetCurrentBalance(studentId) ?? totalAmount;
-                decimal remainingBalance = currentBalance.Value - payment;
-
-                if (remainingBalance > 0)
+            }
+            else if (selectedMode == "Low Down Payment")
+            {
+                if (firstPayment && payment < 500)
                 {
-                    lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
-                    AdminChange_LBL.Text = "₱0.00";
+                    MessageBox.Show("Down payment for Low Down Payment must be at least ₱500.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else
+                else if (!firstPayment && payment < 1630)
                 {
-                    decimal change = Math.Abs(remainingBalance);
-                    lbAdminPay_Remaining.Text = "₱0.00";
-                    AdminChange_LBL.Text = $"₱{change:N2}";
+                    MessageBox.Show("Quarterly payment must be at least ₱1,630.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-
-
-                lastAmountPaid = payment;
-                lastRemainingBalance = remainingBalance > 0 ? remainingBalance : 0;
-                lastChange = remainingBalance < 0 ? Math.Abs(remainingBalance) : 0;
             }
 
+            decimal? currentBalance = GetCurrentBalance(studentId);
+
+            if (currentBalance == null)
+            {
+                foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
+                {
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
+                    {
+                        decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", "").Replace("₱", ""), out decimal total);
+                        currentBalance = total;
+                        break;
+                    }
+                }
+            }
+
+            decimal remainingBalance = Math.Max(currentBalance.Value - payment, 0);
+            decimal change = Math.Max(payment - currentBalance.Value, 0);
+
+            lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
+            AdminChange_LBL.Text = $"₱{change:N2}";
+
+            lastAmountPaid = payment;
+            lastRemainingBalance = remainingBalance;
+            lastChange = change;
             lastModeOfPayment = selectedMode;
         }
 
@@ -376,7 +402,7 @@ namespace EventDriven.Project.UI
 
             int studentId = int.Parse(AdminStuID_LBL.Text);
 
-            if (!decimal.TryParse(txtAdminPayment.Text, out decimal amountPaid) || amountPaid <= 0)
+            if (!decimal.TryParse(txtAdminPayment.Text.Replace("₱", "").Trim(), out decimal amountPaid) || amountPaid <= 0)
             {
                 MessageBox.Show("Please enter a valid payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -390,36 +416,29 @@ namespace EventDriven.Project.UI
 
             string modeOfPayment = clbModeOfPayment_AdminPay.CheckedItems[0].ToString();
             decimal? currentBalance = GetCurrentBalance(studentId);
+
             if (currentBalance == null)
             {
-
-                currentBalance = 0;
                 foreach (DataGridViewRow row in AdminPayment_GridView.Rows)
                 {
                     if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower().Contains("total"))
                     {
-                        decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", ""), out decimal total);
+                        decimal.TryParse(row.Cells[2].Value.ToString().Replace(",", "").Replace("₱", ""), out decimal total);
                         currentBalance = total;
                         break;
                     }
                 }
             }
 
-            decimal remainingBalance = currentBalance.Value - amountPaid;
-            decimal change = 0;
-
-            if (remainingBalance < 0)
-            {
-                change = Math.Abs(remainingBalance);
-                remainingBalance = 0;
-            }
+            decimal remainingBalance = Math.Max(currentBalance.Value - amountPaid, 0);
+            decimal change = Math.Max(amountPaid - currentBalance.Value, 0);
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 string query = @"INSERT INTO PaymentRecord 
-                 (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
-                 VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance)";
+                         (Id, PaymentDate, ModeOfPayment, AmountPaid, RemainingBalance)
+                         VALUES (@StudentId, @PaymentDate, @ModeOfPayment, @AmountPaid, @RemainingBalance)";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@StudentId", studentId);
@@ -430,6 +449,16 @@ namespace EventDriven.Project.UI
                     cmd.ExecuteNonQuery();
                 }
 
+                if (amountPaid > 0)
+                {
+                    string updateStatusQuery = "UPDATE StudentRecord SET EnrollmentStatus=@Status WHERE Id=@StudentId";
+                    using (SqlCommand cmd = new SqlCommand(updateStatusQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Status", "Enrolled");
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
                 string idQuery = "SELECT TOP 1 TransactionId FROM PaymentRecord WHERE Id=@Id ORDER BY TransactionId DESC";
                 using (SqlCommand cmd = new SqlCommand(idQuery, con))
@@ -440,16 +469,15 @@ namespace EventDriven.Project.UI
                 }
             }
 
-
             lastAmountPaid = amountPaid;
             lastRemainingBalance = remainingBalance;
             lastChange = change;
             lastModeOfPayment = modeOfPayment;
 
-            LoadPaymentTransactions(studentId);
+            lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
+            AdminChange_LBL.Text = $"₱{change:N2}";
 
-            AdminChange_LBL.Text = $"₱{lastChange:N2}";
-            lbAdminPay_Remaining.Text = $"₱{lastRemainingBalance:N2}";
+            LoadPaymentTransactions(studentId);
 
             if (remainingBalance <= 0)
             {
@@ -571,7 +599,7 @@ namespace EventDriven.Project.UI
                 PrintDocument printDocument1 = new PrintDocument();
                 printDocument1.PrintPage += PrintDocument1_PrintPage;
 
-                int width = 370;  
+                int width = 370;
                 int height = 1000;
                 PaperSize receiptSize = new PaperSize("Receipt", width, height);
 
@@ -722,6 +750,17 @@ namespace EventDriven.Project.UI
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Close();
+        }
+
+        private void txtAdminPayment_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAdminPayment.Text.StartsWith("₱"))
+                return;
+
+            string raw = txtAdminPayment.Text.Replace("₱", "").Trim();
+
+            txtAdminPayment.Text = "₱" + raw;
+            txtAdminPayment.SelectionStart = txtAdminPayment.Text.Length;
         }
     }
 }

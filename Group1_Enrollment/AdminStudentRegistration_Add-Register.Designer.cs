@@ -80,6 +80,7 @@
             label6 = new Label();
             label3 = new Label();
             lbAdminStudReg_SectionAdd = new Label();
+            lbStatus = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -609,12 +610,23 @@
             lbAdminStudReg_SectionAdd.TabIndex = 245;
             lbAdminStudReg_SectionAdd.Text = "<<Section>>";
             // 
+            // lbStatus
+            // 
+            lbStatus.AutoSize = true;
+            lbStatus.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbStatus.Location = new Point(622, 17);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new Size(90, 17);
+            lbStatus.TabIndex = 246;
+            lbStatus.Text = "<< Status >>";
+            // 
             // AdminStudentRegistration_Add
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
+            Controls.Add(lbStatus);
             Controls.Add(lbAdminStudReg_SectionAdd);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_AdminStudentRegistrationAdd);
@@ -723,5 +735,6 @@
         private Label label6;
         private Label label3;
         private Label lbAdminStudReg_SectionAdd;
+        private Label lbStatus;
     }
 }

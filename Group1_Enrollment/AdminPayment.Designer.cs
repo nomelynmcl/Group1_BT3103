@@ -419,6 +419,7 @@
             txtAdminPayment.Name = "txtAdminPayment";
             txtAdminPayment.Size = new Size(130, 23);
             txtAdminPayment.TabIndex = 205;
+            txtAdminPayment.TextChanged += txtAdminPayment_TextChanged;
             // 
             // label6
             // 

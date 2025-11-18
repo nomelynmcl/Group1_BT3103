@@ -391,6 +391,7 @@
             txtCashierPay.Name = "txtCashierPay";
             txtCashierPay.Size = new Size(108, 23);
             txtCashierPay.TabIndex = 204;
+            txtCashierPay.TextChanged += txtCashierPay_TextChanged;
             // 
             // label6
             // 

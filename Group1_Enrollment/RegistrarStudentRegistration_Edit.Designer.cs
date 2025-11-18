@@ -79,6 +79,7 @@
             btnView_RegistrarRegistration_Admin = new Button();
             label3 = new Label();
             lbSection_StudRegEditRegistrar = new Label();
+            lbStatus = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -592,12 +593,23 @@
             lbSection_StudRegEditRegistrar.TabIndex = 245;
             lbSection_StudRegEditRegistrar.Text = "<<Section>>";
             // 
+            // lbStatus
+            // 
+            lbStatus.AutoSize = true;
+            lbStatus.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbStatus.Location = new Point(615, 25);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new Size(90, 17);
+            lbStatus.TabIndex = 246;
+            lbStatus.Text = "<< Status >>";
+            // 
             // RegistrarStudentRegistration_Edit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1058, 522);
+            Controls.Add(lbStatus);
             Controls.Add(lbSection_StudRegEditRegistrar);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_RegistrarStudentRegistration);
@@ -706,5 +718,6 @@
         private Button btnView_RegistrarRegistration_Admin;
         private Label label3;
         private Label lbSection_StudRegEditRegistrar;
+        private Label lbStatus;
     }
 }

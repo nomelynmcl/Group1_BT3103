@@ -23,6 +23,19 @@ namespace EventDriven.Project.UI
         private void CashierReport_Load(object sender, EventArgs e)
         {
             SetupSOAGrid();
+            LoadCounts();
+        }
+
+        private void LoadCounts()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd1 = new SqlCommand(
+                    "SELECT COUNT(*) FROM PaymentRecord WHERE CAST(PaymentDate AS DATE) = CAST(GETDATE() AS DATE)", conn);
+                SR_NOTD.Text = cmd1.ExecuteScalar().ToString();
+            }
         }
 
         private void SetupSOAGrid()
@@ -90,7 +103,7 @@ namespace EventDriven.Project.UI
                 }
 
                 decimal remaining = GetCurrentBalance(studentId);
-                SR_SOA_GRID.Rows.Add("Updated Remaining", remaining);
+                SR_SOA_GRID.Rows.Add("Updated Remaining",$"₱{remaining:N2}");
             }
         }
 
@@ -99,32 +112,30 @@ namespace EventDriven.Project.UI
 
             if (mode == "Cash")
             {
-                SR_SOA_GRID.Rows.Add("Tuition Fee", "2,000");
-                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "1,500");
-                SR_SOA_GRID.Rows.Add("Others", "1,700");
-                SR_SOA_GRID.Rows.Add("Total", "5,200");
-            }
-            else if (mode == "Low Down Payment")
-            {
-                SR_SOA_GRID.Rows.Add("Tuition Fee", "2,500");
-                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "1,875");
-                SR_SOA_GRID.Rows.Add("Others", "2,125");
-                SR_SOA_GRID.Rows.Add("Total", "6,500");
-                SR_SOA_GRID.Rows.Add("");
-                SR_SOA_GRID.Rows.Add("Down Payment", "500");
-                SR_SOA_GRID.Rows.Add("Remaining Balance", "6,000");
-                SR_SOA_GRID.Rows.Add("Quarterly Payment", "1,500");
+                SR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,000");
+                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱1,500");
+                SR_SOA_GRID.Rows.Add("Others", "₱1,700");
+                SR_SOA_GRID.Rows.Add("Total", "₱5,200");
             }
             else if (mode == "Low Quarterly Payment")
             {
-                SR_SOA_GRID.Rows.Add("Tuition Fee", "2,700");
-                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "2,025");
-                SR_SOA_GRID.Rows.Add("Others", "2,295");
-                SR_SOA_GRID.Rows.Add("Total", "7,020");
-                SR_SOA_GRID.Rows.Add("Down Payment", "500");
+                SR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,500");
+                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱1,875");
+                SR_SOA_GRID.Rows.Add("Others", "₱2,125");
+                SR_SOA_GRID.Rows.Add("Total", "₱6,500");
+                SR_SOA_GRID.Rows.Add("Required Down Payment", "₱700");
                 SR_SOA_GRID.Rows.Add("");
-                SR_SOA_GRID.Rows.Add("Remaining Balance", "6,520");
-                SR_SOA_GRID.Rows.Add("Quarterly Payment", "1,630");
+                SR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,450");
+            }
+            else if (mode == "Low Down Payment")
+            {
+                SR_SOA_GRID.Rows.Add("Tuition Fee", "₱2,700");
+                SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱2,025");
+                SR_SOA_GRID.Rows.Add("Others", "₱2,295");
+                SR_SOA_GRID.Rows.Add("Total", "₱7,020");
+                SR_SOA_GRID.Rows.Add("Required Down Payment", "₱500");
+                SR_SOA_GRID.Rows.Add("");
+                SR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,630");
             }
         }
 

@@ -82,7 +82,7 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(251, 749);
+            flowLayoutPanel1.Size = new Size(251, 522);
             flowLayoutPanel1.TabIndex = 104;
             // 
             // panel1
@@ -323,7 +323,7 @@
             label6.Name = "label6";
             label6.Size = new Size(109, 15);
             label6.TabIndex = 125;
-            label6.Text = "Enrollment Status:";
+            label6.Text = "Mode of Payment:";
             // 
             // lbModeHistory
             // 
@@ -339,7 +339,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1058, 522);
             Controls.Add(lbModeHistory);
             Controls.Add(label6);
             Controls.Add(lbStatusHistory);

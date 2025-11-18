@@ -106,6 +106,11 @@ namespace EventDriven.Project.UI
                     ctrl.TextChanged += (s, e) => isEdited = true;
                 }
             }
+
+            txtContactNumber_AdminStudentRegistration.MaxLength = 11;
+            txtGuardianContactNumber_AdminStudentRegistrationEdit.MaxLength = 11;
+
+            UpdateStudentStatus(studentId);
         }
 
         private void UpdateSectionInstantly(object sender, EventArgs e)
@@ -142,7 +147,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnRegister_AdminStudentRegistration.PerformClick(); 
+                    btnRegister_AdminStudentRegistration.PerformClick();
                     AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
                     adminStudReg.Show();
                     this.Close();
@@ -392,6 +397,32 @@ namespace EventDriven.Project.UI
             AdminReport adminReport = new AdminReport();
             adminReport.Show();
             this.Close();
+        }
+
+        private void UpdateStudentStatus(int studentId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT TOP 1 AmountPaid FROM PaymentRecord WHERE Id=@StudentId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToDecimal(result) > 0)
+                            lbStatus.Text = "Enrolled";
+                        else
+                            lbStatus.Text = "Pending Enrollment";
+                    }
+                }
+            }
+            catch
+            {
+                lbStatus.Text = "Pending Enrollment";
+            }
         }
     }
 }

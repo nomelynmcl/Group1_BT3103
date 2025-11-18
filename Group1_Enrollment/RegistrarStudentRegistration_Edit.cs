@@ -106,6 +106,12 @@ namespace EventDriven.Project.UI
                     ctrl.TextChanged += (s, e) => isEdited = true;
                 }
             }
+
+            txtContactNumber_RegistrarStudentRegistration.MaxLength = 11;
+            txtGuardianContact_StudRegEditRegistrar.MaxLength = 11;
+
+            UpdateStudentStatus(studentId);
+
         }
 
         private void UpdateSectionInstantly(object sender, EventArgs e)
@@ -143,7 +149,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnSave_RegistrarStudentRegistration.PerformClick(); 
+                    btnSave_RegistrarStudentRegistration.PerformClick();
                     RegistrarStudentRegistration registrarStudReg = new RegistrarStudentRegistration();
                     registrarStudReg.Show();
                     this.Close();
@@ -377,6 +383,32 @@ namespace EventDriven.Project.UI
             RegistrarReport registrarReport = new RegistrarReport();
             registrarReport.Show();
             this.Close();
+        }
+
+        private void UpdateStudentStatus(int studentId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT TOP 1 AmountPaid FROM PaymentRecord WHERE Id=@StudentId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToDecimal(result) > 0)
+                            lbStatus.Text = "Enrolled";
+                        else
+                            lbStatus.Text = "Pending Enrollment";
+                    }
+                }
+            }
+            catch
+            {
+                lbStatus.Text = "Pending Enrollment";
+            }
         }
     }
 }
