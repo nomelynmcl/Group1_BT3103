@@ -108,5 +108,15 @@ namespace EventDriven.Project.UI
         {
             txtPassword.UseSystemPasswordChar = cbShowPassword_Login.Checked;
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
