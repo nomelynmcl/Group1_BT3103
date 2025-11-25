@@ -125,7 +125,7 @@ namespace EventDriven.Project.UI
             e.Graphics.DrawLine(Pens.Black, leftMargin, y, pageWidth - leftMargin, y);
             y += 30;
 
-            
+
             // Function to draw label + value
             void DrawLine(string label, string value)
             {
@@ -152,7 +152,7 @@ namespace EventDriven.Project.UI
 
             y += 40;
             e.Graphics.DrawString($"Printed on: {DateTime.Now}", valueFont, Brushes.Gray, leftMargin, y);
-        
+
         }
 
         private void btnViewCancel_AdminStudentRegistration_Click(object sender, EventArgs e)
@@ -160,6 +160,11 @@ namespace EventDriven.Project.UI
             AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
             adminStudReg.Show();
             this.Close();
+        }
+
+        private void lblStudentType_AdminStudentRegistration_View_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

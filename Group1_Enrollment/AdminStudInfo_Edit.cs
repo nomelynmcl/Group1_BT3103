@@ -275,5 +275,10 @@ namespace EventDriven.Project.UI
             loginForm.Show();
             this.Close();
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
