@@ -123,7 +123,6 @@ namespace EventDriven.Project.UI
                 SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱1,875");
                 SR_SOA_GRID.Rows.Add("Others", "₱2,125");
                 SR_SOA_GRID.Rows.Add("Total", "₱6,500");
-                SR_SOA_GRID.Rows.Add("Required Down Payment", "₱700");
                 SR_SOA_GRID.Rows.Add("");
                 SR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,450");
             }
@@ -133,7 +132,6 @@ namespace EventDriven.Project.UI
                 SR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱2,025");
                 SR_SOA_GRID.Rows.Add("Others", "₱2,295");
                 SR_SOA_GRID.Rows.Add("Total", "₱7,020");
-                SR_SOA_GRID.Rows.Add("Required Down Payment", "₱500");
                 SR_SOA_GRID.Rows.Add("");
                 SR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,630");
             }

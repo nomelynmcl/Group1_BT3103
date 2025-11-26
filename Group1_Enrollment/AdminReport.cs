@@ -31,6 +31,10 @@ namespace EventDriven.Project.UI
             SetupSOAGrid();
             LoadStudentRecords();
 
+            if (cbSection.Items.Count > 0)
+            {
+                cbSection.SelectedIndex = 0;
+            }
         }
 
         private void LoadCounts()
@@ -110,7 +114,6 @@ namespace EventDriven.Project.UI
                 AR_SOA_GRID.Rows.Add("Others", "₱2,125");
                 AR_SOA_GRID.Rows.Add("Total", "₱6,500");
                 AR_SOA_GRID.Rows.Add("");
-                AR_SOA_GRID.Rows.Add("Required Down Payment", "₱700");
                 AR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,450");
             }
             else if (modeOfPayment == "Low Down Payment")
@@ -119,13 +122,12 @@ namespace EventDriven.Project.UI
                 AR_SOA_GRID.Rows.Add("Miscellaneous Fee", "₱2,025");
                 AR_SOA_GRID.Rows.Add("Others", "₱2,295");
                 AR_SOA_GRID.Rows.Add("Total", "₱7,020");
-                AR_SOA_GRID.Rows.Add("Required Down Payment", "₱500");
                 AR_SOA_GRID.Rows.Add("");
                 AR_SOA_GRID.Rows.Add("Quarterly Payment", "₱1,630");
             }
         }
 
-        
+
 
         private void btnViewSOA_Click_1(object sender, EventArgs e)
         {
@@ -172,8 +174,8 @@ namespace EventDriven.Project.UI
                 PrintDocument printDocument1 = new PrintDocument();
                 printDocument1.PrintPage += PrintDocument1_PrintPage;
 
-                int width = 500;  
-                int height = 700; 
+                int width = 500;
+                int height = 700;
                 PaperSize receiptSize = new PaperSize("Receipt", width, height);
 
                 printDocument1.DefaultPageSettings.PaperSize = receiptSize;
@@ -239,7 +241,7 @@ namespace EventDriven.Project.UI
                 DrawLabelValue("Student Type: ", studentType);
                 DrawLabelValue("Mode of Payment: ", modeOfPayment);
 
-                offsetY += 10; 
+                offsetY += 10;
             }
 
             int tableStartY = startY + (int)offsetY;
@@ -247,7 +249,7 @@ namespace EventDriven.Project.UI
             int col1Width = 250;
             int col2Width = 100;
             int col1X = startX;
-            int col2X = col1X + col1Width; 
+            int col2X = col1X + col1Width;
 
             g.FillRectangle(Brushes.LightGray, col1X, tableStartY, col1Width, rowHeight);
             g.FillRectangle(Brushes.LightGray, col2X, tableStartY, col2Width, rowHeight);
@@ -266,14 +268,14 @@ namespace EventDriven.Project.UI
                 string amount = row.Cells["Amount"].Value?.ToString() ?? "";
 
                 if (string.IsNullOrEmpty(description) && string.IsNullOrEmpty(amount))
-                    continue; 
+                    continue;
 
                 g.DrawRectangle(Pens.Black, col1X, currentY, col1Width, rowHeight);
                 g.DrawRectangle(Pens.Black, col2X, currentY, col2Width, rowHeight);
                 g.DrawString(description, valueFont, Brushes.Black, col1X + 5, currentY + 5);
                 g.DrawString(amount, valueFont, Brushes.Black, col2X + 5, currentY + 5);
 
-                currentY += rowHeight; 
+                currentY += rowHeight;
             }
 
             string printedOn = $"Printed on: {DateTime.Now:MMMM dd, yyyy hh:mm tt}";
@@ -399,6 +401,41 @@ namespace EventDriven.Project.UI
             AdminDashboard dashboard = new AdminDashboard();
             dashboard.Show();
             this.Close();
+        }
+
+        private void cbSection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSection.SelectedItem != null)
+            {
+                string selecttedSection = cbSection.SelectedItem.ToString();
+                LoadEnrolledStudents(selecttedSection);
+            }
+        }
+        private void LoadEnrolledStudents(string section)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"SELECT s.Id, s.FirstName, s.MiddleName, s.LastName, 
+                                s.GradeLevel, s.Section, s.StudentType, s.SchoolYear, s.ModeOfPayment
+                         FROM StudentRecord s
+                         INNER JOIN PaymentRecord p ON s.Id = p.Id
+                         WHERE p.AmountPaid >= 500 AND s.Section = @Section
+                         ORDER BY s.LastName ASC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Section", section);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                AR_LOE_GRID.DataSource = dt;
+
+
+                AR_LOE_GRID.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
     }
 }

@@ -41,10 +41,11 @@
             panel1 = new Panel();
             pcRegistrarLogo4 = new PictureBox();
             btnAdminStudentInformation3 = new Button();
-            btnAdminAssessment3 = new Button();
             btnAdminStudreg3 = new Button();
+            btnAdminAssessment3 = new Button();
             btnAdminReport3 = new Button();
             btnAdminOut3 = new Button();
+            cbSection = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)RR_LOE_GRID).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -188,20 +189,6 @@
             btnAdminStudentInformation3.UseVisualStyleBackColor = false;
             btnAdminStudentInformation3.Click += btnAdminStudentInformation3_Click;
             // 
-            // btnAdminAssessment3
-            // 
-            btnAdminAssessment3.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnAdminAssessment3.ForeColor = Color.AliceBlue;
-            btnAdminAssessment3.Location = new Point(23, 472);
-            btnAdminAssessment3.Margin = new Padding(23, 4, 3, 4);
-            btnAdminAssessment3.Name = "btnAdminAssessment3";
-            btnAdminAssessment3.Size = new Size(421, 79);
-            btnAdminAssessment3.TabIndex = 4;
-            btnAdminAssessment3.Text = "ASSESSMENT";
-            btnAdminAssessment3.UseVisualStyleBackColor = true;
-            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
-            // 
             // btnAdminStudreg3
             // 
             btnAdminStudreg3.FlatStyle = FlatStyle.Flat;
@@ -215,6 +202,20 @@
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
             btnAdminStudreg3.Click += btnAdminStudreg3_Click;
+            // 
+            // btnAdminAssessment3
+            // 
+            btnAdminAssessment3.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment3.ForeColor = Color.AliceBlue;
+            btnAdminAssessment3.Location = new Point(23, 472);
+            btnAdminAssessment3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment3.Name = "btnAdminAssessment3";
+            btnAdminAssessment3.Size = new Size(421, 79);
+            btnAdminAssessment3.TabIndex = 4;
+            btnAdminAssessment3.Text = "ASSESSMENT";
+            btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
             // btnAdminReport3
             // 
@@ -244,12 +245,23 @@
             btnAdminOut3.UseVisualStyleBackColor = true;
             btnAdminOut3.Click += btnAdminOut3_Click;
             // 
+            // cbSection
+            // 
+            cbSection.FormattingEnabled = true;
+            cbSection.Items.AddRange(new object[] { "Sirius", "Rigel", "Polaris", "Vega", "Phoenix", "Altair", "Pegasus", "Deneb" });
+            cbSection.Location = new Point(1412, 366);
+            cbSection.Name = "cbSection";
+            cbSection.Size = new Size(383, 28);
+            cbSection.TabIndex = 98;
+            cbSection.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // RegistrarReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSection);
             Controls.Add(RR_LOE_BTN);
             Controls.Add(RR_LOE_TXTBOX);
             Controls.Add(RR_LOE_GRID);
@@ -292,5 +304,6 @@
         private Button btnAdminReport3;
         private Button btnAdminOut3;
         private PictureBox pcRegistrarLogo4;
+        private ComboBox cbSection;
     }
 }

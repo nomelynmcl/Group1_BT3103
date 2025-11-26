@@ -1,6 +1,7 @@
-﻿using System.Data;
+﻿using EventDriven.Project.Model;
+using System.Data;
 using System.Data.SqlClient;
-using EventDriven.Project.Model;
+using static System.Collections.Specialized.BitVector32;
 
 namespace EventDriven.Project.UI
 {
@@ -43,6 +44,11 @@ namespace EventDriven.Project.UI
             LoadCounts();
             LoadEnrolledStudents();
             LoadStudentRecords();
+
+            if (cbSection.Items.Count > 0)
+            {
+                cbSection.SelectedIndex = 0;
+            }
         }
         private void LoadCounts()
         {
@@ -164,6 +170,41 @@ namespace EventDriven.Project.UI
         private void RR_LOE_TXTBOX_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSection.SelectedItem != null)
+            {
+                string selecttedSection = cbSection.SelectedItem.ToString();
+                LoadEnrolledStudents(selecttedSection);
+            }
+        }
+        private void LoadEnrolledStudents(string section)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"SELECT s.Id, s.FirstName, s.MiddleName, s.LastName, 
+                                s.GradeLevel, s.Section, s.StudentType, s.SchoolYear, s.ModeOfPayment
+                         FROM StudentRecord s
+                         INNER JOIN PaymentRecord p ON s.Id = p.Id
+                         WHERE p.AmountPaid >= 500 AND s.Section = @Section
+                         ORDER BY s.LastName ASC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Section", section);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                RR_LOE_GRID.DataSource = dt;
+
+
+                RR_LOE_GRID.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
     }
 }
