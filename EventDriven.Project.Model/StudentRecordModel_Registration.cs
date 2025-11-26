@@ -12,6 +12,7 @@ namespace EventDriven.Project.Model
             public string Lastname { get; set; }
             public string Firstname { get; set; }
             public string Middlename { get; set; }
+            public string Suffix { get; set; }
             public int Age { get; set; }
             public DateTime Birthdate { get; set; }
             public string Gender { get; set; }
@@ -26,7 +27,8 @@ namespace EventDriven.Project.Model
             public string Section { get; set; }
             public string Requirements { get; set; }
             public string ModeOfPayment { get; set; }
-
+            
+            public string SchoolYear { get; set; }
 
 
         

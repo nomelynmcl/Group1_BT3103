@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using EventDriven.Project.Model;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
 {
@@ -32,7 +24,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section, Requirements, ModeOfPayment FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Suffix, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section, Requirements, ModeOfPayment, SchoolYear FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -49,6 +41,7 @@ namespace EventDriven.Project.UI
                                 Id = Convert.ToInt32(reader["Id"].ToString()),
                                 Firstname = reader["FirstName"].ToString(),
                                 Lastname = reader["LastName"].ToString(),
+                                Suffix = reader["Suffix"].ToString(),
                                 Middlename = reader["MiddleName"].ToString(),
                                 ContactNumber = reader["ContactNumber"].ToString(),
                                 Gender = reader["Gender"].ToString(),
@@ -63,7 +56,8 @@ namespace EventDriven.Project.UI
                                 StudentType = reader["StudentType"].ToString(),
                                 Section = reader["Section"].ToString(),
                                 Requirements = reader["Requirements"].ToString(),
-                                ModeOfPayment = reader["ModeOfPayment"].ToString()
+                                ModeOfPayment = reader["ModeOfPayment"].ToString(),
+                                SchoolYear = reader["SchoolYear"].ToString()
 
                             });
 
@@ -71,6 +65,7 @@ namespace EventDriven.Project.UI
 
                         studentSearch = records;
                         dtgAdminStudentRegList.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgAdminStudentRegList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     }
                 }
             }
@@ -102,12 +97,15 @@ namespace EventDriven.Project.UI
                 string studentType = dtgAdminStudentRegList.CurrentRow.Cells["StudentType"].Value.ToString();
                 string requirements = dtgAdminStudentRegList.CurrentRow.Cells["Requirements"].Value.ToString();
                 string modeOfPayment = dtgAdminStudentRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
+                string suffix = dtgAdminStudentRegList.CurrentRow.Cells["Suffix"].Value.ToString();
+                string schoolyear = dtgAdminStudentRegList.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 AdminStudentRegistration_Add addForm = new AdminStudentRegistration_Add(
                     studentId,
                     lastname,
                     firstname,
                     middlename,
+                    suffix,
                     age,
                     contactNumber,
                     gender,
@@ -121,7 +119,8 @@ namespace EventDriven.Project.UI
                     section,
                     studentType,
                     requirements,
-                    modeOfPayment
+                    modeOfPayment,
+                    schoolyear
                 );
 
                 addForm.Show();
@@ -130,57 +129,6 @@ namespace EventDriven.Project.UI
             else
             {
                 MessageBox.Show("Please select a student record first.");
-            }
-        }
-
-        private void btnEdit_AdminStudentRegis_Click(object sender, EventArgs e)
-        {
-            if (dtgAdminStudentRegList.CurrentRow != null)
-            {
-                int id = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Id"].Value.ToString());
-                string firstname = dtgAdminStudentRegList.CurrentRow.Cells["FirstName"].Value.ToString();
-                string lastname = dtgAdminStudentRegList.CurrentRow.Cells["LastName"].Value.ToString();
-                string middlename = dtgAdminStudentRegList.CurrentRow.Cells["MiddleName"].Value.ToString();
-                string contactNumber = dtgAdminStudentRegList.CurrentRow.Cells["ContactNumber"].Value.ToString();
-                string gender = dtgAdminStudentRegList.CurrentRow.Cells["Gender"].Value.ToString();
-                string barangay = dtgAdminStudentRegList.CurrentRow.Cells["Barangay"].Value.ToString();
-                string municipality = dtgAdminStudentRegList.CurrentRow.Cells["Municipality"].Value.ToString();
-                string province = dtgAdminStudentRegList.CurrentRow.Cells["Province"].Value.ToString();
-                int gradeLevel = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["GradeLevel"].Value);
-                DateTime birthdate = Convert.ToDateTime(dtgAdminStudentRegList.CurrentRow.Cells["Birthdate"].Value.ToString());
-                int age = Convert.ToInt32(dtgAdminStudentRegList.CurrentRow.Cells["Age"].Value.ToString());
-                string guardian = dtgAdminStudentRegList.CurrentRow.Cells["GuardianName"].Value.ToString();
-                string guardianContact = dtgAdminStudentRegList.CurrentRow.Cells["GuardianContact"].Value.ToString();
-                string studentType = dtgAdminStudentRegList.CurrentRow.Cells["StudentType"].Value.ToString();
-                string section = dtgAdminStudentRegList.CurrentRow.Cells["Section"].Value.ToString();
-                string requirements = dtgAdminStudentRegList.CurrentRow.Cells["Requirements"].Value.ToString();
-                string modeOfPayment = dtgAdminStudentRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
-
-                AdminStudentRegistration_Edit adStudReg_edit = new AdminStudentRegistration_Edit(
-                    id,
-                    firstname,
-                    lastname,
-                    middlename,
-                    contactNumber,
-                    gender,
-                    age,
-                    birthdate,
-                    barangay,
-                    municipality,
-                    province,
-                    gradeLevel,
-                    guardian,
-                    guardianContact,
-                    studentType,
-                    section,
-                    requirements,
-                    modeOfPayment);
-                adStudReg_edit.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Select a student record first.");
             }
         }
 
@@ -207,12 +155,16 @@ namespace EventDriven.Project.UI
                 string requirements = dtgAdminStudentRegList.CurrentRow.Cells["Requirements"].Value.ToString();
                 string modeOfPayment = dtgAdminStudentRegList.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
                 string section = dtgAdminStudentRegList.CurrentRow.Cells["Section"].Value.ToString();
+                string suffix = dtgAdminStudentRegList.CurrentRow.Cells["Suffix"].Value.ToString();
+                string schoolYear = dtgAdminStudentRegList.CurrentRow.Cells["SchoolYear"].Value.ToString();
+
 
                 AdminStudentRegistration_View viewForm = new AdminStudentRegistration_View(
                 id,
                 firstName,
                 middleName,
                 lastName,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -226,7 +178,8 @@ namespace EventDriven.Project.UI
                 studentType,
                 section,
                 requirements,
-                modeOfPayment
+                modeOfPayment,
+                schoolYear
             );
 
                 viewForm.Show();

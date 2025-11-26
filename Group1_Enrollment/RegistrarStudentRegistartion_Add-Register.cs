@@ -8,12 +8,15 @@ namespace EventDriven.Project.UI
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private bool isEdited;
         private bool isSaved;
+        private int id;
+        private bool isInitializing = true;
 
         public RegistrarStudentRegistration_Add(
             int studentId,
             string lastname,
             string firstname,
             string middlename,
+            string suffix,
             int age,
             string contactNumber,
             string gender,
@@ -27,11 +30,13 @@ namespace EventDriven.Project.UI
             string section,
             string studentType,
             string requirements,
-            string modeOfPayment)
+            string modeOfPayment,
+            string schoolYear)
         {
             InitializeComponent();
 
-            lblStudentID_RegistrarStudentRegistrationEdit.Text = studentId.ToString();
+            id = studentId;
+            lblStudentID_RegistrarStudentRegistrationEdit.Text = id.ToString();
             txtLname_RegistrarStudentInformationEdit.Text = lastname;
             txtFirstName_RegistrarStudentInformationEdit.Text = firstname;
             txtMiddleName_RegistrarStudentInformationEdit.Text = middlename;
@@ -43,6 +48,15 @@ namespace EventDriven.Project.UI
             txtMunicipality_RegistrarStudentInformationEdit.Text = municipality;
             txtProvince_RegistrarStudentInformationEdit.Text = province;
             cbYearLevel_RegistrarStudentInformationEdit.Text = gradeLevel.ToString();
+            txtSuffix.Text = suffix;
+            cbSyear.Text = schoolYear;
+
+            LoadSectionsByGradeLevel();
+            if (!string.IsNullOrEmpty(section) && cbSection.Items.Contains(section))
+            {
+                cbSection.SelectedItem = section;
+            }
+
             txtGuardiansName_RegistrarStudentInformationEdit.Text = guardianName;
             txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text = guardianContact;
             cbStudentType_RegistrarStudentInformationEdit.Text = studentType;
@@ -94,39 +108,53 @@ namespace EventDriven.Project.UI
 
             cbYearLevel_RegistrarStudentInformationEdit.SelectedIndexChanged += (s, e) =>
             {
-                if (int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.Text, out int selectedGrade))
+                if (!isInitializing)
                 {
-                    cbYearLevel_RegistrarStudentInformationEdit.Text = GetSectionByGradeLevel(selectedGrade);
+                    LoadSectionsByGradeLevel();
                     isEdited = true;
                 }
             };
 
+            isInitializing = false;
             txtContactNumber_RegistrarStudentInformationEdit.MaxLength = 11;
             txtGuardiansContactNumber_RegistrarStudentInformationEdit.MaxLength = 11;
 
             UpdateStudentStatus(studentId);
         }
 
-        public string GetSectionByGradeLevel(int gradeLevel)
+        private void LoadSectionsByGradeLevel()
         {
-            switch (gradeLevel)
+            cbSection.Items.Clear();
+
+            if (!int.TryParse(cbYearLevel_RegistrarStudentInformationEdit.Text, out int grade))
+                return;
+
+            switch (grade)
             {
-                case 7: return "Sirius";
-                case 8: return "Polaris";
-                case 9: return "Phoenix";
-                case 10: return "Pegasus";
-                default: return "Unassigned";
+                case 7:
+                    cbSection.Items.Add("Sirius");
+                    cbSection.Items.Add("Rigel");
+                    break;
+                case 8:
+                    cbSection.Items.Add("Polaris");
+                    cbSection.Items.Add("Vega");
+                    break;
+                case 9:
+                    cbSection.Items.Add("Phoenix");
+                    cbSection.Items.Add("Altair");
+                    break;
+                case 10:
+                    cbSection.Items.Add("Pegasus");
+                    cbSection.Items.Add("Deneb");
+                    break;
+                default:
+                    cbSection.Items.Add("Unassigned");
+                    break;
             }
-        }
 
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+            // Automatically select first section
+            if (cbSection.Items.Count > 0)
+                cbSection.SelectedIndex = 0;
         }
 
         private void label18_Click(object sender, EventArgs e)
@@ -201,8 +229,10 @@ namespace EventDriven.Project.UI
             string newAge = txtAge_RegistrarStudentInformationEdit.Text.Trim();
             DateTime newBirthdate = dtAdminEditBirthdate.Value;
             string studentId = lblStudentID_RegistrarStudentRegistrationEdit.Text.Trim();
+            string newSuffix = txtSuffix.Text.Trim();
+            string newSchoolYear = cbSyear.Text.Trim();
 
-            string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
+            string section = cbSection.Text.Trim();
 
 
             string requirements = string.Join(", ",
@@ -223,6 +253,7 @@ namespace EventDriven.Project.UI
                                  LastName = @LastName,
                                  FirstName = @FirstName,
                                  MiddleName = @MiddleName,
+                                 Suffix = @Suffix,
                                  Gender = @Gender,
                                  Age = @Age,
                                  Birthdate = @Birthdate,
@@ -234,7 +265,8 @@ namespace EventDriven.Project.UI
                                  GuardianContact = @GuardianContact,
                                  GradeLevel = @GradeLevel,
                                  StudentType = @StudentType,
-                                 Section = @Section
+                                 Section = @Section,
+                                 SchoolYear = @SchoolYear
                              WHERE Id = @Id";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -260,6 +292,8 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@Age", newAge);
                     cmd.Parameters.AddWithValue("@Birthdate", newBirthdate);
                     cmd.Parameters.AddWithValue("@Section", section);
+                    cmd.Parameters.AddWithValue("@Suffix", newSuffix);
+                    cmd.Parameters.AddWithValue("@SchoolYear", newSchoolYear);
 
                     try
                     {
@@ -306,6 +340,7 @@ namespace EventDriven.Project.UI
             string firstName = txtFirstName_RegistrarStudentInformationEdit.Text.Trim();
             string middleName = txtMiddleName_RegistrarStudentInformationEdit.Text.Trim();
             string lastName = txtLname_RegistrarStudentInformationEdit.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
             DateTime birthdate = dtAdminEditBirthdate.Value;
             string gender = cbGender_RegistrarStudentInformationEdit.SelectedItem.ToString();
             string barangay = txtBarangay_RegistrarStudentInformationEdit.Text.Trim();
@@ -316,6 +351,7 @@ namespace EventDriven.Project.UI
             string guardianContact = txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text.Trim();
             string section = cbSection.Text.Trim();
             string studentType = cbStudentType_RegistrarStudentInformationEdit.SelectedItem.ToString();
+            string schoolYear = cbSyear.SelectedItem.ToString();
 
             string requirements = string.Join(", ",
                 clbRequirements_RegistrarStudentInformationEdit.CheckedItems.Cast<string>());
@@ -329,6 +365,7 @@ namespace EventDriven.Project.UI
                 firstName,
                 middleName,
                 lastName,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -342,7 +379,8 @@ namespace EventDriven.Project.UI
                 studentType,
                 section,
                 requirements,
-                modeOfPayment);
+                modeOfPayment,
+                schoolYear);
             registrarStudReg_view.Show();
             this.Hide();
         }
@@ -398,6 +436,60 @@ namespace EventDriven.Project.UI
             catch
             {
                 lbStatus.Text = "Pending Enrollment";
+            }
+        }
+
+        private void dtAdminEditBirthdate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtAdminEditBirthdate.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtAge_RegistrarStudentInformationEdit.Text = age.ToString();
+        }
+
+        private void btnDelete_AdminStudentRegistration_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this student record?",
+                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                string query = "DELETE FROM StudentRecord WHERE Id = @Id";
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        conn.Open();
+                        int rows = cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("✅ Student record deleted successfully!");
+
+                            this.Hide();
+                            var adminStudReg = new AdminStudentRegistration();
+                            adminStudReg.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("⚠️ No record found to delete.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error deleting record: " + ex.Message);
+                }
             }
         }
     }

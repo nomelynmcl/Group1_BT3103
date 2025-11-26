@@ -41,6 +41,7 @@
             btnRegistrar_Report = new Button();
             btnRegistrar_Out = new Button();
             btnRegistrarStudReg_Search = new Button();
+            btnView_AdminStudReg = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgRegistrar_StudRegList).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -202,12 +203,26 @@
             btnRegistrarStudReg_Search.UseVisualStyleBackColor = false;
             btnRegistrarStudReg_Search.Click += btnRegistrarStudReg_Search_Click;
             // 
+            // btnView_AdminStudReg
+            // 
+            btnView_AdminStudReg.BackColor = Color.CadetBlue;
+            btnView_AdminStudReg.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnView_AdminStudReg.ForeColor = Color.AliceBlue;
+            btnView_AdminStudReg.Location = new Point(698, 46);
+            btnView_AdminStudReg.Name = "btnView_AdminStudReg";
+            btnView_AdminStudReg.Size = new Size(154, 54);
+            btnView_AdminStudReg.TabIndex = 96;
+            btnView_AdminStudReg.Text = "View";
+            btnView_AdminStudReg.UseVisualStyleBackColor = false;
+            btnView_AdminStudReg.Click += btnView_AdminStudReg_Click;
+            // 
             // RegistrarStudentRegistration
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(btnView_AdminStudReg);
             Controls.Add(dtgRegistrar_StudRegList);
             Controls.Add(txtRegistrarStudReg_Search);
             Controls.Add(btnRegistrarStudReg_Add);
@@ -241,5 +256,6 @@
         private Button btnRegistrar_Report;
         private Button btnRegistrar_Out;
         private Button btnRegistrarStudReg_Search;
+        private Button btnView_AdminStudReg;
     }
 }

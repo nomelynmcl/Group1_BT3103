@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing.Printing;
 
 namespace EventDriven.Project.UI
 {
@@ -15,13 +6,14 @@ namespace EventDriven.Project.UI
     {
         private string id, fullName, age, birthdate, gender, address,
                        contactNumber, guardianName, guardianContact,
-                       gradeLevel, studentType, requirements, modeOfPayment, section;
+                       gradeLevel, studentType, requirements, modeOfPayment, section, suffix, schoolYear;
 
         public AdminStudentRegistration_View(
             int id,
             string firstName,
             string middleName,
             string lastName,
+            string suffix,
             int age,
             DateTime birthdate,
             string gender,
@@ -35,11 +27,12 @@ namespace EventDriven.Project.UI
             string studentType,
             string section,
             string requirements,
-            string modeOfPayment)
+            string modeOfPayment,
+            string schoolYear)
         {
             InitializeComponent();
 
-            this.fullName = $"{lastName} {firstName} {middleName}".Replace("  ", " ").Trim();
+            this.fullName = $"{lastName} {firstName} {middleName} {suffix} ".Replace("  ", " ").Trim();
             this.address = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim();
 
             lblStudentIDAdminStudentRegistration_View.Text = id.ToString();
@@ -56,6 +49,7 @@ namespace EventDriven.Project.UI
             lblRequirements_AdminStudentRegistration_View.Text = requirements;
             lblModeOfPayment_AdminStudentRegistration_View.Text = modeOfPayment;
             lbAdminViewSection_StudReg.Text = section;
+            lbSyear.Text = schoolYear;
         }
 
         private void btnViewPrint_AdminStudentRegistration_Click(object sender, EventArgs e)
@@ -73,87 +67,114 @@ namespace EventDriven.Project.UI
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Font govHeaderFont = new Font("Arial", 12, FontStyle.Bold);
-            Font schoolNameFont = new Font("Arial", 16, FontStyle.Bold);
-            Font titleFont = new Font("Arial", 20, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 14, FontStyle.Bold);
+            Font schoolNameFont = new Font("Arial", 18, FontStyle.Bold);
+            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
+            Font sectionTitleFont = new Font("Arial", 13, FontStyle.Bold | FontStyle.Underline);
             Font labelBoldFont = new Font("Arial", 12, FontStyle.Bold);
             Font valueFont = new Font("Arial", 12, FontStyle.Regular);
 
-            float x = 50;
-            float y = 100;
-            float leftMargin = 80;
-
+            float y = 80;
+            float left = 70;
             float pageWidth = e.PageBounds.Width;
 
-            // 🏫 Optional: Draw your logo at the top-left
+            // --- Logo (optional) ---
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); // <- update path
-                float logox = 100;
-                e.Graphics.DrawImage(logo, leftMargin, y - 50, 250, 150);
-
-
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png");
+                e.Graphics.DrawImage(logo, left, y - 40, 120, 120);
             }
-            catch
-            {
-                // ignore if logo not found
-            }
+            catch { }
 
-            // --- Centered Header ---
-            string[] headerLines =
+            // --- Government Header ---
+            string[] govHeader =
             {
         "Republic of the Philippines",
         "Department of Education",
-        "Region IV-A CALABARZON ",
+        "Region IV-A CALABARZON",
         "DIVISION OF BATANGAS",
-        "DISTRICT LEARNING CENTER II",
-        "Orion Tech-High School",
-        "Balayan, Batangas",
-        " ",
-        "STUDENT REGISTRATION"
+        "DISTRICT LEARNING CENTER II"
     };
 
-            foreach (string line in headerLines)
+            foreach (string line in govHeader)
             {
-                SizeF textSize = e.Graphics.MeasureString(line, govHeaderFont);
-                float xCenter = (pageWidth - textSize.Width) / 2;
-                e.Graphics.DrawString(line, govHeaderFont, Brushes.Black, xCenter, y);
+                SizeF size = e.Graphics.MeasureString(line, govHeaderFont);
+                e.Graphics.DrawString(line, govHeaderFont, Brushes.Black,
+                    (pageWidth - size.Width) / 2, y);
                 y += 20;
             }
 
-            y += 10;
-            e.Graphics.DrawLine(Pens.Black, leftMargin, y, pageWidth - leftMargin, y);
-            y += 30;
+            // --- School Name ---
+            SizeF schoolSize = e.Graphics.MeasureString("ORION TECH-HIGH SCHOOL", schoolNameFont);
+            e.Graphics.DrawString("ORION TECH-HIGH SCHOOL", schoolNameFont, Brushes.Black,
+                (pageWidth - schoolSize.Width) / 2, y + 10);
 
+            y += 50;
 
-            // Function to draw label + value
-            void DrawLine(string label, string value)
+            // --- Divider ---
+            e.Graphics.DrawLine(Pens.Black, left, y, pageWidth - left, y);
+            y += 25;
+
+            // --- Main Title ---
+            SizeF titleSize = e.Graphics.MeasureString("STUDENT REGISTRATION FORM", titleFont);
+            e.Graphics.DrawString("STUDENT REGISTRATION FORM", titleFont, Brushes.Black,
+                (pageWidth - titleSize.Width) / 2, y);
+            y += 40;
+
+            // --- Helper Function ---
+            void DrawField(string label, string value)
             {
-                e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);
-                e.Graphics.DrawString(value, valueFont, Brushes.Black, leftMargin + 180, y);
-                y += 25;
+                e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, left, y);
+                e.Graphics.DrawString(value, valueFont, Brushes.Black, left + 200, y);
+                y += 22;
             }
 
-            // --- Student Information ---
-            DrawLine("Student ID:", lblStudentIDAdminStudentRegistration_View.Text);
-            DrawLine("Full Name:", lblFullName_AdminStudentRegistration_View.Text);
-            DrawLine("Age:", lblAge_AdminStudentRegistration_View.Text);
-            DrawLine("Birthdate:", lblBirthDate_AdminStudentRegistration_View.Text);
-            DrawLine("Gender:", lblGender_AdminStudentRegistration_View.Text);
-            DrawLine("Address:", lblAddress_AdminStudentRegistration_View.Text);
-            DrawLine("Contact No.:", lblContactNumber_AdminStudentRegistration_View.Text);
-            DrawLine("Guardian:", lblGuardiansName_AdminStudentRegistration_View.Text);
-            DrawLine("Guardian Contact:", lblGuardiansContactNum_AdminStudentRegistration_View.Text);
-            DrawLine("Year Level:", lblYearLevel_AdminStudentRegistration_View.Text);
-            DrawLine("Section:", lbAdminViewSection_StudReg.Text);
-            DrawLine("Student Type:", lblStudentType_AdminStudentRegistration_View.Text);
-            DrawLine("Requirements:", lblRequirements_AdminStudentRegistration_View.Text);
-            DrawLine("Mode of Payment:", lblModeOfPayment_AdminStudentRegistration_View.Text);
+            // --- Student Info Section ---
+            e.Graphics.DrawString("STUDENT INFORMATION", sectionTitleFont, Brushes.Black, left, y);
+            y += 30;
+
+            DrawField("School Year:", lbSyear.Text);
+            DrawField("Student ID:", lblStudentIDAdminStudentRegistration_View.Text);
+            DrawField("Full Name:", lblFullName_AdminStudentRegistration_View.Text);
+            DrawField("Age:", lblAge_AdminStudentRegistration_View.Text);
+            DrawField("Birthdate:", lblBirthDate_AdminStudentRegistration_View.Text);
+            DrawField("Gender:", lblGender_AdminStudentRegistration_View.Text);
+
+            y += 10;
+            e.Graphics.DrawLine(Pens.Gray, left, y, pageWidth - left, y);
+            y += 25;
+
+            // --- Contact & Address Section ---
+            e.Graphics.DrawString("CONTACT & ADDRESS", sectionTitleFont, Brushes.Black, left, y);
+            y += 30;
+
+            DrawField("Address:", lblAddress_AdminStudentRegistration_View.Text);
+            DrawField("Contact Number:", lblContactNumber_AdminStudentRegistration_View.Text);
+            DrawField("Guardian Name:", lblGuardiansName_AdminStudentRegistration_View.Text);
+            DrawField("Guardian Contact:", lblGuardiansContactNum_AdminStudentRegistration_View.Text);
+
+            y += 10;
+            e.Graphics.DrawLine(Pens.Gray, left, y, pageWidth - left, y);
+            y += 25;
+
+            // --- Enrollment Details ---
+            e.Graphics.DrawString("ENROLLMENT DETAILS", sectionTitleFont, Brushes.Black, left, y);
+            y += 30;
+
+            DrawField("Year Level:", lblYearLevel_AdminStudentRegistration_View.Text);
+            DrawField("Section:", lbAdminViewSection_StudReg.Text);
+            DrawField("Student Type:", lblStudentType_AdminStudentRegistration_View.Text);
+            DrawField("Requirements:", lblRequirements_AdminStudentRegistration_View.Text);
+            DrawField("Mode of Payment:", lblModeOfPayment_AdminStudentRegistration_View.Text);
 
             y += 40;
-            e.Graphics.DrawString($"Printed on: {DateTime.Now}", valueFont, Brushes.Gray, leftMargin, y);
 
+            // Footer
+            e.Graphics.DrawLine(Pens.Black, left, y, pageWidth - left, y);
+            y += 25;
+            e.Graphics.DrawString("Printed on: " + DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt"),
+                valueFont, Brushes.Gray, left, y);
         }
+
 
         private void btnViewCancel_AdminStudentRegistration_Click(object sender, EventArgs e)
         {

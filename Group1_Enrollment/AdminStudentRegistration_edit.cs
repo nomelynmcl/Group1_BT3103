@@ -185,6 +185,8 @@ namespace EventDriven.Project.UI
             int gradeLevel = Convert.ToInt32(cbYearLevel_AdminStudentRegistration.Text.Trim());
             string studentType = cbStudentType_AdminStudentRegistration.Text.Trim();
             string section = lbAdminStudReg_SectionEdit.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
+            string schoolYear = cbSyear.Text.Trim();
 
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistration.CheckedItems.Cast<string>());
@@ -197,6 +199,7 @@ namespace EventDriven.Project.UI
                 firstname,
                 middlename,
                 lastname,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -210,7 +213,8 @@ namespace EventDriven.Project.UI
                 studentType,
                 section,
                 requirements,
-                modeOfPayment
+                modeOfPayment,
+                schoolYear
             );
 
             viewForm.Show();
