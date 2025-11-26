@@ -53,6 +53,7 @@
             label5 = new Label();
             AR_PRINT_BTN = new Button();
             btnViewSOA = new Button();
+            cbSection = new ComboBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
@@ -252,11 +253,11 @@
             // AR_LOE_GRID
             // 
             AR_LOE_GRID.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AR_LOE_GRID.Location = new Point(585, 431);
+            AR_LOE_GRID.Location = new Point(585, 403);
             AR_LOE_GRID.Margin = new Padding(3, 4, 3, 4);
             AR_LOE_GRID.Name = "AR_LOE_GRID";
             AR_LOE_GRID.RowHeadersWidth = 51;
-            AR_LOE_GRID.Size = new Size(721, 381);
+            AR_LOE_GRID.Size = new Size(721, 522);
             AR_LOE_GRID.TabIndex = 86;
             AR_LOE_GRID.CellContentClick += AR_LOE_GRID_CellContentClick;
             // 
@@ -267,7 +268,7 @@
             AR_LOE_TXTBOX.Margin = new Padding(3, 4, 3, 4);
             AR_LOE_TXTBOX.Multiline = true;
             AR_LOE_TXTBOX.Name = "AR_LOE_TXTBOX";
-            AR_LOE_TXTBOX.Size = new Size(868, 48);
+            AR_LOE_TXTBOX.Size = new Size(1046, 48);
             AR_LOE_TXTBOX.TabIndex = 87;
             // 
             // AR_LOE_BTN
@@ -307,18 +308,18 @@
             // AR_SOA_GRID
             // 
             AR_SOA_GRID.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AR_SOA_GRID.Location = new Point(1328, 431);
+            AR_SOA_GRID.Location = new Point(1328, 403);
             AR_SOA_GRID.Margin = new Padding(3, 4, 3, 4);
             AR_SOA_GRID.Name = "AR_SOA_GRID";
             AR_SOA_GRID.RowHeadersWidth = 51;
-            AR_SOA_GRID.Size = new Size(463, 381);
+            AR_SOA_GRID.Size = new Size(463, 522);
             AR_SOA_GRID.TabIndex = 107;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label5.Location = new Point(1318, 365);
+            label5.Location = new Point(1328, 362);
             label5.Name = "label5";
             label5.Size = new Size(308, 32);
             label5.TabIndex = 106;
@@ -329,7 +330,7 @@
             AR_PRINT_BTN.BackColor = Color.CadetBlue;
             AR_PRINT_BTN.Font = new Font("Segoe UI", 14F);
             AR_PRINT_BTN.ForeColor = Color.AliceBlue;
-            AR_PRINT_BTN.Location = new Point(1232, 912);
+            AR_PRINT_BTN.Location = new Point(1637, 933);
             AR_PRINT_BTN.Margin = new Padding(3, 4, 3, 4);
             AR_PRINT_BTN.Name = "AR_PRINT_BTN";
             AR_PRINT_BTN.Size = new Size(154, 54);
@@ -343,14 +344,24 @@
             btnViewSOA.BackColor = Color.CadetBlue;
             btnViewSOA.Font = new Font("Segoe UI", 14F);
             btnViewSOA.ForeColor = Color.AliceBlue;
-            btnViewSOA.Location = new Point(946, 913);
+            btnViewSOA.Location = new Point(977, 933);
             btnViewSOA.Margin = new Padding(3, 4, 3, 4);
             btnViewSOA.Name = "btnViewSOA";
-            btnViewSOA.Size = new Size(206, 54);
+            btnViewSOA.Size = new Size(329, 54);
             btnViewSOA.TabIndex = 109;
             btnViewSOA.Text = "View Statement of Account";
             btnViewSOA.UseVisualStyleBackColor = false;
             btnViewSOA.Click += btnViewSOA_Click_1;
+            // 
+            // cbSection
+            // 
+            cbSection.FormattingEnabled = true;
+            cbSection.Items.AddRange(new object[] { "Sirius", "Rigel", "Polaris", "Vega", "Phoenix", "Altair", "Pegasus", "Deneb" });
+            cbSection.Location = new Point(1058, 362);
+            cbSection.Name = "cbSection";
+            cbSection.Size = new Size(248, 28);
+            cbSection.TabIndex = 110;
+            cbSection.SelectedIndexChanged += cbSection_SelectedIndexChanged;
             // 
             // AdminReport
             // 
@@ -358,6 +369,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSection);
             Controls.Add(btnViewSOA);
             Controls.Add(AR_PRINT_BTN);
             Controls.Add(AR_SOA_GRID);
@@ -414,5 +426,6 @@
         private Label label5;
         private Button AR_PRINT_BTN;
         private Button btnViewSOA;
+        private ComboBox cbSection;
     }
 }
