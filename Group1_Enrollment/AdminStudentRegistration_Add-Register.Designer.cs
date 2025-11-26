@@ -81,6 +81,8 @@
             label3 = new Label();
             lbAdminStudReg_SectionAdd = new Label();
             lbStatus = new Label();
+            label5 = new Label();
+            cbSyear = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -139,9 +141,9 @@
             label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label9.Location = new Point(889, 260);
             label9.Name = "label9";
-            label9.Size = new Size(125, 31);
+            label9.Size = new Size(135, 31);
             label9.TabIndex = 208;
-            label9.Text = "Last Name";
+            label9.Text = "Last Name*";
             // 
             // label10
             // 
@@ -149,9 +151,9 @@
             label10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label10.Location = new Point(1202, 260);
             label10.Name = "label10";
-            label10.Size = new Size(129, 31);
+            label10.Size = new Size(139, 31);
             label10.TabIndex = 209;
-            label10.Text = "First Name";
+            label10.Text = "First Name*";
             // 
             // label11
             // 
@@ -159,9 +161,9 @@
             label11.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label11.Location = new Point(1488, 259);
             label11.Name = "label11";
-            label11.Size = new Size(154, 31);
+            label11.Size = new Size(164, 31);
             label11.TabIndex = 210;
-            label11.Text = "Middle Name";
+            label11.Text = "Middle Name*";
             // 
             // label12
             // 
@@ -241,9 +243,9 @@
             label15.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label15.Location = new Point(900, 561);
             label15.Name = "label15";
-            label15.Size = new Size(114, 31);
+            label15.Size = new Size(124, 31);
             label15.TabIndex = 219;
-            label15.Text = "Barangay";
+            label15.Text = "Barangay*";
             // 
             // label16
             // 
@@ -251,9 +253,9 @@
             label16.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label16.Location = new Point(1188, 561);
             label16.Name = "label16";
-            label16.Size = new Size(143, 31);
+            label16.Size = new Size(153, 31);
             label16.TabIndex = 220;
-            label16.Text = "Municipality";
+            label16.Text = "Municipality*";
             // 
             // label17
             // 
@@ -261,9 +263,9 @@
             label17.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic);
             label17.Location = new Point(1513, 561);
             label17.Name = "label17";
-            label17.Size = new Size(104, 31);
+            label17.Size = new Size(114, 31);
             label17.TabIndex = 221;
-            label17.Text = "Province";
+            label17.Text = "Province*";
             // 
             // label18
             // 
@@ -342,10 +344,10 @@
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label22.Location = new Point(1088, 138);
+            label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.Location = new Point(1351, 140);
             label22.Name = "label22";
-            label22.Size = new Size(155, 31);
+            label22.Size = new Size(156, 31);
             label22.TabIndex = 230;
             label22.Text = "Student Type:";
             // 
@@ -354,9 +356,9 @@
             cbStudentType_AdminStudentRegistrationAdd.Font = new Font("Segoe UI", 14F);
             cbStudentType_AdminStudentRegistrationAdd.FormattingEnabled = true;
             cbStudentType_AdminStudentRegistrationAdd.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbStudentType_AdminStudentRegistrationAdd.Location = new Point(1292, 135);
+            cbStudentType_AdminStudentRegistrationAdd.Location = new Point(1529, 137);
             cbStudentType_AdminStudentRegistrationAdd.Name = "cbStudentType_AdminStudentRegistrationAdd";
-            cbStudentType_AdminStudentRegistrationAdd.Size = new Size(419, 39);
+            cbStudentType_AdminStudentRegistrationAdd.Size = new Size(182, 39);
             cbStudentType_AdminStudentRegistrationAdd.TabIndex = 231;
             // 
             // btnAdd_AdminStudentRegistrationAdd
@@ -634,12 +636,34 @@
             lbStatus.TabIndex = 246;
             lbStatus.Text = "<< Status >>";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(1016, 140);
+            label5.Name = "label5";
+            label5.Size = new Size(142, 31);
+            label5.TabIndex = 247;
+            label5.Text = "School Year:";
+            // 
+            // cbSyear
+            // 
+            cbSyear.Font = new Font("Segoe UI", 14F);
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(1164, 137);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(182, 39);
+            cbSyear.TabIndex = 248;
+            // 
             // AdminStudentRegistration_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSyear);
+            Controls.Add(label5);
             Controls.Add(lbStatus);
             Controls.Add(lbAdminStudReg_SectionAdd);
             Controls.Add(label3);
@@ -750,5 +774,7 @@
         private Label label3;
         private Label lbAdminStudReg_SectionAdd;
         private Label lbStatus;
+        private Label label5;
+        private ComboBox cbSyear;
     }
 }

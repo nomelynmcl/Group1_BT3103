@@ -36,29 +36,31 @@ namespace EventDriven.Project.UI
             this.Close();
         }
 
-        private void btnCashierSearch_Click(object sender, EventArgs e)
+        private void btnAdminPay2_Click(object sender, EventArgs e)
         {
-
+            CashierPayment cashierPayment = new CashierPayment();
+            cashierPayment.Show();
+            this.Close();
         }
 
-        private void btnLogoutCashier_Click(object sender, EventArgs e)
+        private void btnAdminHistory2_Click(object sender, EventArgs e)
+        {
+            Cashier_PaymentHistory cashier_PaymentHistory = new Cashier_PaymentHistory();
+            cashier_PaymentHistory.Show();
+            this.Close();
+        }
+
+        private void btnAdminReport2_Click(object sender, EventArgs e)
+        {
+            CashierReport cashierReport1 = new CashierReport();
+            cashierReport1.Show();
+            this.Close();
+        }
+
+        private void btnAdminOut2_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
-            this.Close();
-        }
-
-        private void lblCashierReport_Click(object sender, EventArgs e)
-        {
-            CashierReport report = new CashierReport();
-            report.Show();
-            this.Close();
-        }
-
-        private void btnCashierOverview_Click(object sender, EventArgs e)
-        {
-            CashierReport cashierReport = new CashierReport();
-            cashierReport.Show();
             this.Close();
         }
     }

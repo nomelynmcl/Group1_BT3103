@@ -42,6 +42,8 @@
             label1 = new Label();
             comboBox1 = new ComboBox();
             dtgAdminDashboard = new DataGridView();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
@@ -215,12 +217,33 @@
             dtgAdminDashboard.Size = new Size(1332, 924);
             dtgAdminDashboard.TabIndex = 94;
             // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(1364, 52);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(377, 27);
+            txtSearch.TabIndex = 101;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.CadetBlue;
+            btnSearch.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = SystemColors.Control;
+            btnSearch.Location = new Point(1747, 46);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(113, 37);
+            btnSearch.TabIndex = 100;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
             Controls.Add(dtgAdminDashboard);
             Controls.Add(comboBox1);
             Controls.Add(label1);
@@ -250,5 +273,7 @@
         private Label label1;
         private ComboBox comboBox1;
         private DataGridView dtgAdminDashboard;
+        private TextBox txtSearch;
+        private Button btnSearch;
     }
 }

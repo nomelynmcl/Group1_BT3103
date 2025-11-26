@@ -57,6 +57,8 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             panel1 = new Panel();
+            lbSyear = new Label();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo5).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -215,7 +217,7 @@
             // 
             lbRegistrarViewFullname.AutoSize = true;
             lbRegistrarViewFullname.Font = new Font("Segoe UI", 14F);
-            lbRegistrarViewFullname.Location = new Point(547, 249);
+            lbRegistrarViewFullname.Location = new Point(547, 255);
             lbRegistrarViewFullname.Name = "lbRegistrarViewFullname";
             lbRegistrarViewFullname.Size = new Size(187, 32);
             lbRegistrarViewFullname.TabIndex = 33;
@@ -305,7 +307,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(221, 249);
+            label1.Location = new Point(221, 255);
             label1.Name = "label1";
             label1.Size = new Size(136, 32);
             label1.TabIndex = 24;
@@ -328,7 +330,9 @@
             // panel1
             // 
             panel1.BackColor = Color.AliceBlue;
+            panel1.Controls.Add(lbSyear);
             panel1.Controls.Add(lbTechSchool);
+            panel1.Controls.Add(label13);
             panel1.Controls.Add(lbRegistrarViewGuardianContact);
             panel1.Controls.Add(pcRegistrarLogo5);
             panel1.Controls.Add(label1);
@@ -356,6 +360,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1042, 1009);
             panel1.TabIndex = 49;
+            // 
+            // lbSyear
+            // 
+            lbSyear.AutoSize = true;
+            lbSyear.Font = new Font("Segoe UI", 14F);
+            lbSyear.Location = new Point(535, 206);
+            lbSyear.Name = "lbSyear";
+            lbSyear.Size = new Size(201, 32);
+            lbSyear.TabIndex = 210;
+            lbSyear.Text = "<<School Year>>";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label13.Location = new Point(222, 207);
+            label13.Name = "label13";
+            label13.Size = new Size(145, 31);
+            label13.TabIndex = 209;
+            label13.Text = "School Year:";
             // 
             // RegistrarStudentInfo_View
             // 
@@ -407,5 +431,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private Panel panel1;
+        private Label lbSyear;
+        private Label label13;
     }
 }
