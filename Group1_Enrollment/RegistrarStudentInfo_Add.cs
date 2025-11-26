@@ -37,14 +37,16 @@ namespace EventDriven.Project.UI
             string guardianContact = txtRegistrarAddGuardianContact.Text.Trim();
             int gradeLevel = Convert.ToInt32(cbRegistrarAddLevel.SelectedItem.ToString());
             string studentType = cbRegistrarAddType.SelectedItem.ToString();
+            string suffix = txtSuffix.Text.Trim();
+            string schoolYear = cbSyear.SelectedItem.ToString();
 
             string section = "unassigned";
             string enrollmentStatus = "unassigned";
 
             string query = @"INSERT INTO StudentRecord 
-                    (Lastname, Firstname, Middlename, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus) 
+                    (Lastname, Firstname, Middlename, Suffix, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus, SchoolYear) 
                     VALUES 
-                    (@Lastname, @Firstname, @Middlename, @Age, @Birthdate, @Gender, @Barangay, @Municipality, @Province, @ContactNumber, @GuardianName, @GuardianContact, @GradeLevel, @StudentType, @Section, @EnrollmentStatus)";
+                    (@Lastname, @Firstname, @Middlename, @Suffix, @Age, @Birthdate, @Gender, @Barangay, @Municipality, @Province, @ContactNumber, @GuardianName, @GuardianContact, @GradeLevel, @StudentType, @Section, @EnrollmentStatus, @SchoolYear)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -53,6 +55,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@Lastname", lastname);
                     cmd.Parameters.AddWithValue("@Firstname", firstname);
                     cmd.Parameters.AddWithValue("@Middlename", middlename);
+                    cmd.Parameters.AddWithValue("@Suffix", suffix);
                     cmd.Parameters.AddWithValue("@Age", age);
                     cmd.Parameters.AddWithValue("@Birthdate", birthdate);
                     cmd.Parameters.AddWithValue("@Gender", gender);
@@ -66,6 +69,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@StudentType", studentType);
                     cmd.Parameters.AddWithValue("@Section", section);
                     cmd.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatus);
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
 
                     try
                     {
@@ -112,11 +116,14 @@ namespace EventDriven.Project.UI
             string guardianName = txtRegistrarAddGuardian.Text.Trim();
             string guardianContact = txtRegistrarAddGuardianContact.Text.Trim();
             string studentType = cbRegistrarAddType.SelectedItem.ToString();
+            string suffix = txtSuffix.Text.Trim();
+            string schoolYear = cbSyear.SelectedItem.ToString();
 
             RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstname,
                 middlename,
                 lastname,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -127,7 +134,8 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType,
+                schoolYear
             );
 
             viewForm.Show();
@@ -172,6 +180,19 @@ namespace EventDriven.Project.UI
         private void txtRegistrarAddMunicipality_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtRegistrarAddBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtRegistrarAddBirth.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtRegistrarAddAge.Text = age.ToString();
         }
     }
 }

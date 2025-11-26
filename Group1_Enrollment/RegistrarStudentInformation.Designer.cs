@@ -37,8 +37,8 @@
             panel1 = new Panel();
             pcRegistrarLogo2 = new PictureBox();
             btnRegistrarStudentInformation = new Button();
-            btnRegistrarAssessment = new Button();
             btnRegistrarStudRegis = new Button();
+            btnRegistrarAssessment = new Button();
             btnRegistrarReport = new Button();
             btnRegistrarOut = new Button();
             btnRegistrarStudInfo_Search = new Button();
@@ -146,20 +146,7 @@
             btnRegistrarStudentInformation.TabIndex = 3;
             btnRegistrarStudentInformation.Text = " STUDENT INFORMATION";
             btnRegistrarStudentInformation.UseVisualStyleBackColor = false;
-            // 
-            // btnRegistrarAssessment
-            // 
-            btnRegistrarAssessment.FlatStyle = FlatStyle.Flat;
-            btnRegistrarAssessment.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnRegistrarAssessment.ForeColor = Color.AliceBlue;
-            btnRegistrarAssessment.Location = new Point(23, 472);
-            btnRegistrarAssessment.Margin = new Padding(23, 4, 3, 4);
-            btnRegistrarAssessment.Name = "btnRegistrarAssessment";
-            btnRegistrarAssessment.Size = new Size(421, 79);
-            btnRegistrarAssessment.TabIndex = 4;
-            btnRegistrarAssessment.Text = "ASSESSMENT";
-            btnRegistrarAssessment.UseVisualStyleBackColor = true;
-            btnRegistrarAssessment.Click += btnRegistrarAssessment_Click;
+            btnRegistrarStudentInformation.Click += btnRegistrarStudentInformation_Click;
             // 
             // btnRegistrarStudRegis
             // 
@@ -174,6 +161,20 @@
             btnRegistrarStudRegis.Text = " STUDENT REGISTRATION";
             btnRegistrarStudRegis.UseVisualStyleBackColor = true;
             btnRegistrarStudRegis.Click += btnRegistrarStudRegis_Click;
+            // 
+            // btnRegistrarAssessment
+            // 
+            btnRegistrarAssessment.FlatStyle = FlatStyle.Flat;
+            btnRegistrarAssessment.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnRegistrarAssessment.ForeColor = Color.AliceBlue;
+            btnRegistrarAssessment.Location = new Point(23, 472);
+            btnRegistrarAssessment.Margin = new Padding(23, 4, 3, 4);
+            btnRegistrarAssessment.Name = "btnRegistrarAssessment";
+            btnRegistrarAssessment.Size = new Size(421, 79);
+            btnRegistrarAssessment.TabIndex = 4;
+            btnRegistrarAssessment.Text = "ASSESSMENT";
+            btnRegistrarAssessment.UseVisualStyleBackColor = true;
+            btnRegistrarAssessment.Click += btnRegistrarAssessment_Click;
             // 
             // btnRegistrarReport
             // 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarStudentRegistration));
-            btnRegistrarStudReg_Edit = new Button();
             dtgRegistrar_StudRegList = new DataGridView();
             txtRegistrarStudReg_Search = new TextBox();
             btnRegistrarStudReg_Add = new Button();
@@ -37,30 +36,16 @@
             panel1 = new Panel();
             pcRegistrarLogo2 = new PictureBox();
             btnRegistrar_StudInfo = new Button();
-            btnRegistrar_Assessment = new Button();
             btnRegistrar_StudRegistration = new Button();
+            btnRegistrar_Assessment = new Button();
             btnRegistrar_Report = new Button();
             btnRegistrar_Out = new Button();
-            btnRegistrarStudReg_View = new Button();
             btnRegistrarStudReg_Search = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgRegistrar_StudRegList).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo2).BeginInit();
             SuspendLayout();
-            // 
-            // btnRegistrarStudReg_Edit
-            // 
-            btnRegistrarStudReg_Edit.BackColor = Color.CadetBlue;
-            btnRegistrarStudReg_Edit.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            btnRegistrarStudReg_Edit.ForeColor = Color.AliceBlue;
-            btnRegistrarStudReg_Edit.Location = new Point(703, 46);
-            btnRegistrarStudReg_Edit.Name = "btnRegistrarStudReg_Edit";
-            btnRegistrarStudReg_Edit.Size = new Size(154, 54);
-            btnRegistrarStudReg_Edit.TabIndex = 95;
-            btnRegistrarStudReg_Edit.Text = "Edit";
-            btnRegistrarStudReg_Edit.UseVisualStyleBackColor = false;
-            btnRegistrarStudReg_Edit.Click += btnRegistrarStudReg_Edit_Click;
             // 
             // dtgRegistrar_StudRegList
             // 
@@ -91,7 +76,7 @@
             btnRegistrarStudReg_Add.Name = "btnRegistrarStudReg_Add";
             btnRegistrarStudReg_Add.Size = new Size(154, 54);
             btnRegistrarStudReg_Add.TabIndex = 92;
-            btnRegistrarStudReg_Add.Text = "Add";
+            btnRegistrarStudReg_Add.Text = "Register";
             btnRegistrarStudReg_Add.UseVisualStyleBackColor = false;
             btnRegistrarStudReg_Add.Click += btnRegistrarStudReg_Add_Click;
             // 
@@ -148,20 +133,6 @@
             btnRegistrar_StudInfo.UseVisualStyleBackColor = false;
             btnRegistrar_StudInfo.Click += btnRegistrarStudentInformation_Click;
             // 
-            // btnRegistrar_Assessment
-            // 
-            btnRegistrar_Assessment.FlatStyle = FlatStyle.Flat;
-            btnRegistrar_Assessment.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnRegistrar_Assessment.ForeColor = Color.AliceBlue;
-            btnRegistrar_Assessment.Location = new Point(23, 472);
-            btnRegistrar_Assessment.Margin = new Padding(23, 4, 3, 4);
-            btnRegistrar_Assessment.Name = "btnRegistrar_Assessment";
-            btnRegistrar_Assessment.Size = new Size(421, 79);
-            btnRegistrar_Assessment.TabIndex = 4;
-            btnRegistrar_Assessment.Text = "ASSESSMENT";
-            btnRegistrar_Assessment.UseVisualStyleBackColor = true;
-            btnRegistrar_Assessment.Click += btnRegistrar_Assessment_Click;
-            // 
             // btnRegistrar_StudRegistration
             // 
             btnRegistrar_StudRegistration.BackColor = Color.DarkSlateGray;
@@ -175,6 +146,20 @@
             btnRegistrar_StudRegistration.TabIndex = 5;
             btnRegistrar_StudRegistration.Text = " STUDENT REGISTRATION";
             btnRegistrar_StudRegistration.UseVisualStyleBackColor = false;
+            // 
+            // btnRegistrar_Assessment
+            // 
+            btnRegistrar_Assessment.FlatStyle = FlatStyle.Flat;
+            btnRegistrar_Assessment.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnRegistrar_Assessment.ForeColor = Color.AliceBlue;
+            btnRegistrar_Assessment.Location = new Point(23, 472);
+            btnRegistrar_Assessment.Margin = new Padding(23, 4, 3, 4);
+            btnRegistrar_Assessment.Name = "btnRegistrar_Assessment";
+            btnRegistrar_Assessment.Size = new Size(421, 79);
+            btnRegistrar_Assessment.TabIndex = 4;
+            btnRegistrar_Assessment.Text = "ASSESSMENT";
+            btnRegistrar_Assessment.UseVisualStyleBackColor = true;
+            btnRegistrar_Assessment.Click += btnRegistrar_Assessment_Click;
             // 
             // btnRegistrar_Report
             // 
@@ -204,19 +189,6 @@
             btnRegistrar_Out.UseVisualStyleBackColor = true;
             btnRegistrar_Out.Click += btnRegistrarOut_Click;
             // 
-            // btnRegistrarStudReg_View
-            // 
-            btnRegistrarStudReg_View.BackColor = Color.CadetBlue;
-            btnRegistrarStudReg_View.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            btnRegistrarStudReg_View.ForeColor = Color.AliceBlue;
-            btnRegistrarStudReg_View.Location = new Point(882, 47);
-            btnRegistrarStudReg_View.Name = "btnRegistrarStudReg_View";
-            btnRegistrarStudReg_View.Size = new Size(154, 54);
-            btnRegistrarStudReg_View.TabIndex = 96;
-            btnRegistrarStudReg_View.Text = "View";
-            btnRegistrarStudReg_View.UseVisualStyleBackColor = false;
-            btnRegistrarStudReg_View.Click += btnRegistrarStudReg_View_Click;
-            // 
             // btnRegistrarStudReg_Search
             // 
             btnRegistrarStudReg_Search.BackColor = Color.CadetBlue;
@@ -236,12 +208,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(btnRegistrarStudReg_Edit);
             Controls.Add(dtgRegistrar_StudRegList);
             Controls.Add(txtRegistrarStudReg_Search);
             Controls.Add(btnRegistrarStudReg_Add);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(btnRegistrarStudReg_View);
             Controls.Add(btnRegistrarStudReg_Search);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -259,8 +229,6 @@
         }
 
         #endregion
-
-        private Button btnRegistrarStudReg_Edit;
         private DataGridView dtgRegistrar_StudRegList;
         private TextBox txtRegistrarStudReg_Search;
         private Button btnRegistrarStudReg_Add;
@@ -272,7 +240,6 @@
         private Button btnRegistrar_StudRegistration;
         private Button btnRegistrar_Report;
         private Button btnRegistrar_Out;
-        private Button btnRegistrarStudReg_View;
         private Button btnRegistrarStudReg_Search;
     }
 }

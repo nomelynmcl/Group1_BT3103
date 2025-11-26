@@ -6,13 +6,14 @@ namespace EventDriven.Project.UI
     {
         private string fullName, age, birthdate, gender, address,
                        contactNumber, guardianName, guardianContact,
-                       gradeLevel, studentType;
+                       gradeLevel, studentType, suffix, schoolYear;
 
 
         public RegistrarStudentInfo_View(
             string firstName,
             string middleName,
             string lastName,
+            string suffix,
             int age,
             DateTime birthdate,
             string gender,
@@ -23,12 +24,13 @@ namespace EventDriven.Project.UI
             string guardianName,
             string guardianContact,
             int gradeLevel,
-            string studentType)
+            string studentType,
+            string schoolYear)
         {
             InitializeComponent();
 
 
-            this.fullName = $"{firstName} {middleName} {lastName}".Replace("  ", " ").Trim();
+            this.fullName = $"{firstName} {middleName} {lastName} {suffix} ".Replace("  ", " ").Trim();
             this.lbRegistrarViewAge.Text = age.ToString();
             this.lbRegistrarViewBirthdate.Text = birthdate.ToString();
             this.lbRegistrarViewGender.Text = gender;
@@ -38,6 +40,7 @@ namespace EventDriven.Project.UI
             this.lbRegistrarViewGuardianContact.Text = guardianContact;
             this.lbRegistrarViewLevel.Text = gradeLevel.ToString();
             this.lbRegistrarViewType.Text = studentType;
+            this.lbSyear.Text = schoolYear;
 
 
             lbRegistrarViewFullname.Text = fullName;
@@ -50,57 +53,137 @@ namespace EventDriven.Project.UI
             lbRegistrarViewGuardianContact.Text = guardianContact;
             lbRegistrarViewLevel.Text = gradeLevel.ToString();
             lbRegistrarViewType.Text = studentType;
+            lbSyear.Text = schoolYear;
         }
 
 
 
 
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+            private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font titleFont = new Font("Arial", 22, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 14, FontStyle.Underline);
-            Font labelBoldFont = new Font("Arial", 12, FontStyle.Bold);
-            Font valueFont = new Font("Arial", 12, FontStyle.Regular);
+            int left = 60;
+            int right = e.PageBounds.Width - 60;
+            int width = right - left;
 
-            float y = 100;
-            float leftMargin = 80;
+            Font titleFont = new Font("Arial", 24, FontStyle.Bold);
+            Font schoolFont = new Font("Arial", 14, FontStyle.Bold);
+            Font sectionFont = new Font("Arial", 13, FontStyle.Bold);
+            Font labelFont = new Font("Arial", 11, FontStyle.Bold);
+            Font valueFont = new Font("Arial", 11);
+            Font footerFont = new Font("Arial", 9, FontStyle.Italic);
 
+            Pen thickPen = new Pen(Color.Black, 2);
+            Pen thinPen = new Pen(Color.Black, 1);
+
+            float y = 80;
+
+            // ---- SCHOOL LOGO ----
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); 
-                e.Graphics.DrawImage(logo, leftMargin, y - 100, 150, 150);
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png");
+                e.Graphics.DrawImage(logo, left, 40, 90, 90);
             }
-            catch
-            {
-            }
+            catch { }
 
-            e.Graphics.DrawString("Orion Tech-High School", titleFont, Brushes.Black, leftMargin + 150, y - 40);
-            e.Graphics.DrawString("Student Information", headerFont, Brushes.Black, leftMargin, y += 40);
+            // ---- SCHOOL HEADER ----
+            StringFormat center = new StringFormat();
+            center.Alignment = StringAlignment.Center;
+
+            e.Graphics.DrawString("ORION TECH-HIGH SCHOOL", titleFont, Brushes.Black,
+                e.PageBounds.Width / 2, 40, center);
+
+            e.Graphics.DrawString("Official Enrollment Record", schoolFont, Brushes.Black,
+                e.PageBounds.Width / 2, 85, center);
+
+            y = 150;
+
+            // ---- OUTER BORDER ----
+            e.Graphics.DrawRectangle(thickPen, left - 20, y, width + 40, 620);
+
             y += 30;
 
+            // **************************************
+            //        STUDENT INFORMATION
+            // **************************************
+            e.Graphics.DrawString("STUDENT INFORMATION", sectionFont, Brushes.Black, left, y);
+            y += 28;
 
-            void DrawLine(string label, string value)
+            void DrawField(string label, string value)
             {
-                e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);
-                e.Graphics.DrawString(value, valueFont, Brushes.Black, leftMargin + 150, y);
+                e.Graphics.DrawString(label, labelFont, Brushes.Black, left, y);
+                e.Graphics.DrawString(value, valueFont, Brushes.Black, left + 170, y);
                 y += 25;
             }
 
-            // Student Information
+            DrawField("Full Name:", lbRegistrarViewFullname.Text);
+            DrawField("Age:", lbRegistrarViewAge.Text);
+            DrawField("Birthdate:", lbRegistrarViewBirthdate.Text);
+            DrawField("Gender:", lbRegistrarViewGender.Text);
 
-            DrawLine("Full Name:", lbRegistrarViewFullname.Text);
-            DrawLine("Age:", lbRegistrarViewAge.Text);
-            DrawLine("Birthdate:", lbRegistrarViewBirthdate.Text);
-            DrawLine("Gender:", lbRegistrarViewGender.Text);
-            DrawLine("Address:", lbRegistrarViewAddress.Text);
-            DrawLine("Contact No.:", lbRegistrarViewContactNo.Text);
-            DrawLine("Guardian:", lbRegistrarViewGuardian.Text);
-            DrawLine("Contact No.:", lbRegistrarViewGuardianContact.Text);
-            DrawLine("Year Level:", lbRegistrarViewFullname.Text);
-            DrawLine("Student Type:", lbRegistrarViewType.Text);
+            y += 5;
+
+            // ADDRESS (wrap)
+            e.Graphics.DrawString("Address:", labelFont, Brushes.Black, left, y);
+
+            RectangleF rect = new RectangleF(left + 170, y, width - 200, 50);
+            e.Graphics.DrawString(lbRegistrarViewAddress.Text, valueFont, Brushes.Black, rect);
+
+            y += 55;
+
+            // **************************************
+            //     PARENT / GUARDIAN INFORMATION
+            // **************************************
+            e.Graphics.DrawString("PARENT / GUARDIAN INFORMATION", sectionFont, Brushes.Black, left, y);
+            y += 28;
+
+            DrawField("Guardian Name:", lbRegistrarViewGuardian.Text);
+            DrawField("Contact No.:", lbRegistrarViewGuardianContact.Text);
+
+            y += 20;
+
+            // **************************************
+            //        ENROLLMENT DETAILS
+            // **************************************
+            e.Graphics.DrawString("ENROLLMENT DETAILS", sectionFont, Brushes.Black, left, y);
+            y += 28;
+
+            DrawField("Grade Level:", lbRegistrarViewLevel.Text);
+            DrawField("Student Type:", lbRegistrarViewType.Text);
+            DrawField("School Year:", lbSyear.Text);
 
             y += 40;
-            e.Graphics.DrawString($"Printed on: {DateTime.Now}", valueFont, Brushes.Gray, leftMargin, y);
+
+            // ---------------------------------------------------
+            // SIGNATURE BLOCKS
+            // ---------------------------------------------------
+
+            e.Graphics.DrawLine(thinPen, left, y, left + 200, y);
+            e.Graphics.DrawString("Student Signature", valueFont, Brushes.Black, left, y + 5);
+
+            e.Graphics.DrawLine(thinPen, right - 200, y, right, y);
+            e.Graphics.DrawString("Parent/Guardian Signature", valueFont, Brushes.Black, right - 200, y + 5);
+
+            y += 60;
+
+            e.Graphics.DrawLine(thinPen, left, y, left + 200, y);
+            e.Graphics.DrawString("Registrar", valueFont, Brushes.Black, left, y + 5);
+
+            e.Graphics.DrawLine(thinPen, right - 200, y, right, y);
+            e.Graphics.DrawString("School Principal", valueFont, Brushes.Black, right - 200, y + 5);
+
+            y += 60;
+
+            // FOOTER
+            e.Graphics.DrawLine(thinPen, left, y, right, y);
+            y += 10;
+
+            e.Graphics.DrawString(
+                $"Printed on: {DateTime.Now:MMMM dd, yyyy   hh:mm tt}",
+                footerFont,
+                Brushes.Gray,
+                left,
+                y
+            );
         }
 
         private void btnRegistrarViewPrint_Click(object sender, EventArgs e)

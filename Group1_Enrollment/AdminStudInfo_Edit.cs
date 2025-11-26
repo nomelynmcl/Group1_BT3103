@@ -13,6 +13,7 @@ namespace EventDriven.Project.UI
             string firstname,
             string lastname,
             string middlename,
+            string suffix,
             string contactNumber,
             string gender,
             int age,
@@ -23,7 +24,8 @@ namespace EventDriven.Project.UI
             int gradeLevel,
             string guardian,
             string guardianContact,
-            string studentType
+            string studentType,
+            string schoolYear
             )
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace EventDriven.Project.UI
             txtAdminEditFname.Text = firstname;
             txtAdminEditLname.Text = lastname;
             txtAdminEditMname.Text = middlename;
+            txtSuffix.Text = suffix;
             txtAdminEditStudContact.Text = contactNumber;
             cbAdminEditGender.Text = gender;
             txtAdminEditAge.Text = age.ToString();
@@ -43,6 +46,7 @@ namespace EventDriven.Project.UI
             txtAdminEditGuardian.Text = guardian.ToString();
             txtAdminEditGuardianContact.Text = guardianContact;
             cbAdminEditType.Text = studentType;
+            cbSyear.Text = schoolYear.ToString();
 
             txtAdminEditStudContact.MaxLength = 11;
             txtAdminEditGuardianContact.MaxLength = 11;
@@ -79,7 +83,8 @@ namespace EventDriven.Project.UI
             string newStudentType = cbAdminEditType.Text.Trim();
             string newAge = txtAdminEditAge.Text.Trim();
             DateTime newBirthdate = dtAdminEditBirth.Value;
-
+            string newSuffix = txtSuffix.Text.Trim();
+            string newSyear = cbSyear.Text.Trim();
             if (string.IsNullOrEmpty(newFirstName) || string.IsNullOrEmpty(newLastName))
             {
                 MessageBox.Show("First and Last name are required.");
@@ -90,6 +95,7 @@ namespace EventDriven.Project.UI
                              SET LastName = @LastName,
                                  FirstName = @FirstName,
                                  MiddleName = @MiddleName,
+                                 Suffix = @Suffix,
                                  Gender = @Gender,
                                  Age = @Age,
                                  Birthdate = @Birthdate,
@@ -100,7 +106,8 @@ namespace EventDriven.Project.UI
                                  GuardianName = @GuardianName,
                                  GuardianContact = @GuardianContact,
                                  GradeLevel = @GradeLevel,
-                                 StudentType = @StudentType
+                                 StudentType = @StudentType,
+                                 SchoolYear = @SchoolYear
                              WHERE Id = @Id";
 
             try
@@ -111,6 +118,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@LastName", newLastName);
                     cmd.Parameters.AddWithValue("@FirstName", newFirstName);
                     cmd.Parameters.AddWithValue("@MiddleName", newMiddleName);
+                    cmd.Parameters.AddWithValue("@Suffix", newSuffix);
                     cmd.Parameters.AddWithValue("@Gender", newGender);
                     cmd.Parameters.AddWithValue("@Barangay", newBarangay);
                     cmd.Parameters.AddWithValue("@Municipality", newMunicipality);
@@ -123,6 +131,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("Id", studentId);
                     cmd.Parameters.AddWithValue("@Age", newAge);
                     cmd.Parameters.AddWithValue("@Birthdate", newBirthdate);
+                    cmd.Parameters.AddWithValue("@SchoolYear", newSyear);
 
 
                     conn.Open();
@@ -171,6 +180,8 @@ namespace EventDriven.Project.UI
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("🗑️ Record deleted successfully!");
+                            AdminStudentInformation adminStudentInformation = new AdminStudentInformation();
+                            adminStudentInformation.Show();
                             this.Close();
 
                             AdminStudentInformation mainForm = Application.OpenForms
@@ -212,11 +223,14 @@ namespace EventDriven.Project.UI
             string guardianContact = txtAdminEditGuardianContact.Text.Trim();
             int gradeLevel = Convert.ToInt32(cbAdminEditLevel.Text.Trim());
             string studentType = cbAdminEditType.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
+            string schoolYear = cbSyear.Text.Trim();
 
             AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
                 firstname,
                 middlename,
                 lastname,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -227,7 +241,8 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType,
+                schoolYear
             );
 
             viewForm.Show();
@@ -279,6 +294,19 @@ namespace EventDriven.Project.UI
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtAdminEditBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtAdminEditBirth.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtAdminEditAge.Text = age.ToString();
         }
     }
 }

@@ -18,7 +18,8 @@
     [GuardianContact] NVARCHAR(50) NOT NULL, 
     [StudentType] NVARCHAR(50) NOT NULL, 
     [Requirements] NVARCHAR(50) NULL, 
-    [ModeOfPayment] NVARCHAR(50) NULL
-    
+    [ModeOfPayment] NVARCHAR(50) NULL,
+    [SchoolYear] NVARCHAR(50) NULL,
+    [Suffix] NVARCHAR(50) NULL
     
 )

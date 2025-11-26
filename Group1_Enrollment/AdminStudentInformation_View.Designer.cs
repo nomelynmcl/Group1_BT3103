@@ -57,8 +57,8 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             panel1 = new Panel();
-            label10 = new Label();
             lbSchoolYear = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label2.Location = new Point(225, 328);
+            label2.Location = new Point(225, 325);
             label2.Name = "label2";
             label2.Size = new Size(66, 32);
             label2.TabIndex = 1;
@@ -169,7 +169,7 @@
             // 
             lbAdminViewAge.AutoSize = true;
             lbAdminViewAge.Font = new Font("Segoe UI", 14F);
-            lbAdminViewAge.Location = new Point(516, 328);
+            lbAdminViewAge.Location = new Point(516, 325);
             lbAdminViewAge.Name = "lbAdminViewAge";
             lbAdminViewAge.Size = new Size(120, 32);
             lbAdminViewAge.TabIndex = 10;
@@ -365,6 +365,16 @@
             panel1.Size = new Size(1042, 930);
             panel1.TabIndex = 24;
             // 
+            // lbSchoolYear
+            // 
+            lbSchoolYear.AutoSize = true;
+            lbSchoolYear.Font = new Font("Segoe UI", 14F);
+            lbSchoolYear.Location = new Point(516, 218);
+            lbSchoolYear.Name = "lbSchoolYear";
+            lbSchoolYear.Size = new Size(201, 32);
+            lbSchoolYear.TabIndex = 25;
+            lbSchoolYear.Text = "<<School Year>>";
+            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -375,16 +385,6 @@
             label10.Size = new Size(154, 32);
             label10.TabIndex = 24;
             label10.Text = "School Year:";
-            // 
-            // lbSchoolYear
-            // 
-            lbSchoolYear.AutoSize = true;
-            lbSchoolYear.Font = new Font("Segoe UI", 14F);
-            lbSchoolYear.Location = new Point(516, 218);
-            lbSchoolYear.Name = "lbSchoolYear";
-            lbSchoolYear.Size = new Size(201, 32);
-            lbSchoolYear.TabIndex = 25;
-            lbSchoolYear.Text = "<<School Year>>";
             // 
             // AdminStudentInformation_View
             // 

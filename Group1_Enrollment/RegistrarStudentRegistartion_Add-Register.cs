@@ -47,7 +47,6 @@ namespace EventDriven.Project.UI
             txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text = guardianContact;
             cbStudentType_RegistrarStudentInformationEdit.Text = studentType;
 
-            lbRegistrarStudReg_Section.Text = GetSectionByGradeLevel(gradeLevel);
 
             if (!string.IsNullOrEmpty(requirements))
             {
@@ -315,7 +314,7 @@ namespace EventDriven.Project.UI
             string contactNumber = txtContactNumber_RegistrarStudentInformationEdit.Text.Trim();
             string guardianName = txtGuardiansName_RegistrarStudentInformationEdit.Text.Trim();
             string guardianContact = txtGuardiansContactNumber_RegistrarStudentInformationEdit.Text.Trim();
-            string section = lbRegistrarStudReg_Section.Text.Trim();
+            string section = cbSection.Text.Trim();
             string studentType = cbStudentType_RegistrarStudentInformationEdit.SelectedItem.ToString();
 
             string requirements = string.Join(", ",

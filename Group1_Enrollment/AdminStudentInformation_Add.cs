@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -69,6 +60,7 @@ namespace EventDriven.Project.UI
             string firstname = txtAdminAddFname.Text.Trim();
             string middlename = txtAdminAddMname.Text.Trim();
             string lastname = txtAdminAddLname.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
             DateTime birthdate = dtAdminAddBirth.Value;
             string gender = cbAdminAddGender.SelectedItem.ToString();
             string barangay = txtAdminAddBarangay.Text.Trim();
@@ -78,11 +70,13 @@ namespace EventDriven.Project.UI
             string guardianName = txtAdminAddGuardian.Text.Trim();
             string guardianContact = txtAdminAddGuardianContact.Text.Trim();
             string studentType = cbAdminAddType.SelectedItem.ToString();
+            string schoolYear = cbSchoolYear.SelectedItem.ToString();
 
             AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
                 firstname,
                 middlename,
                 lastname,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -93,7 +87,7 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType, schoolYear
             );
 
             viewForm.Show();
@@ -114,6 +108,7 @@ namespace EventDriven.Project.UI
             string lastname = txtAdminAddLname.Text.Trim();
             string firstname = txtAdminAddFname.Text.Trim();
             string middlename = txtAdminAddMname.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
             int age = int.Parse(txtAdminAddAge.Text);
             DateTime birthdate = dtAdminAddBirth.Value;
             string gender = cbAdminAddGender.SelectedItem.ToString();
@@ -125,14 +120,14 @@ namespace EventDriven.Project.UI
             string guardianContact = txtAdminAddGuardianContact.Text.Trim();
             int gradeLevel = Convert.ToInt32(cbAdminAddLevel.SelectedItem.ToString());
             string studentType = cbAdminAddType.SelectedItem.ToString();
-
+            string schoolYear = cbSchoolYear.SelectedItem.ToString();
             string section = "unassigned";
             string enrollmentStatus = "unassigned";
 
             string query = @"INSERT INTO StudentRecord 
-                    (Lastname, Firstname, Middlename, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus) 
+                    (Lastname, Firstname, Middlename, Suffix, Age, Birthdate, Gender, Barangay, Municipality, Province, ContactNumber, GuardianName, GuardianContact, GradeLevel, StudentType, Section, EnrollmentStatus, SchoolYear) 
                     VALUES 
-                    (@Lastname, @Firstname, @Middlename, @Age, @Birthdate, @Gender, @Barangay, @Municipality, @Province, @ContactNumber, @GuardianName, @GuardianContact, @GradeLevel, @StudentType, @Section, @EnrollmentStatus)";
+                    (@Lastname, @Firstname, @Middlename, @Suffix, @Age, @Birthdate, @Gender, @Barangay, @Municipality, @Province, @ContactNumber, @GuardianName, @GuardianContact, @GradeLevel, @StudentType, @Section, @EnrollmentStatus, @SchoolYear)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -141,6 +136,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@Lastname", lastname);
                     cmd.Parameters.AddWithValue("@Firstname", firstname);
                     cmd.Parameters.AddWithValue("@Middlename", middlename);
+                    cmd.Parameters.AddWithValue("@Suffix", suffix);
                     cmd.Parameters.AddWithValue("@Age", age);
                     cmd.Parameters.AddWithValue("@Birthdate", birthdate);
                     cmd.Parameters.AddWithValue("@Gender", gender);
@@ -153,6 +149,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
                     cmd.Parameters.AddWithValue("@StudentType", studentType);
                     cmd.Parameters.AddWithValue("@Section", section);
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                     cmd.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatus);
 
                     try
@@ -234,6 +231,19 @@ namespace EventDriven.Project.UI
         private void txtAdminAddLname_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtAdminAddBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtAdminAddBirth.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtAdminAddAge.Text = age.ToString();
         }
     }
 }

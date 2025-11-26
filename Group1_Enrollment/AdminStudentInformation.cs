@@ -42,6 +42,7 @@ namespace EventDriven.Project.UI
         private void AdminStudentInformation_Load(object sender, EventArgs e)
         {
             LoadStudentRecords();
+            dtgAdminStudentInfoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
@@ -49,7 +50,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Suffix, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section, SchoolYear FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -67,6 +68,7 @@ namespace EventDriven.Project.UI
                                 Firstname = reader["FirstName"].ToString(),
                                 Lastname = reader["LastName"].ToString(),
                                 Middlename = reader["MiddleName"].ToString(),
+                                Suffix = reader["Suffix"].ToString(),
                                 ContactNumber = reader["ContactNumber"].ToString(),
                                 Gender = reader["Gender"].ToString(),
                                 Age = Convert.ToInt32(reader["Age"].ToString()),
@@ -77,12 +79,14 @@ namespace EventDriven.Project.UI
                                 GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString()),
                                 GuardianName = reader["GuardianName"].ToString(),
                                 GuardianContact = reader["GuardianContact"].ToString(),
-                                StudentType = reader["StudentType"].ToString()
+                                StudentType = reader["StudentType"].ToString(),
+                                SchoolYear = reader["SchoolYear"].ToString()
                             });
                         }
 
                         studentSearch = records;
                         dtgAdminStudentInfoList.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgAdminStudentInfoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     }
                 }
             }
@@ -119,12 +123,15 @@ namespace EventDriven.Project.UI
                 string guardian = dtgAdminStudentInfoList.CurrentRow.Cells["GuardianName"].Value.ToString();
                 string guardianContact = dtgAdminStudentInfoList.CurrentRow.Cells["GuardianContact"].Value.ToString();
                 string studentType = dtgAdminStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string suffix = dtgAdminStudentInfoList.CurrentRow.Cells["Suffix"].Value.ToString();
+                string schoolYear = dtgAdminStudentInfoList.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 AdminStudInfo_Edit adStudInfo_edit = new AdminStudInfo_Edit(
                     id,
                     firstname,
                     lastname,
                     middlename,
+                    suffix,
                     contactNumber,
                     gender,
                     age,
@@ -135,7 +142,8 @@ namespace EventDriven.Project.UI
                     gradeLevel,
                     guardian,
                     guardianContact,
-                    studentType);
+                    studentType,
+                    schoolYear);
                 adStudInfo_edit.Show();
                 this.Hide();
             }
@@ -200,11 +208,14 @@ namespace EventDriven.Project.UI
                 string guardianContact = dtgAdminStudentInfoList.CurrentRow.Cells["GuardianContact"].Value.ToString();
                 int gradeLevel = Convert.ToInt32(dtgAdminStudentInfoList.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string studentType = dtgAdminStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string suffix = dtgAdminStudentInfoList.CurrentRow.Cells["Suffix"].Value.ToString();
+                string schoolYear = dtgAdminStudentInfoList.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 AdminStudentInformation_View viewForm = new AdminStudentInformation_View(
                 firstName,
                 middleName,
                 lastName,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -215,7 +226,8 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType,
+                schoolYear
             );
 
                 viewForm.Show();
