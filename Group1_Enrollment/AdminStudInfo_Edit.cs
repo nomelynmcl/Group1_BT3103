@@ -308,5 +308,19 @@ namespace EventDriven.Project.UI
 
             txtAdminEditAge.Text = age.ToString();
         }
+
+        private void cbAdminEditLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAdminEditLevel.SelectedItem != null &&
+        cbAdminEditLevel.SelectedItem.ToString() == "7")
+            {
+                cbAdminEditType.SelectedItem = "New Student";
+                cbAdminEditType.Enabled = false;  // Disable selection
+            }
+            else
+            {
+                cbAdminEditType.Enabled = true;   // Re-enable if not Grade 7
+            }
+        }
     }
 }

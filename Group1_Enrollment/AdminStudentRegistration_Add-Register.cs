@@ -8,12 +8,16 @@ namespace EventDriven.Project.UI
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         private bool isEdited;
         private bool isSaved;
+        private int studentId;
+        private bool isInitializing = true;
+
 
         public AdminStudentRegistration_Add(
             int id,
             string lastname,
             string firstname,
             string middlename,
+            string suffix,
             int age,
             string contactNumber,
             string gender,
@@ -27,10 +31,12 @@ namespace EventDriven.Project.UI
             string section,
             string studentType,
             string requirements,
-            string modeOfPayment)
+            string modeOfPayment,
+            string schoolYear)
         {
             InitializeComponent();
 
+            studentId = id;
             lblStudentID_AdminStudentRegisAdd.Text = id.ToString();
             txtLastname_AdminStudentRegistrationAdd.Text = lastname;
             txtFirstName_AdminStudentRegistrationAdd.Text = firstname;
@@ -42,12 +48,22 @@ namespace EventDriven.Project.UI
             txtBarangay_AdminStudentRegistrationAdd.Text = barangay;
             txtMunicipality_AdminStudentRegistrationAdd.Text = municipality;
             txtProvince_AdminStudentRegistrationAdd.Text = province;
+            txtSuffix.Text = suffix;
+            cbSyear.Text = schoolYear;
             cbYearLevel_AdminStudentRegistrationAdd.Text = gradeLevel.ToString();
+
+            LoadSectionsByGradeLevel();
+            if (!string.IsNullOrEmpty(section) && cbSection.Items.Contains(section))
+            {
+                cbSection.SelectedItem = section;
+            }
+
             txtGuardianName_AdminStudentRegistrationAdd.Text = guardianName;
             txtGuardianContactNumber_AdminStudentRegistrationAdd.Text = guardianContact;
             cbStudentType_AdminStudentRegistrationAdd.Text = studentType;
-
-            lbAdminStudReg_SectionAdd.Text = GetSectionByGradeLevel(gradeLevel);
+            txtSuffix.Text = suffix;
+            cbSyear.Text = schoolYear;
+            cbSection.Text = section;
 
             if (!string.IsNullOrEmpty(requirements))
             {
@@ -95,31 +111,57 @@ namespace EventDriven.Project.UI
 
             cbYearLevel_AdminStudentRegistrationAdd.SelectedIndexChanged += (s, e) =>
             {
-                if (int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.Text, out int selectedGrade))
+                if (!isInitializing)
                 {
-                    lbAdminStudReg_SectionAdd.Text = GetSectionByGradeLevel(selectedGrade);
+                    LoadSectionsByGradeLevel();
                     isEdited = true;
                 }
             };
 
+            isInitializing = false;
+
+
             txtContactNumber_AdminStudentRegistrationAdd.MaxLength = 11;
             txtGuardianContactNumber_AdminStudentRegistrationAdd.MaxLength = 11;
 
-            int studentId = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text);
+            studentId = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text);
             UpdateStudentStatus(studentId);
         }
-
-        private string GetSectionByGradeLevel(int gradeLevel)
+        private void LoadSectionsByGradeLevel()
         {
-            switch (gradeLevel)
+            cbSection.Items.Clear();
+
+            if (!int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.Text, out int grade))
+                return;
+
+            switch (grade)
             {
-                case 7: return "Sirius";
-                case 8: return "Polaris";
-                case 9: return "Phoenix";
-                case 10: return "Pegasus";
-                default: return "Unassigned";
+                case 7:
+                    cbSection.Items.Add("Sirius");
+                    cbSection.Items.Add("Rigel");
+                    break;
+                case 8:
+                    cbSection.Items.Add("Polaris");
+                    cbSection.Items.Add("Vega");
+                    break;
+                case 9:
+                    cbSection.Items.Add("Phoenix");
+                    cbSection.Items.Add("Altair");
+                    break;
+                case 10:
+                    cbSection.Items.Add("Pegasus");
+                    cbSection.Items.Add("Deneb");
+                    break;
+                default:
+                    cbSection.Items.Add("Unassigned");
+                    break;
             }
+
+            // Automatically select first section
+            if (cbSection.Items.Count > 0)
+                cbSection.SelectedIndex = 0;
         }
+
 
         private void btnAdd_AdminStudentRegistrationAdd_Click(object sender, EventArgs e)
         {
@@ -137,9 +179,13 @@ namespace EventDriven.Project.UI
             string newStudentType = cbStudentType_AdminStudentRegistrationAdd.Text.Trim();
             string newAge = txtAge_AdminStudentRegistrationAdd.Text.Trim();
             DateTime newBirthdate = dtAdminAddBirthdate.Value;
+            string newSuffix = txtSuffix.Text.Trim();
+            string newSchoolYear = cbSyear.Text.Trim();
+
+            string section = cbSection.Text;
+
             int id = Convert.ToInt32(lblStudentID_AdminStudentRegisAdd.Text.Trim());
 
-            string section = GetSectionByGradeLevel(int.Parse(newYearLevel));
 
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
@@ -159,6 +205,7 @@ namespace EventDriven.Project.UI
                                  LastName = @LastName,
                                  FirstName = @FirstName,
                                  MiddleName = @MiddleName,
+                                 Suffix = @Suffix,
                                  Gender = @Gender,
                                  Age = @Age,
                                  Birthdate = @Birthdate,
@@ -170,7 +217,8 @@ namespace EventDriven.Project.UI
                                  GuardianContact = @GuardianContact,
                                  GradeLevel = @GradeLevel,
                                  StudentType = @StudentType,
-                                 Section = @Section
+                                 Section = @Section,
+                                 SchoolYear = @SchoolYear
                              WHERE Id = @Id";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -195,6 +243,8 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@Age", newAge);
                     cmd.Parameters.AddWithValue("@Birthdate", newBirthdate);
                     cmd.Parameters.AddWithValue("@Section", section);
+                    cmd.Parameters.AddWithValue("@Suffix", newSuffix);
+                    cmd.Parameters.AddWithValue("@SchoolYear", newSchoolYear);
 
                     try
                     {
@@ -287,7 +337,9 @@ namespace EventDriven.Project.UI
             string guardianName = txtGuardianName_AdminStudentRegistrationAdd.Text.Trim();
             string guardianContact = txtGuardianContactNumber_AdminStudentRegistrationAdd.Text.Trim();
             string studentType = cbStudentType_AdminStudentRegistrationAdd.SelectedItem.ToString();
-            string section = lbAdminStudReg_SectionAdd.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
+            string schoolYear = cbSyear.SelectedItem.ToString();
+            string section = cbSection.Text.Trim();
 
             string requirements = string.Join(", ",
                 clbRequirements_AdminStudentRegistrationAdd.CheckedItems.Cast<string>());
@@ -301,6 +353,7 @@ namespace EventDriven.Project.UI
                 firstName,
                 middleName,
                 lastName,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -314,7 +367,8 @@ namespace EventDriven.Project.UI
                 studentType,
                 section,
                 requirements,
-                modeOfPayment);
+                modeOfPayment,
+                schoolYear);
             adminStudReg_view.Show();
             this.Hide();
         }
@@ -396,6 +450,60 @@ namespace EventDriven.Project.UI
         private void AdminStudentRegistration_Add_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDelete_AdminStudentRegistration_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this student record?",
+                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                string query = "DELETE FROM StudentRecord WHERE Id = @Id";
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", studentId);
+                        conn.Open();
+                        int rows = cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("✅ Student record deleted successfully!");
+
+                            this.Hide();
+                            var adminStudReg = new AdminStudentRegistration();
+                            adminStudReg.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("⚠️ No record found to delete.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error deleting record: " + ex.Message);
+                }
+            }
+        }
+
+        private void dtAdminAddBirthdate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtAdminAddBirthdate.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtAge_AdminStudentRegistrationAdd.Text = age.ToString();
         }
     }
 }

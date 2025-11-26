@@ -245,5 +245,19 @@ namespace EventDriven.Project.UI
 
             txtAdminAddAge.Text = age.ToString();
         }
+
+        private void cbAdminAddLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAdminAddLevel.SelectedItem != null &&
+        cbAdminAddLevel.SelectedItem.ToString() == "7")
+            {
+                cbAdminAddType.SelectedItem = "New Student";
+                cbAdminAddType.Enabled = false;  // Disable selection
+            }
+            else
+            {
+                cbAdminAddType.Enabled = true;   // Re-enable if not Grade 7
+            }
+        }
     }
 }

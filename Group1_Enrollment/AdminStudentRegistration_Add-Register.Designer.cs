@@ -79,12 +79,13 @@
             clbRequirements_AdminStudentRegistrationAdd = new CheckedListBox();
             label6 = new Label();
             label3 = new Label();
-            lbAdminStudReg_SectionAdd = new Label();
             lbStatus = new Label();
             label5 = new Label();
             cbSyear = new ComboBox();
             label7 = new Label();
             txtSuffix = new TextBox();
+            btnDelete_AdminStudentRegistration = new Button();
+            cbSection = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -368,7 +369,7 @@
             btnAdd_AdminStudentRegistrationAdd.BackColor = Color.CadetBlue;
             btnAdd_AdminStudentRegistrationAdd.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
             btnAdd_AdminStudentRegistrationAdd.ForeColor = Color.AliceBlue;
-            btnAdd_AdminStudentRegistrationAdd.Location = new Point(1121, 949);
+            btnAdd_AdminStudentRegistrationAdd.Location = new Point(993, 950);
             btnAdd_AdminStudentRegistrationAdd.Name = "btnAdd_AdminStudentRegistrationAdd";
             btnAdd_AdminStudentRegistrationAdd.Size = new Size(154, 54);
             btnAdd_AdminStudentRegistrationAdd.TabIndex = 232;
@@ -547,6 +548,7 @@
             dtAdminAddBirthdate.Name = "dtAdminAddBirthdate";
             dtAdminAddBirthdate.Size = new Size(367, 39);
             dtAdminAddBirthdate.TabIndex = 236;
+            dtAdminAddBirthdate.ValueChanged += dtAdminAddBirthdate_ValueChanged;
             // 
             // clbModeOfPayment_AdminStudentRegistrationAdd
             // 
@@ -612,21 +614,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1195, 747);
+            label3.Location = new Point(1249, 750);
             label3.Name = "label3";
             label3.Size = new Size(97, 31);
             label3.TabIndex = 244;
             label3.Text = "Section:";
-            // 
-            // lbAdminStudReg_SectionAdd
-            // 
-            lbAdminStudReg_SectionAdd.AutoSize = true;
-            lbAdminStudReg_SectionAdd.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbAdminStudReg_SectionAdd.Location = new Point(1319, 752);
-            lbAdminStudReg_SectionAdd.Name = "lbAdminStudReg_SectionAdd";
-            lbAdminStudReg_SectionAdd.Size = new Size(155, 31);
-            lbAdminStudReg_SectionAdd.TabIndex = 245;
-            lbAdminStudReg_SectionAdd.Text = "<<Section>>";
             // 
             // lbStatus
             // 
@@ -677,18 +669,41 @@
             txtSuffix.Size = new Size(150, 40);
             txtSuffix.TabIndex = 249;
             // 
+            // btnDelete_AdminStudentRegistration
+            // 
+            btnDelete_AdminStudentRegistration.BackColor = Color.CadetBlue;
+            btnDelete_AdminStudentRegistration.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnDelete_AdminStudentRegistration.ForeColor = Color.AliceBlue;
+            btnDelete_AdminStudentRegistration.Location = new Point(1232, 950);
+            btnDelete_AdminStudentRegistration.Name = "btnDelete_AdminStudentRegistration";
+            btnDelete_AdminStudentRegistration.Size = new Size(145, 54);
+            btnDelete_AdminStudentRegistration.TabIndex = 251;
+            btnDelete_AdminStudentRegistration.Text = "Delete";
+            btnDelete_AdminStudentRegistration.UseVisualStyleBackColor = false;
+            btnDelete_AdminStudentRegistration.Click += btnDelete_AdminStudentRegistration_Click;
+            // 
+            // cbSection
+            // 
+            cbSection.Font = new Font("Segoe UI", 14F);
+            cbSection.FormattingEnabled = true;
+            cbSection.Location = new Point(1404, 747);
+            cbSection.Name = "cbSection";
+            cbSection.Size = new Size(307, 39);
+            cbSection.TabIndex = 252;
+            // 
             // AdminStudentRegistration_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSection);
+            Controls.Add(btnDelete_AdminStudentRegistration);
             Controls.Add(label7);
             Controls.Add(txtSuffix);
             Controls.Add(cbSyear);
             Controls.Add(label5);
             Controls.Add(lbStatus);
-            Controls.Add(lbAdminStudReg_SectionAdd);
             Controls.Add(label3);
             Controls.Add(clbModeOfPayment_AdminStudentRegistrationAdd);
             Controls.Add(label6);
@@ -795,11 +810,12 @@
         private CheckedListBox clbRequirements_AdminStudentRegistrationAdd;
         private Label label6;
         private Label label3;
-        private Label lbAdminStudReg_SectionAdd;
         private Label lbStatus;
         private Label label5;
         private ComboBox cbSyear;
         private Label label7;
         private TextBox txtSuffix;
+        private Button btnDelete_AdminStudentRegistration;
+        private ComboBox cbSection;
     }
 }

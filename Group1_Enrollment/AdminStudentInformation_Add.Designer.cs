@@ -551,6 +551,7 @@
             cbAdminAddLevel.Name = "cbAdminAddLevel";
             cbAdminAddLevel.Size = new Size(182, 39);
             cbAdminAddLevel.TabIndex = 82;
+            cbAdminAddLevel.SelectedIndexChanged += cbAdminAddLevel_SelectedIndexChanged;
             // 
             // label2
             // 

@@ -65,7 +65,7 @@ namespace EventDriven.Project.UI
 
         private void AdminPayment_Load(object sender, EventArgs e)
         {
-            dtCurrDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            dtCurrDate.Value = DateTime.Now;
 
             clbModeOfPayment_AdminPay.Items.Clear();
             clbModeOfPayment_AdminPay.Items.Add("Cash");

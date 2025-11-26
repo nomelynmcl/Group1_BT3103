@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminStudentRegistration));
-            btnEdit_AdminStudentRegis = new Button();
             dtgAdminStudentRegList = new DataGridView();
             txtSearch_AdminStudentRegis = new TextBox();
             btnAdd_AdminStudentRegis = new Button();
@@ -50,19 +49,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
             SuspendLayout();
-            // 
-            // btnEdit_AdminStudentRegis
-            // 
-            btnEdit_AdminStudentRegis.BackColor = Color.CadetBlue;
-            btnEdit_AdminStudentRegis.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            btnEdit_AdminStudentRegis.ForeColor = Color.AliceBlue;
-            btnEdit_AdminStudentRegis.Location = new Point(703, 46);
-            btnEdit_AdminStudentRegis.Name = "btnEdit_AdminStudentRegis";
-            btnEdit_AdminStudentRegis.Size = new Size(154, 54);
-            btnEdit_AdminStudentRegis.TabIndex = 94;
-            btnEdit_AdminStudentRegis.Text = "Edit";
-            btnEdit_AdminStudentRegis.UseVisualStyleBackColor = false;
-            btnEdit_AdminStudentRegis.Click += btnEdit_AdminStudentRegis_Click;
             // 
             // dtgAdminStudentRegList
             // 
@@ -93,7 +79,7 @@
             btnAdd_AdminStudentRegis.Name = "btnAdd_AdminStudentRegis";
             btnAdd_AdminStudentRegis.Size = new Size(154, 54);
             btnAdd_AdminStudentRegis.TabIndex = 91;
-            btnAdd_AdminStudentRegis.Text = "Add";
+            btnAdd_AdminStudentRegis.Text = "Register";
             btnAdd_AdminStudentRegis.UseVisualStyleBackColor = false;
             btnAdd_AdminStudentRegis.Click += btnAdd_AdminStudentRegis_Click;
             // 
@@ -254,7 +240,7 @@
             btnView_AdminStudReg.BackColor = Color.CadetBlue;
             btnView_AdminStudReg.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
             btnView_AdminStudReg.ForeColor = Color.AliceBlue;
-            btnView_AdminStudReg.Location = new Point(882, 47);
+            btnView_AdminStudReg.Location = new Point(701, 46);
             btnView_AdminStudReg.Name = "btnView_AdminStudReg";
             btnView_AdminStudReg.Size = new Size(154, 54);
             btnView_AdminStudReg.TabIndex = 95;
@@ -269,7 +255,6 @@
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
             Controls.Add(btnView_AdminStudReg);
-            Controls.Add(btnEdit_AdminStudentRegis);
             Controls.Add(dtgAdminStudentRegList);
             Controls.Add(txtSearch_AdminStudentRegis);
             Controls.Add(btnAdd_AdminStudentRegis);
@@ -290,8 +275,6 @@
         }
 
         #endregion
-
-        private Button btnEdit_AdminStudentRegis;
         private DataGridView dtgAdminStudentRegList;
         private TextBox txtSearch_AdminStudentRegis;
         private Button btnAdd_AdminStudentRegis;

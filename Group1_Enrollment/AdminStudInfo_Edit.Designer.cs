@@ -295,6 +295,7 @@
             cbAdminEditLevel.Name = "cbAdminEditLevel";
             cbAdminEditLevel.Size = new Size(182, 39);
             cbAdminEditLevel.TabIndex = 108;
+            cbAdminEditLevel.SelectedIndexChanged += cbAdminEditLevel_SelectedIndexChanged;
             // 
             // label21
             // 
