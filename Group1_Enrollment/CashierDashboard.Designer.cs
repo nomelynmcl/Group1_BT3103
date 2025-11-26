@@ -29,143 +29,214 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierDashboard));
-            lblCashierPayHistory = new Label();
-            lblCashierPayment = new Label();
-            btnCashierOverview = new Button();
-            btnLogoutCashier = new Button();
-            lblCashierReport = new Label();
-            lblCashier = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            CashLabel = new Label();
+            pcAdminLogo2 = new PictureBox();
+            btnAdminPay2 = new Button();
+            btnAdminHistory2 = new Button();
+            btnAdminReport2 = new Button();
+            btnAdminOut2 = new Button();
+            dtgCashier = new DataGridView();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            flowLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgCashier).BeginInit();
             SuspendLayout();
             // 
-            // lblCashierPayHistory
+            // flowLayoutPanel1
             // 
-            lblCashierPayHistory.AutoSize = true;
-            lblCashierPayHistory.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCashierPayHistory.Location = new Point(48, 244);
-            lblCashierPayHistory.Name = "lblCashierPayHistory";
-            lblCashierPayHistory.Size = new Size(156, 20);
-            lblCashierPayHistory.TabIndex = 28;
-            lblCashierPayHistory.Text = "PAYMENT HISTORY";
-            lblCashierPayHistory.Click += lblCashierPayHistory_Click;
+            flowLayoutPanel1.BackColor = Color.CadetBlue;
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(btnAdminPay2);
+            flowLayoutPanel1.Controls.Add(btnAdminHistory2);
+            flowLayoutPanel1.Controls.Add(btnAdminReport2);
+            flowLayoutPanel1.Controls.Add(btnAdminOut2);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(474, 1033);
+            flowLayoutPanel1.TabIndex = 87;
             // 
-            // lblCashierPayment
+            // panel1
             // 
-            lblCashierPayment.AutoSize = true;
-            lblCashierPayment.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCashierPayment.Location = new Point(48, 203);
-            lblCashierPayment.Name = "lblCashierPayment";
-            lblCashierPayment.Size = new Size(85, 20);
-            lblCashierPayment.TabIndex = 27;
-            lblCashierPayment.Text = "PAYMENT";
-            lblCashierPayment.Click += lblCashierPayment_Click;
+            panel1.Controls.Add(CashLabel);
+            panel1.Controls.Add(pcAdminLogo2);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(458, 277);
+            panel1.TabIndex = 0;
             // 
-            // btnCashierOverview
+            // CashLabel
             // 
-            btnCashierOverview.BackColor = Color.LightGray;
-            btnCashierOverview.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCashierOverview.ForeColor = Color.SteelBlue;
-            btnCashierOverview.Location = new Point(542, 431);
-            btnCashierOverview.Margin = new Padding(3, 2, 3, 2);
-            btnCashierOverview.Name = "btnCashierOverview";
-            btnCashierOverview.Size = new Size(253, 34);
-            btnCashierOverview.TabIndex = 24;
-            btnCashierOverview.Text = "CASHIER OVERVIEW";
-            btnCashierOverview.UseVisualStyleBackColor = false;
-            btnCashierOverview.Click += btnCashierOverview_Click;
+            CashLabel.AutoSize = true;
+            CashLabel.Font = new Font("Segoe UI Black", 17F, FontStyle.Bold);
+            CashLabel.Location = new Point(157, 219);
+            CashLabel.Name = "CashLabel";
+            CashLabel.Size = new Size(143, 40);
+            CashLabel.TabIndex = 124;
+            CashLabel.Text = "CASHIER";
             // 
-            // btnLogoutCashier
+            // pcAdminLogo2
             // 
-            btnLogoutCashier.BackColor = Color.LightGray;
-            btnLogoutCashier.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogoutCashier.Location = new Point(1011, 28);
-            btnLogoutCashier.Margin = new Padding(3, 2, 3, 2);
-            btnLogoutCashier.Name = "btnLogoutCashier";
-            btnLogoutCashier.Size = new Size(79, 28);
-            btnLogoutCashier.TabIndex = 23;
-            btnLogoutCashier.Text = "Logout";
-            btnLogoutCashier.UseVisualStyleBackColor = false;
-            btnLogoutCashier.Click += btnLogoutCashier_Click;
+            pcAdminLogo2.BackColor = Color.CadetBlue;
+            pcAdminLogo2.Image = (Image)resources.GetObject("pcAdminLogo2.Image");
+            pcAdminLogo2.Location = new Point(56, 26);
+            pcAdminLogo2.Margin = new Padding(3, 4, 3, 4);
+            pcAdminLogo2.Name = "pcAdminLogo2";
+            pcAdminLogo2.Size = new Size(333, 239);
+            pcAdminLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcAdminLogo2.TabIndex = 0;
+            pcAdminLogo2.TabStop = false;
             // 
-            // lblCashierReport
+            // btnAdminPay2
             // 
-            lblCashierReport.AutoSize = true;
-            lblCashierReport.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCashierReport.Location = new Point(48, 283);
-            lblCashierReport.Name = "lblCashierReport";
-            lblCashierReport.Size = new Size(68, 20);
-            lblCashierReport.TabIndex = 21;
-            lblCashierReport.Text = "REPORT";
-            lblCashierReport.Click += lblCashierReport_Click;
+            btnAdminPay2.BackColor = Color.CadetBlue;
+            btnAdminPay2.FlatStyle = FlatStyle.Flat;
+            btnAdminPay2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminPay2.ForeColor = Color.AliceBlue;
+            btnAdminPay2.Location = new Point(23, 289);
+            btnAdminPay2.Margin = new Padding(23, 4, 3, 4);
+            btnAdminPay2.Name = "btnAdminPay2";
+            btnAdminPay2.Size = new Size(421, 79);
+            btnAdminPay2.TabIndex = 6;
+            btnAdminPay2.Text = "PAYMENT";
+            btnAdminPay2.UseVisualStyleBackColor = false;
+            btnAdminPay2.Click += btnAdminPay2_Click;
             // 
-            // lblCashier
+            // btnAdminHistory2
             // 
-            lblCashier.AutoSize = true;
-            lblCashier.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCashier.ForeColor = Color.SteelBlue;
-            lblCashier.Location = new Point(48, 132);
-            lblCashier.Name = "lblCashier";
-            lblCashier.Size = new Size(159, 45);
-            lblCashier.TabIndex = 16;
-            lblCashier.Text = "CASHIER";
+            btnAdminHistory2.FlatStyle = FlatStyle.Flat;
+            btnAdminHistory2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminHistory2.ForeColor = Color.AliceBlue;
+            btnAdminHistory2.Location = new Point(23, 376);
+            btnAdminHistory2.Margin = new Padding(23, 4, 3, 4);
+            btnAdminHistory2.Name = "btnAdminHistory2";
+            btnAdminHistory2.Size = new Size(421, 79);
+            btnAdminHistory2.TabIndex = 7;
+            btnAdminHistory2.Text = "PAYMENT HISTORY";
+            btnAdminHistory2.UseVisualStyleBackColor = true;
+            btnAdminHistory2.Click += btnAdminHistory2_Click;
             // 
-            // pictureBox1
+            // btnAdminReport2
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(5, 13);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 142);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
+            btnAdminReport2.FlatStyle = FlatStyle.Flat;
+            btnAdminReport2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminReport2.ForeColor = Color.AliceBlue;
+            btnAdminReport2.Location = new Point(23, 463);
+            btnAdminReport2.Margin = new Padding(23, 4, 3, 4);
+            btnAdminReport2.Name = "btnAdminReport2";
+            btnAdminReport2.Size = new Size(421, 79);
+            btnAdminReport2.TabIndex = 8;
+            btnAdminReport2.Text = "REPORT";
+            btnAdminReport2.UseVisualStyleBackColor = true;
+            btnAdminReport2.Click += btnAdminReport2_Click;
             // 
-            // pictureBox3
+            // btnAdminOut2
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(314, 80);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(700, 324);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 29;
-            pictureBox3.TabStop = false;
+            btnAdminOut2.FlatStyle = FlatStyle.Flat;
+            btnAdminOut2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminOut2.ForeColor = Color.AliceBlue;
+            btnAdminOut2.Location = new Point(23, 550);
+            btnAdminOut2.Margin = new Padding(23, 4, 3, 4);
+            btnAdminOut2.Name = "btnAdminOut2";
+            btnAdminOut2.Size = new Size(421, 79);
+            btnAdminOut2.TabIndex = 9;
+            btnAdminOut2.Text = "LOG OUT";
+            btnAdminOut2.UseVisualStyleBackColor = true;
+            btnAdminOut2.Click += btnAdminOut2_Click;
+            // 
+            // dtgCashier
+            // 
+            dtgCashier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgCashier.Location = new Point(524, 109);
+            dtgCashier.Margin = new Padding(3, 4, 3, 4);
+            dtgCashier.Name = "dtgCashier";
+            dtgCashier.RowHeadersWidth = 51;
+            dtgCashier.Size = new Size(1332, 924);
+            dtgCashier.TabIndex = 97;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            comboBox1.Location = new Point(849, 53);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(234, 28);
+            comboBox1.TabIndex = 96;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(524, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(307, 38);
+            label1.TabIndex = 95;
+            label1.Text = "ENROLLED STUDENTS";
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.CadetBlue;
+            btnSearch.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = SystemColors.Control;
+            btnSearch.Location = new Point(1743, 46);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(113, 37);
+            btnSearch.TabIndex = 98;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(1360, 52);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(377, 27);
+            txtSearch.TabIndex = 99;
             // 
             // CashierDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1129, 500);
-            Controls.Add(pictureBox3);
-            Controls.Add(lblCashierPayHistory);
-            Controls.Add(lblCashierPayment);
-            Controls.Add(btnCashierOverview);
-            Controls.Add(btnLogoutCashier);
-            Controls.Add(lblCashierReport);
-            Controls.Add(lblCashier);
-            Controls.Add(pictureBox1);
-            Margin = new Padding(3, 2, 3, 2);
+            BackColor = Color.AliceBlue;
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
+            Controls.Add(dtgCashier);
+            Controls.Add(comboBox1);
+            Controls.Add(label1);
+            Controls.Add(flowLayoutPanel1);
             Name = "CashierDashboard";
             Text = "CashierDashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgCashier).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-
-        private Button btnCashierOverview;
-        private Button btnLogoutCashier;
-        private Label lblCashierReport;
-        private Label lblCashier;
-        private PictureBox pictureBox1;
-        private Label lblCashierPayHistory;
-        private Label lblCashierPayment;
-        private PictureBox pictureBox3;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private Label CashLabel;
+        private PictureBox pcAdminLogo2;
+        private Button btnAdminPay2;
+        private Button btnAdminHistory2;
+        private Button btnAdminReport2;
+        private Button btnAdminOut2;
+        private DataGridView dtgCashier;
+        private ComboBox comboBox1;
+        private Label label1;
+        private Button btnSearch;
+        private TextBox txtSearch;
     }
 }

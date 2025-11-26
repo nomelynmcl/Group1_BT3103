@@ -35,8 +35,8 @@
             panel1 = new Panel();
             pcAdminLogo4 = new PictureBox();
             btnAdminStudentInformation4 = new Button();
-            btnAdminAssessment4 = new Button();
             btnAdminStudreg4 = new Button();
+            btnAdminAssessment4 = new Button();
             btnAdminReport4 = new Button();
             btnAdminOut4 = new Button();
             btnBack_RegistrarStudentInformationEdit = new Button();
@@ -79,6 +79,8 @@
             label3 = new Label();
             lbRegistrarStudReg_Section = new Label();
             lbStatus = new Label();
+            cbSyear = new ComboBox();
+            label5 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -157,20 +159,6 @@
             btnAdminStudentInformation4.UseVisualStyleBackColor = false;
             btnAdminStudentInformation4.Click += btnAdminStudentInformation4_Click;
             // 
-            // btnAdminAssessment4
-            // 
-            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnAdminAssessment4.ForeColor = Color.AliceBlue;
-            btnAdminAssessment4.Location = new Point(23, 472);
-            btnAdminAssessment4.Margin = new Padding(23, 4, 3, 4);
-            btnAdminAssessment4.Name = "btnAdminAssessment4";
-            btnAdminAssessment4.Size = new Size(421, 79);
-            btnAdminAssessment4.TabIndex = 4;
-            btnAdminAssessment4.Text = "ASSESSMENT";
-            btnAdminAssessment4.UseVisualStyleBackColor = true;
-            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
-            // 
             // btnAdminStudreg4
             // 
             btnAdminStudreg4.BackColor = Color.DarkSlateGray;
@@ -184,6 +172,20 @@
             btnAdminStudreg4.TabIndex = 5;
             btnAdminStudreg4.Text = " STUDENT REGISTRATION";
             btnAdminStudreg4.UseVisualStyleBackColor = false;
+            // 
+            // btnAdminAssessment4
+            // 
+            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment4.ForeColor = Color.AliceBlue;
+            btnAdminAssessment4.Location = new Point(23, 472);
+            btnAdminAssessment4.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment4.Name = "btnAdminAssessment4";
+            btnAdminAssessment4.Size = new Size(421, 79);
+            btnAdminAssessment4.TabIndex = 4;
+            btnAdminAssessment4.Text = "ASSESSMENT";
+            btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
             // 
             // btnAdminReport4
             // 
@@ -244,16 +246,16 @@
             cbStudentType_RegistrarStudentInformationEdit.Font = new Font("Segoe UI", 14F);
             cbStudentType_RegistrarStudentInformationEdit.FormattingEnabled = true;
             cbStudentType_RegistrarStudentInformationEdit.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbStudentType_RegistrarStudentInformationEdit.Location = new Point(1333, 111);
+            cbStudentType_RegistrarStudentInformationEdit.Location = new Point(1542, 108);
             cbStudentType_RegistrarStudentInformationEdit.Name = "cbStudentType_RegistrarStudentInformationEdit";
-            cbStudentType_RegistrarStudentInformationEdit.Size = new Size(391, 39);
+            cbStudentType_RegistrarStudentInformationEdit.Size = new Size(182, 39);
             cbStudentType_RegistrarStudentInformationEdit.TabIndex = 145;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label22.Location = new Point(1109, 111);
+            label22.Location = new Point(1362, 111);
             label22.Name = "label22";
             label22.Size = new Size(163, 32);
             label22.TabIndex = 144;
@@ -609,12 +611,34 @@
             lbStatus.TabIndex = 246;
             lbStatus.Text = "<< Status >>";
             // 
+            // cbSyear
+            // 
+            cbSyear.Font = new Font("Segoe UI", 14F);
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(1174, 108);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(182, 39);
+            cbSyear.TabIndex = 252;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(1026, 114);
+            label5.Name = "label5";
+            label5.Size = new Size(142, 31);
+            label5.TabIndex = 251;
+            label5.Text = "School Year:";
+            // 
             // RegistrarStudentRegistration_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSyear);
+            Controls.Add(label5);
             Controls.Add(lbStatus);
             Controls.Add(lbRegistrarStudReg_Section);
             Controls.Add(label3);
@@ -722,5 +746,7 @@
         private Label label3;
         private Label lbRegistrarStudReg_Section;
         private Label lbStatus;
+        private ComboBox cbSyear;
+        private Label label5;
     }
 }

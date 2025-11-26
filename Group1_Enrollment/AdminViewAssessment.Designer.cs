@@ -46,6 +46,8 @@
             PRIN_BUTTON = new Button();
             btnBack = new Button();
             panel1 = new Panel();
+            lbSchoolYear = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AssessmentGrid).BeginInit();
             panel1.SuspendLayout();
@@ -138,7 +140,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label8.Location = new Point(651, 753);
+            label8.Location = new Point(127, 810);
             label8.Name = "label8";
             label8.Size = new Size(87, 32);
             label8.TabIndex = 34;
@@ -168,7 +170,7 @@
             // 
             assessment_statuslb.AutoSize = true;
             assessment_statuslb.Font = new Font("Segoe UI", 14F);
-            assessment_statuslb.Location = new Point(756, 752);
+            assessment_statuslb.Location = new Point(232, 809);
             assessment_statuslb.Name = "assessment_statuslb";
             assessment_statuslb.Size = new Size(157, 32);
             assessment_statuslb.TabIndex = 38;
@@ -222,6 +224,7 @@
             // 
             btnBack.BackColor = Color.CadetBlue;
             btnBack.Font = new Font("Segoe UI", 14F);
+            btnBack.ForeColor = SystemColors.Control;
             btnBack.Location = new Point(315, 907);
             btnBack.Margin = new Padding(3, 4, 3, 4);
             btnBack.Name = "btnBack";
@@ -233,6 +236,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lbSchoolYear);
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(AssessmentGrid);
             panel1.Controls.Add(SECT_TION_LBL);
             panel1.Controls.Add(btnBack);
@@ -254,6 +259,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1042, 1009);
             panel1.TabIndex = 45;
+            // 
+            // lbSchoolYear
+            // 
+            lbSchoolYear.AutoSize = true;
+            lbSchoolYear.Font = new Font("Segoe UI", 14F);
+            lbSchoolYear.Location = new Point(740, 320);
+            lbSchoolYear.Name = "lbSchoolYear";
+            lbSchoolYear.Size = new Size(231, 32);
+            lbSchoolYear.TabIndex = 46;
+            lbSchoolYear.Text = "<<SCHOOL YEAR>>";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label4.Location = new Point(596, 321);
+            label4.Name = "label4";
+            label4.Size = new Size(147, 32);
+            label4.TabIndex = 45;
+            label4.Text = "School Year:";
             // 
             // AdminViewAssessment
             // 
@@ -297,5 +322,7 @@
         private Button PRIN_BUTTON;
         private Button btnBack;
         private Panel panel1;
+        private Label lbSchoolYear;
+        private Label label4;
     }
 }

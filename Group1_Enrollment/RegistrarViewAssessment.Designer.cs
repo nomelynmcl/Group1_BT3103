@@ -46,6 +46,8 @@
             pictureBox1 = new PictureBox();
             btnBack = new Button();
             panel1 = new Panel();
+            lbSchoolYear = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView_RGTR).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -233,6 +235,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lbSchoolYear);
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(dataGridView_RGTR);
             panel1.Controls.Add(btnBack);
             panel1.Controls.Add(PRIN_BUTTON);
@@ -255,6 +259,26 @@
             panel1.Size = new Size(1042, 1009);
             panel1.TabIndex = 65;
             panel1.Paint += panel1_Paint;
+            // 
+            // lbSchoolYear
+            // 
+            lbSchoolYear.AutoSize = true;
+            lbSchoolYear.Font = new Font("Segoe UI", 14F);
+            lbSchoolYear.Location = new Point(762, 280);
+            lbSchoolYear.Name = "lbSchoolYear";
+            lbSchoolYear.Size = new Size(231, 32);
+            lbSchoolYear.TabIndex = 66;
+            lbSchoolYear.Text = "<<SCHOOL YEAR>>";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label4.Location = new Point(618, 281);
+            label4.Name = "label4";
+            label4.Size = new Size(147, 32);
+            label4.TabIndex = 65;
+            label4.Text = "School Year:";
             // 
             // RegistrarViewAssessment
             // 
@@ -296,5 +320,7 @@
         private PictureBox pictureBox1;
         private Button btnBack;
         private Panel panel1;
+        private Label lbSchoolYear;
+        private Label label4;
     }
 }

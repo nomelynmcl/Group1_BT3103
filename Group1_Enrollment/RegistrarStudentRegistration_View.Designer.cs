@@ -64,6 +64,8 @@
             label11 = new Label();
             lblRegistrarSection_ViewStudReg = new Label();
             panel1 = new Panel();
+            lbSyear = new Label();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -112,7 +114,7 @@
             // 
             lblStudentID_RegistrarStudentRegistration_View.AutoSize = true;
             lblStudentID_RegistrarStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblStudentID_RegistrarStudentRegistration_View.Location = new Point(490, 230);
+            lblStudentID_RegistrarStudentRegistration_View.Location = new Point(490, 246);
             lblStudentID_RegistrarStudentRegistration_View.Name = "lblStudentID_RegistrarStudentRegistration_View";
             lblStudentID_RegistrarStudentRegistration_View.Size = new Size(191, 32);
             lblStudentID_RegistrarStudentRegistration_View.TabIndex = 230;
@@ -122,7 +124,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label10.Location = new Point(221, 230);
+            label10.Location = new Point(221, 246);
             label10.Name = "label10";
             label10.Size = new Size(130, 31);
             label10.TabIndex = 229;
@@ -412,6 +414,8 @@
             // panel1
             // 
             panel1.BackColor = Color.AliceBlue;
+            panel1.Controls.Add(lbSyear);
+            panel1.Controls.Add(label13);
             panel1.Controls.Add(lblGuardiansContactNum_RegistrarStudentRegistration_View);
             panel1.Controls.Add(btnViewPrint_RegistrarStudentRegistration);
             panel1.Controls.Add(lblRegistrarSection_ViewStudReg);
@@ -448,6 +452,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1042, 1009);
             panel1.TabIndex = 238;
+            // 
+            // lbSyear
+            // 
+            lbSyear.AutoSize = true;
+            lbSyear.Font = new Font("Segoe UI", 14F);
+            lbSyear.Location = new Point(489, 206);
+            lbSyear.Name = "lbSyear";
+            lbSyear.Size = new Size(201, 32);
+            lbSyear.TabIndex = 238;
+            lbSyear.Text = "<<School Year>>";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(221, 207);
+            label13.Name = "label13";
+            label13.Size = new Size(142, 31);
+            label13.TabIndex = 237;
+            label13.Text = "School Year:";
             // 
             // RegistrarStudentRegistration_View
             // 
@@ -504,5 +528,7 @@
         private Label label11;
         private Label lblRegistrarSection_ViewStudReg;
         private Panel panel1;
+        private Label lbSyear;
+        private Label label13;
     }
 }

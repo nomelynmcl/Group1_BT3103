@@ -42,8 +42,8 @@
             panel1 = new Panel();
             pcAdminLogo4 = new PictureBox();
             btnAdminStudentInformation4 = new Button();
-            btnAdminAssessment4 = new Button();
             btnStudentRegistration_Admin = new Button();
+            btnAdminAssessment4 = new Button();
             btnAdminReport4 = new Button();
             btnAdminOut4 = new Button();
             btnRegistar_EditBack = new Button();
@@ -80,6 +80,8 @@
             label3 = new Label();
             lbSection_StudRegEditRegistrar = new Label();
             lbStatus = new Label();
+            cbSyear = new ComboBox();
+            label5 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -231,20 +233,6 @@
             btnAdminStudentInformation4.UseVisualStyleBackColor = false;
             btnAdminStudentInformation4.Click += btnAdminStudentInformation4_Click;
             // 
-            // btnAdminAssessment4
-            // 
-            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnAdminAssessment4.ForeColor = Color.AliceBlue;
-            btnAdminAssessment4.Location = new Point(23, 472);
-            btnAdminAssessment4.Margin = new Padding(23, 4, 3, 4);
-            btnAdminAssessment4.Name = "btnAdminAssessment4";
-            btnAdminAssessment4.Size = new Size(421, 79);
-            btnAdminAssessment4.TabIndex = 4;
-            btnAdminAssessment4.Text = "ASSESSMENT";
-            btnAdminAssessment4.UseVisualStyleBackColor = true;
-            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
-            // 
             // btnStudentRegistration_Admin
             // 
             btnStudentRegistration_Admin.BackColor = Color.DarkSlateGray;
@@ -258,6 +246,20 @@
             btnStudentRegistration_Admin.TabIndex = 5;
             btnStudentRegistration_Admin.Text = " STUDENT REGISTRATION";
             btnStudentRegistration_Admin.UseVisualStyleBackColor = false;
+            // 
+            // btnAdminAssessment4
+            // 
+            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment4.ForeColor = Color.AliceBlue;
+            btnAdminAssessment4.Location = new Point(23, 472);
+            btnAdminAssessment4.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment4.Name = "btnAdminAssessment4";
+            btnAdminAssessment4.Size = new Size(421, 79);
+            btnAdminAssessment4.TabIndex = 4;
+            btnAdminAssessment4.Text = "ASSESSMENT";
+            btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
             // 
             // btnAdminReport4
             // 
@@ -318,16 +320,16 @@
             cbStudentType_RegistrarStudentRegistration.Font = new Font("Segoe UI", 14F);
             cbStudentType_RegistrarStudentRegistration.FormattingEnabled = true;
             cbStudentType_RegistrarStudentRegistration.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbStudentType_RegistrarStudentRegistration.Location = new Point(1292, 135);
+            cbStudentType_RegistrarStudentRegistration.Location = new Point(1529, 135);
             cbStudentType_RegistrarStudentRegistration.Name = "cbStudentType_RegistrarStudentRegistration";
-            cbStudentType_RegistrarStudentRegistration.Size = new Size(419, 39);
+            cbStudentType_RegistrarStudentRegistration.Size = new Size(182, 39);
             cbStudentType_RegistrarStudentRegistration.TabIndex = 231;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label22.Location = new Point(1088, 138);
+            label22.Location = new Point(1354, 138);
             label22.Name = "label22";
             label22.Size = new Size(156, 31);
             label22.TabIndex = 230;
@@ -414,9 +416,9 @@
             label17.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label17.Location = new Point(1512, 558);
             label17.Name = "label17";
-            label17.Size = new Size(106, 32);
+            label17.Size = new Size(116, 32);
             label17.TabIndex = 221;
-            label17.Text = "Province";
+            label17.Text = "Province*";
             // 
             // label16
             // 
@@ -424,9 +426,9 @@
             label16.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label16.Location = new Point(1184, 558);
             label16.Name = "label16";
-            label16.Size = new Size(149, 32);
+            label16.Size = new Size(159, 32);
             label16.TabIndex = 220;
-            label16.Text = "Municipality";
+            label16.Text = "Municipality*";
             // 
             // label15
             // 
@@ -434,9 +436,9 @@
             label15.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label15.Location = new Point(893, 561);
             label15.Name = "label15";
-            label15.Size = new Size(120, 32);
+            label15.Size = new Size(130, 32);
             label15.TabIndex = 219;
-            label15.Text = "Barangay";
+            label15.Text = "Barangay*";
             // 
             // txtProvince_RegistrarStudentRegistration
             // 
@@ -520,9 +522,9 @@
             label11.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label11.Location = new Point(1496, 259);
             label11.Name = "label11";
-            label11.Size = new Size(161, 32);
+            label11.Size = new Size(171, 32);
             label11.TabIndex = 210;
-            label11.Text = "Middle Name";
+            label11.Text = "Middle Name*";
             // 
             // label10
             // 
@@ -530,9 +532,9 @@
             label10.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label10.Location = new Point(1184, 260);
             label10.Name = "label10";
-            label10.Size = new Size(133, 32);
+            label10.Size = new Size(143, 32);
             label10.TabIndex = 209;
-            label10.Text = "First Name";
+            label10.Text = "First Name*";
             // 
             // label9
             // 
@@ -540,9 +542,9 @@
             label9.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label9.Location = new Point(893, 260);
             label9.Name = "label9";
-            label9.Size = new Size(131, 32);
+            label9.Size = new Size(141, 32);
             label9.TabIndex = 208;
-            label9.Text = "Last Name";
+            label9.Text = "Last Name*";
             // 
             // txtMiddleName_RegistrarStudentRegistration
             // 
@@ -624,12 +626,34 @@
             lbStatus.TabIndex = 246;
             lbStatus.Text = "<< Status >>";
             // 
+            // cbSyear
+            // 
+            cbSyear.Font = new Font("Segoe UI", 14F);
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(1166, 135);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(182, 39);
+            cbSyear.TabIndex = 252;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(1018, 141);
+            label5.Name = "label5";
+            label5.Size = new Size(142, 31);
+            label5.TabIndex = 251;
+            label5.Text = "School Year:";
+            // 
             // RegistrarStudentRegistration_Edit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSyear);
+            Controls.Add(label5);
             Controls.Add(lbStatus);
             Controls.Add(lbSection_StudRegEditRegistrar);
             Controls.Add(label3);
@@ -740,5 +764,7 @@
         private Label label3;
         private Label lbSection_StudRegEditRegistrar;
         private Label lbStatus;
+        private ComboBox cbSyear;
+        private Label label5;
     }
 }
