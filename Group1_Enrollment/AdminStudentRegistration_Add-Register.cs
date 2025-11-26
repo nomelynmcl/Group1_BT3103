@@ -98,7 +98,7 @@ namespace EventDriven.Project.UI
                 if (int.TryParse(cbYearLevel_AdminStudentRegistrationAdd.Text, out int selectedGrade))
                 {
                     lbAdminStudReg_SectionAdd.Text = GetSectionByGradeLevel(selectedGrade);
-                    isEdited = true; 
+                    isEdited = true;
                 }
             };
 
@@ -240,7 +240,7 @@ namespace EventDriven.Project.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    btnAdd_AdminStudentRegistrationAdd.PerformClick(); 
+                    btnAdd_AdminStudentRegistrationAdd.PerformClick();
                     AdminStudentRegistration adminStudReg = new AdminStudentRegistration();
                     adminStudReg.Show();
                     this.Close();
@@ -391,6 +391,11 @@ namespace EventDriven.Project.UI
             {
                 lbStatus.Text = "Pending Enrollment";
             }
+        }
+
+        private void AdminStudentRegistration_Add_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

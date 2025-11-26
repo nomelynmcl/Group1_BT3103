@@ -215,5 +215,25 @@ namespace EventDriven.Project.UI
             AdminReport adminReport = new AdminReport();
             adminReport.Show();
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtAdminAddFname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbAdminAddGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdminAddLname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

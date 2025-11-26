@@ -35,9 +35,9 @@
             panel1 = new Panel();
             pcAdminLogo4 = new PictureBox();
             btnAdminStudentInformation4 = new Button();
-            btnAdminAssessment4 = new Button();
             btnAdminStudreg4 = new Button();
             btnAdminPay4 = new Button();
+            btnAdminAssessment4 = new Button();
             btnAdminHistory4 = new Button();
             btnAdminReport4 = new Button();
             btnAdminOut4 = new Button();
@@ -80,18 +80,20 @@
             // 
             // dtAdminEditBirth
             // 
-            dtAdminEditBirth.Location = new Point(786, 135);
+            dtAdminEditBirth.Font = new Font("Segoe UI", 14F);
+            dtAdminEditBirth.Location = new Point(1382, 281);
+            dtAdminEditBirth.Margin = new Padding(3, 4, 3, 4);
             dtAdminEditBirth.Name = "dtAdminEditBirth";
-            dtAdminEditBirth.Size = new Size(200, 23);
+            dtAdminEditBirth.Size = new Size(367, 39);
             dtAdminEditBirth.TabIndex = 115;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label1.Location = new Point(709, 139);
+            label1.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label1.Location = new Point(1258, 286);
             label1.Name = "label1";
-            label1.Size = new Size(71, 17);
+            label1.Size = new Size(117, 30);
             label1.TabIndex = 114;
             label1.Text = "Birthdate: ";
             // 
@@ -100,33 +102,36 @@
             flowLayoutPanel1.BackColor = Color.CadetBlue;
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(btnAdminStudentInformation4);
-            flowLayoutPanel1.Controls.Add(btnAdminAssessment4);
             flowLayoutPanel1.Controls.Add(btnAdminStudreg4);
             flowLayoutPanel1.Controls.Add(btnAdminPay4);
+            flowLayoutPanel1.Controls.Add(btnAdminAssessment4);
             flowLayoutPanel1.Controls.Add(btnAdminHistory4);
             flowLayoutPanel1.Controls.Add(btnAdminReport4);
             flowLayoutPanel1.Controls.Add(btnAdminOut4);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(251, 522);
+            flowLayoutPanel1.Size = new Size(474, 1033);
             flowLayoutPanel1.TabIndex = 113;
             // 
             // panel1
             // 
             panel1.Controls.Add(pcAdminLogo4);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(248, 140);
+            panel1.Size = new Size(458, 277);
             panel1.TabIndex = 0;
             // 
             // pcAdminLogo4
             // 
             pcAdminLogo4.BackColor = Color.CadetBlue;
             pcAdminLogo4.Image = (Image)resources.GetObject("pcAdminLogo4.Image");
-            pcAdminLogo4.Location = new Point(44, 14);
+            pcAdminLogo4.Location = new Point(50, 27);
+            pcAdminLogo4.Margin = new Padding(3, 4, 3, 4);
             pcAdminLogo4.Name = "pcAdminLogo4";
-            pcAdminLogo4.Size = new Size(154, 126);
+            pcAdminLogo4.Size = new Size(333, 239);
             pcAdminLogo4.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo4.TabIndex = 0;
             pcAdminLogo4.TabStop = false;
@@ -136,37 +141,25 @@
             // 
             btnAdminStudentInformation4.BackColor = Color.DarkSlateGray;
             btnAdminStudentInformation4.FlatStyle = FlatStyle.Flat;
-            btnAdminStudentInformation4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminStudentInformation4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnAdminStudentInformation4.ForeColor = SystemColors.ControlLight;
-            btnAdminStudentInformation4.Location = new Point(20, 156);
-            btnAdminStudentInformation4.Margin = new Padding(20, 10, 3, 3);
+            btnAdminStudentInformation4.Location = new Point(23, 298);
+            btnAdminStudentInformation4.Margin = new Padding(23, 13, 3, 4);
             btnAdminStudentInformation4.Name = "btnAdminStudentInformation4";
-            btnAdminStudentInformation4.Size = new Size(211, 42);
+            btnAdminStudentInformation4.Size = new Size(421, 79);
             btnAdminStudentInformation4.TabIndex = 3;
             btnAdminStudentInformation4.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation4.UseVisualStyleBackColor = false;
             // 
-            // btnAdminAssessment4
-            // 
-            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminAssessment4.Location = new Point(20, 204);
-            btnAdminAssessment4.Margin = new Padding(20, 3, 3, 3);
-            btnAdminAssessment4.Name = "btnAdminAssessment4";
-            btnAdminAssessment4.Size = new Size(211, 42);
-            btnAdminAssessment4.TabIndex = 4;
-            btnAdminAssessment4.Text = "ASSESSMENT";
-            btnAdminAssessment4.UseVisualStyleBackColor = true;
-            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
-            // 
             // btnAdminStudreg4
             // 
             btnAdminStudreg4.FlatStyle = FlatStyle.Flat;
-            btnAdminStudreg4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudreg4.Location = new Point(20, 252);
-            btnAdminStudreg4.Margin = new Padding(20, 3, 3, 3);
+            btnAdminStudreg4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminStudreg4.ForeColor = Color.AliceBlue;
+            btnAdminStudreg4.Location = new Point(23, 385);
+            btnAdminStudreg4.Margin = new Padding(23, 4, 3, 4);
             btnAdminStudreg4.Name = "btnAdminStudreg4";
-            btnAdminStudreg4.Size = new Size(211, 42);
+            btnAdminStudreg4.Size = new Size(421, 79);
             btnAdminStudreg4.TabIndex = 5;
             btnAdminStudreg4.Text = " STUDENT REGISTRATION";
             btnAdminStudreg4.UseVisualStyleBackColor = true;
@@ -175,24 +168,40 @@
             // btnAdminPay4
             // 
             btnAdminPay4.FlatStyle = FlatStyle.Flat;
-            btnAdminPay4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay4.Location = new Point(20, 300);
-            btnAdminPay4.Margin = new Padding(20, 3, 3, 3);
+            btnAdminPay4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminPay4.ForeColor = Color.AliceBlue;
+            btnAdminPay4.Location = new Point(23, 472);
+            btnAdminPay4.Margin = new Padding(23, 4, 3, 4);
             btnAdminPay4.Name = "btnAdminPay4";
-            btnAdminPay4.Size = new Size(211, 42);
+            btnAdminPay4.Size = new Size(421, 79);
             btnAdminPay4.TabIndex = 6;
             btnAdminPay4.Text = "PAYMENT";
             btnAdminPay4.UseVisualStyleBackColor = true;
             btnAdminPay4.Click += btnAdminPay4_Click;
             // 
+            // btnAdminAssessment4
+            // 
+            btnAdminAssessment4.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment4.ForeColor = Color.AliceBlue;
+            btnAdminAssessment4.Location = new Point(23, 559);
+            btnAdminAssessment4.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment4.Name = "btnAdminAssessment4";
+            btnAdminAssessment4.Size = new Size(421, 79);
+            btnAdminAssessment4.TabIndex = 4;
+            btnAdminAssessment4.Text = "ASSESSMENT";
+            btnAdminAssessment4.UseVisualStyleBackColor = true;
+            btnAdminAssessment4.Click += btnAdminAssessment4_Click;
+            // 
             // btnAdminHistory4
             // 
             btnAdminHistory4.FlatStyle = FlatStyle.Flat;
-            btnAdminHistory4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory4.Location = new Point(20, 348);
-            btnAdminHistory4.Margin = new Padding(20, 3, 3, 3);
+            btnAdminHistory4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminHistory4.ForeColor = Color.AliceBlue;
+            btnAdminHistory4.Location = new Point(23, 646);
+            btnAdminHistory4.Margin = new Padding(23, 4, 3, 4);
             btnAdminHistory4.Name = "btnAdminHistory4";
-            btnAdminHistory4.Size = new Size(211, 42);
+            btnAdminHistory4.Size = new Size(421, 79);
             btnAdminHistory4.TabIndex = 7;
             btnAdminHistory4.Text = "PAYMENT HISTORY";
             btnAdminHistory4.UseVisualStyleBackColor = true;
@@ -201,11 +210,12 @@
             // btnAdminReport4
             // 
             btnAdminReport4.FlatStyle = FlatStyle.Flat;
-            btnAdminReport4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminReport4.Location = new Point(20, 396);
-            btnAdminReport4.Margin = new Padding(20, 3, 3, 3);
+            btnAdminReport4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminReport4.ForeColor = Color.AliceBlue;
+            btnAdminReport4.Location = new Point(23, 733);
+            btnAdminReport4.Margin = new Padding(23, 4, 3, 4);
             btnAdminReport4.Name = "btnAdminReport4";
-            btnAdminReport4.Size = new Size(211, 42);
+            btnAdminReport4.Size = new Size(421, 79);
             btnAdminReport4.TabIndex = 8;
             btnAdminReport4.Text = "REPORT";
             btnAdminReport4.UseVisualStyleBackColor = true;
@@ -214,11 +224,12 @@
             // btnAdminOut4
             // 
             btnAdminOut4.FlatStyle = FlatStyle.Flat;
-            btnAdminOut4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOut4.Location = new Point(20, 444);
-            btnAdminOut4.Margin = new Padding(20, 3, 3, 3);
+            btnAdminOut4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminOut4.ForeColor = Color.AliceBlue;
+            btnAdminOut4.Location = new Point(23, 820);
+            btnAdminOut4.Margin = new Padding(23, 4, 3, 4);
             btnAdminOut4.Name = "btnAdminOut4";
-            btnAdminOut4.Size = new Size(211, 42);
+            btnAdminOut4.Size = new Size(421, 79);
             btnAdminOut4.TabIndex = 9;
             btnAdminOut4.Text = "LOG OUT";
             btnAdminOut4.UseVisualStyleBackColor = true;
@@ -226,318 +237,333 @@
             // 
             // btnAdminBack_Edit
             // 
-            btnAdminBack_Edit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminBack_Edit.Location = new Point(301, 17);
-            btnAdminBack_Edit.Margin = new Padding(3, 2, 3, 2);
+            btnAdminBack_Edit.BackColor = Color.CadetBlue;
+            btnAdminBack_Edit.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnAdminBack_Edit.ForeColor = Color.AliceBlue;
+            btnAdminBack_Edit.Location = new Point(565, 31);
             btnAdminBack_Edit.Name = "btnAdminBack_Edit";
-            btnAdminBack_Edit.Size = new Size(83, 25);
+            btnAdminBack_Edit.Size = new Size(154, 54);
             btnAdminBack_Edit.TabIndex = 112;
             btnAdminBack_Edit.Text = "Back";
-            btnAdminBack_Edit.UseVisualStyleBackColor = true;
+            btnAdminBack_Edit.UseVisualStyleBackColor = false;
             btnAdminBack_Edit.Click += btnAdminBack_Edit_Click;
             // 
             // btnAdminStudInfoSave_Edit
             // 
-            btnAdminStudInfoSave_Edit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoSave_Edit.Location = new Point(555, 470);
-            btnAdminStudInfoSave_Edit.Margin = new Padding(3, 2, 3, 2);
+            btnAdminStudInfoSave_Edit.BackColor = Color.CadetBlue;
+            btnAdminStudInfoSave_Edit.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnAdminStudInfoSave_Edit.ForeColor = Color.AliceBlue;
+            btnAdminStudInfoSave_Edit.Location = new Point(881, 932);
             btnAdminStudInfoSave_Edit.Name = "btnAdminStudInfoSave_Edit";
-            btnAdminStudInfoSave_Edit.Size = new Size(104, 32);
+            btnAdminStudInfoSave_Edit.Size = new Size(154, 54);
             btnAdminStudInfoSave_Edit.TabIndex = 111;
             btnAdminStudInfoSave_Edit.Text = "Save";
-            btnAdminStudInfoSave_Edit.UseVisualStyleBackColor = true;
+            btnAdminStudInfoSave_Edit.UseVisualStyleBackColor = false;
             btnAdminStudInfoSave_Edit.Click += btnAdminStudInfoSave_Edit_Click;
             // 
             // cbAdminEditType
             // 
+            cbAdminEditType.Font = new Font("Segoe UI", 14F);
             cbAdminEditType.FormattingEnabled = true;
             cbAdminEditType.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbAdminEditType.Location = new Point(727, 421);
-            cbAdminEditType.Margin = new Padding(3, 2, 3, 2);
+            cbAdminEditType.Location = new Point(1412, 731);
             cbAdminEditType.Name = "cbAdminEditType";
-            cbAdminEditType.Size = new Size(168, 23);
+            cbAdminEditType.Size = new Size(336, 39);
             cbAdminEditType.TabIndex = 110;
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.Location = new Point(630, 422);
+            label22.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label22.Location = new Point(1239, 736);
             label22.Name = "label22";
-            label22.Size = new Size(91, 17);
+            label22.Size = new Size(149, 30);
             label22.TabIndex = 109;
             label22.Text = "Student Type:";
             // 
             // cbAdminEditLevel
             // 
+            cbAdminEditLevel.Font = new Font("Segoe UI", 14F);
             cbAdminEditLevel.FormattingEnabled = true;
             cbAdminEditLevel.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
-            cbAdminEditLevel.Location = new Point(429, 421);
-            cbAdminEditLevel.Margin = new Padding(3, 2, 3, 2);
+            cbAdminEditLevel.Location = new Point(849, 732);
             cbAdminEditLevel.Name = "cbAdminEditLevel";
-            cbAdminEditLevel.Size = new Size(168, 23);
+            cbAdminEditLevel.Size = new Size(319, 39);
             cbAdminEditLevel.TabIndex = 108;
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label21.Location = new Point(340, 422);
+            label21.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label21.Location = new Point(614, 736);
             label21.Name = "label21";
-            label21.Size = new Size(71, 17);
+            label21.Size = new Size(118, 30);
             label21.TabIndex = 107;
             label21.Text = "Year Level:";
             // 
             // txtAdminEditGuardianContact
             // 
-            txtAdminEditGuardianContact.Location = new Point(470, 373);
-            txtAdminEditGuardianContact.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditGuardianContact.Font = new Font("Segoe UI", 14F);
+            txtAdminEditGuardianContact.Location = new Point(1462, 614);
+            txtAdminEditGuardianContact.Multiline = true;
             txtAdminEditGuardianContact.Name = "txtAdminEditGuardianContact";
-            txtAdminEditGuardianContact.Size = new Size(278, 23);
+            txtAdminEditGuardianContact.Size = new Size(387, 44);
             txtAdminEditGuardianContact.TabIndex = 106;
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label20.Location = new Point(340, 374);
+            label20.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label20.Location = new Point(1263, 622);
             label20.Name = "label20";
-            label20.Size = new Size(113, 17);
+            label20.Size = new Size(184, 30);
             label20.TabIndex = 105;
             label20.Text = "Contact Number:";
             // 
             // txtAdminEditGuardian
             // 
-            txtAdminEditGuardian.Location = new Point(470, 331);
-            txtAdminEditGuardian.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditGuardian.Font = new Font("Segoe UI", 14F);
+            txtAdminEditGuardian.Location = new Point(849, 614);
+            txtAdminEditGuardian.Multiline = true;
             txtAdminEditGuardian.Name = "txtAdminEditGuardian";
-            txtAdminEditGuardian.Size = new Size(278, 23);
+            txtAdminEditGuardian.Size = new Size(389, 44);
             txtAdminEditGuardian.TabIndex = 104;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label19.Location = new Point(340, 332);
+            label19.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label19.Location = new Point(613, 628);
             label19.Name = "label19";
-            label19.Size = new Size(113, 17);
+            label19.Size = new Size(186, 30);
             label19.TabIndex = 103;
             label19.Text = "Guardian's Name:";
             // 
             // txtAdminEditStudContact
             // 
-            txtAdminEditStudContact.Location = new Point(470, 285);
-            txtAdminEditStudContact.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditStudContact.Font = new Font("Segoe UI", 14F);
+            txtAdminEditStudContact.Location = new Point(1432, 383);
+            txtAdminEditStudContact.Multiline = true;
             txtAdminEditStudContact.Name = "txtAdminEditStudContact";
-            txtAdminEditStudContact.Size = new Size(278, 23);
+            txtAdminEditStudContact.Size = new Size(317, 44);
             txtAdminEditStudContact.TabIndex = 102;
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label18.Location = new Point(340, 291);
+            label18.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label18.Location = new Point(1215, 392);
             label18.Name = "label18";
-            label18.Size = new Size(113, 17);
+            label18.Size = new Size(184, 30);
             label18.TabIndex = 101;
             label18.Text = "Contact Number:";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label17.Location = new Point(880, 252);
+            label17.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label17.Location = new Point(1554, 529);
             label17.Name = "label17";
-            label17.Size = new Size(53, 15);
+            label17.Size = new Size(97, 30);
             label17.TabIndex = 100;
             label17.Text = "Province";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label16.Location = new Point(685, 252);
+            label16.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label16.Location = new Point(1229, 529);
             label16.Name = "label16";
-            label16.Size = new Size(72, 15);
+            label16.Size = new Size(135, 30);
             label16.TabIndex = 99;
             label16.Text = "Municipality";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label15.Location = new Point(523, 252);
+            label15.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label15.Location = new Point(917, 529);
             label15.Name = "label15";
-            label15.Size = new Size(60, 15);
+            label15.Size = new Size(106, 30);
             label15.TabIndex = 98;
             label15.Text = "Barangay";
             // 
             // txtAdminEditProvince
             // 
-            txtAdminEditProvince.Location = new Point(818, 223);
-            txtAdminEditProvince.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditProvince.Font = new Font("Segoe UI", 14F);
+            txtAdminEditProvince.Location = new Point(1461, 482);
+            txtAdminEditProvince.Multiline = true;
             txtAdminEditProvince.Name = "txtAdminEditProvince";
-            txtAdminEditProvince.Size = new Size(168, 23);
+            txtAdminEditProvince.Size = new Size(287, 44);
             txtAdminEditProvince.TabIndex = 97;
             // 
             // txtAdminEditMunicipality
             // 
-            txtAdminEditMunicipality.Location = new Point(644, 223);
-            txtAdminEditMunicipality.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditMunicipality.Font = new Font("Segoe UI", 14F);
+            txtAdminEditMunicipality.Location = new Point(1153, 482);
+            txtAdminEditMunicipality.Multiline = true;
             txtAdminEditMunicipality.Name = "txtAdminEditMunicipality";
-            txtAdminEditMunicipality.Size = new Size(168, 23);
+            txtAdminEditMunicipality.Size = new Size(287, 44);
             txtAdminEditMunicipality.TabIndex = 96;
             // 
             // txtAdminEditBarangay
             // 
-            txtAdminEditBarangay.Location = new Point(470, 223);
-            txtAdminEditBarangay.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditBarangay.Font = new Font("Segoe UI", 14F);
+            txtAdminEditBarangay.Location = new Point(838, 482);
+            txtAdminEditBarangay.Multiline = true;
             txtAdminEditBarangay.Name = "txtAdminEditBarangay";
-            txtAdminEditBarangay.Size = new Size(168, 23);
+            txtAdminEditBarangay.Size = new Size(287, 44);
             txtAdminEditBarangay.TabIndex = 95;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label14.Location = new Point(340, 229);
+            label14.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label14.Location = new Point(613, 489);
             label14.Name = "label14";
-            label14.Size = new Size(60, 17);
+            label14.Size = new Size(97, 30);
             label14.TabIndex = 94;
             label14.Text = "Address:";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label13.Location = new Point(340, 184);
+            label13.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label13.Location = new Point(611, 388);
             label13.Name = "label13";
-            label13.Size = new Size(56, 17);
+            label13.Size = new Size(92, 30);
             label13.TabIndex = 93;
             label13.Text = "Gender:";
             // 
             // cbAdminEditGender
             // 
+            cbAdminEditGender.Font = new Font("Segoe UI", 14F);
             cbAdminEditGender.FormattingEnabled = true;
             cbAdminEditGender.Items.AddRange(new object[] { "Male", "Female" });
-            cbAdminEditGender.Location = new Point(470, 178);
-            cbAdminEditGender.Margin = new Padding(3, 2, 3, 2);
+            cbAdminEditGender.Location = new Point(838, 388);
             cbAdminEditGender.Name = "cbAdminEditGender";
-            cbAdminEditGender.Size = new Size(189, 23);
+            cbAdminEditGender.Size = new Size(330, 39);
             cbAdminEditGender.TabIndex = 92;
             // 
             // txtAdminEditAge
             // 
-            txtAdminEditAge.Location = new Point(470, 135);
-            txtAdminEditAge.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditAge.Font = new Font("Segoe UI", 14F);
+            txtAdminEditAge.Location = new Point(838, 280);
+            txtAdminEditAge.Multiline = true;
             txtAdminEditAge.Name = "txtAdminEditAge";
-            txtAdminEditAge.Size = new Size(212, 23);
+            txtAdminEditAge.Size = new Size(383, 44);
             txtAdminEditAge.TabIndex = 91;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label12.Location = new Point(340, 141);
+            label12.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label12.Location = new Point(613, 282);
             label12.Name = "label12";
-            label12.Size = new Size(35, 17);
+            label12.Size = new Size(58, 30);
             label12.TabIndex = 90;
             label12.Text = "Age:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label11.Location = new Point(867, 102);
+            label11.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label11.Location = new Point(1530, 196);
             label11.Name = "label11";
-            label11.Size = new Size(79, 15);
+            label11.Size = new Size(144, 30);
             label11.TabIndex = 89;
             label11.Text = "Middle Name";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label10.Location = new Point(691, 102);
+            label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label10.Location = new Point(1229, 196);
             label10.Name = "label10";
-            label10.Size = new Size(66, 15);
+            label10.Size = new Size(120, 30);
             label10.TabIndex = 88;
             label10.Text = "First Name";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic);
-            label9.Location = new Point(518, 102);
+            label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label9.Location = new Point(917, 196);
             label9.Name = "label9";
-            label9.Size = new Size(65, 15);
+            label9.Size = new Size(118, 30);
             label9.TabIndex = 87;
             label9.Text = "Last Name";
+            label9.Click += label9_Click;
             // 
             // txtAdminEditMname
             // 
-            txtAdminEditMname.Location = new Point(818, 70);
-            txtAdminEditMname.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditMname.Font = new Font("Segoe UI", 14F);
+            txtAdminEditMname.Location = new Point(1461, 149);
+            txtAdminEditMname.Multiline = true;
             txtAdminEditMname.Name = "txtAdminEditMname";
-            txtAdminEditMname.Size = new Size(168, 23);
+            txtAdminEditMname.Size = new Size(287, 44);
             txtAdminEditMname.TabIndex = 86;
             // 
             // txtAdminEditFname
             // 
-            txtAdminEditFname.Location = new Point(644, 70);
-            txtAdminEditFname.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditFname.Font = new Font("Segoe UI", 14F);
+            txtAdminEditFname.Location = new Point(1153, 149);
+            txtAdminEditFname.Multiline = true;
             txtAdminEditFname.Name = "txtAdminEditFname";
-            txtAdminEditFname.Size = new Size(168, 23);
+            txtAdminEditFname.Size = new Size(287, 44);
             txtAdminEditFname.TabIndex = 85;
             // 
             // txtAdminEditLname
             // 
-            txtAdminEditLname.Location = new Point(470, 70);
-            txtAdminEditLname.Margin = new Padding(3, 2, 3, 2);
+            txtAdminEditLname.Font = new Font("Segoe UI", 14F);
+            txtAdminEditLname.Location = new Point(838, 149);
+            txtAdminEditLname.Multiline = true;
             txtAdminEditLname.Name = "txtAdminEditLname";
-            txtAdminEditLname.Size = new Size(168, 23);
+            txtAdminEditLname.Size = new Size(287, 44);
             txtAdminEditLname.TabIndex = 84;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label8.Location = new Point(340, 76);
+            label8.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label8.Location = new Point(613, 157);
             label8.Name = "label8";
-            label8.Size = new Size(72, 17);
+            label8.Size = new Size(119, 30);
             label8.TabIndex = 83;
             label8.Text = "Full Name:";
             // 
             // btnAdminEditView
             // 
-            btnAdminEditView.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminEditView.Location = new Point(958, 17);
-            btnAdminEditView.Margin = new Padding(3, 2, 3, 2);
+            btnAdminEditView.BackColor = Color.CadetBlue;
+            btnAdminEditView.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnAdminEditView.ForeColor = Color.AliceBlue;
+            btnAdminEditView.Location = new Point(1651, 31);
             btnAdminEditView.Name = "btnAdminEditView";
-            btnAdminEditView.Size = new Size(83, 25);
+            btnAdminEditView.Size = new Size(154, 54);
             btnAdminEditView.TabIndex = 82;
             btnAdminEditView.Text = "View";
-            btnAdminEditView.UseVisualStyleBackColor = true;
+            btnAdminEditView.UseVisualStyleBackColor = false;
             btnAdminEditView.Click += btnAdminEditView_Click;
             // 
             // btnAdminStudInfoDelete_Edit
             // 
-            btnAdminStudInfoDelete_Edit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btnAdminStudInfoDelete_Edit.Location = new Point(675, 470);
-            btnAdminStudInfoDelete_Edit.Margin = new Padding(3, 2, 3, 2);
+            btnAdminStudInfoDelete_Edit.BackColor = Color.CadetBlue;
+            btnAdminStudInfoDelete_Edit.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            btnAdminStudInfoDelete_Edit.ForeColor = Color.AliceBlue;
+            btnAdminStudInfoDelete_Edit.Location = new Point(1345, 932);
             btnAdminStudInfoDelete_Edit.Name = "btnAdminStudInfoDelete_Edit";
-            btnAdminStudInfoDelete_Edit.Size = new Size(104, 32);
+            btnAdminStudInfoDelete_Edit.Size = new Size(154, 54);
             btnAdminStudInfoDelete_Edit.TabIndex = 116;
             btnAdminStudInfoDelete_Edit.Text = "Delete";
-            btnAdminStudInfoDelete_Edit.UseVisualStyleBackColor = true;
+            btnAdminStudInfoDelete_Edit.UseVisualStyleBackColor = false;
             btnAdminStudInfoDelete_Edit.Click += btnAdminStudInfoDelete_Edit_Click;
             // 
             // AdminStudInfo_Edit
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1058, 522);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(btnAdminStudInfoDelete_Edit);
             Controls.Add(dtAdminEditBirth);
             Controls.Add(label1);
@@ -573,6 +599,7 @@
             Controls.Add(txtAdminEditLname);
             Controls.Add(label8);
             Controls.Add(btnAdminEditView);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AdminStudInfo_Edit";
