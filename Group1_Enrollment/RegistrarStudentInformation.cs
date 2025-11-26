@@ -34,6 +34,7 @@ namespace EventDriven.Project.UI
                 string firstname = dtgRegistrarStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string lastname = dtgRegistrarStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
                 string middlename = dtgRegistrarStudentInfoList.CurrentRow.Cells["MiddleName"].Value.ToString();
+                string suffix = dtgRegistrarStudentInfoList.CurrentRow.Cells["Suffix"].Value.ToString();
                 string contactNumber = dtgRegistrarStudentInfoList.CurrentRow.Cells["ContactNumber"].Value.ToString();
                 string gender = dtgRegistrarStudentInfoList.CurrentRow.Cells["Gender"].Value.ToString();
                 string barangay = dtgRegistrarStudentInfoList.CurrentRow.Cells["Barangay"].Value.ToString();
@@ -45,12 +46,14 @@ namespace EventDriven.Project.UI
                 string guardian = dtgRegistrarStudentInfoList.CurrentRow.Cells["GuardianName"].Value.ToString();
                 string guardianContact = dtgRegistrarStudentInfoList.CurrentRow.Cells["GuardianContact"].Value.ToString();
                 string studentType = dtgRegistrarStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string schoolYear = dtgRegistrarStudentInfoList.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 RegistrarStudentInfo_Edit adStudInfo_edit = new RegistrarStudentInfo_Edit(
                     id,
                     firstname,
                     lastname,
                     middlename,
+                    suffix,
                     contactNumber,
                     gender,
                     age,
@@ -61,7 +64,8 @@ namespace EventDriven.Project.UI
                     gradeLevel,
                     guardian,
                     guardianContact,
-                    studentType);
+                    studentType,
+                    schoolYear);
                 adStudInfo_edit.Show();
                 this.Hide();
             }
@@ -80,7 +84,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Suffix, ContactNumber, Gender, Age, Birthdate, Barangay, Municipality, Province, GradeLevel, GuardianName, GuardianContact, StudentType, Section, SchoolYear FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -98,6 +102,7 @@ namespace EventDriven.Project.UI
                                 Firstname = reader["FirstName"].ToString(),
                                 Lastname = reader["LastName"].ToString(),
                                 Middlename = reader["MiddleName"].ToString(),
+                                Suffix = reader["Suffix"].ToString(),
                                 ContactNumber = reader["ContactNumber"].ToString(),
                                 Gender = reader["Gender"].ToString(),
                                 Age = Convert.ToInt32(reader["Age"].ToString()),
@@ -108,12 +113,14 @@ namespace EventDriven.Project.UI
                                 GradeLevel = Convert.ToInt32(reader["GradeLevel"].ToString()),
                                 GuardianName = reader["GuardianName"].ToString(),
                                 GuardianContact = reader["GuardianContact"].ToString(),
-                                StudentType = reader["StudentType"].ToString()
+                                StudentType = reader["StudentType"].ToString(),
+                                SchoolYear = reader["SchoolYear"].ToString()
                             });
                         }
 
                         studentSearch = records;
                         dtgRegistrarStudentInfoList.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgRegistrarStudentInfoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     }
                 }
             }
@@ -130,6 +137,7 @@ namespace EventDriven.Project.UI
 
                 string firstName = dtgRegistrarStudentInfoList.CurrentRow.Cells["FirstName"].Value.ToString();
                 string middleName = dtgRegistrarStudentInfoList.CurrentRow.Cells["MiddleName"].Value.ToString();
+                string suffix = dtgRegistrarStudentInfoList.CurrentRow.Cells["Suffix"].Value.ToString();
                 string lastName = dtgRegistrarStudentInfoList.CurrentRow.Cells["LastName"].Value.ToString();
                 int age = Convert.ToInt32(dtgRegistrarStudentInfoList.CurrentRow.Cells["Age"].Value.ToString());
                 DateTime birthdate = Convert.ToDateTime(dtgRegistrarStudentInfoList.CurrentRow.Cells["Birthdate"].Value.ToString());
@@ -142,11 +150,13 @@ namespace EventDriven.Project.UI
                 string guardianContact = dtgRegistrarStudentInfoList.CurrentRow.Cells["GuardianContact"].Value.ToString();
                 int gradeLevel = Convert.ToInt32(dtgRegistrarStudentInfoList.CurrentRow.Cells["GradeLevel"].Value.ToString());
                 string studentType = dtgRegistrarStudentInfoList.CurrentRow.Cells["StudentType"].Value.ToString();
+                string schoolyear = dtgRegistrarStudentInfoList.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstName,
                 middleName,
                 lastName,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -157,7 +167,8 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType,
+                schoolyear
             );
 
                 this.Hide();
@@ -230,6 +241,13 @@ namespace EventDriven.Project.UI
         {
             RegistrarReport registrarReport = new RegistrarReport();
             registrarReport.Show();
+            this.Close();
+        }
+
+        private void btnRegistrarStudentInformation_Click(object sender, EventArgs e)
+        {
+            Registrar___Student_Information registrar___Student_Information = new Registrar___Student_Information();
+            registrar___Student_Information.Show();
             this.Close();
         }
     }

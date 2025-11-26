@@ -74,7 +74,9 @@
             btnAdminEditView = new Button();
             btnAdminStudInfoDelete_Edit = new Button();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            cbSyear = new ComboBox();
+            label3 = new Label();
+            txtSuffix = new TextBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -88,6 +90,7 @@
             dtAdminEditBirth.Name = "dtAdminEditBirth";
             dtAdminEditBirth.Size = new Size(367, 39);
             dtAdminEditBirth.TabIndex = 115;
+            dtAdminEditBirth.ValueChanged += dtAdminEditBirth_ValueChanged;
             // 
             // label1
             // 
@@ -470,7 +473,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label11.Location = new Point(1530, 196);
+            label11.Location = new Point(1368, 196);
             label11.Name = "label11";
             label11.Size = new Size(154, 30);
             label11.TabIndex = 89;
@@ -480,7 +483,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label10.Location = new Point(1229, 196);
+            label10.Location = new Point(1136, 196);
             label10.Name = "label10";
             label10.Size = new Size(130, 30);
             label10.TabIndex = 88;
@@ -490,7 +493,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label9.Location = new Point(917, 196);
+            label9.Location = new Point(891, 196);
             label9.Name = "label9";
             label9.Size = new Size(128, 30);
             label9.TabIndex = 87;
@@ -500,19 +503,19 @@
             // txtAdminEditMname
             // 
             txtAdminEditMname.Font = new Font("Segoe UI", 14F);
-            txtAdminEditMname.Location = new Point(1461, 149);
+            txtAdminEditMname.Location = new Point(1328, 148);
             txtAdminEditMname.Multiline = true;
             txtAdminEditMname.Name = "txtAdminEditMname";
-            txtAdminEditMname.Size = new Size(287, 44);
+            txtAdminEditMname.Size = new Size(239, 39);
             txtAdminEditMname.TabIndex = 86;
             // 
             // txtAdminEditFname
             // 
             txtAdminEditFname.Font = new Font("Segoe UI", 14F);
-            txtAdminEditFname.Location = new Point(1153, 149);
+            txtAdminEditFname.Location = new Point(1083, 149);
             txtAdminEditFname.Multiline = true;
             txtAdminEditFname.Name = "txtAdminEditFname";
-            txtAdminEditFname.Size = new Size(287, 44);
+            txtAdminEditFname.Size = new Size(239, 39);
             txtAdminEditFname.TabIndex = 85;
             // 
             // txtAdminEditLname
@@ -521,7 +524,7 @@
             txtAdminEditLname.Location = new Point(838, 149);
             txtAdminEditLname.Multiline = true;
             txtAdminEditLname.Name = "txtAdminEditLname";
-            txtAdminEditLname.Size = new Size(287, 44);
+            txtAdminEditLname.Size = new Size(239, 39);
             txtAdminEditLname.TabIndex = 84;
             // 
             // label8
@@ -570,15 +573,34 @@
             label2.TabIndex = 117;
             label2.Text = "School Year:";
             // 
-            // comboBox1
+            // cbSyear
             // 
-            comboBox1.Font = new Font("Segoe UI", 14F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
-            comboBox1.Location = new Point(1567, 727);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 39);
-            comboBox1.TabIndex = 118;
+            cbSyear.Font = new Font("Segoe UI", 14F);
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(1567, 727);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(182, 39);
+            cbSyear.TabIndex = 118;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label3.Location = new Point(1610, 196);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 30);
+            label3.TabIndex = 120;
+            label3.Text = "Suffix*";
+            // 
+            // txtSuffix
+            // 
+            txtSuffix.Font = new Font("Segoe UI", 14F);
+            txtSuffix.Location = new Point(1573, 149);
+            txtSuffix.Multiline = true;
+            txtSuffix.Name = "txtSuffix";
+            txtSuffix.Size = new Size(175, 38);
+            txtSuffix.TabIndex = 119;
             // 
             // AdminStudInfo_Edit
             // 
@@ -586,7 +608,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(comboBox1);
+            Controls.Add(label3);
+            Controls.Add(txtSuffix);
+            Controls.Add(cbSyear);
             Controls.Add(label2);
             Controls.Add(btnAdminStudInfoDelete_Edit);
             Controls.Add(dtAdminEditBirth);
@@ -683,6 +707,8 @@
         private Button btnAdminEditView;
         private Button btnAdminStudInfoDelete_Edit;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox cbSyear;
+        private Label label3;
+        private TextBox txtSuffix;
     }
 }

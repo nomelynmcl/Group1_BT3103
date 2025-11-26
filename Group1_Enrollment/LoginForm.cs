@@ -87,6 +87,8 @@ namespace EventDriven.Project.UI
                     {
                         MessageBox.Show("Too many failed attempts. The application will now close.",
                                         "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        UserRolesForm userRolesForm = new UserRolesForm();
+                        userRolesForm.Show();
                         this.Close(); // Close the login form completely
                     }
                 }

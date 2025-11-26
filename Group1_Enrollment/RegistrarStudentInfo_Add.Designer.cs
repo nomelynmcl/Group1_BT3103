@@ -72,6 +72,8 @@
             btnRegistrarAddView = new Button();
             cbSyear = new ComboBox();
             label5 = new Label();
+            label3 = new Label();
+            txtSuffix = new TextBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo3).BeginInit();
@@ -204,6 +206,7 @@
             dtRegistrarAddBirth.Name = "dtRegistrarAddBirth";
             dtRegistrarAddBirth.Size = new Size(351, 39);
             dtRegistrarAddBirth.TabIndex = 117;
+            dtRegistrarAddBirth.ValueChanged += dtRegistrarAddBirth_ValueChanged;
             // 
             // label1
             // 
@@ -360,6 +363,7 @@
             // 
             // txtRegistrarAddProvince
             // 
+            txtRegistrarAddProvince.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRegistrarAddProvince.Location = new Point(1458, 502);
             txtRegistrarAddProvince.Multiline = true;
             txtRegistrarAddProvince.Name = "txtRegistrarAddProvince";
@@ -438,7 +442,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
-            label11.Location = new Point(1477, 200);
+            label11.Location = new Point(1363, 200);
             label11.Name = "label11";
             label11.Size = new Size(171, 32);
             label11.TabIndex = 93;
@@ -448,7 +452,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
-            label10.Location = new Point(1207, 200);
+            label10.Location = new Point(1121, 200);
             label10.Name = "label10";
             label10.Size = new Size(143, 32);
             label10.TabIndex = 92;
@@ -458,7 +462,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
-            label9.Location = new Point(907, 200);
+            label9.Location = new Point(893, 200);
             label9.Name = "label9";
             label9.Size = new Size(141, 32);
             label9.TabIndex = 91;
@@ -467,19 +471,19 @@
             // txtRegistrarAddMname
             // 
             txtRegistrarAddMname.Font = new Font("Segoe UI", 14F);
-            txtRegistrarAddMname.Location = new Point(1457, 153);
+            txtRegistrarAddMname.Location = new Point(1321, 153);
             txtRegistrarAddMname.Multiline = true;
             txtRegistrarAddMname.Name = "txtRegistrarAddMname";
-            txtRegistrarAddMname.Size = new Size(287, 44);
+            txtRegistrarAddMname.Size = new Size(239, 39);
             txtRegistrarAddMname.TabIndex = 90;
             // 
             // txtRegistrarAddFname
             // 
             txtRegistrarAddFname.Font = new Font("Segoe UI", 14F);
-            txtRegistrarAddFname.Location = new Point(1148, 153);
+            txtRegistrarAddFname.Location = new Point(1076, 153);
             txtRegistrarAddFname.Multiline = true;
             txtRegistrarAddFname.Name = "txtRegistrarAddFname";
-            txtRegistrarAddFname.Size = new Size(287, 44);
+            txtRegistrarAddFname.Size = new Size(239, 39);
             txtRegistrarAddFname.TabIndex = 89;
             // 
             // txtRegistrarAddLname
@@ -488,7 +492,7 @@
             txtRegistrarAddLname.Location = new Point(830, 153);
             txtRegistrarAddLname.Multiline = true;
             txtRegistrarAddLname.Name = "txtRegistrarAddLname";
-            txtRegistrarAddLname.Size = new Size(287, 44);
+            txtRegistrarAddLname.Size = new Size(239, 39);
             txtRegistrarAddLname.TabIndex = 88;
             // 
             // label8
@@ -534,12 +538,33 @@
             label5.TabIndex = 249;
             label5.Text = "School Year:";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label3.Location = new Point(1620, 198);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 30);
+            label3.TabIndex = 252;
+            label3.Text = "Suffix*";
+            // 
+            // txtSuffix
+            // 
+            txtSuffix.Font = new Font("Segoe UI", 14F);
+            txtSuffix.Location = new Point(1569, 154);
+            txtSuffix.Multiline = true;
+            txtSuffix.Name = "txtSuffix";
+            txtSuffix.Size = new Size(175, 38);
+            txtSuffix.TabIndex = 251;
+            // 
             // RegistrarStudentInfo_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(label3);
+            Controls.Add(txtSuffix);
             Controls.Add(cbRegistrarAddLevel);
             Controls.Add(dtRegistrarAddBirth);
             Controls.Add(label1);
@@ -634,5 +659,7 @@
         private Button btnRegistrarAddView;
         private ComboBox cbSyear;
         private Label label5;
+        private Label label3;
+        private TextBox txtSuffix;
     }
 }

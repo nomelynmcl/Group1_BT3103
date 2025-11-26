@@ -40,7 +40,7 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             dtgRegistrar = new DataGridView();
-            comboBox1 = new ComboBox();
+            cbSyear = new ComboBox();
             label1 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -98,6 +98,7 @@
             btnAdminStudentInformation3.TabIndex = 3;
             btnAdminStudentInformation3.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation3.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation3.Click += btnAdminStudentInformation3_Click;
             // 
             // btnAdminStudreg3
             // 
@@ -111,6 +112,7 @@
             btnAdminStudreg3.TabIndex = 5;
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
+            btnAdminStudreg3.Click += btnAdminStudreg3_Click;
             // 
             // btnAdminAssessment3
             // 
@@ -124,10 +126,11 @@
             btnAdminAssessment3.TabIndex = 4;
             btnAdminAssessment3.Text = "ASSESSMENT";
             btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
             // btnAdminReport3
             // 
-            btnAdminReport3.BackColor = Color.DarkSlateGray;
+            btnAdminReport3.BackColor = Color.CadetBlue;
             btnAdminReport3.FlatStyle = FlatStyle.Flat;
             btnAdminReport3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnAdminReport3.ForeColor = Color.AliceBlue;
@@ -138,6 +141,7 @@
             btnAdminReport3.TabIndex = 8;
             btnAdminReport3.Text = "REPORT";
             btnAdminReport3.UseVisualStyleBackColor = false;
+            btnAdminReport3.Click += btnAdminReport3_Click;
             // 
             // btnAdminOut3
             // 
@@ -181,14 +185,15 @@
             dtgRegistrar.Size = new Size(1332, 924);
             dtgRegistrar.TabIndex = 104;
             // 
-            // comboBox1
+            // cbSyear
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
-            comboBox1.Location = new Point(852, 52);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(234, 28);
-            comboBox1.TabIndex = 103;
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(852, 52);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(234, 28);
+            cbSyear.TabIndex = 103;
+            cbSyear.SelectedIndexChanged += cbSyear_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -209,12 +214,13 @@
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(dtgRegistrar);
-            Controls.Add(comboBox1);
+            Controls.Add(cbSyear);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             Name = "RegistrarDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistarDashboard";
+            Load += RegistrarDashboard_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcRegistrarLogo4).EndInit();
@@ -236,7 +242,7 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private DataGridView dtgRegistrar;
-        private ComboBox comboBox1;
+        private ComboBox cbSyear;
         private Label label1;
     }
 }

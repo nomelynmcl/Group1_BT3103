@@ -74,6 +74,8 @@
             cbAdminAddLevel = new ComboBox();
             label2 = new Label();
             cbSchoolYear = new ComboBox();
+            txtSuffix = new TextBox();
+            label3 = new Label();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
@@ -108,34 +110,34 @@
             txtAdminAddLname.Location = new Point(838, 149);
             txtAdminAddLname.Multiline = true;
             txtAdminAddLname.Name = "txtAdminAddLname";
-            txtAdminAddLname.Size = new Size(287, 44);
+            txtAdminAddLname.Size = new Size(239, 44);
             txtAdminAddLname.TabIndex = 14;
             txtAdminAddLname.TextChanged += txtAdminAddLname_TextChanged;
             // 
             // txtAdminAddFname
             // 
             txtAdminAddFname.Font = new Font("Segoe UI", 14F);
-            txtAdminAddFname.Location = new Point(1153, 149);
+            txtAdminAddFname.Location = new Point(1092, 149);
             txtAdminAddFname.Multiline = true;
             txtAdminAddFname.Name = "txtAdminAddFname";
-            txtAdminAddFname.Size = new Size(287, 44);
+            txtAdminAddFname.Size = new Size(239, 44);
             txtAdminAddFname.TabIndex = 15;
             txtAdminAddFname.TextChanged += txtAdminAddFname_TextChanged;
             // 
             // txtAdminAddMname
             // 
             txtAdminAddMname.Font = new Font("Segoe UI", 14F);
-            txtAdminAddMname.Location = new Point(1461, 149);
+            txtAdminAddMname.Location = new Point(1341, 149);
             txtAdminAddMname.Multiline = true;
             txtAdminAddMname.Name = "txtAdminAddMname";
-            txtAdminAddMname.Size = new Size(287, 44);
+            txtAdminAddMname.Size = new Size(239, 44);
             txtAdminAddMname.TabIndex = 16;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label9.Location = new Point(917, 196);
+            label9.Location = new Point(890, 196);
             label9.Name = "label9";
             label9.Size = new Size(128, 30);
             label9.TabIndex = 17;
@@ -145,7 +147,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label10.Location = new Point(1229, 196);
+            label10.Location = new Point(1142, 196);
             label10.Name = "label10";
             label10.Size = new Size(130, 30);
             label10.TabIndex = 18;
@@ -155,7 +157,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
-            label11.Location = new Point(1530, 196);
+            label11.Location = new Point(1382, 196);
             label11.Name = "label11";
             label11.Size = new Size(154, 30);
             label11.TabIndex = 19;
@@ -538,6 +540,7 @@
             dtAdminAddBirth.Name = "dtAdminAddBirth";
             dtAdminAddBirth.Size = new Size(367, 39);
             dtAdminAddBirth.TabIndex = 81;
+            dtAdminAddBirth.ValueChanged += dtAdminAddBirth_ValueChanged;
             // 
             // cbAdminAddLevel
             // 
@@ -569,12 +572,33 @@
             cbSchoolYear.Size = new Size(182, 39);
             cbSchoolYear.TabIndex = 84;
             // 
+            // txtSuffix
+            // 
+            txtSuffix.Font = new Font("Segoe UI", 14F);
+            txtSuffix.Location = new Point(1591, 149);
+            txtSuffix.Multiline = true;
+            txtSuffix.Name = "txtSuffix";
+            txtSuffix.Size = new Size(157, 44);
+            txtSuffix.TabIndex = 85;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
+            label3.Location = new Point(1634, 196);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 30);
+            label3.TabIndex = 86;
+            label3.Text = "Suffix*";
+            // 
             // AdminStudentInformation_Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(label3);
+            Controls.Add(txtSuffix);
             Controls.Add(cbSchoolYear);
             Controls.Add(label2);
             Controls.Add(cbAdminAddLevel);
@@ -670,5 +694,7 @@
         private ComboBox cbAdminAddLevel;
         private Label label2;
         private ComboBox cbSchoolYear;
+        private TextBox txtSuffix;
+        private Label label3;
     }
 }

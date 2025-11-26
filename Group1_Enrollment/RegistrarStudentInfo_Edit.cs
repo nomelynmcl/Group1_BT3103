@@ -21,6 +21,7 @@ namespace EventDriven.Project.UI
             string firstname,
             string lastname,
             string middlename,
+            string suffix,
             string contactNumber,
             string gender,
             int age,
@@ -31,7 +32,8 @@ namespace EventDriven.Project.UI
             int gradeLevel,
             string guardian,
             string guardianContact,
-            string studentType)
+            string studentType,
+            string schoolYear)
         {
             InitializeComponent();
             studentId = id;
@@ -50,6 +52,8 @@ namespace EventDriven.Project.UI
             txtRegistrarEditGuardian.Text = guardian.ToString();
             txtRegistrarEditGuardianContact.Text = guardianContact;
             cbRegistrarEditType.Text = studentType;
+            txtSuffix.Text = schoolYear;
+            cbSyear.Text = schoolYear.ToString();
 
             txtRegistrarEditStudContact.MaxLength = 11;
             txtRegistrarEditGuardianContact.MaxLength = 11;
@@ -67,6 +71,7 @@ namespace EventDriven.Project.UI
             string newLastName = txtRegistrarEditLname.Text.Trim();
             string newFirstName = txtRegistrarEditFname.Text.Trim();
             string newMiddleName = txtRegistrarEditMname.Text.Trim();
+            string newSuffix = txtSuffix.Text.Trim();
             string newGender = cbRegistrarEditGender.Text.Trim();
             string newBarangay = txtRegistrarEditBarangay.Text.Trim();
             string newMunicipality = txtRegistrarEditMunicipality.Text.Trim();
@@ -78,6 +83,7 @@ namespace EventDriven.Project.UI
             string newStudentType = cbRegistrarEditType.Text.Trim();
             string newAge = txtRegistrarEditAge.Text.Trim();
             DateTime newBirthdate = dtRegistrarEditBirth.Value;
+            string newSchoolYear = cbSyear.Text.Trim();
 
             if (string.IsNullOrEmpty(newFirstName) || string.IsNullOrEmpty(newLastName))
             {
@@ -89,6 +95,7 @@ namespace EventDriven.Project.UI
                              SET LastName = @LastName,
                                  FirstName = @FirstName,
                                  MiddleName = @MiddleName,
+                                 Suffix = @Suffix,
                                  Gender = @Gender,
                                  Age = @Age,
                                  Birthdate = @Birthdate,
@@ -99,7 +106,8 @@ namespace EventDriven.Project.UI
                                  GuardianName = @GuardianName,
                                  GuardianContact = @GuardianContact,
                                  GradeLevel = @GradeLevel,
-                                 StudentType = @StudentType
+                                 StudentType = @StudentType,
+                                 SchoolYear @SchoolYear
                              WHERE Id = @Id";
 
             try
@@ -110,6 +118,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("@LastName", newLastName);
                     cmd.Parameters.AddWithValue("@FirstName", newFirstName);
                     cmd.Parameters.AddWithValue("@MiddleName", newMiddleName);
+                    cmd.Parameters.AddWithValue("@Suffix", newSuffix);
                     cmd.Parameters.AddWithValue("@Gender", newGender);
                     cmd.Parameters.AddWithValue("@Barangay", newBarangay);
                     cmd.Parameters.AddWithValue("@Municipality", newMunicipality);
@@ -122,6 +131,7 @@ namespace EventDriven.Project.UI
                     cmd.Parameters.AddWithValue("Id", studentId);
                     cmd.Parameters.AddWithValue("@Age", newAge);
                     cmd.Parameters.AddWithValue("@Birthdate", newBirthdate);
+                    cmd.Parameters.AddWithValue("@SchoolYear", newSchoolYear);
 
 
                     conn.Open();
@@ -200,6 +210,7 @@ namespace EventDriven.Project.UI
             string firstname = txtRegistrarEditFname.Text.Trim();
             string middlename = txtRegistrarEditMname.Text.Trim();
             string lastname = txtRegistrarEditLname.Text.Trim();
+            string suffix = txtSuffix.Text.Trim();
             int age = int.Parse(txtRegistrarEditAge.Text.Trim());
             DateTime birthdate = dtRegistrarEditBirth.Value;
             string gender = cbRegistrarEditGender.Text.Trim();
@@ -211,11 +222,13 @@ namespace EventDriven.Project.UI
             string guardianContact = txtRegistrarEditGuardianContact.Text.Trim();
             int gradeLevel = Convert.ToInt32(cbRegistrarEditLevel.Text.Trim());
             string studentType = cbRegistrarEditType.Text.Trim();
+            string schoolYear = cbSyear.Text.Trim();
 
             RegistrarStudentInfo_View viewForm = new RegistrarStudentInfo_View(
                 firstname,
                 middlename,
                 lastname,
+                suffix,
                 age,
                 birthdate,
                 gender,
@@ -226,7 +239,8 @@ namespace EventDriven.Project.UI
                 guardianName,
                 guardianContact,
                 gradeLevel,
-                studentType
+                studentType,
+                schoolYear
             );
 
             viewForm.Show();
@@ -266,6 +280,19 @@ namespace EventDriven.Project.UI
             RegistrarReport registrarReport = new RegistrarReport();
             registrarReport.Show();
             this.Close();
+        }
+
+        private void dtRegistrarEditBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime birth = dtRegistrarEditBirth.Value;
+
+            int age = today.Year - birth.Year;
+
+            if (birth > today.AddYears(-age))
+                age--;
+
+            txtRegistrarEditAge.Text = age.ToString();
         }
     }
 }

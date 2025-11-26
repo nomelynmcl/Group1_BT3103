@@ -40,7 +40,7 @@
             btnAdminReport3 = new Button();
             btnAdminOut3 = new Button();
             label1 = new Label();
-            comboBox1 = new ComboBox();
+            cbSyear = new ComboBox();
             dtgAdminDashboard = new DataGridView();
             txtSearch = new TextBox();
             btnSearch = new Button();
@@ -198,14 +198,15 @@
             label1.TabIndex = 81;
             label1.Text = "ENROLLED STUDENTS";
             // 
-            // comboBox1
+            // cbSyear
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
-            comboBox1.Location = new Point(853, 52);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(234, 28);
-            comboBox1.TabIndex = 82;
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(853, 52);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(234, 28);
+            cbSyear.TabIndex = 82;
+            cbSyear.SelectedIndexChanged += cbSyear_SelectedIndexChanged;
             // 
             // dtgAdminDashboard
             // 
@@ -245,12 +246,13 @@
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(dtgAdminDashboard);
-            Controls.Add(comboBox1);
+            Controls.Add(cbSyear);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminDashboard";
+            Load += AdminDashboard_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).EndInit();
@@ -271,7 +273,7 @@
         private Button btnAdminReport3;
         private Button btnAdminOut3;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox cbSyear;
         private DataGridView dtgAdminDashboard;
         private TextBox txtSearch;
         private Button btnSearch;

@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Drawing.Printing;
 
 namespace EventDriven.Project.UI
 {
     public partial class AdminStudentInformation_View : Form
     {
         private string fullName, age, birthdate, gender, address,
-                       contactNumber, guardianName, guardianContact,
-                       gradeLevel, studentType;
+               contactNumber, guardianName, guardianContact,
+               gradeLevel, studentType, schoolYear;
         public AdminStudentInformation_View(string firstName, string middleName, string lastName,
+        string suffix,
         int age,
         DateTime birthdate,
         string gender,
@@ -29,33 +19,35 @@ namespace EventDriven.Project.UI
         string guardianName,
         string guardianContact,
         int gradeLevel,
-        string studentType)
+        string studentType,
+        string schoolYear)
 
         {
             InitializeComponent();
 
-            this.fullName = $"{firstName} {middleName} {lastName}".Replace("  ", " ").Trim();
-            this.lbAdminViewAge.Text = age.ToString();
-            this.lbAdminViewBirthdate.Text = birthdate.ToString();
-            this.lbAdminViewGender.Text = gender;
-            this.lbAdminViewAddress.Text = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim(); ;
-            this.lbAdminViewContactNo.Text = contactNumber;
-            this.lbAdminViewGuardian.Text = guardianName;
-            this.lbAdminViewGuardianContact.Text = guardianContact;
-            this.lbAdminViewLevel.Text = gradeLevel.ToString();
-            this.lbAdminViewType.Text = studentType;
+            this.fullName = $"{firstName} {middleName} {lastName} {suffix}".Replace("  ", " ").Trim();
+            this.age = age.ToString();
+            this.birthdate = birthdate.ToShortDateString();
+            this.gender = gender;
+            this.address = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim();
+            this.contactNumber = contactNumber;
+            this.guardianName = guardianName;
+            this.guardianContact = guardianContact;
+            this.gradeLevel = gradeLevel.ToString();
+            this.studentType = studentType;
+            this.schoolYear = schoolYear;
 
-
-            lbAdminViewFullname.Text = fullName;
-            lbAdminViewAge.Text = age.ToString();
-            lbAdminViewBirthdate.Text = birthdate.ToString();
-            lbAdminViewGender.Text = gender;
-            lbAdminViewAddress.Text = $"{barangay} {municipality} {province}".Replace("  ", " ").Trim(); ;
-            lbAdminViewContactNo.Text = contactNumber;
-            lbAdminViewGuardian.Text = guardianName;
-            lbAdminViewGuardianContact.Text = guardianContact;
-            lbAdminViewLevel.Text = gradeLevel.ToString();
-            lbAdminViewType.Text = studentType;
+            lbAdminViewFullname.Text = this.fullName;
+            lbAdminViewAge.Text = this.age;
+            lbAdminViewBirthdate.Text = this.birthdate;
+            lbAdminViewGender.Text = this.gender;
+            lbAdminViewAddress.Text = this.address;
+            lbAdminViewContactNo.Text = this.contactNumber;
+            lbAdminViewGuardian.Text = this.guardianName;
+            lbAdminViewGuardianContact.Text = this.guardianContact;
+            lbAdminViewLevel.Text = this.gradeLevel;
+            lbAdminViewType.Text = this.studentType;
+            lbSchoolYear.Text = this.schoolYear;
         }
 
         private void AdminStudentInformation_View_Load(object sender, EventArgs e)
@@ -81,55 +73,131 @@ namespace EventDriven.Project.UI
         }
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font titleFont = new Font("Arial", 22, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 14, FontStyle.Underline);
-            Font labelBoldFont = new Font("Arial", 12, FontStyle.Bold);
-            Font valueFont = new Font("Arial", 12, FontStyle.Regular);
+            int left = 60;
+            int right = e.PageBounds.Width - 60;
+            int width = right - left;
 
-            float y = 100;
-            float leftMargin = 80;
+            Font titleFont = new Font("Arial", 24, FontStyle.Bold);
+            Font schoolFont = new Font("Arial", 14, FontStyle.Bold);
+            Font sectionFont = new Font("Arial", 13, FontStyle.Bold);
+            Font labelFont = new Font("Arial", 11, FontStyle.Bold);
+            Font valueFont = new Font("Arial", 11);
+            Font footerFont = new Font("Arial", 9, FontStyle.Italic);
 
-            // 🏫 Optional: Draw your logo at the top-left
+            Pen thickPen = new Pen(Color.Black, 2);
+            Pen thinPen = new Pen(Color.Black, 1);
+
+            float y = 80;
+
+            // ---- SCHOOL LOGO ----
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); // <- change path
-                e.Graphics.DrawImage(logo, leftMargin, y - 100, 150, 150);
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png");
+                e.Graphics.DrawImage(logo, left, 40, 90, 90);
             }
-            catch
-            {
-                // Ignore if logo not found
-            }
+            catch { }
 
-            // Title and header
-            e.Graphics.DrawString("Orion Tech-High School", titleFont, Brushes.Black, leftMargin + 150, y - 40);
-            e.Graphics.DrawString("Student Information", headerFont, Brushes.Black, leftMargin, y += 40);
+            // ---- SCHOOL HEADER ----
+            StringFormat center = new StringFormat();
+            center.Alignment = StringAlignment.Center;
+
+            e.Graphics.DrawString("ORION TECH-HIGH SCHOOL", titleFont, Brushes.Black,
+                e.PageBounds.Width / 2, 40, center);
+
+            e.Graphics.DrawString("Official Enrollment Record", schoolFont, Brushes.Black,
+                e.PageBounds.Width / 2, 85, center);
+
+            y = 150;
+
+            // ---- OUTER BORDER ----
+            e.Graphics.DrawRectangle(thickPen, left - 20, y, width + 40, 620);
+
             y += 30;
 
+            // **************************************
+            //        STUDENT INFORMATION
+            // **************************************
+            e.Graphics.DrawString("STUDENT INFORMATION", sectionFont, Brushes.Black, left, y);
+            y += 28;
 
-            // Function to draw label + value
-            void DrawLine(string label, string value)
+            void DrawField(string label, string value)
             {
-                e.Graphics.DrawString(label, labelBoldFont, Brushes.Black, leftMargin, y);
-                e.Graphics.DrawString(value, valueFont, Brushes.Black, leftMargin + 150, y);
+                e.Graphics.DrawString(label, labelFont, Brushes.Black, left, y);
+                e.Graphics.DrawString(value, valueFont, Brushes.Black, left + 170, y);
                 y += 25;
             }
 
-            // 🧾 Student Information
-            
-            DrawLine("Full Name:", lbAdminViewFullname.Text);
-            DrawLine("Age:", lbAdminViewAge.Text);
-            DrawLine("Birthdate:", lbAdminViewBirthdate.Text);
-            DrawLine("Gender:", lbAdminViewGender.Text);
-            DrawLine("Address:", lbAdminViewAddress.Text);
-            DrawLine("Contact No.:", lbAdminViewContactNo.Text);
-            DrawLine("Guardian:", lbAdminViewGuardian.Text);
-            DrawLine("Contact No.:", lbAdminViewGuardianContact.Text);
-            DrawLine("Year Level:", lbAdminViewLevel.Text);
-            DrawLine("Student Type:", lbAdminViewType.Text);
+            DrawField("Full Name:", lbAdminViewFullname.Text);
+            DrawField("Age:", lbAdminViewAge.Text);
+            DrawField("Birthdate:", lbAdminViewBirthdate.Text);
+            DrawField("Gender:", lbAdminViewGender.Text);
+
+            y += 5;
+
+            // ADDRESS (wrap)
+            e.Graphics.DrawString("Address:", labelFont, Brushes.Black, left, y);
+
+            RectangleF rect = new RectangleF(left + 170, y, width - 200, 50);
+            e.Graphics.DrawString(lbAdminViewAddress.Text, valueFont, Brushes.Black, rect);
+
+            y += 55;
+
+            // **************************************
+            //     PARENT / GUARDIAN INFORMATION
+            // **************************************
+            e.Graphics.DrawString("PARENT / GUARDIAN INFORMATION", sectionFont, Brushes.Black, left, y);
+            y += 28;
+
+            DrawField("Guardian Name:", lbAdminViewGuardian.Text);
+            DrawField("Contact No.:", lbAdminViewGuardianContact.Text);
+
+            y += 20;
+
+            // **************************************
+            //        ENROLLMENT DETAILS
+            // **************************************
+            e.Graphics.DrawString("ENROLLMENT DETAILS", sectionFont, Brushes.Black, left, y);
+            y += 28;
+
+            DrawField("Grade Level:", lbAdminViewLevel.Text);
+            DrawField("Student Type:", lbAdminViewType.Text);
+            DrawField("School Year:", lbSchoolYear.Text);
 
             y += 40;
-            e.Graphics.DrawString($"Printed on: {DateTime.Now}", valueFont, Brushes.Gray, leftMargin, y);
+
+            // ---------------------------------------------------
+            // SIGNATURE BLOCKS
+            // ---------------------------------------------------
+
+            e.Graphics.DrawLine(thinPen, left, y, left + 200, y);
+            e.Graphics.DrawString("Student Signature", valueFont, Brushes.Black, left, y + 5);
+
+            e.Graphics.DrawLine(thinPen, right - 200, y, right, y);
+            e.Graphics.DrawString("Parent/Guardian Signature", valueFont, Brushes.Black, right - 200, y + 5);
+
+            y += 60;
+
+            e.Graphics.DrawLine(thinPen, left, y, left + 200, y);
+            e.Graphics.DrawString("Registrar", valueFont, Brushes.Black, left, y + 5);
+
+            e.Graphics.DrawLine(thinPen, right - 200, y, right, y);
+            e.Graphics.DrawString("School Principal", valueFont, Brushes.Black, right - 200, y + 5);
+
+            y += 60;
+
+            // FOOTER
+            e.Graphics.DrawLine(thinPen, left, y, right, y);
+            y += 10;
+
+            e.Graphics.DrawString(
+                $"Printed on: {DateTime.Now:MMMM dd, yyyy   hh:mm tt}",
+                footerFont,
+                Brushes.Gray,
+                left,
+                y
+            );
         }
+
 
         private void lbAdminViewAddress_Click(object sender, EventArgs e)
         {
