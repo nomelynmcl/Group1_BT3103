@@ -72,6 +72,8 @@
             label1 = new Label();
             dtAdminAddBirth = new DateTimePicker();
             cbAdminAddLevel = new ComboBox();
+            label2 = new Label();
+            cbSchoolYear = new ComboBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
@@ -135,9 +137,9 @@
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label9.Location = new Point(917, 196);
             label9.Name = "label9";
-            label9.Size = new Size(118, 30);
+            label9.Size = new Size(128, 30);
             label9.TabIndex = 17;
-            label9.Text = "Last Name";
+            label9.Text = "Last Name*";
             // 
             // label10
             // 
@@ -145,9 +147,9 @@
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label10.Location = new Point(1229, 196);
             label10.Name = "label10";
-            label10.Size = new Size(120, 30);
+            label10.Size = new Size(130, 30);
             label10.TabIndex = 18;
-            label10.Text = "First Name";
+            label10.Text = "First Name*";
             // 
             // label11
             // 
@@ -155,9 +157,9 @@
             label11.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label11.Location = new Point(1530, 196);
             label11.Name = "label11";
-            label11.Size = new Size(144, 30);
+            label11.Size = new Size(154, 30);
             label11.TabIndex = 19;
-            label11.Text = "Middle Name";
+            label11.Text = "Middle Name*";
             // 
             // label12
             // 
@@ -241,9 +243,9 @@
             label15.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label15.Location = new Point(917, 531);
             label15.Name = "label15";
-            label15.Size = new Size(106, 30);
+            label15.Size = new Size(116, 30);
             label15.TabIndex = 28;
-            label15.Text = "Barangay";
+            label15.Text = "Barangay*";
             // 
             // label16
             // 
@@ -251,9 +253,9 @@
             label16.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label16.Location = new Point(1227, 531);
             label16.Name = "label16";
-            label16.Size = new Size(143, 31);
+            label16.Size = new Size(153, 31);
             label16.TabIndex = 29;
-            label16.Text = "Municipality";
+            label16.Text = "Municipality*";
             // 
             // label17
             // 
@@ -261,9 +263,9 @@
             label17.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label17.Location = new Point(1558, 532);
             label17.Name = "label17";
-            label17.Size = new Size(97, 30);
+            label17.Size = new Size(107, 30);
             label17.TabIndex = 30;
-            label17.Text = "Province";
+            label17.Text = "Province*";
             // 
             // label18
             // 
@@ -336,7 +338,7 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label22.Location = new Point(1239, 736);
+            label22.Location = new Point(1059, 736);
             label22.Name = "label22";
             label22.Size = new Size(149, 30);
             label22.TabIndex = 39;
@@ -347,9 +349,9 @@
             cbAdminAddType.Font = new Font("Segoe UI", 14F);
             cbAdminAddType.FormattingEnabled = true;
             cbAdminAddType.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbAdminAddType.Location = new Point(1412, 731);
+            cbAdminAddType.Location = new Point(1214, 732);
             cbAdminAddType.Name = "cbAdminAddType";
-            cbAdminAddType.Size = new Size(336, 39);
+            cbAdminAddType.Size = new Size(182, 39);
             cbAdminAddType.TabIndex = 40;
             // 
             // btnAdminStudInfoAdd2
@@ -544,8 +546,28 @@
             cbAdminAddLevel.Items.AddRange(new object[] { "7", "8", "9", "10" });
             cbAdminAddLevel.Location = new Point(849, 732);
             cbAdminAddLevel.Name = "cbAdminAddLevel";
-            cbAdminAddLevel.Size = new Size(319, 39);
+            cbAdminAddLevel.Size = new Size(182, 39);
             cbAdminAddLevel.TabIndex = 82;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label2.Location = new Point(1422, 736);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 30);
+            label2.TabIndex = 83;
+            label2.Text = "School Year:";
+            // 
+            // cbSchoolYear
+            // 
+            cbSchoolYear.Font = new Font("Segoe UI", 14F);
+            cbSchoolYear.FormattingEnabled = true;
+            cbSchoolYear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSchoolYear.Location = new Point(1566, 727);
+            cbSchoolYear.Name = "cbSchoolYear";
+            cbSchoolYear.Size = new Size(182, 39);
+            cbSchoolYear.TabIndex = 84;
             // 
             // AdminStudentInformation_Add
             // 
@@ -553,6 +575,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(cbSchoolYear);
+            Controls.Add(label2);
             Controls.Add(cbAdminAddLevel);
             Controls.Add(dtAdminAddBirth);
             Controls.Add(label1);
@@ -644,5 +668,7 @@
         private Label label1;
         private DateTimePicker dtAdminAddBirth;
         private ComboBox cbAdminAddLevel;
+        private Label label2;
+        private ComboBox cbSchoolYear;
     }
 }

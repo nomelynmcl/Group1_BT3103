@@ -29,187 +29,226 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            lblAdmin = new Label();
-            pictureBox1 = new PictureBox();
-            lblStudentInformation = new Label();
-            lblAssessment = new Label();
-            lblStudentRegistration = new Label();
-            lblReport = new Label();
-            pictureBox2 = new PictureBox();
-            btnLogoutAdmin = new Button();
-            btnAdminOverview = new Button();
-            lblPayment = new Label();
-            lblPaymentHistory = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            pcAdminLogo3 = new PictureBox();
+            btnAdminStudentInformation3 = new Button();
+            btnAdminStudreg3 = new Button();
+            btnAdminPay3 = new Button();
+            btnAdminAssessment3 = new Button();
+            btnAdminHistory3 = new Button();
+            btnAdminReport3 = new Button();
+            btnAdminOut3 = new Button();
+            label1 = new Label();
+            comboBox1 = new ComboBox();
+            dtgAdminDashboard = new DataGridView();
+            flowLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgAdminDashboard).BeginInit();
             SuspendLayout();
             // 
-            // lblAdmin
+            // flowLayoutPanel1
             // 
-            lblAdmin.AutoSize = true;
-            lblAdmin.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAdmin.ForeColor = Color.SteelBlue;
-            lblAdmin.Location = new Point(91, 128);
-            lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(137, 45);
-            lblAdmin.TabIndex = 0;
-            lblAdmin.Text = "ADMIN";
-            lblAdmin.Click += lblAdmin_Click;
+            flowLayoutPanel1.BackColor = Color.CadetBlue;
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(btnAdminStudentInformation3);
+            flowLayoutPanel1.Controls.Add(btnAdminStudreg3);
+            flowLayoutPanel1.Controls.Add(btnAdminPay3);
+            flowLayoutPanel1.Controls.Add(btnAdminAssessment3);
+            flowLayoutPanel1.Controls.Add(btnAdminHistory3);
+            flowLayoutPanel1.Controls.Add(btnAdminReport3);
+            flowLayoutPanel1.Controls.Add(btnAdminOut3);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(474, 1033);
+            flowLayoutPanel1.TabIndex = 80;
             // 
-            // pictureBox1
+            // panel1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(48, 9);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 142);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            panel1.Controls.Add(pcAdminLogo3);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(458, 277);
+            panel1.TabIndex = 0;
             // 
-            // lblStudentInformation
+            // pcAdminLogo3
             // 
-            lblStudentInformation.AutoSize = true;
-            lblStudentInformation.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentInformation.Location = new Point(66, 199);
-            lblStudentInformation.Name = "lblStudentInformation";
-            lblStudentInformation.Size = new Size(194, 20);
-            lblStudentInformation.TabIndex = 2;
-            lblStudentInformation.Text = "STUDENT INFORMATION";
-            lblStudentInformation.Click += lblStudentInformation_Click;
+            pcAdminLogo3.BackColor = Color.CadetBlue;
+            pcAdminLogo3.Image = (Image)resources.GetObject("pcAdminLogo3.Image");
+            pcAdminLogo3.Location = new Point(56, 27);
+            pcAdminLogo3.Margin = new Padding(3, 4, 3, 4);
+            pcAdminLogo3.Name = "pcAdminLogo3";
+            pcAdminLogo3.Size = new Size(333, 239);
+            pcAdminLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcAdminLogo3.TabIndex = 0;
+            pcAdminLogo3.TabStop = false;
             // 
-            // lblAssessment
+            // btnAdminStudentInformation3
             // 
-            lblAssessment.AutoSize = true;
-            lblAssessment.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAssessment.Location = new Point(66, 236);
-            lblAssessment.Name = "lblAssessment";
-            lblAssessment.Size = new Size(109, 20);
-            lblAssessment.TabIndex = 3;
-            lblAssessment.Text = "ASSESSMENT";
-            lblAssessment.Click += lblAssessment_Click;
+            btnAdminStudentInformation3.BackColor = Color.CadetBlue;
+            btnAdminStudentInformation3.FlatStyle = FlatStyle.Flat;
+            btnAdminStudentInformation3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminStudentInformation3.ForeColor = SystemColors.ControlLight;
+            btnAdminStudentInformation3.Location = new Point(23, 298);
+            btnAdminStudentInformation3.Margin = new Padding(23, 13, 3, 4);
+            btnAdminStudentInformation3.Name = "btnAdminStudentInformation3";
+            btnAdminStudentInformation3.Size = new Size(421, 79);
+            btnAdminStudentInformation3.TabIndex = 3;
+            btnAdminStudentInformation3.Text = " STUDENT INFORMATION";
+            btnAdminStudentInformation3.UseVisualStyleBackColor = false;
+            btnAdminStudentInformation3.Click += btnAdminStudentInformation3_Click;
             // 
-            // lblStudentRegistration
+            // btnAdminStudreg3
             // 
-            lblStudentRegistration.AutoSize = true;
-            lblStudentRegistration.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentRegistration.Location = new Point(66, 270);
-            lblStudentRegistration.Name = "lblStudentRegistration";
-            lblStudentRegistration.Size = new Size(196, 60);
-            lblStudentRegistration.TabIndex = 4;
-            lblStudentRegistration.Text = "STUDENT REGISTRATION\r\n\r\n\r\n";
-            lblStudentRegistration.Click += lblStudentRegistration_Click;
+            btnAdminStudreg3.FlatStyle = FlatStyle.Flat;
+            btnAdminStudreg3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminStudreg3.ForeColor = Color.AliceBlue;
+            btnAdminStudreg3.Location = new Point(23, 385);
+            btnAdminStudreg3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminStudreg3.Name = "btnAdminStudreg3";
+            btnAdminStudreg3.Size = new Size(421, 79);
+            btnAdminStudreg3.TabIndex = 5;
+            btnAdminStudreg3.Text = " STUDENT REGISTRATION";
+            btnAdminStudreg3.UseVisualStyleBackColor = true;
+            btnAdminStudreg3.Click += btnAdminStudreg3_Click;
             // 
-            // lblReport
+            // btnAdminPay3
             // 
-            lblReport.AutoSize = true;
-            lblReport.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblReport.Location = new Point(66, 388);
-            lblReport.Name = "lblReport";
-            lblReport.Size = new Size(68, 20);
-            lblReport.TabIndex = 5;
-            lblReport.Text = "REPORT";
-            lblReport.Click += lblReport_Click;
+            btnAdminPay3.FlatStyle = FlatStyle.Flat;
+            btnAdminPay3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminPay3.ForeColor = Color.AliceBlue;
+            btnAdminPay3.Location = new Point(23, 472);
+            btnAdminPay3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminPay3.Name = "btnAdminPay3";
+            btnAdminPay3.Size = new Size(421, 79);
+            btnAdminPay3.TabIndex = 6;
+            btnAdminPay3.Text = "PAYMENT";
+            btnAdminPay3.UseVisualStyleBackColor = true;
+            btnAdminPay3.Click += btnAdminPay3_Click;
             // 
-            // pictureBox2
+            // btnAdminAssessment3
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(360, 72);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(700, 324);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            btnAdminAssessment3.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment3.ForeColor = Color.AliceBlue;
+            btnAdminAssessment3.Location = new Point(23, 559);
+            btnAdminAssessment3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment3.Name = "btnAdminAssessment3";
+            btnAdminAssessment3.Size = new Size(421, 79);
+            btnAdminAssessment3.TabIndex = 4;
+            btnAdminAssessment3.Text = "ASSESSMENT";
+            btnAdminAssessment3.UseVisualStyleBackColor = true;
+            btnAdminAssessment3.Click += btnAdminAssessment3_Click;
             // 
-            // btnLogoutAdmin
+            // btnAdminHistory3
             // 
-            btnLogoutAdmin.BackColor = Color.LightGray;
-            btnLogoutAdmin.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogoutAdmin.Location = new Point(1054, 24);
-            btnLogoutAdmin.Margin = new Padding(3, 2, 3, 2);
-            btnLogoutAdmin.Name = "btnLogoutAdmin";
-            btnLogoutAdmin.Size = new Size(79, 29);
-            btnLogoutAdmin.TabIndex = 8;
-            btnLogoutAdmin.Text = "Logout";
-            btnLogoutAdmin.UseVisualStyleBackColor = false;
-            btnLogoutAdmin.Click += btnLogoutAdmin_Click;
+            btnAdminHistory3.FlatStyle = FlatStyle.Flat;
+            btnAdminHistory3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminHistory3.ForeColor = Color.AliceBlue;
+            btnAdminHistory3.Location = new Point(23, 646);
+            btnAdminHistory3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminHistory3.Name = "btnAdminHistory3";
+            btnAdminHistory3.Size = new Size(421, 79);
+            btnAdminHistory3.TabIndex = 7;
+            btnAdminHistory3.Text = "PAYMENT HISTORY";
+            btnAdminHistory3.UseVisualStyleBackColor = true;
+            btnAdminHistory3.Click += btnAdminHistory3_Click;
             // 
-            // btnAdminOverview
+            // btnAdminReport3
             // 
-            btnAdminOverview.BackColor = Color.LightGray;
-            btnAdminOverview.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOverview.ForeColor = Color.SteelBlue;
-            btnAdminOverview.Location = new Point(585, 427);
-            btnAdminOverview.Margin = new Padding(3, 2, 3, 2);
-            btnAdminOverview.Name = "btnAdminOverview";
-            btnAdminOverview.Size = new Size(253, 34);
-            btnAdminOverview.TabIndex = 11;
-            btnAdminOverview.Text = "ADMIN OVERVIEW";
-            btnAdminOverview.UseVisualStyleBackColor = false;
-            btnAdminOverview.Click += btnAdminOverview_Click;
+            btnAdminReport3.FlatStyle = FlatStyle.Flat;
+            btnAdminReport3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminReport3.ForeColor = Color.AliceBlue;
+            btnAdminReport3.Location = new Point(23, 733);
+            btnAdminReport3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminReport3.Name = "btnAdminReport3";
+            btnAdminReport3.Size = new Size(421, 79);
+            btnAdminReport3.TabIndex = 8;
+            btnAdminReport3.Text = "REPORT";
+            btnAdminReport3.UseVisualStyleBackColor = true;
+            btnAdminReport3.Click += btnAdminReport3_Click;
             // 
-            // lblPayment
+            // btnAdminOut3
             // 
-            lblPayment.AutoSize = true;
-            lblPayment.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPayment.Location = new Point(66, 308);
-            lblPayment.Name = "lblPayment";
-            lblPayment.Size = new Size(85, 20);
-            lblPayment.TabIndex = 14;
-            lblPayment.Text = "PAYMENT";
-            lblPayment.Click += lblPayment_Click;
+            btnAdminOut3.FlatStyle = FlatStyle.Flat;
+            btnAdminOut3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminOut3.ForeColor = Color.AliceBlue;
+            btnAdminOut3.Location = new Point(23, 820);
+            btnAdminOut3.Margin = new Padding(23, 4, 3, 4);
+            btnAdminOut3.Name = "btnAdminOut3";
+            btnAdminOut3.Size = new Size(421, 79);
+            btnAdminOut3.TabIndex = 9;
+            btnAdminOut3.Text = "LOG OUT";
+            btnAdminOut3.UseVisualStyleBackColor = true;
+            btnAdminOut3.Click += btnAdminOut3_Click;
             // 
-            // lblPaymentHistory
+            // label1
             // 
-            lblPaymentHistory.AutoSize = true;
-            lblPaymentHistory.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPaymentHistory.Location = new Point(66, 349);
-            lblPaymentHistory.Name = "lblPaymentHistory";
-            lblPaymentHistory.Size = new Size(156, 20);
-            lblPaymentHistory.TabIndex = 15;
-            lblPaymentHistory.Text = "PAYMENT HISTORY";
-            lblPaymentHistory.Click += lblPaymentHistory_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(528, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(307, 38);
+            label1.TabIndex = 81;
+            label1.Text = "ENROLLED STUDENTS";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            comboBox1.Location = new Point(853, 52);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(234, 28);
+            comboBox1.TabIndex = 82;
+            // 
+            // dtgAdminDashboard
+            // 
+            dtgAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgAdminDashboard.Location = new Point(528, 109);
+            dtgAdminDashboard.Margin = new Padding(3, 4, 3, 4);
+            dtgAdminDashboard.Name = "dtgAdminDashboard";
+            dtgAdminDashboard.RowHeadersWidth = 51;
+            dtgAdminDashboard.Size = new Size(1332, 924);
+            dtgAdminDashboard.TabIndex = 94;
             // 
             // AdminDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1155, 499);
-            Controls.Add(lblPaymentHistory);
-            Controls.Add(lblPayment);
-            Controls.Add(btnAdminOverview);
-            Controls.Add(btnLogoutAdmin);
-            Controls.Add(pictureBox2);
-            Controls.Add(lblReport);
-            Controls.Add(lblStudentRegistration);
-            Controls.Add(lblAssessment);
-            Controls.Add(lblStudentInformation);
-            Controls.Add(lblAdmin);
-            Controls.Add(pictureBox1);
-            Margin = new Padding(3, 2, 3, 2);
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(dtgAdminDashboard);
+            Controls.Add(comboBox1);
+            Controls.Add(label1);
+            Controls.Add(flowLayoutPanel1);
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminDashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pcAdminLogo3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgAdminDashboard).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lblAdmin;
-        private PictureBox pictureBox1;
-        private Label lblStudentInformation;
-        private Label lblAssessment;
-        private Label lblStudentRegistration;
-        private Label lblReport;
-        private PictureBox pictureBox2;
-        private Button btnLogoutAdmin;
-        private Button btnAdminOverview;
-        private Label lblPayment;
-        private Label lblPaymentHistory;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private PictureBox pcAdminLogo3;
+        private Button btnAdminStudentInformation3;
+        private Button btnAdminStudreg3;
+        private Button btnAdminPay3;
+        private Button btnAdminAssessment3;
+        private Button btnAdminHistory3;
+        private Button btnAdminReport3;
+        private Button btnAdminOut3;
+        private Label label1;
+        private ComboBox comboBox1;
+        private DataGridView dtgAdminDashboard;
     }
 }

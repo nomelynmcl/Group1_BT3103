@@ -73,6 +73,8 @@
             label8 = new Label();
             btnAdminEditView = new Button();
             btnAdminStudInfoDelete_Edit = new Button();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo4).BeginInit();
@@ -266,16 +268,16 @@
             cbAdminEditType.Font = new Font("Segoe UI", 14F);
             cbAdminEditType.FormattingEnabled = true;
             cbAdminEditType.Items.AddRange(new object[] { "New Student", "Old Student", "Transferee" });
-            cbAdminEditType.Location = new Point(1412, 731);
+            cbAdminEditType.Location = new Point(1229, 731);
             cbAdminEditType.Name = "cbAdminEditType";
-            cbAdminEditType.Size = new Size(336, 39);
+            cbAdminEditType.Size = new Size(182, 39);
             cbAdminEditType.TabIndex = 110;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label22.Location = new Point(1239, 736);
+            label22.Location = new Point(1056, 736);
             label22.Name = "label22";
             label22.Size = new Size(149, 30);
             label22.TabIndex = 109;
@@ -288,7 +290,7 @@
             cbAdminEditLevel.Items.AddRange(new object[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10" });
             cbAdminEditLevel.Location = new Point(849, 732);
             cbAdminEditLevel.Name = "cbAdminEditLevel";
-            cbAdminEditLevel.Size = new Size(319, 39);
+            cbAdminEditLevel.Size = new Size(182, 39);
             cbAdminEditLevel.TabIndex = 108;
             // 
             // label21
@@ -307,7 +309,7 @@
             txtAdminEditGuardianContact.Location = new Point(1462, 614);
             txtAdminEditGuardianContact.Multiline = true;
             txtAdminEditGuardianContact.Name = "txtAdminEditGuardianContact";
-            txtAdminEditGuardianContact.Size = new Size(387, 44);
+            txtAdminEditGuardianContact.Size = new Size(287, 44);
             txtAdminEditGuardianContact.TabIndex = 106;
             // 
             // label20
@@ -364,9 +366,9 @@
             label17.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label17.Location = new Point(1554, 529);
             label17.Name = "label17";
-            label17.Size = new Size(97, 30);
+            label17.Size = new Size(107, 30);
             label17.TabIndex = 100;
-            label17.Text = "Province";
+            label17.Text = "Province*";
             // 
             // label16
             // 
@@ -374,9 +376,9 @@
             label16.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label16.Location = new Point(1229, 529);
             label16.Name = "label16";
-            label16.Size = new Size(135, 30);
+            label16.Size = new Size(145, 30);
             label16.TabIndex = 99;
-            label16.Text = "Municipality";
+            label16.Text = "Municipality*";
             // 
             // label15
             // 
@@ -384,9 +386,9 @@
             label15.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label15.Location = new Point(917, 529);
             label15.Name = "label15";
-            label15.Size = new Size(106, 30);
+            label15.Size = new Size(116, 30);
             label15.TabIndex = 98;
-            label15.Text = "Barangay";
+            label15.Text = "Barangay*";
             // 
             // txtAdminEditProvince
             // 
@@ -470,9 +472,9 @@
             label11.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label11.Location = new Point(1530, 196);
             label11.Name = "label11";
-            label11.Size = new Size(144, 30);
+            label11.Size = new Size(154, 30);
             label11.TabIndex = 89;
-            label11.Text = "Middle Name";
+            label11.Text = "Middle Name*";
             // 
             // label10
             // 
@@ -480,9 +482,9 @@
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label10.Location = new Point(1229, 196);
             label10.Name = "label10";
-            label10.Size = new Size(120, 30);
+            label10.Size = new Size(130, 30);
             label10.TabIndex = 88;
-            label10.Text = "First Name";
+            label10.Text = "First Name*";
             // 
             // label9
             // 
@@ -490,9 +492,9 @@
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold | FontStyle.Italic);
             label9.Location = new Point(917, 196);
             label9.Name = "label9";
-            label9.Size = new Size(118, 30);
+            label9.Size = new Size(128, 30);
             label9.TabIndex = 87;
-            label9.Text = "Last Name";
+            label9.Text = "Last Name*";
             label9.Click += label9_Click;
             // 
             // txtAdminEditMname
@@ -558,12 +560,34 @@
             btnAdminStudInfoDelete_Edit.UseVisualStyleBackColor = false;
             btnAdminStudInfoDelete_Edit.Click += btnAdminStudInfoDelete_Edit_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label2.Location = new Point(1427, 736);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 30);
+            label2.TabIndex = 117;
+            label2.Text = "School Year:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Segoe UI", 14F);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            comboBox1.Location = new Point(1567, 727);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(182, 39);
+            comboBox1.TabIndex = 118;
+            // 
             // AdminStudInfo_Edit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(comboBox1);
+            Controls.Add(label2);
             Controls.Add(btnAdminStudInfoDelete_Edit);
             Controls.Add(dtAdminEditBirth);
             Controls.Add(label1);
@@ -658,5 +682,7 @@
         private Label label8;
         private Button btnAdminEditView;
         private Button btnAdminStudInfoDelete_Edit;
+        private Label label2;
+        private ComboBox comboBox1;
     }
 }
