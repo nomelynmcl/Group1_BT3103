@@ -63,6 +63,12 @@ namespace EventDriven.Project.UI
 
                     studentSearch = records;
                         dtgPaymentHistory_Cashier.DataSource = new BindingSource { DataSource = studentSearch };
+
+                        // Format the AmountPaid column with Peso sign
+                        if (dtgPaymentHistory_Cashier.Columns["AmountPaid"] != null)
+                        {
+                            dtgPaymentHistory_Cashier.Columns["AmountPaid"].DefaultCellStyle.Format = "₱#,0.00";
+                        }
                     }
                 }
             }

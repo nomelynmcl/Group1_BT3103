@@ -62,6 +62,8 @@
             label6 = new Label();
             txtCashierPay = new TextBox();
             CashierPayment_SearchBTN = new Button();
+            label10 = new Label();
+            txtCash = new TextBox();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcAdminLogo2).BeginInit();
@@ -176,7 +178,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label2.Location = new Point(667, 142);
+            label2.Location = new Point(633, 142);
             label2.Name = "label2";
             label2.Size = new Size(142, 32);
             label2.TabIndex = 88;
@@ -186,7 +188,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.Location = new Point(671, 228);
+            label3.Location = new Point(637, 205);
             label3.Name = "label3";
             label3.Size = new Size(183, 32);
             label3.TabIndex = 89;
@@ -196,7 +198,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label4.Location = new Point(1484, 308);
+            label4.Location = new Point(1484, 278);
             label4.Name = "label4";
             label4.Size = new Size(209, 32);
             label4.TabIndex = 90;
@@ -206,7 +208,7 @@
             // 
             CashierStuName_LBL.AutoSize = true;
             CashierStuName_LBL.Font = new Font("Segoe UI", 14F);
-            CashierStuName_LBL.Location = new Point(884, 228);
+            CashierStuName_LBL.Location = new Point(850, 205);
             CashierStuName_LBL.Name = "CashierStuName_LBL";
             CashierStuName_LBL.Size = new Size(232, 32);
             CashierStuName_LBL.TabIndex = 95;
@@ -216,7 +218,7 @@
             // 
             CashierStuID_LBL.AutoSize = true;
             CashierStuID_LBL.Font = new Font("Segoe UI", 14F);
-            CashierStuID_LBL.Location = new Point(897, 141);
+            CashierStuID_LBL.Location = new Point(863, 141);
             CashierStuID_LBL.Name = "CashierStuID_LBL";
             CashierStuID_LBL.Size = new Size(191, 32);
             CashierStuID_LBL.TabIndex = 94;
@@ -226,7 +228,7 @@
             // 
             CashierYLSection_LBL.AutoSize = true;
             CashierYLSection_LBL.Font = new Font("Segoe UI", 14F);
-            CashierYLSection_LBL.Location = new Point(1442, 228);
+            CashierYLSection_LBL.Location = new Point(1442, 205);
             CashierYLSection_LBL.Name = "CashierYLSection_LBL";
             CashierYLSection_LBL.Size = new Size(270, 32);
             CashierYLSection_LBL.TabIndex = 99;
@@ -236,7 +238,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label7.Location = new Point(1171, 228);
+            label7.Location = new Point(1171, 205);
             label7.Name = "label7";
             label7.Size = new Size(230, 32);
             label7.TabIndex = 97;
@@ -256,7 +258,7 @@
             // 
             CashierChange_LBL.AutoSize = true;
             CashierChange_LBL.Font = new Font("Segoe UI", 14F);
-            CashierChange_LBL.Location = new Point(1429, 789);
+            CashierChange_LBL.Location = new Point(1461, 845);
             CashierChange_LBL.Name = "CashierChange_LBL";
             CashierChange_LBL.Size = new Size(58, 32);
             CashierChange_LBL.TabIndex = 114;
@@ -266,7 +268,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label19.Location = new Point(1317, 788);
+            label19.Location = new Point(1349, 845);
             label19.Name = "label19";
             label19.Size = new Size(106, 32);
             label19.TabIndex = 113;
@@ -277,7 +279,7 @@
             CashierConfirmPayment.BackColor = Color.CadetBlue;
             CashierConfirmPayment.Font = new Font("Segoe UI", 14F);
             CashierConfirmPayment.ForeColor = Color.AliceBlue;
-            CashierConfirmPayment.Location = new Point(986, 867);
+            CashierConfirmPayment.Location = new Point(986, 918);
             CashierConfirmPayment.Margin = new Padding(3, 4, 3, 4);
             CashierConfirmPayment.Name = "CashierConfirmPayment";
             CashierConfirmPayment.Size = new Size(154, 54);
@@ -290,7 +292,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(671, 308);
+            label1.Location = new Point(633, 278);
             label1.Name = "label1";
             label1.Size = new Size(198, 32);
             label1.TabIndex = 116;
@@ -299,7 +301,7 @@
             // CashierPayment_GridView
             // 
             CashierPayment_GridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CashierPayment_GridView.Location = new Point(671, 344);
+            CashierPayment_GridView.Location = new Point(633, 314);
             CashierPayment_GridView.Margin = new Padding(3, 4, 3, 4);
             CashierPayment_GridView.Name = "CashierPayment_GridView";
             CashierPayment_GridView.RowHeadersWidth = 51;
@@ -310,7 +312,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label5.Location = new Point(667, 787);
+            label5.Location = new Point(627, 752);
             label5.Name = "label5";
             label5.Size = new Size(259, 32);
             label5.TabIndex = 118;
@@ -320,7 +322,7 @@
             // 
             CashierRemaining_LBL.AutoSize = true;
             CashierRemaining_LBL.Font = new Font("Segoe UI", 14F);
-            CashierRemaining_LBL.Location = new Point(1685, 788);
+            CashierRemaining_LBL.Location = new Point(1717, 844);
             CashierRemaining_LBL.Name = "CashierRemaining_LBL";
             CashierRemaining_LBL.Size = new Size(58, 32);
             CashierRemaining_LBL.TabIndex = 120;
@@ -330,7 +332,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label9.Location = new Point(968, 788);
+            label9.Location = new Point(958, 843);
             label9.Name = "label9";
             label9.Size = new Size(120, 32);
             label9.TabIndex = 119;
@@ -341,7 +343,7 @@
             CashierCompute_BTN.BackColor = Color.CadetBlue;
             CashierCompute_BTN.Font = new Font("Segoe UI", 14F);
             CashierCompute_BTN.ForeColor = Color.AliceBlue;
-            CashierCompute_BTN.Location = new Point(671, 868);
+            CashierCompute_BTN.Location = new Point(671, 919);
             CashierCompute_BTN.Margin = new Padding(3, 4, 3, 4);
             CashierCompute_BTN.Name = "CashierCompute_BTN";
             CashierCompute_BTN.Size = new Size(154, 54);
@@ -355,7 +357,7 @@
             CashierCancel_BTN.BackColor = Color.CadetBlue;
             CashierCancel_BTN.Font = new Font("Segoe UI", 14F);
             CashierCancel_BTN.ForeColor = Color.AliceBlue;
-            CashierCancel_BTN.Location = new Point(1306, 866);
+            CashierCancel_BTN.Location = new Point(1306, 917);
             CashierCancel_BTN.Margin = new Padding(3, 4, 3, 4);
             CashierCancel_BTN.Name = "CashierCancel_BTN";
             CashierCancel_BTN.Size = new Size(154, 54);
@@ -369,7 +371,7 @@
             CashierView_BTN.BackColor = Color.CadetBlue;
             CashierView_BTN.Font = new Font("Segoe UI", 14F);
             CashierView_BTN.ForeColor = Color.AliceBlue;
-            CashierView_BTN.Location = new Point(1589, 865);
+            CashierView_BTN.Location = new Point(1589, 916);
             CashierView_BTN.Margin = new Padding(3, 4, 3, 4);
             CashierView_BTN.Name = "CashierView_BTN";
             CashierView_BTN.Size = new Size(154, 54);
@@ -403,7 +405,7 @@
             clbModeOfPayment_CashierPay.Font = new Font("Segoe UI", 12F);
             clbModeOfPayment_CashierPay.FormattingEnabled = true;
             clbModeOfPayment_CashierPay.Items.AddRange(new object[] { "Low Down Payment", "Low Quarterly Payment", "Cash" });
-            clbModeOfPayment_CashierPay.Location = new Point(1484, 344);
+            clbModeOfPayment_CashierPay.Location = new Point(1484, 314);
             clbModeOfPayment_CashierPay.Name = "clbModeOfPayment_CashierPay";
             clbModeOfPayment_CashierPay.Size = new Size(272, 91);
             clbModeOfPayment_CashierPay.TabIndex = 203;
@@ -413,7 +415,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label6.Location = new Point(1537, 788);
+            label6.Location = new Point(1569, 844);
             label6.Name = "label6";
             label6.Size = new Size(143, 32);
             label6.TabIndex = 205;
@@ -422,7 +424,7 @@
             // txtCashierPay
             // 
             txtCashierPay.Font = new Font("Segoe UI", 14F);
-            txtCashierPay.Location = new Point(1105, 784);
+            txtCashierPay.Location = new Point(1094, 840);
             txtCashierPay.Margin = new Padding(3, 4, 3, 4);
             txtCashierPay.Name = "txtCashierPay";
             txtCashierPay.Size = new Size(206, 39);
@@ -443,12 +445,34 @@
             CashierPayment_SearchBTN.UseVisualStyleBackColor = false;
             CashierPayment_SearchBTN.Click += CashierPayment_SearchBTN_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label10.Location = new Point(627, 840);
+            label10.Name = "label10";
+            label10.Size = new Size(74, 32);
+            label10.TabIndex = 206;
+            label10.Text = "Cash:";
+            // 
+            // txtCash
+            // 
+            txtCash.Font = new Font("Segoe UI", 14F);
+            txtCash.Location = new Point(720, 841);
+            txtCash.Margin = new Padding(3, 4, 3, 4);
+            txtCash.Name = "txtCash";
+            txtCash.Size = new Size(206, 39);
+            txtCash.TabIndex = 207;
+            txtCash.TextChanged += txtCash_TextChanged;
+            // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(txtCash);
+            Controls.Add(label10);
             Controls.Add(label6);
             Controls.Add(txtCashierPay);
             Controls.Add(clbModeOfPayment_CashierPay);
@@ -526,5 +550,7 @@
         private Label label6;
         private TextBox txtCashierPay;
         private Button CashierPayment_SearchBTN;
+        private Label label10;
+        private TextBox txtCash;
     }
 }

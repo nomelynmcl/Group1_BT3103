@@ -234,6 +234,7 @@ namespace EventDriven.Project.UI
         {
             AdminPayment_GridView.DataSource = null;
             AdminPayment_GridView.Rows.Clear();
+            AdminPayment_GridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             int studentId = 0;
             if (!int.TryParse(AdminStuID_LBL.Text, out studentId))
@@ -302,6 +303,7 @@ namespace EventDriven.Project.UI
 
         private void AdminCompute_BTN_Click(object sender, EventArgs e)
         {
+            decimal cashGiven = Convert.ToDecimal(txtCash.Text.Replace("₱", "").Replace(",", "").Trim());
             if (string.IsNullOrWhiteSpace(txtAdminPayment.Text))
             {
                 MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -345,22 +347,12 @@ namespace EventDriven.Project.UI
                     MessageBox.Show("Down payment for Low Quarterly Payment must be at least ₱700.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else if (!firstPayment && payment < 1450)
-                {
-                    MessageBox.Show("Quarterly payment must be at least ₱1,450.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
             }
             else if (selectedMode == "Low Down Payment")
             {
                 if (firstPayment && payment < 500)
                 {
                     MessageBox.Show("Down payment for Low Down Payment must be at least ₱500.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else if (!firstPayment && payment < 1630)
-                {
-                    MessageBox.Show("Quarterly payment must be at least ₱1,630.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -380,14 +372,14 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            decimal remainingBalance = Math.Max(currentBalance.Value - payment, 0);
-            decimal change = Math.Max(payment - currentBalance.Value, 0);
+            decimal change = cashGiven - payment;
+            decimal newBalance = currentBalance.Value - payment;
 
-            lbAdminPay_Remaining.Text = $"₱{remainingBalance:N2}";
+            lbAdminPay_Remaining.Text = $"₱{newBalance:N2}";
             AdminChange_LBL.Text = $"₱{change:N2}";
 
             lastAmountPaid = payment;
-            lastRemainingBalance = remainingBalance;
+            lastRemainingBalance = newBalance;
             lastChange = change;
             lastModeOfPayment = selectedMode;
         }
@@ -771,6 +763,17 @@ namespace EventDriven.Project.UI
         private void AdminChange_LBL_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        private void txtCash_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtCash.Text.StartsWith("₱"))
+                return;
+
+            string raw = txtCash.Text.Replace("₱", "").Replace(",", "").Trim();
+
+            txtCash.Text = "₱" + raw;
+            txtCash.SelectionStart = txtCash.Text.Length;
         }
     }
 }
