@@ -37,9 +37,9 @@
             panel1 = new Panel();
             pcAdminLogo2 = new PictureBox();
             btnAdminStudentInformation2 = new Button();
-            btnAdminAssessment2 = new Button();
             btnAdminStudreg2 = new Button();
             btnAdminPay2 = new Button();
+            btnAdminAssessment2 = new Button();
             btnAdminHistory2 = new Button();
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
@@ -76,6 +76,7 @@
             // 
             // txtSearch_AdminStudentRegis
             // 
+            txtSearch_AdminStudentRegis.Font = new Font("Segoe UI", 14F);
             txtSearch_AdminStudentRegis.Location = new Point(1125, 47);
             txtSearch_AdminStudentRegis.Margin = new Padding(3, 4, 3, 4);
             txtSearch_AdminStudentRegis.Multiline = true;
@@ -151,20 +152,6 @@
             btnAdminStudentInformation2.UseVisualStyleBackColor = false;
             btnAdminStudentInformation2.Click += btnAdminStudentInformation2_Click;
             // 
-            // btnAdminAssessment2
-            // 
-            btnAdminAssessment2.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnAdminAssessment2.ForeColor = Color.AliceBlue;
-            btnAdminAssessment2.Location = new Point(23, 559);
-            btnAdminAssessment2.Margin = new Padding(23, 4, 3, 4);
-            btnAdminAssessment2.Name = "btnAdminAssessment2";
-            btnAdminAssessment2.Size = new Size(421, 79);
-            btnAdminAssessment2.TabIndex = 4;
-            btnAdminAssessment2.Text = "ASSESSMENT";
-            btnAdminAssessment2.UseVisualStyleBackColor = true;
-            btnAdminAssessment2.Click += btnAdminAssessment2_Click;
-            // 
             // btnAdminStudreg2
             // 
             btnAdminStudreg2.BackColor = Color.DarkSlateGray;
@@ -192,6 +179,20 @@
             btnAdminPay2.Text = "PAYMENT";
             btnAdminPay2.UseVisualStyleBackColor = true;
             btnAdminPay2.Click += btnAdminPay2_Click;
+            // 
+            // btnAdminAssessment2
+            // 
+            btnAdminAssessment2.FlatStyle = FlatStyle.Flat;
+            btnAdminAssessment2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment2.ForeColor = Color.AliceBlue;
+            btnAdminAssessment2.Location = new Point(23, 559);
+            btnAdminAssessment2.Margin = new Padding(23, 4, 3, 4);
+            btnAdminAssessment2.Name = "btnAdminAssessment2";
+            btnAdminAssessment2.Size = new Size(421, 79);
+            btnAdminAssessment2.TabIndex = 4;
+            btnAdminAssessment2.Text = "ASSESSMENT";
+            btnAdminAssessment2.UseVisualStyleBackColor = true;
+            btnAdminAssessment2.Click += btnAdminAssessment2_Click;
             // 
             // btnAdminHistory2
             // 

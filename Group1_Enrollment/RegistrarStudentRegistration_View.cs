@@ -78,7 +78,7 @@ namespace EventDriven.Project.UI
 
             try
             {
-                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png"); 
+                Image logo = Image.FromFile("C:\\Enrollment\\Orion_Logo.png");
                 float logox = 100;
                 e.Graphics.DrawImage(logo, leftMargin, y - 50, 250, 150);
 
@@ -147,6 +147,11 @@ namespace EventDriven.Project.UI
             RegistrarStudentRegistration registrarStudReg = new RegistrarStudentRegistration();
             registrarStudReg.Show();
             this.Close();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,25 +73,28 @@
             flowLayoutPanel1.Controls.Add(btnAdminOut3);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(251, 522);
+            flowLayoutPanel1.Size = new Size(474, 1033);
             flowLayoutPanel1.TabIndex = 80;
             // 
             // panel1
             // 
             panel1.Controls.Add(pcAdminLogo3);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(248, 140);
+            panel1.Size = new Size(458, 277);
             panel1.TabIndex = 0;
             // 
             // pcAdminLogo3
             // 
             pcAdminLogo3.BackColor = Color.CadetBlue;
             pcAdminLogo3.Image = (Image)resources.GetObject("pcAdminLogo3.Image");
-            pcAdminLogo3.Location = new Point(44, 14);
+            pcAdminLogo3.Location = new Point(56, 26);
+            pcAdminLogo3.Margin = new Padding(3, 4, 3, 4);
             pcAdminLogo3.Name = "pcAdminLogo3";
-            pcAdminLogo3.Size = new Size(154, 126);
+            pcAdminLogo3.Size = new Size(333, 239);
             pcAdminLogo3.SizeMode = PictureBoxSizeMode.StretchImage;
             pcAdminLogo3.TabIndex = 0;
             pcAdminLogo3.TabStop = false;
@@ -101,12 +104,12 @@
             // 
             btnAdminStudentInformation3.BackColor = Color.CadetBlue;
             btnAdminStudentInformation3.FlatStyle = FlatStyle.Flat;
-            btnAdminStudentInformation3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudentInformation3.ForeColor = SystemColors.ActiveCaptionText;
-            btnAdminStudentInformation3.Location = new Point(20, 156);
-            btnAdminStudentInformation3.Margin = new Padding(20, 10, 3, 3);
+            btnAdminStudentInformation3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminStudentInformation3.ForeColor = Color.AliceBlue;
+            btnAdminStudentInformation3.Location = new Point(23, 298);
+            btnAdminStudentInformation3.Margin = new Padding(23, 13, 3, 4);
             btnAdminStudentInformation3.Name = "btnAdminStudentInformation3";
-            btnAdminStudentInformation3.Size = new Size(211, 42);
+            btnAdminStudentInformation3.Size = new Size(421, 79);
             btnAdminStudentInformation3.TabIndex = 3;
             btnAdminStudentInformation3.Text = " STUDENT INFORMATION";
             btnAdminStudentInformation3.UseVisualStyleBackColor = false;
@@ -115,11 +118,12 @@
             // btnAdminAssessment3
             // 
             btnAdminAssessment3.FlatStyle = FlatStyle.Flat;
-            btnAdminAssessment3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminAssessment3.Location = new Point(20, 204);
-            btnAdminAssessment3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminAssessment3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminAssessment3.ForeColor = Color.AliceBlue;
+            btnAdminAssessment3.Location = new Point(23, 385);
+            btnAdminAssessment3.Margin = new Padding(23, 4, 3, 4);
             btnAdminAssessment3.Name = "btnAdminAssessment3";
-            btnAdminAssessment3.Size = new Size(211, 42);
+            btnAdminAssessment3.Size = new Size(421, 79);
             btnAdminAssessment3.TabIndex = 4;
             btnAdminAssessment3.Text = "ASSESSMENT";
             btnAdminAssessment3.UseVisualStyleBackColor = true;
@@ -128,11 +132,12 @@
             // btnAdminStudreg3
             // 
             btnAdminStudreg3.FlatStyle = FlatStyle.Flat;
-            btnAdminStudreg3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminStudreg3.Location = new Point(20, 252);
-            btnAdminStudreg3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminStudreg3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminStudreg3.ForeColor = Color.AliceBlue;
+            btnAdminStudreg3.Location = new Point(23, 472);
+            btnAdminStudreg3.Margin = new Padding(23, 4, 3, 4);
             btnAdminStudreg3.Name = "btnAdminStudreg3";
-            btnAdminStudreg3.Size = new Size(211, 42);
+            btnAdminStudreg3.Size = new Size(421, 79);
             btnAdminStudreg3.TabIndex = 5;
             btnAdminStudreg3.Text = " STUDENT REGISTRATION";
             btnAdminStudreg3.UseVisualStyleBackColor = true;
@@ -141,11 +146,12 @@
             // btnAdminPay3
             // 
             btnAdminPay3.FlatStyle = FlatStyle.Flat;
-            btnAdminPay3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminPay3.Location = new Point(20, 300);
-            btnAdminPay3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminPay3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminPay3.ForeColor = Color.AliceBlue;
+            btnAdminPay3.Location = new Point(23, 559);
+            btnAdminPay3.Margin = new Padding(23, 4, 3, 4);
             btnAdminPay3.Name = "btnAdminPay3";
-            btnAdminPay3.Size = new Size(211, 42);
+            btnAdminPay3.Size = new Size(421, 79);
             btnAdminPay3.TabIndex = 6;
             btnAdminPay3.Text = "PAYMENT";
             btnAdminPay3.UseVisualStyleBackColor = true;
@@ -154,11 +160,12 @@
             // btnAdminHistory3
             // 
             btnAdminHistory3.FlatStyle = FlatStyle.Flat;
-            btnAdminHistory3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminHistory3.Location = new Point(20, 348);
-            btnAdminHistory3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminHistory3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminHistory3.ForeColor = Color.AliceBlue;
+            btnAdminHistory3.Location = new Point(23, 646);
+            btnAdminHistory3.Margin = new Padding(23, 4, 3, 4);
             btnAdminHistory3.Name = "btnAdminHistory3";
-            btnAdminHistory3.Size = new Size(211, 42);
+            btnAdminHistory3.Size = new Size(421, 79);
             btnAdminHistory3.TabIndex = 7;
             btnAdminHistory3.Text = "PAYMENT HISTORY";
             btnAdminHistory3.UseVisualStyleBackColor = true;
@@ -168,12 +175,12 @@
             // 
             btnAdminReport3.BackColor = Color.DarkSlateGray;
             btnAdminReport3.FlatStyle = FlatStyle.Flat;
-            btnAdminReport3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminReport3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnAdminReport3.ForeColor = SystemColors.Control;
-            btnAdminReport3.Location = new Point(20, 396);
-            btnAdminReport3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminReport3.Location = new Point(23, 733);
+            btnAdminReport3.Margin = new Padding(23, 4, 3, 4);
             btnAdminReport3.Name = "btnAdminReport3";
-            btnAdminReport3.Size = new Size(211, 42);
+            btnAdminReport3.Size = new Size(421, 79);
             btnAdminReport3.TabIndex = 8;
             btnAdminReport3.Text = "REPORT";
             btnAdminReport3.UseVisualStyleBackColor = false;
@@ -181,11 +188,12 @@
             // btnAdminOut3
             // 
             btnAdminOut3.FlatStyle = FlatStyle.Flat;
-            btnAdminOut3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdminOut3.Location = new Point(20, 444);
-            btnAdminOut3.Margin = new Padding(20, 3, 3, 3);
+            btnAdminOut3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnAdminOut3.ForeColor = Color.AliceBlue;
+            btnAdminOut3.Location = new Point(23, 820);
+            btnAdminOut3.Margin = new Padding(23, 4, 3, 4);
             btnAdminOut3.Name = "btnAdminOut3";
-            btnAdminOut3.Size = new Size(211, 42);
+            btnAdminOut3.Size = new Size(421, 79);
             btnAdminOut3.TabIndex = 9;
             btnAdminOut3.Text = "LOG OUT";
             btnAdminOut3.UseVisualStyleBackColor = true;
@@ -194,143 +202,162 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(273, 167);
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(585, 362);
             label1.Name = "label1";
-            label1.Size = new Size(222, 20);
+            label1.Size = new Size(354, 32);
             label1.TabIndex = 81;
             label1.Text = "LIST OF ENROLLED STUDENTS";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(560, 17);
+            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label2.Location = new Point(1083, 52);
             label2.Name = "label2";
-            label2.Size = new Size(174, 20);
+            label2.Size = new Size(277, 32);
             label2.TabIndex = 82;
             label2.Text = "NUMBER OF ENROLLES";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(267, 17);
+            label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label3.Location = new Point(585, 52);
             label3.Name = "label3";
-            label3.Size = new Size(257, 20);
+            label3.Size = new Size(410, 32);
             label3.TabIndex = 83;
             label3.Text = "NUMBER OF ENROLLED STUDENTS";
             // 
             // AR_NOE
             // 
             AR_NOE.AutoSize = true;
-            AR_NOE.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AR_NOE.Location = new Point(613, 55);
+            AR_NOE.Font = new Font("Segoe UI", 46F, FontStyle.Bold);
+            AR_NOE.Location = new Point(1188, 103);
             AR_NOE.Name = "AR_NOE";
-            AR_NOE.Size = new Size(56, 65);
+            AR_NOE.Size = new Size(87, 102);
             AR_NOE.TabIndex = 84;
             AR_NOE.Text = "0";
             // 
             // AR_NOES
             // 
             AR_NOES.AutoSize = true;
-            AR_NOES.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AR_NOES.Location = new Point(383, 55);
+            AR_NOES.Font = new Font("Segoe UI", 46F, FontStyle.Bold);
+            AR_NOES.Location = new Point(737, 112);
             AR_NOES.Name = "AR_NOES";
-            AR_NOES.Size = new Size(56, 65);
+            AR_NOES.Size = new Size(87, 102);
             AR_NOES.TabIndex = 85;
             AR_NOES.Text = "0";
             // 
             // AR_LOE_GRID
             // 
             AR_LOE_GRID.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AR_LOE_GRID.Location = new Point(273, 204);
+            AR_LOE_GRID.Location = new Point(585, 431);
+            AR_LOE_GRID.Margin = new Padding(3, 4, 3, 4);
             AR_LOE_GRID.Name = "AR_LOE_GRID";
-            AR_LOE_GRID.Size = new Size(507, 265);
+            AR_LOE_GRID.RowHeadersWidth = 51;
+            AR_LOE_GRID.Size = new Size(721, 381);
             AR_LOE_GRID.TabIndex = 86;
             AR_LOE_GRID.CellContentClick += AR_LOE_GRID_CellContentClick;
             // 
             // AR_LOE_TXTBOX
             // 
-            AR_LOE_TXTBOX.Location = new Point(501, 168);
+            AR_LOE_TXTBOX.Font = new Font("Segoe UI", 14F);
+            AR_LOE_TXTBOX.Location = new Point(745, 263);
+            AR_LOE_TXTBOX.Margin = new Padding(3, 4, 3, 4);
+            AR_LOE_TXTBOX.Multiline = true;
             AR_LOE_TXTBOX.Name = "AR_LOE_TXTBOX";
-            AR_LOE_TXTBOX.Size = new Size(198, 23);
+            AR_LOE_TXTBOX.Size = new Size(868, 48);
             AR_LOE_TXTBOX.TabIndex = 87;
             // 
             // AR_LOE_BTN
             // 
-            AR_LOE_BTN.Location = new Point(705, 168);
+            AR_LOE_BTN.BackColor = Color.CadetBlue;
+            AR_LOE_BTN.Font = new Font("Segoe UI", 14F);
+            AR_LOE_BTN.ForeColor = Color.AliceBlue;
+            AR_LOE_BTN.Location = new Point(585, 261);
+            AR_LOE_BTN.Margin = new Padding(3, 4, 3, 4);
             AR_LOE_BTN.Name = "AR_LOE_BTN";
-            AR_LOE_BTN.Size = new Size(75, 23);
+            AR_LOE_BTN.Size = new Size(154, 54);
             AR_LOE_BTN.TabIndex = 88;
             AR_LOE_BTN.Text = "Search";
-            AR_LOE_BTN.UseVisualStyleBackColor = true;
+            AR_LOE_BTN.UseVisualStyleBackColor = false;
             AR_LOE_BTN.Click += AR_LOE_BTN_Click;
             // 
             // AR_NOTD
             // 
             AR_NOTD.AutoSize = true;
-            AR_NOTD.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AR_NOTD.Location = new Point(877, 55);
+            AR_NOTD.Font = new Font("Segoe UI", 46F, FontStyle.Bold);
+            AR_NOTD.Location = new Point(1595, 112);
             AR_NOTD.Name = "AR_NOTD";
-            AR_NOTD.Size = new Size(56, 65);
+            AR_NOTD.Size = new Size(87, 102);
             AR_NOTD.TabIndex = 105;
             AR_NOTD.Text = "0";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(801, 17);
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label4.Location = new Point(1453, 52);
             label4.Name = "label4";
-            label4.Size = new Size(212, 20);
+            label4.Size = new Size(338, 32);
             label4.TabIndex = 104;
             label4.Text = "NUMBER OF TRANSACTION ";
             // 
             // AR_SOA_GRID
             // 
             AR_SOA_GRID.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AR_SOA_GRID.Location = new Point(804, 204);
+            AR_SOA_GRID.Location = new Point(1328, 431);
+            AR_SOA_GRID.Margin = new Padding(3, 4, 3, 4);
             AR_SOA_GRID.Name = "AR_SOA_GRID";
-            AR_SOA_GRID.Size = new Size(217, 265);
+            AR_SOA_GRID.RowHeadersWidth = 51;
+            AR_SOA_GRID.Size = new Size(463, 381);
             AR_SOA_GRID.TabIndex = 107;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(819, 168);
+            label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label5.Location = new Point(1318, 365);
             label5.Name = "label5";
-            label5.Size = new Size(194, 20);
+            label5.Size = new Size(308, 32);
             label5.TabIndex = 106;
             label5.Text = "STATEMENT OF ACCOUNT";
             // 
             // AR_PRINT_BTN
             // 
-            AR_PRINT_BTN.Location = new Point(946, 487);
+            AR_PRINT_BTN.BackColor = Color.CadetBlue;
+            AR_PRINT_BTN.Font = new Font("Segoe UI", 14F);
+            AR_PRINT_BTN.ForeColor = Color.AliceBlue;
+            AR_PRINT_BTN.Location = new Point(1232, 912);
+            AR_PRINT_BTN.Margin = new Padding(3, 4, 3, 4);
             AR_PRINT_BTN.Name = "AR_PRINT_BTN";
-            AR_PRINT_BTN.Size = new Size(75, 23);
+            AR_PRINT_BTN.Size = new Size(154, 54);
             AR_PRINT_BTN.TabIndex = 108;
             AR_PRINT_BTN.Text = "Print";
-            AR_PRINT_BTN.UseVisualStyleBackColor = true;
+            AR_PRINT_BTN.UseVisualStyleBackColor = false;
             AR_PRINT_BTN.Click += AR_PRINT_BTN_Click;
             // 
             // btnViewSOA
             // 
-            btnViewSOA.Location = new Point(613, 487);
+            btnViewSOA.BackColor = Color.CadetBlue;
+            btnViewSOA.Font = new Font("Segoe UI", 14F);
+            btnViewSOA.ForeColor = Color.AliceBlue;
+            btnViewSOA.Location = new Point(946, 913);
+            btnViewSOA.Margin = new Padding(3, 4, 3, 4);
             btnViewSOA.Name = "btnViewSOA";
-            btnViewSOA.Size = new Size(167, 23);
+            btnViewSOA.Size = new Size(206, 54);
             btnViewSOA.TabIndex = 109;
             btnViewSOA.Text = "View Statement of Account";
-            btnViewSOA.UseVisualStyleBackColor = true;
+            btnViewSOA.UseVisualStyleBackColor = false;
             btnViewSOA.Click += btnViewSOA_Click_1;
             // 
             // AdminReport
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1058, 522);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(btnViewSOA);
             Controls.Add(AR_PRINT_BTN);
             Controls.Add(AR_SOA_GRID);
@@ -346,6 +373,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AdminReport";

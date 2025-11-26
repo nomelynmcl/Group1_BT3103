@@ -105,7 +105,7 @@ namespace EventDriven.Project.UI
             void DrawCenteredString(string text, Font font, int yPos)
             {
                 float textWidth = e.Graphics.MeasureString(text, font).Width;
-                float x = (pageWidth - textWidth) / 2;  
+                float x = (pageWidth - textWidth) / 2;
                 e.Graphics.DrawString(text, font, Brushes.Black, x, yPos);
             }
 
@@ -163,6 +163,11 @@ namespace EventDriven.Project.UI
 
 
             g.DrawString($"Printed on: {DateTime.Now}", labelFont, Brushes.Gray, leftMargin, y);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
