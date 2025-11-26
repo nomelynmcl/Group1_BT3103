@@ -410,5 +410,10 @@ namespace EventDriven.Project.UI
                 lbStatus.Text = "Pending Enrollment";
             }
         }
+
+        private void RegistrarStudentRegistration_Edit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

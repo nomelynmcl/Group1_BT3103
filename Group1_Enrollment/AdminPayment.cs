@@ -762,5 +762,15 @@ namespace EventDriven.Project.UI
             txtAdminPayment.Text = "₱" + raw;
             txtAdminPayment.SelectionStart = txtAdminPayment.Text.Length;
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminChange_LBL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

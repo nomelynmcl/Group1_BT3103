@@ -160,5 +160,10 @@ namespace EventDriven.Project.UI
             dashboard.Show();
             this.Close();
         }
+
+        private void RR_LOE_TXTBOX_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

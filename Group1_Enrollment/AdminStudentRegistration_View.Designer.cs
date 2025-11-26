@@ -82,7 +82,7 @@
             // 
             lblModeOfPayment_AdminStudentRegistration_View.AutoSize = true;
             lblModeOfPayment_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblModeOfPayment_AdminStudentRegistration_View.Location = new Point(528, 864);
+            lblModeOfPayment_AdminStudentRegistration_View.Location = new Point(511, 864);
             lblModeOfPayment_AdminStudentRegistration_View.Name = "lblModeOfPayment_AdminStudentRegistration_View";
             lblModeOfPayment_AdminStudentRegistration_View.Size = new Size(276, 32);
             lblModeOfPayment_AdminStudentRegistration_View.TabIndex = 204;
@@ -102,7 +102,7 @@
             // 
             lblRequirements_AdminStudentRegistration_View.AutoSize = true;
             lblRequirements_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblRequirements_AdminStudentRegistration_View.Location = new Point(548, 819);
+            lblRequirements_AdminStudentRegistration_View.Location = new Point(528, 818);
             lblRequirements_AdminStudentRegistration_View.Name = "lblRequirements_AdminStudentRegistration_View";
             lblRequirements_AdminStudentRegistration_View.Size = new Size(225, 32);
             lblRequirements_AdminStudentRegistration_View.TabIndex = 202;
@@ -192,7 +192,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label6.Location = new Point(214, 686);
+            label6.Location = new Point(214, 676);
             label6.Name = "label6";
             label6.Size = new Size(126, 31);
             label6.TabIndex = 29;
@@ -202,7 +202,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label7.Location = new Point(210, 644);
+            label7.Location = new Point(210, 629);
             label7.Name = "label7";
             label7.Size = new Size(198, 31);
             label7.TabIndex = 30;
@@ -272,7 +272,7 @@
             // 
             lblContactNumber_AdminStudentRegistration_View.AutoSize = true;
             lblContactNumber_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblContactNumber_AdminStudentRegistration_View.Location = new Point(514, 512);
+            lblContactNumber_AdminStudentRegistration_View.Location = new Point(511, 523);
             lblContactNumber_AdminStudentRegistration_View.Name = "lblContactNumber_AdminStudentRegistration_View";
             lblContactNumber_AdminStudentRegistration_View.Size = new Size(262, 32);
             lblContactNumber_AdminStudentRegistration_View.TabIndex = 37;
@@ -282,7 +282,7 @@
             // 
             lblGuardiansName_AdminStudentRegistration_View.AutoSize = true;
             lblGuardiansName_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblGuardiansName_AdminStudentRegistration_View.Location = new Point(528, 574);
+            lblGuardiansName_AdminStudentRegistration_View.Location = new Point(515, 574);
             lblGuardiansName_AdminStudentRegistration_View.Name = "lblGuardiansName_AdminStudentRegistration_View";
             lblGuardiansName_AdminStudentRegistration_View.Size = new Size(261, 32);
             lblGuardiansName_AdminStudentRegistration_View.TabIndex = 38;
@@ -292,7 +292,7 @@
             // 
             lblGuardiansContactNum_AdminStudentRegistration_View.AutoSize = true;
             lblGuardiansContactNum_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblGuardiansContactNum_AdminStudentRegistration_View.Location = new Point(538, 643);
+            lblGuardiansContactNum_AdminStudentRegistration_View.Location = new Point(518, 628);
             lblGuardiansContactNum_AdminStudentRegistration_View.Name = "lblGuardiansContactNum_AdminStudentRegistration_View";
             lblGuardiansContactNum_AdminStudentRegistration_View.Size = new Size(255, 32);
             lblGuardiansContactNum_AdminStudentRegistration_View.TabIndex = 39;
@@ -302,7 +302,7 @@
             // 
             lblYearLevel_AdminStudentRegistration_View.AutoSize = true;
             lblYearLevel_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblYearLevel_AdminStudentRegistration_View.Location = new Point(563, 685);
+            lblYearLevel_AdminStudentRegistration_View.Location = new Point(549, 675);
             lblYearLevel_AdminStudentRegistration_View.Name = "lblYearLevel_AdminStudentRegistration_View";
             lblYearLevel_AdminStudentRegistration_View.Size = new Size(184, 32);
             lblYearLevel_AdminStudentRegistration_View.TabIndex = 40;
@@ -312,7 +312,7 @@
             // 
             lblStudentType_AdminStudentRegistration_View.AutoSize = true;
             lblStudentType_AdminStudentRegistration_View.Font = new Font("Segoe UI", 14F);
-            lblStudentType_AdminStudentRegistration_View.Location = new Point(557, 772);
+            lblStudentType_AdminStudentRegistration_View.Location = new Point(528, 771);
             lblStudentType_AdminStudentRegistration_View.Name = "lblStudentType_AdminStudentRegistration_View";
             lblStudentType_AdminStudentRegistration_View.Size = new Size(219, 32);
             lblStudentType_AdminStudentRegistration_View.TabIndex = 41;
@@ -393,7 +393,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label11.Location = new Point(214, 731);
+            label11.Location = new Point(221, 720);
             label11.Name = "label11";
             label11.Size = new Size(100, 31);
             label11.TabIndex = 205;
@@ -403,7 +403,7 @@
             // 
             lbAdminViewSection_StudReg.AutoSize = true;
             lbAdminViewSection_StudReg.Font = new Font("Segoe UI", 14F);
-            lbAdminViewSection_StudReg.Location = new Point(576, 731);
+            lbAdminViewSection_StudReg.Location = new Point(562, 720);
             lbAdminViewSection_StudReg.Name = "lbAdminViewSection_StudReg";
             lbAdminViewSection_StudReg.Size = new Size(157, 32);
             lbAdminViewSection_StudReg.TabIndex = 206;

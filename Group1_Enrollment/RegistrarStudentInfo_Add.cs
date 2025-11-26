@@ -76,7 +76,7 @@ namespace EventDriven.Project.UI
                         if (Application.OpenForms["Registrar___Student_Information"] != null)
                         {
                             var mainForm = (Registrar___Student_Information)Application.OpenForms["Registrar___Student_Information"];
-                            mainForm.LoadStudentRecords(); 
+                            mainForm.LoadStudentRecords();
                         }
                     }
                     catch (Exception ex)
@@ -167,6 +167,11 @@ namespace EventDriven.Project.UI
             RegistrarReport registrarReport = new RegistrarReport();
             registrarReport.Show();
             this.Close();
+        }
+
+        private void txtRegistrarAddMunicipality_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
