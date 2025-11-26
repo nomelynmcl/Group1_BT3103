@@ -64,7 +64,7 @@ namespace EventDriven.Project.UI
 
         private void CashierPayment_Load(object sender, EventArgs e)
         {
-            dtRegDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            dtRegDate.Value = DateTime.Now;
 
             clbModeOfPayment_CashierPay.Items.Clear();
             clbModeOfPayment_CashierPay.Items.Add("Cash");
@@ -232,6 +232,7 @@ namespace EventDriven.Project.UI
         {
             CashierPayment_GridView.DataSource = null;
             CashierPayment_GridView.Rows.Clear();
+            CashierPayment_GridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             int studentId = 0;
             if (!int.TryParse(CashierStuID_LBL.Text, out studentId))
@@ -300,6 +301,8 @@ namespace EventDriven.Project.UI
 
         private void CashierCompute_BTN_Click(object sender, EventArgs e)
         {
+            decimal cashGiven = Convert.ToDecimal(txtCash.Text.Replace("₱", "").Replace(",", "").Trim());
+
             if (string.IsNullOrWhiteSpace(txtCashierPay.Text))
             {
                 MessageBox.Show("Please enter the payment amount.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -320,7 +323,7 @@ namespace EventDriven.Project.UI
                 MessageBox.Show("Please select a mode of payment first.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            int studentId = int.Parse(CashierStuID_LBL.Text);           
+            int studentId = int.Parse(CashierStuID_LBL.Text);
             string selectedMode = clbModeOfPayment_CashierPay.CheckedItems[0].ToString();
             bool firstPayment = false;
 
@@ -343,22 +346,12 @@ namespace EventDriven.Project.UI
                     MessageBox.Show("Down payment for Low Quarterly Payment must be at least ₱700.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else if (!firstPayment && payment < 1450)
-                {
-                    MessageBox.Show("Quarterly payment must be at least ₱1,450.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
             }
             else if (selectedMode == "Low Down Payment")
             {
                 if (firstPayment && payment < 500)
                 {
                     MessageBox.Show("Down payment for Low Down Payment must be at least ₱500.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else if (!firstPayment && payment < 1630)
-                {
-                    MessageBox.Show("Quarterly payment must be at least ₱1,630.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -378,14 +371,14 @@ namespace EventDriven.Project.UI
                 }
             }
 
-            decimal remainingBalance = Math.Max(currentBalance.Value - payment, 0);
-            decimal change = Math.Max(payment - currentBalance.Value, 0);
+            decimal change = cashGiven - payment;
+            decimal newBalance = currentBalance.Value - payment;
 
-            CashierRemaining_LBL.Text = $"₱{remainingBalance:N2}";
+            CashierRemaining_LBL.Text = $"₱{newBalance:N2}";
             CashierChange_LBL.Text = $"₱{change:N2}";
 
             lastAmountPaid = payment;
-            lastRemainingBalance = remainingBalance;
+            lastRemainingBalance = newBalance;
             lastChange = change;
             lastModeOfPayment = selectedMode;
         }
@@ -740,6 +733,17 @@ namespace EventDriven.Project.UI
 
             txtCashierPay.Text = "₱" + raw;
             txtCashierPay.SelectionStart = txtCashierPay.Text.Length;
+        }
+
+        private void txtCash_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCash.Text.StartsWith("₱"))
+                return;
+
+            string raw = txtCash.Text.Replace("₱", "").Replace(",", "").Trim();
+
+            txtCash.Text = "₱" + raw;
+            txtCash.SelectionStart = txtCash.Text.Length;
         }
     }
 }
