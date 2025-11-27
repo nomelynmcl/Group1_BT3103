@@ -38,7 +38,7 @@
             btnAdminReport2 = new Button();
             btnAdminOut2 = new Button();
             dtgCashier = new DataGridView();
-            comboBox1 = new ComboBox();
+            cbSyear = new ComboBox();
             label1 = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
@@ -162,14 +162,15 @@
             dtgCashier.Size = new Size(1332, 924);
             dtgCashier.TabIndex = 97;
             // 
-            // comboBox1
+            // cbSyear
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
-            comboBox1.Location = new Point(849, 53);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(234, 28);
-            comboBox1.TabIndex = 96;
+            cbSyear.FormattingEnabled = true;
+            cbSyear.Items.AddRange(new object[] { "2024-2025", "2025-2026" });
+            cbSyear.Location = new Point(849, 53);
+            cbSyear.Name = "cbSyear";
+            cbSyear.Size = new Size(234, 28);
+            cbSyear.TabIndex = 96;
+            cbSyear.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -209,11 +210,12 @@
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(dtgCashier);
-            Controls.Add(comboBox1);
+            Controls.Add(cbSyear);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             Name = "CashierDashboard";
             Text = "CashierDashboard";
+            Load += CashierDashboard_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -234,7 +236,7 @@
         private Button btnAdminReport2;
         private Button btnAdminOut2;
         private DataGridView dtgCashier;
-        private ComboBox comboBox1;
+        private ComboBox cbSyear;
         private Label label1;
         private Button btnSearch;
         private TextBox txtSearch;
