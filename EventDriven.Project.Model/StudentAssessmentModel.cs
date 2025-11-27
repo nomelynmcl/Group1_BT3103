@@ -20,6 +20,7 @@ namespace EventDriven.Project.Model
         public string StudentType { get; set; }
         public string ModeOfPayment { get; set; }
         public string EnrollmentStatus { get; set; }
+        public string SchoolYear { get; set; }
 
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace EventDriven.Project.UI
 {
     public partial class CashierDashboard : Form
     {
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EnrollmentDB;Integrated Security=True";
         public CashierDashboard()
         {
             InitializeComponent();
@@ -62,6 +64,49 @@ namespace EventDriven.Project.UI
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Close();
+        }
+        private void LoadEnrolledStudents(string schoolYear)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"SELECT s.Id, s.FirstName, s.MiddleName, s.LastName, 
+                                s.GradeLevel, s.Section, s.StudentType, s.SchoolYear
+                         FROM StudentRecord s
+                         INNER JOIN PaymentRecord p ON s.Id = p.Id
+                         WHERE p.AmountPaid >= 500 AND s.SchoolYear = @SchoolYear
+                         ORDER BY s.LastName ASC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dtgCashier.DataSource = dt;
+
+
+                dtgCashier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSyear.SelectedItem != null)
+            {
+                string selectedYear = cbSyear.SelectedItem.ToString();
+                LoadEnrolledStudents(selectedYear);
+            }
+        }
+
+        private void CashierDashboard_Load(object sender, EventArgs e)
+        {
+            if (cbSyear.Items.Count > 0)
+            {
+                cbSyear.SelectedIndex = 0;
+            }
         }
     }
 }

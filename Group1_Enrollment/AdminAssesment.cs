@@ -24,7 +24,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus, SchoolYear FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -49,12 +49,16 @@ namespace EventDriven.Project.UI
                                 Section = reader["Section"].ToString(),
                                 StudentType = reader["StudentType"].ToString(),
                                 ModeOfPayment = reader["ModeOfPayment"].ToString(),
-                                EnrollmentStatus = reader["EnrollmentStatus"].ToString()
+                                EnrollmentStatus = reader["EnrollmentStatus"].ToString(),
+                                SchoolYear = reader["SchoolYear"].ToString()
                             });
                         }
 
                         studentSearch = records;
                         dtgAdminAssessment.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgAdminAssessment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgAdminAssessment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
                     }
                 }
             }
@@ -110,6 +114,7 @@ namespace EventDriven.Project.UI
                 string studentType = dtgAdminAssessment.CurrentRow.Cells["StudentType"].Value.ToString();
                 string enrollmentStatus = dtgAdminAssessment.CurrentRow.Cells["EnrollmentStatus"].Value.ToString();
                 string modeOfPayment = dtgAdminAssessment.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
+                string schoolYear = dtgAdminAssessment.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 AdminViewAssessment viewForm = new AdminViewAssessment(
                 id,
@@ -123,7 +128,8 @@ namespace EventDriven.Project.UI
                 section,
                 studentType,
                 modeOfPayment,
-                enrollmentStatus
+                enrollmentStatus,
+                schoolYear
             );
 
                 viewForm.Show();

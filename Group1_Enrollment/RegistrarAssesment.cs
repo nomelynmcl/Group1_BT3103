@@ -45,6 +45,7 @@ namespace EventDriven.Project.UI
             }
 
             dtgRegistrarAssessment.DataSource = new BindingSource { DataSource = filtered };
+            dtgRegistrarAssessment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void RegistrarAssesment_Load(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus FROM StudentRecord";
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Gender, Age, Birthdate, GradeLevel, Section, StudentType, ModeOfPayment, EnrollmentStatus, SchoolYear FROM StudentRecord";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -81,12 +82,16 @@ namespace EventDriven.Project.UI
                                 Section = reader["Section"].ToString(),
                                 StudentType = reader["StudentType"].ToString(),
                                 ModeOfPayment = reader["ModeOfPayment"].ToString(),
-                                EnrollmentStatus = reader["EnrollmentStatus"].ToString()
+                                EnrollmentStatus = reader["EnrollmentStatus"].ToString(),
+                                SchoolYear = reader["SchoolYear"].ToString()
                             });
                         }
 
                         studentSearch = records;
                         dtgRegistrarAssessment.DataSource = new BindingSource { DataSource = studentSearch };
+                        dtgRegistrarAssessment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgRegistrarAssessment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
                     }
                 }
             }
@@ -114,6 +119,7 @@ namespace EventDriven.Project.UI
                 string studentType = dtgRegistrarAssessment.CurrentRow.Cells["StudentType"].Value.ToString();
                 string modeOfPaymemt = dtgRegistrarAssessment.CurrentRow.Cells["ModeOfPayment"].Value.ToString();
                 string enrollmentStatus = dtgRegistrarAssessment.CurrentRow.Cells["EnrollmentStatus"].Value.ToString();
+                string schoolYear = dtgRegistrarAssessment.CurrentRow.Cells["SchoolYear"].Value.ToString();
 
                 RegistrarViewAssessment viewForm = new RegistrarViewAssessment(
                 id,
@@ -127,7 +133,8 @@ namespace EventDriven.Project.UI
                 section,
                 studentType,
                 modeOfPaymemt,
-                enrollmentStatus
+                enrollmentStatus,
+                schoolYear
             );
 
                 viewForm.Show();
